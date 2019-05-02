@@ -42,6 +42,43 @@
                                     </table>
                                 </div>
                                 <div class="bg-gray text-block-1 p-3" id="desc-invoice">
+                                    <table class="mb-3">
+                                        <div class="float-right text-right">
+                                            <span>Sisa waktu Pembayaran</span><br>
+                                            <a href="#" class="btn btn-default-bg" style="cursor: auto">43 Menit</a>
+                                        </div>
+                                        <tr>
+                                            <td width="60%">Metode Pembayaran</td>
+                                            <td width="4%">:</td>
+                                            <td>Bank Transfer</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jumlah Tagihan</td>
+                                            <td>:</td>
+                                            <td>Rp. 125.000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nama Bank</td>
+                                            <td>:</td>
+                                            <td>BCA</td>
+                                        </tr>
+                                        <tr>
+                                            <td>No. Virtual Account</td>
+                                            <td>:</td>
+                                            <td>9123812301273123</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Batas Waktu Pembayaran</td>
+                                            <td>:</td>
+                                            <td>30 April 2019, 20:13</td>
+                                        </tr>
+                                    </table>
+                                    <span>Penting: <br>Mohon menyelesaikan pembayaran sebelum batas waktu pembayaran.
+                                        Apabila melewati batas waktu, pemesanan Anda akan otomatis dibatalkan. Setelah
+                                        melakukan pembayaran, mohon melakukan konfirmasi pembayaran melalui tombol
+                                        dibawah.</span>
+                                </div>
+                                <div class="bg-gray text-block-1 p-3 mb-4" id="desc-invoice">
                                     <table width="100%">
                                         <tr>
                                             <td>
@@ -82,45 +119,8 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <div class="bg-gray text-block-1 p-3" id="desc-invoice">
-                                    <table class="mb-3">
-                                        <div class="float-right text-right">
-                                            <span>Sisa waktu Pembayaran</span><br>
-                                            <a href="#" class="btn btn-default-bg" style="cursor: auto">43 Menit</a>
-                                        </div>
-                                        <tr>
-                                            <td width="60%">Metode Pembayaran</td>
-                                            <td width="4%">:</td>
-                                            <td>Bank Transfer</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jumlah Tagihan</td>
-                                            <td>:</td>
-                                            <td>Rp. 125.000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Nama Bank</td>
-                                            <td>:</td>
-                                            <td>BCA</td>
-                                        </tr>
-                                        <tr>
-                                            <td>No. Virtual Account</td>
-                                            <td>:</td>
-                                            <td>9123812301273123</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Batas Waktu Pembayaran</td>
-                                            <td>:</td>
-                                            <td>30 April 2019, 20:13</td>
-                                        </tr>
-                                    </table>
-                                    <span>Penting: <br>Mohon menyelesaikan pembayaran sebelum batas waktu pembayaran.
-                                        Apabila melewati batas waktu, pemesanan Anda akan otomatis dibatalkan. Setelah
-                                        melakukan pembayaran, mohon melakukan konfirmasi pembayaran melalui tombol
-                                        berikut.</span>
-                                    <button class="btn btn-primary x-center" data-toggle="modal"
-                                        data-target="#upload">konfirmasi Pembayaran</button>
-                                </div>
+                                <button class="btn btn-primary x-center" data-toggle="modal"
+                                    data-target="#upload">konfirmasi Pembayaran</button>
                             </div>
                         </div>
                     </div>
