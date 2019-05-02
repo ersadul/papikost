@@ -43,7 +43,7 @@
         <header class="main-header">
 
             <!-- Logo -->
-            <a href="index2.html" class="logo">
+            <a href="/" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini">SAFA</span>
                 <!-- logo for regular state and mobile devices -->
@@ -87,8 +87,8 @@
             <section class="sidebar">
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li><a href="#"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-                    <li class="treeview">
+                    <li class="@yield('index')"><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                    <li class="treeview @yield('hari.ini')">
                         <a href="#">
                             <i class="fa fa-calendar"></i> <span>Hari Ini</span>
                             <span class="pull-right-container">
@@ -96,12 +96,12 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Check-in</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Sedang Menginap</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Check-out</a></li>
+                            <li class="@yield('check.in')"><a href="#"><i class="fa fa-circle-o"></i> Check-in</a></li>
+                            <li class="@yield('menginap')"><a href="#"><i class="fa fa-circle-o"></i> Sedang Menginap</a></li>
+                            <li class="@yield('check.out')"><a href="#"><i class="fa fa-circle-o"></i> Check-out</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
+                    <li class="treeview @yield('reservasi')">
                         <a href="#">
                             <i class="fa fa-book"></i> <span>Reservasi</span>
                             <span class="pull-right-container">
@@ -109,11 +109,11 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Reservasi</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> List Reservasi</a></li>
+                            <li class="@yield('subreservasi')"><a href="{{ route('dashboard.reservasi') }}"><i class="fa fa-circle-o"></i> Reservasi</a></li>
+                            <li class="@yield('list.reservasi')"><a href="{{ route('dashboard.list.reservasi') }}"><i class="fa fa-circle-o"></i> List Reservasi</a></li>
                         </ul>
                     </li>
-                    <li class="treeview">
+                    <li class="treeview @yield('housekeeping')">
                         <a href="#">
                             <i class="fa fa-home"></i><span>Housekeeping</span>
                             <span class="pull-right-container">
@@ -121,14 +121,14 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Penjadwalan Karyawan</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Logbook</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Cleaning Schedule</a></li>
+                            <li class="@yield('penjadwalan')"><a href="#"><i class="fa fa-circle-o"></i> Penjadwalan Karyawan</a></li>
+                            <li class="@yield('logbook')"><a href="#"><i class="fa fa-circle-o"></i> Logbook</a></li>
+                            <li class="@yield('cleaning.schedule')"><a href="#"><i class="fa fa-circle-o"></i> Cleaning Schedule</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-comments"></i> <span>Review</span></a></li>
+                    <li class="@yield('review')"><a href="#"><i class="fa fa-comments"></i> <span>Review</span></a></li>
                     <hr>
-                    <li class="treeview">
+                    <li class="treeview @yield('manajemen')">
                         <a href="#">
                             <i class="fa fa-gear"></i> <span>Manajemen</span>
                             <span class="pull-right-container">
@@ -136,15 +136,15 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Profile</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Tarif</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Fasilitas</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Karyawan</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Kamar</a></li>
-                            <li><a href="#"><i class="fa fa-circle-o"></i> Akun</a></li>
+                            <li class="@yield('profile')"><a href="#"><i class="fa fa-circle-o"></i> Profile</a></li>
+                            <li class="@yield('tarif')"><a href="#"><i class="fa fa-circle-o"></i> Tarif</a></li>
+                            <li class="@yield('fasilitas')"><a href="#"><i class="fa fa-circle-o"></i> Fasilitas</a></li>
+                            <li class="@yield('karyawan')"><a href="#"><i class="fa fa-circle-o"></i> Karyawan</a></li>
+                            <li class="@yield('kamar')"><a href="#"><i class="fa fa-circle-o"></i> Kamar</a></li>
+                            <li class="@yield('akun')"><a href="#"><i class="fa fa-circle-o"></i> Akun</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-question-circle"></i> <span>Bantuan</span></a></li>
+                    <li class="@yield('bantuan')"><a href="#"><i class="fa fa-question-circle"></i> <span>Bantuan</span></a></li>
                     <li><a href="#"><i class="fa fa-sign-out"></i> <span>Keluar</span></a></li>
                 </ul>
             </section>
@@ -188,6 +188,8 @@
     </script>
     <!-- AdminLTE App -->
     <script src="{{ asset('template/adminlte/dist/js/adminlte.min.js') }}"></script>
+    <!-- custom js -->
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 
 </html>

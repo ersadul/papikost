@@ -34,8 +34,20 @@ Route::post('/invoice', function () {
 
 // ================================
 
-Route::get('/dashboard', function () {
-    return view('dashboard.index');
+Route::group(['prefix' => 'dashboard'], function () {
+    Route::name('dashboard.')->group(function () {
+        Route::get('/', function () {
+            return view('dashboard.index');
+        })->name('index');
+
+        Route::get('/reservasi', function () {
+            return view('dashboard.reservasi');
+        })->name('reservasi');
+
+        Route::get('/list-reservasi', function () {
+            return view('dashboard.listReservasi');
+        })->name('list.reservasi');
+    });
 });
 // end route frontend
 

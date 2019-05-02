@@ -1,22 +1,25 @@
 @extends('layouts.dashboard')
-@section('index')
+@section('reservasi')
+    active
+@endsection
+@section('subreservasi')
     active
 @endsection
 
 @section('content')
 <section class="content-header">
     <h1>
-        Dashboard
+        Reservasi
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Reservasi</li>
     </ol>
 </section>
 <section class="content">
     <div class="box box-solid">
         <div class="box-body">
-            <p>Halo <b>Admin!</b> Selamat Datang di SAFA Guesthouse.</p>
+            <p>Reservasi</p>
         </div>
     </div>
 </section>

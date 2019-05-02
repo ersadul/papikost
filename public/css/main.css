@@ -2,3 +2,24 @@ hr {
     margin-top: 5px;
     margin-bottom: 5px
 }
+#datatable thead{
+    display: none
+}
+td .box {
+    box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1);
+    margin-bottom: 0
+}
+td h4 {
+    margin-top: 0
+}
+td p {
+    font-size: 12px;
+    line-height: 8px
+}
+td a {
+    color: #333;
+    margin-top: -20px
+}
+td a:hover {
+    color: #333
+}
