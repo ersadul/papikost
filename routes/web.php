@@ -31,6 +31,12 @@ Route::post('/booking-form', function () {
 Route::post('/invoice', function () {
     return view('invoice');
 })->name('invoice');
+
+// ================================
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+});
 // end route frontend
 
 Route::group(['namespace' => 'Admin'], function(){

@@ -3,8 +3,7 @@
 @include('components.header-1')
 
 <!-- Page Banner Section Start -->
-<div id="slider_full" class="overflow_hidden" style="width:1200px;height:100vh;margin:0 auto;margin-bottom: 0px;">
-
+<div id="slider_full" class="overflow_hidden">
     <!-- Slide 1-->
     <div class="ls-slide"
         data-ls="bgsize:cover; bgposition:50% 50%; duration:8000; transition2d:3; timeshift:-500; deeplink:home; kenburnszoom:in; kenburnsrotate:0; kenburnsscale:1.1; parallaxevent:scroll; parallaxdurationmove:500;">
