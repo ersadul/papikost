@@ -11,9 +11,27 @@
 |
 */
 
+// route frontend
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
+
+Route::post('/search', function () {
+    return view('roomList');
+})->name('search');
+
+Route::get('/room-detail', function () {
+    return view('roomDetail');
+})->name('room.detail');
+
+Route::post('/booking-form', function () {
+    return view('bookingForm');
+})->name('booking.form');
+
+Route::post('/invoice', function () {
+    return view('invoice');
+})->name('invoice');
+// end route frontend
 
 Route::group(['namespace' => 'Admin'], function(){
     Route::get('/admin/kamar', 'KamarController@index');
