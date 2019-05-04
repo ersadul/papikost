@@ -12,8 +12,9 @@
 */
 
 // route frontend
-Route::get('/', function () {
-    return view('index');
+Route::group(['namespace' => 'Home'], function(){
+    // Route::get('/kamar', 'HomeController@index');
+    Route::get('/', 'HomeController@index');
 });
 
 Route::post('/search', function () {
