@@ -173,16 +173,17 @@
                             <h3>Mulai Reservasi</h3>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Tanggal Check-in</label>
-                                <input type="text" disabled class="form-control" placeholder="">
+                                <input type="text" name="guestMasuk" disabled class="form-control" placeholder="{{$kamarTanggalMasuk}}" value="{{$kamarTanggalMasuk}}">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Lama Menginap</label>
-                                <input type="text" disabled class="form-control" placeholder="1 Malam">
+                                <input type="text" name="guestDurasi" disabled class="form-control" placeholder="{{$kamarLamaMenginap}} Malam" value="{{$kamarLamaMenginap}}">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Total Tagihan</label>
-                                <input type="text" disabled class="form-control" placeholder="{{$kID->harga}}">
+                                <input type="text" name="guestHarga" disabled class="form-control" placeholder="{{$kID->harga}}" value="{{$kID->harga}}">
                             </div>
+                            <input type="hidden" name="kamarID" value="{{$kID->id}}" >
                             <input class="btn btn-default-bg" value="Pesan Sekarang" type="submit">
                         </div>
                     </form>

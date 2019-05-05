@@ -83,7 +83,7 @@
                                 <p class="text-secondary">Check-in</p>
                             </td>
                             <td width="70%">
-                                <p class="text-right">Senin, 29 April 2019</p>
+                                <p class="text-right"><?php echo $tanggalMasuk?></p>
                             </td>
                         </tr>
                         <tr>
@@ -91,7 +91,7 @@
                                 <p class="text-secondary">Lama Menginap</p>
                             </td>
                             <td>
-                                <p class="text-right">1 Malam<br><small>(Check-out: 30 April 2019)</small></p>
+                                <p class="text-right"><?php echo $durasiMenginap?><br><small>(Check-out: 30 April 2019)</small></p>
                             </td>
                         </tr>
                         <tr>
@@ -99,7 +99,7 @@
                                 <p class="text-secondary">Rincian Pembayaran</p>
                             </td>
                             <td>
-                                <p class="text-right">Rp. 125.000 x 1</p>
+                                <p class="text-right">Rp. <?php echo $hargaMenginap?> x 1</p>
                             </td>
                         </tr>
                         <tr>
@@ -110,12 +110,12 @@
                             </td>
                             <td>
                                 <hr><b>
-                                    <p class="text-right">Rp. 125.000</p>
+                                    <p class="text-right">Rp. <?php echo $hargaMenginap?></p>
                                 </b>
                             </td>
                         </tr>
                     </table>
-                    <span class="btn btn-primary" style="cursor: auto">Total Pembayaran: Rp. 125.000</span>
+                    <span class="btn btn-primary" style="cursor: auto">Total Pembayaran: Rp. <?php echo $hargaMenginap?></span>
                 </div>
             </div>
         </div>

@@ -43,7 +43,13 @@
                 <div class="col-xl-2 col-lg-3">
                     <div class="for-booking">
                         <div class="h5 per-night text-primary">Rp. {{$k->harga}}<small> / Night</small></div>
-                        <a href="{{ route('room.detail', ['id' => $k->id) }}" class="btn btn-default">Detail</a>
+                        <form action="{{ route('room.detail', ['id' => $k->id]) }}" method="post">
+                            @csrf
+                            <input type="hidden" name="checkIn" value="{{$checkIn}}">
+                            <input type="hidden" name="lamaMenginap" value="{{$lamaMenginap}}">
+                            <input type="hidden" name="kamarID" value="{{$k->id}}">
+                            <button type="submit" class="btn btn-default">Detail</button>
+                        </form>
                     </div>
                 </div>
             </div>
