@@ -172,19 +172,19 @@
                         <div class="row">
                             <h3>Mulai Reservasi</h3>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Tanggal Check-in</label>
-                                <input type="text" name="guestMasuk" disabled class="form-control" placeholder="{{$kamarTanggalMasuk}}" value="{{$kamarTanggalMasuk}}">
+                                <label class="text-block-1">Tanggal Check-in : {{$kamarTanggalMasuk}}</label>
+                                <input type="hidden" name="guestMasuk" class="form-control" value="{{$kamarTanggalMasuk}}" >
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Lama Menginap</label>
-                                <input type="text" name="guestDurasi" disabled class="form-control" placeholder="{{$kamarLamaMenginap}} Malam" value="{{$kamarLamaMenginap}}">
+                                <label class="text-block-1">Lama Menginap : {{$kamarLamaMenginap}}</label>
+                                <input type="hidden" name="guestDurasi" class="form-control" value="{{$kamarLamaMenginap}}">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Total Tagihan</label>
-                                <input type="text" name="guestHarga" disabled class="form-control" placeholder="{{$kID->harga}}" value="{{$kID->harga}}">
+                                <label class="text-block-1">Total Tagihan : {{$kID->harga}}</label>
+                                <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga}}">
                             </div>
-                            <input type="hidden" name="kamarID" value="{{$kID->id}}" >
-                            <input class="btn btn-default-bg" value="Pesan Sekarang" type="submit">
+                                <input type="hidden" name="kamarId" class="form-control" value="{{$kID->id}}">
+                            <button type="submit" class="btn btn-default-bg">Pesan Sekarang</button>
                         </div>
                     </form>
                 </div>

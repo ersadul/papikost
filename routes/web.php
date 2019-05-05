@@ -18,7 +18,8 @@ Route::group(['namespace' => 'Guest'], function(){
     // awal penting
     Route::post('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
     Route::post('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
-    Route::post('/booking-form', 'GuestController@getInvoice')->name('booking.form');
+    Route::post('/booking-form', 'GuestController@bookingForm')->name('booking.form');
+    Route::post('/invoice', 'GuestController@getInvoice')->name('invoice');
     // Route::get('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
     // Route::get('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
     // akhir penting
@@ -37,9 +38,9 @@ Route::group(['namespace' => 'Guest'], function(){
 //     return view('bookingForm');
 // })->name('booking.form');
 
-Route::post('/invoice', function () {
-    return view('invoice');
-})->name('invoice');
+// Route::post('/invoice', function () {
+//     return view('invoice');
+// })->name('invoice');
 
 // ================================
 

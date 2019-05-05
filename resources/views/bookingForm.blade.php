@@ -22,8 +22,7 @@
     </div>
 </div>
 <!-- Page Banner Section End -->
-
-
+@foreach($kamarByID as $kID)
 <section class="full-row bg-gray" style="padding: 20px">
     <div class="container">
         <div class="row">
@@ -34,11 +33,11 @@
                         <div class="row">
                             <div class="room-detail-info">
                                 <div class="float-left">
-                                    <h3>Classic Room</h3>
+                                    <h3>{{$kID->nama_kamar}}</h3>
                                     <span>Classic room for our vip guest, also available for family touriest.</span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <div class="amount-per-night"><b>Rp. 125.000 /</b> <span> malam </span></div>
+                                    <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
                                 </div>
                             </div>
                         </div>
@@ -52,21 +51,24 @@
                         @csrf
                         <div class="row">
                             <h3>Isi Data Pemesanan</h3>
+                            <input type="hidden" name="guestMasuk" value="{{$kamarTanggalMasuk}}">
+                            <input type="hidden" name="guestDurasi" value="{{$kamarLamaMenginap}}">
+                            <input type="hidden" name="kamarID" value="{{$kID->id}}">
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Nama Tamu</label>
-                                <input required type="text" class="form-control">
+                                <input required type="text" name="namaGuest" class="form-control">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Nama Kontak</label>
-                                <input required type="text" class="form-control">
+                                <input required type="text" name="namaKontakGuest" class="form-control">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">No. Handphone</label>
-                                <input required type="tel" class="form-control">
+                                <input required type="tel" name="handphoneGuest" class="form-control">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Alamat E-Mail</label>
-                                <input required type="email" class="form-control">
+                                <input required type="email" name="emailGuest" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-default-bg mt-3">Konfirmasi Pesanan</button>
                         </div>
@@ -83,7 +85,7 @@
                                 <p class="text-secondary">Check-in</p>
                             </td>
                             <td width="70%">
-                                <p class="text-right"><?php echo $tanggalMasuk?></p>
+                                <p class="text-right">{{$kamarTanggalMasuk}}</p>
                             </td>
                         </tr>
                         <tr>
@@ -91,7 +93,7 @@
                                 <p class="text-secondary">Lama Menginap</p>
                             </td>
                             <td>
-                                <p class="text-right"><?php echo $durasiMenginap?><br><small>(Check-out: 30 April 2019)</small></p>
+                                <p class="text-right">{{$kamarLamaMenginap}} hari<br><small>(Check-out: 30 April 2019)</small></p>
                             </td>
                         </tr>
                         <tr>
@@ -99,7 +101,7 @@
                                 <p class="text-secondary">Rincian Pembayaran</p>
                             </td>
                             <td>
-                                <p class="text-right">Rp. <?php echo $hargaMenginap?> x 1</p>
+                                <p class="text-right">Rp. {{$kID->harga}} x {{$kamarLamaMenginap}}</p>
                             </td>
                         </tr>
                         <tr>
@@ -110,15 +112,16 @@
                             </td>
                             <td>
                                 <hr><b>
-                                    <p class="text-right">Rp. <?php echo $hargaMenginap?></p>
+                                    <p class="text-right">Rp. {{$kID->harga}}</p>
                                 </b>
                             </td>
                         </tr>
                     </table>
-                    <span class="btn btn-primary" style="cursor: auto">Total Pembayaran: Rp. <?php echo $hargaMenginap?></span>
+                    <span class="btn btn-primary" style="cursor: auto">Total Pembayaran: Rp. {{$kID->harga}}</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
+@endforeach
 @endsection
