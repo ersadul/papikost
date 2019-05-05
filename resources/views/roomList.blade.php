@@ -23,6 +23,7 @@
 <!-- Room List View 1 Start -->
 <section class="full-row bg-white">
     <div class="container">
+        @foreach($kamar as $k)
         <div class="room-thumb-list-1 hover_zoom bg-white mb-30">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-5">
@@ -32,25 +33,23 @@
                     <div class="py-3 h-100">
                         <div class="room-info">
                             <div class="down-line-left mb-3">
-                                <h5 class="title"><a class="text-primary" href="#">Classic Room</a></h5>
+                                <h5 class="title"><a class="text-primary" href="#">{{$k->nama_kamar}}</a></h5>
                                 <span class="subtext">Sami duble bed 2 window, mountain miew</span>
                             </div>
-                            <p>Cubilia luctus cursus augue augue vivamus parturient porta ultr cursus fermen laoreet.
-                                Venenatis nostra
-                                consectetuer.
-                            </p>
+                            <p>{{$k->deskripsi}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-3">
                     <div class="for-booking">
-                        <div class="h5 per-night text-primary">$80<small> / Night</small></div>
-                        <a href="{{ route('room.detail') }}" class="btn btn-default">Detail</a>
+                        <div class="h5 per-night text-primary">Rp. {{$k->harga}}<small> / Night</small></div>
+                        <a href="{{ route('room.detail', ['id' => $k->id) }}" class="btn btn-default">Detail</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="room-thumb-list-1 hover_zoom bg-white mb-30">
+        @endforeach
+        <!-- <div class="room-thumb-list-1 hover_zoom bg-white mb-30">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-5">
                     <div class="overflow_hidden"><img src="{{ asset('template/img/room/2.png') }}" alt="Booking Room"></div>
@@ -76,8 +75,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="room-thumb-list-1 hover_zoom bg-white mb-30">
+        </div> -->
+        <!-- <div class="room-thumb-list-1 hover_zoom bg-white mb-30">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-5">
                     <div class="overflow_hidden"><img src="{{ asset('template/img/room/3.png') }}" alt="Booking Room"></div>
@@ -211,7 +210,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="row">
             <div class="col-lg-12">
                 <nav class="x-center" aria-label="Page navigation">

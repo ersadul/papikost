@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Kamar;
+use App\TipeKamar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,14 +15,17 @@ class KamarController extends Controller
 {
     public function index(){
         $kamar = Kamar::get();
-        return view('kamar/home', compact('kamar'));
+        $tipeKamar = TipeKamar::get();
+        // return dd($tipeKamar);
+        return view('kamar/home', compact('kamar', 'tipeKamar'));
     }
 
     public function storeKamar(Request $request){
-        DB::table('kamar')->insert([
+        $data = DB::table('kamar')->insert([
                 'nama_kamar' => $request->nama,
+                'deskripsi' => $request->deskripsi,
                 'harga' => $request->harga,
-                'tipe_kamar_id' => $request->tipe_kamar_id
+                'tipe_kamar_id' => $request->tipeKamar
                 ]);
     }
 

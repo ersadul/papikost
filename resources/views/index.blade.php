@@ -192,7 +192,7 @@
                             <div id="datepairExample" class="col-lg-4 col-sm-4">
                                 <label class="text-white">Lama Menginap</label>
                                 <div class="quantity">
-                                    <input type="number" class="form-control" min="1" max="50" step="1" value="1">
+                                    <input type="number" name="lamaMenginap" class="form-control" min="1" max="50" step="1" value="1">
                                 </div>
                             </div>
                             <div class="form-group col-lg-2 col-sm-2">

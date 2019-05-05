@@ -12,18 +12,23 @@
 */
 
 // route frontend
-Route::group(['namespace' => 'Home'], function(){
-    // Route::get('/kamar', 'HomeController@index');
-    Route::get('/', 'HomeController@index');
+Route::group(['namespace' => 'Guest'], function(){
+    Route::get('/', 'GuestController@index');
+    Route::post('/search', 'GuestController@getDate')->name('search');
+    // awal penting
+    Route::get('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
+    Route::get('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
+    // akhir penting
 });
 
-Route::post('/search', function () {
-    return view('roomList');
-})->name('search');
+// Route::post('/search', function () {
+//     return view('roomList');
+// })->name('search');
 
-Route::get('/room-detail', function () {
-    return view('roomDetail');
-})->name('room.detail');
+
+// Route::get('/room-detail', function () {
+//     return view('roomDetail');
+// })->name('room.detail');
 
 Route::post('/booking-form', function () {
     return view('bookingForm');

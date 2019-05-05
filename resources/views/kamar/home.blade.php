@@ -33,9 +33,16 @@
     <br>
     <form action="/admin/kamar/store" method="post">
         {{csrf_field()}}
-        
+        <select class="form-control" name="tipeKamar" data-parsley-required="true">
+            @foreach ($tipeKamar as $tk) 
+            {
+                <option value="{{ $tk->id }}">{{ $tk->nama_tipe }}</option>
+            }
+            @endforeach
+        </select>
         <input type="text" name="nama" placeholder="Nama Kamar" required>
-        <input type="text" name="harga" placeholder="harga Kamar" required>
+        <input type="text" name="deskripsi" placeholder="Deskripsi Kamar" required>
+        <input type="text" name="harga" placeholder="Harga Kamar" required>
         <input type="submit" value="Save">
     </form>
 </body>

@@ -1,12 +1,4 @@
 @extends('layouts.app')
-
-
-
-
-
-
-
-
 @section('content')
     @include('components.header-2')
 

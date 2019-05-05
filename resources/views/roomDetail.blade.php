@@ -22,7 +22,7 @@
     </div>
 </div>
 <!-- Page Banner Section End -->
-
+@foreach($kamarByID as $kID)
 <section class="full-row bg-gray">
     <div class="container">
         <div class="row">
@@ -55,11 +55,11 @@
                     </div>
                     <div class="room-detail-info bg-white">
                         <div class="float-left">
-                            <h3>Classic Room</h3>
+                            <h3>{{$kID->nama_kamar}}</h3>
                             <span>Classic room for our vip guest, also available for family touriest.</span>
                         </div>
                         <div class="float-right text-right">
-                            <div class="amount-per-night"><b>Rp. 125.000 /</b> <span> malam </span></div>
+                            <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
                             <div class="review">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -71,26 +71,7 @@
                         </div>
                     </div>
                     <div class="text-block-1 mt-4">
-                        <p>Ligula at posuere leo dictumst ad sollicitudin. Magna congue, leo, eros curabitur interdum
-                            ante maecen facilisis
-                            per maecenas mattis enim in nostra libero pede mauris neque varius ad ad inceptos. Erat
-                            empor amet nisl scelerisque
-                            maecenas fringilla ad ridiculus gravida. Arcu dignissim eros commodo ornare eget. Ligula
-                            congue dolor placerat,
-                            eu nibh dis dui, penatibus ac praesent tellus montes, lerisque, vulputate eros eu maecenas
-                            lobortis per orci sit
-                            Penatibus mauris senectus vulputate tincidunt cras feugiat class tempus eget ridiculus
-                            vehicula dolor praesent.
-                            Hymenaeos. Venenatis non litora feugiat suspendisse rutrum hymenaeos taciti praesent ut
-                            velit. Cum pharetra nisl
-                            nisi. Laoreet Montes.</p>
-                        <p>Lorem suspendisse vestibulum dignissim sapien purus id massa. Dictumst. Fames commodo, metus.
-                            Parturient leo
-                            at aliquam. Tristique. Metus ultricies aliquam mi. Hendrerit libero malesuada dictumst,
-                            massa consequat Volutpat
-                            mattis condimentum ut aliquam. Magna litora augue purus class hymenaeos dis semper,
-                            suspendisse euismod vehicula
-                            vitae luctus nulla at orci nullam.</p>
+                        <p>{{$kID->deskripsi}}</p>
                     </div>
                     <div class="tab-menu-1 mt-4">
                         <!-- Nav tabs -->
@@ -192,7 +173,7 @@
                             <h3>Mulai Reservasi</h3>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Tanggal Check-in</label>
-                                <input type="text" disabled class="form-control" placeholder="24/06/2019">
+                                <input type="text" disabled class="form-control" placeholder="">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Lama Menginap</label>
@@ -200,7 +181,7 @@
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Total Tagihan</label>
-                                <input type="text" disabled class="form-control" placeholder="Rp. 125.000">
+                                <input type="text" disabled class="form-control" placeholder="{{$kID->harga}}">
                             </div>
                             <input class="btn btn-default-bg" value="Pesan Sekarang" type="submit">
                         </div>
@@ -210,4 +191,5 @@
         </div>
     </div>
 </section>
+@endforeach
 @endsection
