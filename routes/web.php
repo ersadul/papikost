@@ -45,6 +45,9 @@ Route::group(['namespace' => 'Guest'], function(){
 Route::get('/cek-pesanan', function () {
     return view('cekPesanan');
 })->name('cek.pesanan');
+Route::get('/promo', function () {
+    return view('promo');
+})->name('promo');
 
 // ================================
 

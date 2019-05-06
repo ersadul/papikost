@@ -1,13 +1,13 @@
 (function($) {
-	
+
 
 	var $window		= $(window),
 		$header		= $('#header'),					// Update Header Style + Scroll to Top
         $dropdown  = $('.dropdown-toggle'),
 		$image_slider = $('.image-gallery'),
 		$contact	= $('#contact-form')
-	
-	
+
+
 	//01. Custom input numbering
 	jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up bg-default">+</div><div class="quantity-button quantity-down bg-default">-</div></div>').insertAfter('.quantity input');
 		jQuery('.quantity').each(function() {
@@ -40,8 +40,8 @@
 			spinner.find("input").trigger("change");
 		  });
      });
-	
-	
+
+
 	// 02. Update Header Style + Scroll to Top
 	function headerStyle() {
 		if($header.length){
@@ -53,7 +53,7 @@
 			}
 		}
 	}
-	
+
 	// 03. Preloader For Hide loader
 	function handlePreloader() {
 		if($('.preloader').length){
@@ -61,8 +61,8 @@
 			$('body').removeClass('page-load');
 		}
 	}
-	
-	// 04. dropdown submenu on hover in desktopand dropdown sub menu on click in mobile	
+
+	// 04. dropdown submenu on hover in desktopand dropdown sub menu on click in mobile
 	$('#navbarSupportedContent').each(function() {
 		$dropdown.on('click', function(e){
 			if($window.width() < 1100){
@@ -81,18 +81,18 @@
 				e.stopPropagation();
 			}
 		});
-		
+
 		$('body').on('click', function(e){
 			$dropdown.parent('.dropdown').removeClass('visible');
 		});
-		
+
 		$window.on('resize', function(){
 			if($window.width() > 991){
 				$('.dropdown-menu').removeAttr('style');
 				$('.dropdown ').removeClass('visible');
 			}
 		});
-		
+
 	});
 
     // 05. Auto active class adding with navigation
@@ -109,10 +109,10 @@
             }
         })
     })
-	
-	
+
+
 	// 06. Layer slider settings
-			
+
 	$('#slider_full').layerSlider({
 		sliderVersion: '6.0.0',
 		type: 'fullwidth',
@@ -130,7 +130,7 @@
 		skinsPath: false,
 		height: 940
 	});
-	
+
 	$('#slider').layerSlider({
 		sliderVersion: '6.0.0',
 		type: 'fullwidth',
@@ -147,7 +147,7 @@
 		skinsPath: 'skins/',
 		height: 840
 	});
-	
+
 	$('#slider5').layerSlider({
 		sliderVersion: '6.0.0',
 		type: 'fullwidth',
@@ -164,8 +164,8 @@
 		skinsPath: 'skins/',
 		height: 980
 	});
-	
-	
+
+
 	// 07. Our Doctor Carousel HealthLine
     if ($image_slider.length) {
         $image_slider.owlCarousel({
@@ -193,7 +193,7 @@
             }
         });
     };
-	
+
 	// 08. Fact Counter For Achivement Counting
 	function factCounter() {
 		if($('.fact-counter').length){
@@ -201,7 +201,7 @@
 				var $t = $(this),
 					n = $t.find(".counting").attr("data-stop"),
 					r = parseInt($t.find(".counting").attr("data-speed"), 10);
-					
+
 				if (!$t.hasClass("counted")) {
 					$t.addClass("counted");
 					$({
@@ -225,13 +225,13 @@
 			});
 		}
 	}
-	
+
 	// 09. Data Piker
-	$('#datepairExample .date').datepicker({
+	$('#check-in .date').datepicker({
 		'format': 'm/d/yyyy',
 		'autoclose': true
 	});
-	
+
 	// 14. Contact Form Validation
 	if($contact.length){
 		$contact.validate({  //#contact-form contact form id
@@ -250,7 +250,7 @@
 					required: true
 				}
 			},
-			
+
 			messages: {
                 firstname: "Please enter your First Name", //Write here your error message that you want to show in contact form
                 email: "Please enter valid Email", //Write here your error message that you want to show in contact form
@@ -284,9 +284,9 @@
             }
 
 		});
-	} 
-	
-	
+	}
+
+
 	// 09. Elements Animation
 	if($('.wow').length){
 		var wow = new WOW(
@@ -300,8 +300,8 @@
 		);
 		wow.init();
 	}
-	
-	
+
+
 	// 25. Scroll to a Specific Div
 	if($('.btn-scroll').length){
 		$(".btn-scroll").on('click', function(e) {
@@ -311,7 +311,7 @@
 			$('html, body').animate({scrollTop: $(target).offset().top }, 1000);
 		});
 	}
-	
+
 	// 29. Acive scroll top button
 	 function jumptotop(){
 		var $scrollsize = $window.scrollTop();
@@ -329,12 +329,12 @@
         headerStyle();
         factCounter();
     });
-	
-	// 11. When document is loading, do	
+
+	// 11. When document is loading, do
 	$window.on('load', function() {
 		handlePreloader();
 	});
-	
+
 	// 12. Home 1 page Offer limit
 	$('.cd100').countdown100({
 			endtimeYear: 0,
@@ -344,14 +344,14 @@
 			endtimeMinutes: 0,
 			endtimeSeconds: 0,
 		});
-	
+
 	// 13. Youtube and Vimeo video popup control
 	 jQuery(function(){
 	  jQuery("a.video-popup").YouTubePopUp();
 	  //jQuery("a.video-popup").YouTubePopUp( { autoplay: 0 } ); // Disable autoplay
 	 });
-	
-	
+
+
 	// 14. LightBox / Fancybox
 	if($('.img_view').length) {
 		$('.img_view').fancybox({
@@ -362,13 +362,13 @@
 			}
 		});
 	}
-	
-	
+
+
 	// 15. Gallery With Filters List
 	if($('.filter-list').length){
 		$('.filter-list').mixItUp({});
 	}
-	
+
 	// 16. Put slider space for nav not in mini screen
 	 if(document.querySelector('.nav-on-top') !== null) {
 		var get_height = jQuery('.nav-on-top').height();
@@ -398,6 +398,6 @@
 			}
 		});
 	 }
-	 
+
 
 })(jQuery);

@@ -184,12 +184,11 @@
                     <form action="{{ route('search') }}" class="w-100" method="post">
                         @csrf
                         <div class="row">
-                            <div id="datepairExample" class="col-lg-6 col-sm-6">
+                            <div id="check-in" class="col-lg-6 col-sm-6">
                                 <label class="text-white">Tanggal Check-in</label>
-                                <input type="text" name="date1" class="date start form-control"
-                                    placeholder="MM/DD/YYYY">
+                                <input type="text" name="date1" class="date start form-control" placeholder="MM/DD/YYYY" required autocomplete="off">
                             </div>
-                            <div id="datepairExample" class="col-lg-4 col-sm-4">
+                            <div class="col-lg-4 col-sm-4">
                                 <label class="text-white">Lama Menginap</label>
                                 <div class="quantity">
                                     <input type="number" name="lamaMenginap" class="form-control" min="1" max="50" step="1" value="1">
