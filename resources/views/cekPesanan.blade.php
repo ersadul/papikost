@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row py-80">
             <div class="col-sm-6">
-                <h3 class="banner-title text-white text-uppercase">Cek Pemesanan</h3>
+                <h1 class="text-white">Cek Pemesanan</h1>
             </div>
             <div class="col-sm-6">
                 <ul class="pages-link">
