@@ -42,6 +42,10 @@ Route::group(['namespace' => 'Guest'], function(){
 //     return view('invoice');
 // })->name('invoice');
 
+Route::get('/cek-pesanan', function () {
+    return view('cekPesanan');
+})->name('cek.pesanan');
+
 // ================================
 
 Route::group(['prefix' => 'dashboard'], function () {

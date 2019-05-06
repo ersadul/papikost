@@ -2982,6 +2982,14 @@ table tbody p {
 	margin-top: 2px;
 	font-size: 12px
 }
+#cek-pesanan-desc{
+	border-left: 2px solid #f4c024;
+}
+#cek-pesanan-desc p{
+	text-align: justify;
+	font-size: 14px;
+	line-height: 18px
+}
 @media screen and (min-width: 990px) {
 	#invoice {
 		padding-top: 150px !important
