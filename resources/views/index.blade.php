@@ -266,8 +266,7 @@
                 </div>
             </div> -->
             @endforeach
-            <div class="col-md-12 mt-5"> <a href="#" class="btn btn-lg-default x-center">Lihat Promo
-                    Lain</a>
+            <div class="col-md-12 mt-5"> <a href="{{ route('promo') }}" class="btn btn-lg-default x-center">Lihat Promo Lain</a>
             </div>
         </div>
     </div>
