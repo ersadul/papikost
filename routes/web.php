@@ -58,11 +58,11 @@ Route::group(['prefix' => 'dashboard'], function () {
         })->name('index');
 
         Route::get('/reservasi', function () {
-            return view('dashboard.reservasi');
+            return view('dashboard.reservasi.reservasi');
         })->name('reservasi');
 
         Route::get('/list-reservasi', function () {
-            return view('dashboard.listReservasi');
+            return view('dashboard.reservasi.listReservasi');
         })->name('list.reservasi');
     });
 });

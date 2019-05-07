@@ -21,6 +21,9 @@
     <link rel="stylesheet" href="{{ asset('template/adminlte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
     <!-- Select2 -->
     <link rel="stylesheet" href="{{ asset('template/adminlte/bower_components/select2/dist/css/select2.min.css') }}">
+    <!-- fullCalendar -->
+    <link rel="stylesheet" href="{{ asset('template/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/adminlte/bower_components/fullcalendar/dist/scheduler.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('template/adminlte/bower_components/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
@@ -182,6 +185,10 @@
     <script src="{{ asset('template/adminlte/plugins/timepicker/bootstrap-timepicker.min.js') }}"></script>
     <!-- Select2 -->
     <script src="{{ asset('template/adminlte/bower_components/select2/dist/js/select2.full.min.js') }}"></script>
+    <!-- fullCalendar -->
+    <script src="{{ asset('template/adminlte/bower_components/moment/moment.js') }}"></script>
+    <script src="{{ asset('template/adminlte/bower_components/fullcalendar/dist/fullcalendar.min.js') }}"></script>
+    <script src="{{ asset('template/adminlte/bower_components/fullcalendar/dist/scheduler.min.js') }}"></script>
     <!-- bootstrap datepicker -->
     <script
         src="{{ asset('template/adminlte/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}">
@@ -190,6 +197,6 @@
     <script src="{{ asset('template/adminlte/dist/js/adminlte.min.js') }}"></script>
     <!-- custom js -->
     <script src="{{ asset('js/main.js') }}"></script>
+    @yield('script')
 </body>
-
 </html>
