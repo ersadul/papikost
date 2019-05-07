@@ -15,51 +15,49 @@ active
 <section class="content">
     <div class="box box-solid">
         <div class="box-body">
-            <form action="#" method="post">
+            <form action="{{ route('dashboard.reservasi.pembayaran') }}" method="post">
                 @csrf
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
                             <label>Nama Tamu</label>
-                            <input type="text" class="form-control" required>
+                            <input type="text" class="form-control" required name="nama" autocomplete="off">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label>No. Telephone</label>
-                            <input type="number" class="form-control" required>
+                            <input type="number" class="form-control" required name="telp" autocomplete="off">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input type="email" class="form-control" required>
+                            <input type="email" class="form-control" required name="email" autocomplete="off">
                         </div>
                     </div>
                     <div class="col-md-12">
                         <div class="form-group">
                             <label>Permintaan Khusus</label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea class="form-control" rows="3" name="khusus"></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>No. Kamar</label>
-                            <input type="number" class="form-control" disabled required
-                                value="{{ $request->room }}">
+                            <input class="form-control" required value="{{ $request->room }}" name="room" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Check-in</label>
-                            <input type="date" class="form-control" disabled required
-                                value="{{ $request->date }}">
+                            <input class="form-control" required value="{{ $request->date }}" name="date" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
                             <label>Lama Hari</label>
-                            <input type="number" class="form-control" required>
+                            <input type="number" class="form-control" required name="range" autocomplete="off">
                         </div>
                     </div>
                 </div>

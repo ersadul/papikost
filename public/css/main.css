@@ -26,3 +26,6 @@ td a {
 td a:hover {
     color: #333
 }
+#payment .box-body {
+    height: 200px;
+}
