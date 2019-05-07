@@ -27,16 +27,17 @@
                 <div class="contact-form-1 form-style-1 pt-4 pb-4">
                     <div class="row">
                         <div class="col-md-6">
-                            <form action="#" method="post">
+                            <form action="{{ route('hasil.invoice') }}" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input class="form-control" placeholder="Kode Pesanan" type="text">
+                                            <input class="form-control" name="invoiceCode" placeholder="Kode Pesanan" type="text">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
-                                            <input class="form-control" placeholder="No. Handphone" type="number">
+                                            <input class="form-control" name="phone" placeholder="No. Handphone" type="number">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
