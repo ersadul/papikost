@@ -57,7 +57,13 @@ class GuestController extends Controller
         $invoiceFinal->status_lunas = 0;
         $invoiceFinal->kamar_id = $request->kamarID;
         $invoiceFinal->save();
-        return redirect('/');
+
+        $invoice = DB::table('invoice')
+        ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
+        ->where('invoice.phone', '=', $request->handphoneGuest)
+        ->where('invoice.invoice_code', '=', $invoice_code_temp)
+        ->get();        
+        return view('invoice', compact('invoice'));
     }
 
     public function cekInvoice(Request $request)
