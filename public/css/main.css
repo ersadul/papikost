@@ -29,3 +29,6 @@ td a:hover {
 #payment .box-body {
     height: 200px;
 }
+.form-control[readonly] {
+    background-color: #fff;
+}

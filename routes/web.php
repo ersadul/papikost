@@ -64,6 +64,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::post('/reservasi/pembayaran', 'Admin\ReservasiController@pembayaran')->name('reservasi.pembayaran');
 
         Route::get('/list-reservasi', 'Admin\ReservasiController@list')->name('list.reservasi');
+        Route::get('/list-reservasi/detail', 'Admin\ReservasiController@detail')->name('detail.reservasi');
     });
 });
 // end route frontend

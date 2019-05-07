@@ -21,4 +21,7 @@ class ReservasiController extends Controller
     public function list(){
         return view('dashboard.reservasi.list');
     }
+    public function detail(){
+        return view('dashboard.reservasi.detail');
+    }
 }
