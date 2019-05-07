@@ -57,8 +57,8 @@ active
                                                     <p>Invoice #123912471</p>
                                                     <p>30 April 2019 20:03:58</p>
                                                     <small class="label bg-primary">Menunggu Konfirmasi</small>
-                                                <a class="pull-right" href="{{ route('dashboard.detail.reservasi') }}">Lihat Detail <i class="fa fa-chevron-circle-right"></i></a>
                                             </div>
+                                            <a class="pull-right" href="{{ route('dashboard.detail.reservasi') }}">Lihat Detail <i class="fa fa-chevron-circle-right"></i></a>
                                         </div>
                                     </div>
                                 </div>
