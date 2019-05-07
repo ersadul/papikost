@@ -20,6 +20,8 @@ Route::group(['namespace' => 'Guest'], function(){
     Route::post('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
     Route::post('/booking-form', 'GuestController@bookingForm')->name('booking.form');
     Route::post('/invoice', 'GuestController@getInvoice')->name('invoice');
+    Route::get('/cek-pesanan', function () { return view('cekPesanan'); })->name('cek.pesanan');
+    Route::post('/hasil-invoice', 'GuestController@cekInvoice')->name('hasil.invoice');
     // Route::get('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
     // Route::get('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
     // akhir penting
@@ -42,9 +44,9 @@ Route::group(['namespace' => 'Guest'], function(){
 //     return view('invoice');
 // })->name('invoice');
 
-Route::get('/cek-pesanan', function () {
-    return view('cekPesanan');
-})->name('cek.pesanan');
+// Route::get('/cek-pesanan', function () {
+//     return view('cekPesanan');
+// })->name('cek.pesanan');
 Route::get('/promo', function () {
     return view('promo');
 })->name('promo');

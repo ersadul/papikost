@@ -2,6 +2,7 @@
 @section('content')
     @include('components.header-2')
 
+@foreach($invoice as $i)
 <section class="full-row bg-gray" style="padding: 20px" id="invoice">
     <div class="container">
         <div class="row">
@@ -12,8 +13,8 @@
                         <div class="row">
                             <div class="room-detail-info">
                                 <div class="mb-3">
-                                    <h3>Invoice #129181</h3>
-                                    <span class="text-black">Dear <b>Nama Pelanggan</b>,
+                                    <h3>Invoice #{{$i->invoice_code}}</h3>
+                                    <span class="text-black">Dear <b>{{$i->nama}}</b>,
                                         <br>Terimakasih telah melakukan pemesanan kamar di SAFA House. Berikut informasi
                                         detail terkait data pesanan Anda.
                                     </span>
@@ -23,7 +24,7 @@
                                         <tr>
                                             <td width="45%">ID Pemesanan</td>
                                             <td width="4%">:</td>
-                                            <td>129181</td>
+                                            <td>{{$i->invoice_code}}</td>
                                         </tr>
 
                                         <tr>
@@ -47,7 +48,7 @@
                                         <tr>
                                             <td>Jumlah Tagihan</td>
                                             <td>:</td>
-                                            <td>Rp. 125.000</td>
+                                            <td>Rp. {{$i->harga}}</td>
                                         </tr>
                                         <tr>
                                             <td>Nama Bank</td>
@@ -74,10 +75,18 @@
                                     <table width="100%">
                                         <tr>
                                             <td>
+                                                <p>Kamar : </p>
+                                            </td>
+                                            <td width="70%">
+                                                <p class="text-right">{{$i->nama_kamar}}</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
                                                 <p>Check-in</p>
                                             </td>
                                             <td width="70%">
-                                                <p class="text-right">Senin, 29 April 2019</p>
+                                                <p class="text-right">{{$i->check_in}}</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -85,7 +94,7 @@
                                                 <p>Lama Menginap</p>
                                             </td>
                                             <td>
-                                                <p class="text-right">1 Malam<br><small>(Check-out: 30 April
+                                                <p class="text-right">{{$i->lama_menginap}} Malam<br><small>(Check-out: 30 April
                                                         2019)</small></p>
                                             </td>
                                         </tr>
@@ -94,7 +103,7 @@
                                                 <p>Rincian Pembayaran</p>
                                             </td>
                                             <td>
-                                                <p class="text-right">Rp. 125.000 x 1</p>
+                                                <p class="text-right">Rp. {{$i->harga}} x 1</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -105,7 +114,7 @@
                                             </td>
                                             <td>
                                                 <hr><b>
-                                                    <p class="text-right">Rp. 125.000</p>
+                                                    <p class="text-right">Rp. {{$i->harga}}</p>
                                                 </b>
                                             </td>
                                         </tr>
@@ -147,4 +156,5 @@
         </div>
     </div>
 </section>
+@endforeach
 @endsection
