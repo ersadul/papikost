@@ -9,6 +9,9 @@ td .box {
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1);
     margin-bottom: 0
 }
+.media-body p {
+    padding-top: 10px
+}
 td h4 {
     margin-top: 0
 }

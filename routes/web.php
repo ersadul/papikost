@@ -57,13 +57,10 @@ Route::group(['prefix' => 'dashboard'], function () {
             return view('dashboard.index');
         })->name('index');
 
-        Route::get('/reservasi', function () {
-            return view('dashboard.reservasi.reservasi');
-        })->name('reservasi');
+        Route::get('/reservasi', 'Admin\ReservasiController@index')->name('reservasi');
+        Route::post('/reservasi', 'Admin\ReservasiController@form')->name('form.reservasi');
 
-        Route::get('/list-reservasi', function () {
-            return view('dashboard.reservasi.listReservasi');
-        })->name('list.reservasi');
+        Route::get('/list-reservasi', 'Admin\ReservasiController@list')->name('list.reservasi');
     });
 });
 // end route frontend

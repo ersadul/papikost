@@ -23,6 +23,11 @@ active
             <div id="calendar"></div>
         </div>
     </div>
+    <form action="{{ route('dashboard.form.reservasi') }}" method="post" id="form">
+        @csrf
+        <input type="hidden" name="date" id="date">
+        <input type="hidden" name="room" id="room">
+    </form>
 </section>
 @endsection
 @section('script')
@@ -71,7 +76,9 @@ active
     dayClick:
         function(date, jsEvent, view, resourceObj) {
             if (moment().format('YYYY-MM-DD') === date.format('YYYY-MM-DD') || date.isAfter(moment())) {
-                alert('Mau mulai sewa dari tanggal : ' + date.format() + ' di kamar ' + resourceObj.id);
+                $("#date").val(date.format());
+                $("#room").val(resourceObj.id);
+                $("#form").submit();
             }
         }
     })
