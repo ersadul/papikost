@@ -46,7 +46,9 @@ td a:hover {
     background-color: #fff
 }
 #bantuan p {
-    white-space: normal
+    white-space: normal;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 #bantuan a:hover {
     background-color: #fff
