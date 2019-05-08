@@ -70,9 +70,15 @@ class GuestController extends Controller
     {
         $current = Carbon::now();
         $invoice = Invoice::where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->first();
+        if($invoice == null){
+            //kasih action alert di halaman cek invoice
+            return 'invoice tidak valid';
+        }
         $interval = date_diff($invoice->created_at, $current);
         if($interval->h > 0){
-            //drop invoice bahwa sudah kadaluarsa
+            //kasih action drop invoice bahwa sudah kadaluarsa
+            return "invoice telah lebih dari 1 jam";
+
         }else{
             $duration = $interval->i * 60 + $interval->s;
             return view('invoice', compact('invoice', 'duration'));
