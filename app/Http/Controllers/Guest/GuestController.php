@@ -62,20 +62,20 @@ class GuestController extends Controller
         ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
         ->where('invoice.phone', '=', $request->handphoneGuest)
         ->where('invoice.invoice_code', '=', $invoice_code_temp)
-        ->get();        
+        ->get();
         return view('invoice', compact('invoice'));
     }
 
     public function cekInvoice(Request $request)
     {
-        $getInvoiceCode = $request->invoiceCode;
-        $getPhone = $request->phone;
-        $invoice = DB::table('invoice')
-        ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
-        ->where('invoice.phone', '=', $getPhone)
-        ->where('invoice.invoice_code', '=', $getInvoiceCode)
-        ->get();
-        // return dd($invoice);
-        return view('invoice', compact('invoice'));
+        $current = Carbon::now();
+        $invoice = Invoice::where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->first();
+        $interval = date_diff($invoice->created_at, $current);
+        if($interval->h > 0){
+            //drop invoice bahwa sudah kadaluarsa
+        }else{
+            $duration = $interval->i * 60 + $interval->s;
+            return view('invoice', compact('invoice', 'duration'));
+        }
     }
 }

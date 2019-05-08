@@ -2,7 +2,6 @@
 @section('content')
     @include('components.header-2')
 
-@foreach($invoice as $i)
 <section class="full-row bg-gray" style="padding: 20px" id="invoice">
     <div class="container">
         <div class="row">
@@ -13,8 +12,8 @@
                         <div class="row">
                             <div class="room-detail-info">
                                 <div class="mb-3">
-                                    <h3>Invoice #{{$i->invoice_code}}</h3>
-                                    <span class="text-black">Dear <b>{{$i->nama}}</b>,
+                                    <h3>Invoice #{{$invoice->invoice_code}}</h3>
+                                    <span class="text-black">Dear <b>{{$invoice->nama}}</b>,
                                         <br>Terimakasih telah melakukan pemesanan kamar di SAFA House. Berikut informasi
                                         detail terkait data pesanan Anda.
                                     </span>
@@ -24,7 +23,7 @@
                                         <tr>
                                             <td width="45%">ID Pemesanan</td>
                                             <td width="4%">:</td>
-                                            <td>{{$i->invoice_code}}</td>
+                                            <td>{{$invoice->invoice_code}}</td>
                                         </tr>
 
                                         <tr>
@@ -38,7 +37,7 @@
                                     <table class="mb-3">
                                         <div class="float-right text-right">
                                             <span>Sisa waktu Pembayaran</span><br>
-                                            <a href="#" class="btn btn-default-bg" style="cursor: auto">43 Menit</a>
+                                            <a id="time" href="#" class="btn btn-default-bg" style="cursor: auto"></a>
                                         </div>
                                         <tr>
                                             <td width="60%">Metode Pembayaran</td>
@@ -48,7 +47,7 @@
                                         <tr>
                                             <td>Jumlah Tagihan</td>
                                             <td>:</td>
-                                            <td>Rp. {{$i->harga}}</td>
+                                            <td>Rp. {{$invoice->kamar->harga}}</td>
                                         </tr>
                                         <tr>
                                             <td>Nama Bank</td>
@@ -63,7 +62,7 @@
                                         <tr>
                                             <td>Batas Waktu Pembayaran</td>
                                             <td>:</td>
-                                            <td>30 April 2019, 20:13</td>
+                                            <td>{{ date('d-M-Y H:i:s', strtotime("$invoice->created_at +1 Hour")) }}</td>
                                         </tr>
                                     </table>
                                     <span>Penting: <br>Mohon menyelesaikan pembayaran sebelum batas waktu pembayaran.
@@ -72,13 +71,13 @@
                                         dibawah.</span>
                                 </div>
                                 <div class="bg-gray text-block-1 p-3 mb-4" id="desc-invoice">
-                                    <table width="100%">
+                                    <table class="table">
                                         <tr>
                                             <td>
                                                 <p>Kamar : </p>
                                             </td>
                                             <td width="70%">
-                                                <p class="text-right">{{$i->nama_kamar}}</p>
+                                                <p class="text-right">{{$invoice->kamar->nama_kamar}}</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -86,7 +85,7 @@
                                                 <p>Check-in</p>
                                             </td>
                                             <td width="70%">
-                                                <p class="text-right">{{$i->check_in}}</p>
+                                                <p class="text-right">{{ date('d-M-Y', strtotime("$invoice->check_in")) }}</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -94,8 +93,7 @@
                                                 <p>Lama Menginap</p>
                                             </td>
                                             <td>
-                                                <p class="text-right">{{$i->lama_menginap}} Malam<br><small>(Check-out: 30 April
-                                                        2019)</small></p>
+                                                <p class="text-right">{{$invoice->lama_menginap}} Malam<br><small>(Check-out: {{ date('d-M-Y', strtotime("$invoice->check_in +$invoice->lama_menginap Day")) }})</small></p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -103,18 +101,16 @@
                                                 <p>Rincian Pembayaran</p>
                                             </td>
                                             <td>
-                                                <p class="text-right">Rp. {{$i->harga}} x 1</p>
+                                                <p class="text-right">Rp. {{$invoice->kamar->harga}} x {{ $invoice->lama_menginap }}</p>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <hr><b>
+                                            <td><b>
                                                     <p>Total</p>
                                                 </b>
                                             </td>
-                                            <td>
-                                                <hr><b>
-                                                    <p class="text-right">Rp. {{$i->harga}}</p>
+                                            <td><b>
+                                                    <p class="text-right">Rp. {{$invoice->kamar->harga * $invoice->lama_menginap}}</p>
                                                 </b>
                                             </td>
                                         </tr>
@@ -156,5 +152,30 @@
         </div>
     </div>
 </section>
-@endforeach
+@endsection
+@section('script')
+<script>
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        display.textContent = minutes + " menit " + seconds + " detik";
+
+        if (--timer < 1) {
+            window.location = "{!! url('/') !!}"
+        }
+    }, 1000);
+}
+
+window.onload = function () {
+    var sejam = 60 * 60 - {!! $duration !!},
+        display = document.querySelector('#time');
+    startTimer(sejam, display);
+};
+</script>
 @endsection

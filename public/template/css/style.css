@@ -122,10 +122,10 @@ a.btn-scroll b{
 	font-weight: 500;
 	line-height: normal;
 	border: none;
-	color: #a5a5a5
+	color: #495057
 }
 .form-control:focus {
-	color: #a5a5a5
+	color: #495057
 }
 textarea.form-control {
     height: auto;

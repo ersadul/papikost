@@ -144,6 +144,7 @@
     <!-- Map jQuery -->
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPZ-Erd-14Vf2AoPW2Pzlxssf6-2R3PPs&callback=initMap"></script>
 <script src="{{ asset('template/js/map.scripts.js') }}"></script> -->
+    @yield('script')
 
 
     <!-- For Home page5 side nav -->
