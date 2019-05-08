@@ -84,6 +84,14 @@ Route::group(['prefix' => 'dashboard'], function () {
             return view('dashboard.review');
         })->name('review');
 
+        //manajemen
+        Route::get('/profile', function () {
+            return view('dashboard.manajemen.profile');
+        })->name('manajemen.profile');
+        Route::get('/akun', function () {
+            return view('dashboard.manajemen.akun');
+        })->name('manajemen.akun');
+
         //bantuan
         Route::get('/bantuan', function () {
             return view('dashboard.bantuan');
