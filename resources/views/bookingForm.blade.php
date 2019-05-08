@@ -56,19 +56,19 @@
                             <input type="hidden" name="kamarID" value="{{$kID->id}}">
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Nama Tamu</label>
-                                <input required type="text" name="namaGuest" class="form-control">
+                                <input required autocomplete="off" type="text" name="namaGuest" class="form-control">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Nama Kontak</label>
-                                <input required type="text" name="namaKontakGuest" class="form-control">
+                                <input required autocomplete="off" type="text" name="namaKontakGuest" class="form-control">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">No. Handphone</label>
-                                <input required type="tel" name="handphoneGuest" class="form-control">
+                                <input required autocomplete="off" type="tel" name="handphoneGuest" class="form-control">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Alamat E-Mail</label>
-                                <input required type="email" name="emailGuest" class="form-control">
+                                <input required autocomplete="off" type="email" name="emailGuest" class="form-control">
                             </div>
                             <button type="submit" class="btn btn-default-bg mt-3">Konfirmasi Pesanan</button>
                         </div>
