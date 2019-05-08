@@ -99,9 +99,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="@yield('check.in')"><a href="#"><i class="fa fa-circle-o"></i> Check-in</a></li>
-                            <li class="@yield('menginap')"><a href="#"><i class="fa fa-circle-o"></i> Sedang Menginap</a></li>
-                            <li class="@yield('check.out')"><a href="#"><i class="fa fa-circle-o"></i> Check-out</a></li>
+                            <li class="@yield('check.in')"><a href="{{ route('dashboard.checkin') }}"><i class="fa fa-circle-o"></i> Check-in</a></li>
+                            <li class="@yield('menginap')"><a href="{{ route('dashboard.menginap') }}"><i class="fa fa-circle-o"></i> Sedang Menginap</a></li>
+                            <li class="@yield('check.out')"><a href="{{ route('dashboard.checkout') }}"><i class="fa fa-circle-o"></i> Check-out</a></li>
                         </ul>
                     </li>
                     <li class="treeview @yield('reservasi')">

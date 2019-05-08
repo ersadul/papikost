@@ -59,6 +59,19 @@ Route::group(['prefix' => 'dashboard'], function () {
             return view('dashboard.index');
         })->name('index');
 
+        //hari ini
+        Route::get('/check-in', function () {
+            return view('dashboard.hariIni.checkIn');
+        })->name('checkin');
+        Route::get('/menginap', function () {
+            return view('dashboard.hariIni.menginap');
+        })->name('menginap');
+        Route::get('/check-out', function () {
+            return view('dashboard.hariIni.checkOut');
+        })->name('checkout');
+
+
+        //reservasi
         Route::get('/reservasi', 'Admin\ReservasiController@index')->name('reservasi');
         Route::post('/reservasi', 'Admin\ReservasiController@form')->name('form.reservasi');
         Route::post('/reservasi/pembayaran', 'Admin\ReservasiController@pembayaran')->name('reservasi.pembayaran');
