@@ -39,3 +39,18 @@ td a:hover {
 #info-table td:nth-child(2){
     font-size: 16px
 }
+#bantuan a {
+    color: #444
+}
+#bantuan ul {
+    background-color: #fff
+}
+#bantuan p {
+    white-space: normal
+}
+#bantuan a:hover {
+    background-color: #fff
+}
+#bantuan ul:hover {
+    background-color: #fff
+}

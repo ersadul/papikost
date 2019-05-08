@@ -147,7 +147,7 @@
                             <li class="@yield('akun')"><a href="#"><i class="fa fa-circle-o"></i> Akun</a></li>
                         </ul>
                     </li>
-                    <li class="@yield('bantuan')"><a href="#"><i class="fa fa-question-circle"></i> <span>Bantuan</span></a></li>
+                    <li class="@yield('bantuan')"><a href="{{ route('dashboard.bantuan') }}"><i class="fa fa-question-circle"></i> <span>Bantuan</span></a></li>
                     <li><a href="#"><i class="fa fa-sign-out"></i> <span>Keluar</span></a></li>
                 </ul>
             </section>
