@@ -32,6 +32,7 @@ active
 @endsection
 @section('script')
 <script>
+    var kamar = {!! json_encode($kamar->toArray()) !!};
     $('#calendar').fullCalendar({
       header    : {
         left  : 'prev,next today',
@@ -50,29 +51,10 @@ active
         {
           labelText: 'Kamar',
           width: '10%',
-          field: 'title'
+          field: 'nama_kamar'
         }
       ],
-      resources: [
-        { id: '1', title: 'Kamar 1'},
-        { id: '2', title: 'Kamar 2'},
-        { id: '3', title: 'Kamar 3'},
-        { id: '4', title: 'Kamar 4'},
-        { id: '5', title: 'Kamar 5'},
-        { id: '6', title: 'Kamar 6'},
-        { id: '7', title: 'Kamar 7'},
-        { id: '8', title: 'Kamar 8'},
-        { id: '9', title: 'Kamar 9'},
-        { id: '10', title: 'Kamar 10'},
-        { id: '11', title: 'Kamar 11'},
-        { id: '12', title: 'Kamar 12'},
-        { id: '13', title: 'Kamar 13'},
-        { id: '14', title: 'Kamar 14'},
-        { id: '15', title: 'Kamar 15'},
-        { id: '16', title: 'Kamar 16'},
-        { id: '17', title: 'Kamar 17'},
-        { id: '18', title: 'Kamar 18'}
-      ],
+      resources: kamar,
     dayClick:
         function(date, jsEvent, view, resourceObj) {
             if (moment().format('YYYY-MM-DD') === date.format('YYYY-MM-DD') || date.isAfter(moment())) {
@@ -96,7 +78,10 @@ active
     function getEvents(mulai){
         //ambil event dari tanggal mulai + 6 hari
         events = [
-            { resourceId: '2', start: '2019-05-01', end: '2019-05-02', title: 'event 1', url: 'https://www.google.com/'}
+            { resourceId: '2', start: '2019-05-01', end: '2019-05-02', title: 'event 1', url: 'https://www.google.com/'},
+            { resourceId: '2', start: '2019-05-09', end: '2019-05-10', title: 'event 2', url: 'https://www.google.com/'},
+            { resourceId: '4', start: '2019-05-10', end: '2019-05-12', title: 'event 3', url: 'https://www.google.com/'},
+            { resourceId: '7', start: '2019-05-10', end: '2019-05-11', title: 'event 4', url: 'https://www.google.com/'}
         ]
         $('#calendar').fullCalendar('renderEvents', events);
     }

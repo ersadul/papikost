@@ -9,7 +9,8 @@ use App\Kamar;
 class ReservasiController extends Controller
 {
     public function index(){
-        return view('dashboard.reservasi.reservasi');
+        $kamar = Kamar::all();
+        return view('dashboard.reservasi.reservasi', compact('kamar'));
     }
     public function form(Request $request){
         return view('dashboard.reservasi.form', compact('request'));

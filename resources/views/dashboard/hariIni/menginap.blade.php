@@ -41,9 +41,9 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr class="text-center">
+                    <tr>
                         <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
                     </tr>
                 </table>
             </div>
@@ -71,9 +71,9 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr class="text-center">
+                    <tr>
                         <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
                     </tr>
                 </table>
             </div>
@@ -101,9 +101,9 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr class="text-center">
+                    <tr>
                         <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
                     </tr>
                 </table>
             </div>
@@ -131,9 +131,9 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr class="text-center">
+                    <tr>
                         <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
                     </tr>
                 </table>
             </div>
