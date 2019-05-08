@@ -79,6 +79,11 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/list-reservasi', 'Admin\ReservasiController@list')->name('list.reservasi');
         Route::get('/list-reservasi/detail', 'Admin\ReservasiController@detail')->name('detail.reservasi');
 
+        //review
+        Route::get('/review', function () {
+            return view('dashboard.review');
+        })->name('review');
+
         //bantuan
         Route::get('/bantuan', function () {
             return view('dashboard.bantuan');

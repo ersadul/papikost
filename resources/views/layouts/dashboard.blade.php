@@ -129,7 +129,7 @@
                             <li class="@yield('cleaning.schedule')"><a href="#"><i class="fa fa-circle-o"></i> Cleaning Schedule</a></li>
                         </ul>
                     </li>
-                    <li class="@yield('review')"><a href="#"><i class="fa fa-comments"></i> <span>Review</span></a></li>
+                    <li class="@yield('review')"><a href="{{ route('dashboard.review') }}"><i class="fa fa-comments"></i> <span>Review</span></a></li>
                     <hr>
                     <li class="treeview @yield('manajemen')">
                         <a href="#">
