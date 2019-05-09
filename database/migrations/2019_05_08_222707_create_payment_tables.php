@@ -14,12 +14,13 @@ class CreatePaymentTables extends Migration
     public function up()
     {
         Schema::create('payment', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('invoice_code');
+            $table->unsignedInteger('invoice_id');
+            $table->integer('tipe_payment');
             $table->integer('flag_payment');
             $table->string('nomor_transaksi')->nullable();
             $table->string('bukti_pembayaran_file')->nullable();
             $table->timestamps();
+            $table->foreign('invoice_id')->references('id')->on('invoice')->onDelete('cascade');
         });
     }
 
