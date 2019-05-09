@@ -7,4 +7,5 @@ $(function () {
       'info'        : true,
       'autoWidth'   : true
     })
+    $('#reservation').daterangepicker()
 })

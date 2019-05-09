@@ -15,8 +15,45 @@ active
 </section>
 <section class="content">
     <div class="box box-solid">
-        <div class="box-body">
+        <div class="box-header">
+            <button type="button" id="btn-rev" class="btn btn-primary btn-flat btn-sm pull-right" data-toggle="modal"
+                data-target="#review"><i class="fa fa-plus-circle"></i> Tambah Review</button>
+        </div>
+        <div class="modal fade" id="review">
+            <div class="modal-dialog">
+                <form action="#" method="post">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span></button>
+                            <h4 class="modal-title">Tambah Review</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Nomor Kamar</label>
+                                <input type="text" class="form-control" required autocomplete="off">
+                            </div>
+                            <div class="form-group" style="padding-bottom: 30px">
+                                <label>Tanggal Menginap:</label>
+                                <input type="text" class="form-control pull-right" id="reservation" autocomplete="off"
+                                    required>
+                            </div>
+                            <div class="form-group">
+                                <label>Review</label>
+                                <textarea rows="3" class="form-control" required></textarea>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default pull-left btn-flat"
+                                data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary btn-flat">Simpan</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
 
+        <div class="box-body">
             <div class="table-responsive">
                 <table class="table" id="datatable">
                     <thead>
@@ -30,7 +67,7 @@ active
                                 <div class="box box-solid">
                                     <div class="box-body">
                                         <div class="text-center">
-                                            <h4>1</h4>
+                                            <h5>1</h5>
                                             <small>Check-in Date : <b>5 Mei 2019</b></small><br>
                                             <small>Check-out Date : <b>6 Mei 2019</b></small>
                                         </div>
@@ -46,7 +83,7 @@ active
                                 <div class="box box-solid">
                                     <div class="box-body">
                                         <div class="text-center">
-                                            <h4>2</h4>
+                                            <h5>2</h5>
                                             <small>Check-in Date : <b>5 Mei 2019</b></small><br>
                                             <small>Check-out Date : <b>6 Mei 2019</b></small>
                                         </div>
@@ -62,7 +99,7 @@ active
                                 <div class="box box-solid">
                                     <div class="box-body">
                                         <div class="text-center">
-                                            <h4>3</h4>
+                                            <h5>3</h5>
                                             <small>Check-in Date : <b>5 Mei 2019</b></small><br>
                                             <small>Check-out Date : <b>6 Mei 2019</b></small>
                                         </div>
