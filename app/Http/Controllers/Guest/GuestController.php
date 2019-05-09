@@ -57,14 +57,10 @@ class GuestController extends Controller
         $invoiceFinal->status_lunas = 0;
         $invoiceFinal->kamar_id = $request->kamarID;
         $invoiceFinal->save();
+        $invoice = Invoice::where('phone', $request->handphoneGuest)->where('invoice_code', $invoice_code_temp)->first();
+        $duration = 0;
 
-        // $invoice = DB::table('invoice')
-        // ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
-        // ->where('invoice.phone', '=', $request->handphoneGuest)
-        // ->where('invoice.invoice_code', '=', $invoice_code_temp)
-        // ->first();
-        
-        return view('invoice', compact('invoice'));
+        return view('invoice', compact('invoice', 'duration'));
     }
 
     public function cekInvoice(Request $request)
@@ -84,4 +80,9 @@ class GuestController extends Controller
             return view('invoice', compact('invoice', 'duration'));
         }
     }
+
+    // status menginap 0 = check_in, 1 = sedang_menginap, 2 = check_out
+
+    // flag_pembayaran 1 = lunas, 0 = menunggu_pembayaran
+    
 }
