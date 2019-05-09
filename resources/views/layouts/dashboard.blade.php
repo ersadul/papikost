@@ -114,6 +114,7 @@
                         <ul class="treeview-menu">
                             <li class="@yield('subreservasi')"><a href="{{ route('dashboard.reservasi') }}"><i class="fa fa-circle-o"></i> Reservasi</a></li>
                             <li class="@yield('list.reservasi')"><a href="{{ route('dashboard.list.reservasi') }}"><i class="fa fa-circle-o"></i> List Reservasi</a></li>
+                            <li class="@yield('history.reservasi')"><a href="{{ route('dashboard.history.reservasi') }}"><i class="fa fa-circle-o"></i> History</a></li>
                         </ul>
                     </li>
                     <li class="treeview @yield('housekeeping')">
