@@ -41,9 +41,8 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr>
-                        <td><a href="#">Request</a></td>
-                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
+                    <tr class="text-center">
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>
@@ -71,9 +70,8 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr>
-                        <td><a href="#">Request</a></td>
-                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
+                    <tr class="text-center">
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>
@@ -101,9 +99,8 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr>
-                        <td><a href="#">Request</a></td>
-                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
+                    <tr class="text-center">
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>
@@ -131,9 +128,8 @@ active
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">
-                    <tr>
-                        <td><a href="#">Request</a></td>
-                        <td class="pull-right"><a href="#">Edit Data Diri</a></td>
+                    <tr class="text-center">
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>
