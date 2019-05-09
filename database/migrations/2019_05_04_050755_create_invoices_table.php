@@ -19,7 +19,7 @@ class CreateInvoicesTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('phone');
-            $table->dateTime('check_in');
+            $table->date('check_in');
             $table->integer('lama_menginap');
             $table->integer('status_lunas');
             $table->timestamps();
