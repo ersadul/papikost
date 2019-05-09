@@ -11,4 +11,9 @@ class Invoice extends Model
     public function kamar(){
         return $this->hasOne('App\Kamar', 'id', 'kamar_id');
     }
+
+    public function tipeKamar()
+    {
+        return $this->hasMany('App\Kamar');
+    }
 }
