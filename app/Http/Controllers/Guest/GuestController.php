@@ -78,7 +78,6 @@ class GuestController extends Controller
         if($interval->h > 0){
             //kasih action drop invoice bahwa sudah kadaluarsa
             return "invoice telah lebih dari 1 jam";
-
         }else{
             $duration = $interval->i * 60 + $interval->s;
             return view('invoice', compact('invoice', 'duration'));
