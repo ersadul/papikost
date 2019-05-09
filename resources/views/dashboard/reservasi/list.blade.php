@@ -18,7 +18,7 @@ active
 <section class="content">
     <div class="box box-solid">
         <div class="box-body">
-            <div class="table-responsive">
+            <div class="table-responsive" id="reservasi">
                 <table class="table" id="datatable">
                     <thead>
                         <tr>
