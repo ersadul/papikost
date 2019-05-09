@@ -58,11 +58,12 @@ class GuestController extends Controller
         $invoiceFinal->kamar_id = $request->kamarID;
         $invoiceFinal->save();
 
-        $invoice = DB::table('invoice')
-        ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
-        ->where('invoice.phone', '=', $request->handphoneGuest)
-        ->where('invoice.invoice_code', '=', $invoice_code_temp)
-        ->get();
+        // $invoice = DB::table('invoice')
+        // ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
+        // ->where('invoice.phone', '=', $request->handphoneGuest)
+        // ->where('invoice.invoice_code', '=', $invoice_code_temp)
+        // ->first();
+        
         return view('invoice', compact('invoice'));
     }
 
