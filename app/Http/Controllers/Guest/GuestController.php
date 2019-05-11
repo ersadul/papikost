@@ -54,7 +54,8 @@ class GuestController extends Controller
         $invoiceFinal->phone = $request->handphoneGuest;
         $invoiceFinal->check_in = Carbon::parse($request->guestMasuk)->format('Y-m-d');
         $invoiceFinal->lama_menginap = $request->guestDurasi;
-        $invoiceFinal->status_lunas = 0;
+        $invoiceFinal->final_harga = 0;
+        $invoiceFinal->status_menginap = 0;
         $invoiceFinal->kamar_id = $request->kamarID;
         $invoiceFinal->save();
         $invoice = Invoice::where('phone', $request->handphoneGuest)->where('invoice_code', $invoice_code_temp)->first();

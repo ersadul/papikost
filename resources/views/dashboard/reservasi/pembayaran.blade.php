@@ -35,13 +35,16 @@ active
             </table>
         </div>
     </div>
-    <form action="#" method="post">
+    <form action="{{ route('dashboard.save.pembayaran') }}" method="post">
         @csrf
         <input type="hidden" name="tipe">
         <input type="hidden" name="nama" value="{{ $request->nama }}">
         <input type="hidden" name="room" value="{{ $request->room }}">
         <input type="hidden" name="date" value="{{ $request->date }}">
         <input type="hidden" name="range" value="{{ $request->range }}">
+        <input type="hidden" name="email" value="{{ $request->email }}">
+        <input type="hidden" name="telp" value="{{ $request->telp }}">
+        <input type="hidden" name="hargaAkhir" value="{{ $kamar->harga * $request->range }}">
         <div class="row" id="payment">
             <div class="col-md-4">
                 <div class="box box-solid">
@@ -51,7 +54,7 @@ active
                     <div class="box-body">
                         <div class="form-group">
                             <label>Nomor Transaksi</label>
-                            <input type="email" class="form-control" name="debit" id="debit">
+                            <input type="text" class="form-control" name="debit" id="debit">
                         </div>
                     </div>
                     <div class="box-footer">

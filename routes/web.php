@@ -47,6 +47,7 @@ Route::group(['namespace' => 'Guest'], function(){
 // Route::get('/cek-pesanan', function () {
 //     return view('cekPesanan');
 // })->name('cek.pesanan');
+
 Route::get('/promo', function () {
     return view('promo');
 })->name('promo');
@@ -75,6 +76,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/reservasi', 'Admin\ReservasiController@index')->name('reservasi');
         Route::post('/reservasi', 'Admin\ReservasiController@form')->name('form.reservasi');
         Route::post('/reservasi/pembayaran', 'Admin\ReservasiController@pembayaran')->name('reservasi.pembayaran');
+        Route::post('/reservasi/pembayaran/upload', 'Admin\ReservasiController@saveReservasiToDB')->name('save.pembayaran');
 
         Route::get('/list-reservasi', 'Admin\ReservasiController@list')->name('list.reservasi');
         Route::get('/list-reservasi/detail', 'Admin\ReservasiController@detail')->name('detail.reservasi');
