@@ -112,12 +112,12 @@
                             </td>
                             <td>
                                 <hr><b>
-                                    <p class="text-right">Rp. {{$kID->harga}}</p>
+                                    <p class="text-right">Rp. {{$kID->harga*$kamarLamaMenginap}}</p>
                                 </b>
                             </td>
                         </tr>
                     </table>
-                    <span class="btn btn-primary" style="cursor: auto">Total Pembayaran: Rp. {{$kID->harga}}</span>
+                    <span class="btn btn-primary" style="cursor: auto">Total Pembayaran: Rp. {{$kID->harga*$kamarLamaMenginap}}</span>
                 </div>
             </div>
         </div>

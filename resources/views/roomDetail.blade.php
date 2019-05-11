@@ -180,8 +180,8 @@
                                 <input type="hidden" name="guestDurasi" class="form-control" value="{{$kamarLamaMenginap}}">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Total Tagihan : {{$kID->harga}}</label>
-                                <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga}}">
+                                <label class="text-block-1">Total Tagihan : {{$kID->harga}} x {{$kamarLamaMenginap}} </label>
+                                <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga*$kamarLamaMenginap}}">
                             </div>
                                 <input type="hidden" name="kamarId" class="form-control" value="{{$kID->id}}">
                             <button type="submit" class="btn btn-default-bg">Pesan Sekarang</button>

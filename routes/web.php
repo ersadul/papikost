@@ -81,18 +81,16 @@ Route::group(['prefix' => 'dashboard'], function () {
         Route::get('/list-reservasi', 'Admin\ReservasiController@list')->name('list.reservasi');
         Route::get('/list-reservasi/detail', 'Admin\ReservasiController@detail')->name('detail.reservasi');
 
+        Route::get('/reservasi/history', 'Admin\ReservasiController@history')->name('history.reservasi');
+
         //review
-        Route::get('/review', function () {
-            return view('dashboard.review');
-        })->name('review');
+        Route::get('/review', 'Admin\ReservasiController@history')->name('review');
 
         //manajemen
-        Route::get('/profile', function () {
-            return view('dashboard.manajemen.profile');
-        })->name('manajemen.profile');
-        Route::get('/akun', function () {
-            return view('dashboard.manajemen.akun');
-        })->name('manajemen.akun');
+        Route::get('/profile', 'Admin\ManajemenController@profile')->name('manajemen.profile');
+        Route::get('/kamar', 'Admin\ManajemenController@kamar')->name('manajemen.kamar');
+        Route::get('/tarif', 'Admin\ManajemenController@tarif')->name('manajemen.tarif');
+        Route::get('/akun', 'Admin\ManajemenController@akun')->name('manajemen.akun');
 
         //bantuan
         Route::get('/bantuan', function () {

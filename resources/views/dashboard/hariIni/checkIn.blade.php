@@ -43,8 +43,7 @@ active
                 <table class="table">
                     <tr class="text-center">
                         <td><a href="#">Check-in</a></td>
-                        <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>
@@ -74,8 +73,7 @@ active
                 <table class="table">
                     <tr class="text-center">
                         <td><a href="#">Check-in</a></td>
-                        <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>
@@ -105,8 +103,7 @@ active
                 <table class="table">
                     <tr class="text-center">
                         <td><a href="#">Check-in</a></td>
-                        <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>
@@ -136,8 +133,7 @@ active
                 <table class="table">
                     <tr class="text-center">
                         <td><a href="#">Check-in</a></td>
-                        <td><a href="#">Request</a></td>
-                        <td><a href="#">Edit Data Diri</a></td>
+                        <td><a href="#">Edit Reservasi</a></td>
                     </tr>
                 </table>
             </div>

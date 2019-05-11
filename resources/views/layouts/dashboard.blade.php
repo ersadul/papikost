@@ -114,6 +114,7 @@
                         <ul class="treeview-menu">
                             <li class="@yield('subreservasi')"><a href="{{ route('dashboard.reservasi') }}"><i class="fa fa-circle-o"></i> Reservasi</a></li>
                             <li class="@yield('list.reservasi')"><a href="{{ route('dashboard.list.reservasi') }}"><i class="fa fa-circle-o"></i> List Reservasi</a></li>
+                            <li class="@yield('history.reservasi')"><a href="{{ route('dashboard.history.reservasi') }}"><i class="fa fa-circle-o"></i> History</a></li>
                         </ul>
                     </li>
                     <li class="treeview @yield('housekeeping')">
@@ -140,8 +141,8 @@
                         </a>
                         <ul class="treeview-menu">
                             <li class="@yield('profile')"><a href="{{ route('dashboard.manajemen.profile') }}"><i class="fa fa-circle-o"></i> Profile</a></li>
-                            <li class="@yield('kamar')"><a href="#"><i class="fa fa-circle-o"></i> Kamar</a></li>
-                            <li class="@yield('tarif')"><a href="#"><i class="fa fa-circle-o"></i> Tarif</a></li>
+                            <li class="@yield('kamar')"><a href="{{ route('dashboard.manajemen.kamar') }}"><i class="fa fa-circle-o"></i> Kamar</a></li>
+                            <li class="@yield('tarif')"><a href="{{ route('dashboard.manajemen.tarif') }}"><i class="fa fa-circle-o"></i> Tarif</a></li>
                             <li class="@yield('fasilitas')"><a href="#"><i class="fa fa-circle-o"></i> Fasilitas</a></li>
                             <li class="@yield('karyawan')"><a href="#"><i class="fa fa-circle-o"></i> Karyawan</a></li>
                             <li class="@yield('akun')"><a href="{{ route('dashboard.manajemen.akun') }}"><i class="fa fa-circle-o"></i> Akun</a></li>

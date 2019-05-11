@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Meta Tags -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Vilena template">
-    <meta name="keywords"
-        content="blog, bootstrap, company portfolio, cv template, experience, html template, one page, personal, portfolio, team members">
-    <meta name="author" content="Unicoder">
+    <meta name="description" content="SAFA Guest House">
+    {{-- <meta name="keywords"
+        content="blog, bootstrap, company portfolio, cv template, experience, html template, one page, personal, portfolio, team members"> --}}
+
     <!-- Required style of the theme -->
     <!--===============================================================================================-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet">

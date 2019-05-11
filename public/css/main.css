@@ -2,28 +2,28 @@ hr {
     margin-top: 5px;
     margin-bottom: 5px
 }
-#datatable thead{
+#reservasi #datatable thead{
     display: none
 }
-td .box {
+#reservasi td .box {
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1);
     margin-bottom: 0
 }
 .media-body p {
     padding-top: 10px
 }
-td h4 {
+#reservasi td h4 {
     margin-top: 0
 }
-td p {
+#reservasi td p {
     font-size: 12px;
     line-height: 8px
 }
-td a {
+#reservasi td a {
     color: #333;
     margin-top: -20px
 }
-td a:hover {
+#reservasi td a:hover {
     color: #333
 }
 #payment .box-body {
@@ -56,11 +56,14 @@ td a:hover {
 #bantuan ul:hover {
     background-color: #fff
 }
-#review h4 {
+#review h5 {
     font-weight: 600;
     font-size: 20px;
     color: #dd4b39
 }
 #review .box-footer p {
     margin-bottom: 0
+}
+#btn-rev:hover{
+    background-color: #367fa9
 }
