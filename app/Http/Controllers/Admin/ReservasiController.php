@@ -95,8 +95,20 @@ class ReservasiController extends Controller
                         ->get();
         return view('dashboard.reservasi.list', compact('reservasi'));
     }
-    public function detail(){
-        return view('dashboard.reservasi.detail');
+    public function detail(Request $request){
+        $invoice = Invoice::join('payment', 'invoice.id', '=', 'payment.invoice_id')
+                        ->where('invoice.id', $request->invoice_id)
+                        ->first();
+        // dd($invoice);
+        //tambah atribut check out
+        $extractDate = explode("-", $invoice->check_in);
+        $checkOut  = date('Y-m-d', mktime(0, 0, 0, $extractDate[1]  , $extractDate[2] + $invoice->lama_menginap, $extractDate[0]));
+        $invoice->check_out = $checkOut;
+        //mode konfirmasi atau read only
+        $readonly = $request->readonly ? true : false;
+
+        // dd($read_only);
+        return view('dashboard.reservasi.detail', compact('invoice', 'readonly'));
     }
     public function history(){
         return view('dashboard.reservasi.history');
