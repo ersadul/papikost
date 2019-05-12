@@ -137,7 +137,7 @@ active
                         <div class="checkbox">
                             <label>
                                 <input type="checkbox" name="cash" id="cash"
-                                    {{ $invoice->tipe_payment != 1 ? "readonly" : ""}} disabled> Lunas
+                                    {{ $invoice->flag_payment == 1 ? "checked" : ""}} disabled> Lunas
                             </label>
                         </div>
                     </div>
