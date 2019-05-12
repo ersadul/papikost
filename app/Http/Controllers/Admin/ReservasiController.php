@@ -87,7 +87,13 @@ class ReservasiController extends Controller
     }
 
     public function list(){
-        return view('dashboard.reservasi.list');
+        $reservasi = Invoice::select('*', 'payment.updated_at as payment_update')
+                        ->join('payment', 'invoice.id', '=', 'payment.invoice_id')
+                        ->where('payment.tipe_payment', '1')
+                        ->where('payment.flag_payment', '0')
+                        ->orderBy('payment.updated_at', 'desc')
+                        ->get();
+        return view('dashboard.reservasi.list', compact('reservasi'));
     }
     public function detail(){
         return view('dashboard.reservasi.detail');
