@@ -220,21 +220,6 @@
             </div>
         </div>
         <div class="row">
-            <!-- @foreach($kamar as $k) -->
-            <!-- <div class="col-md-6 col-lg-4">
-                <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
-                    <div class="thumb-top position-relative">
-                        <div class="overflow_hidden"><img src="{{ asset('template/img/squire/2.jpg') }}" alt="Booking Room">
-                        </div>
-                    </div>
-                    <div class="room-info">
-                        <div class="down-line-left mb-3">
-                            <h6 class="title"><a class="text-primary" href="#">{{$k->nama_kamar}}</a></h6>
-                            <span class="subtext">{{$k->deskripsi}} </span>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
             <div class="col-md-6 col-lg-4">
                 <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
                     <div class="thumb-top position-relative">
@@ -265,7 +250,6 @@
                     </div>
                 </div>
             </div> -->
-            <!-- @endforeach -->
             <div class="col-md-12 mt-5"> <a href="{{ route('promo') }}" class="btn btn-lg-default x-center">Lihat Promo Lain</a>
             </div>
         </div>

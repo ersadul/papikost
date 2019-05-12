@@ -22,6 +22,7 @@ class CreateInvoicesTable extends Migration
             $table->date('check_in');
             $table->integer('lama_menginap');
             $table->integer('status_menginap');
+            $table->integer('final_harga');
             $table->timestamps();
         });
     }

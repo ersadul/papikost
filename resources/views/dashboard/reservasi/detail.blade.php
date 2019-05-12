@@ -19,25 +19,25 @@ active
                 <div class="col-md-8">
                     <div class="form-group">
                         <label>Nama Tamu</label>
-                        <input type="text" class="form-control" readonly value="Pelanggan 1">
+                        <input type="text" class="form-control" readonly value="{{ $invoice->nama }}">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>No. Telephone</label>
-                        <input type="number" class="form-control" readonly value="08123456789">
+                        <input type="number" class="form-control" readonly value="{{ $invoice->phone }}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>E-mail</label>
-                        <input type="email" class="form-control" readonly value="pelanggan@domain.com">
+                        <input type="email" class="form-control" readonly value="{{ $invoice->email }}">
                     </div>
                 </div>
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Permintaan Khusus</label>
-                        <textarea class="form-control" readonly rows="3" name="khusus">Selimut tambah 1</textarea>
+                        <textarea class="form-control" readonly rows="3" name="khusus">Ini Belum Ada Kolomnya</textarea>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -49,13 +49,14 @@ active
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Check-in</label>
-                        <input class="form-control" readonly value="2019-05-05">
+                        <input class="form-control" readonly value="{{ $invoice->check_in }}">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Check-out</label>
-                        <input class="form-control" readonly value="2019-05-07">
+                        <input class="form-control" readonly 
+                        value='{{ $invoice->check_out }}'>
                     </div>
                 </div>
             </div>
@@ -70,7 +71,8 @@ active
                 <div class="box-body">
                     <div class="form-group">
                         <label>Nomor Transaksi</label>
-                        <input type="email" class="form-control" readonly value="Ada jika lewat debit">
+                        <input type="email" class="form-control" readonly 
+                            value="{{ $invoice->tipe_payment == 0 ? $invoice->nomor_transaksi : '-' }}">
                     </div>
                 </div>
             </div>
@@ -83,13 +85,44 @@ active
                 <div class="box-body">
                     <div class="form-group">
                         <label>Nomor Transaksi</label>
-                        <input type="text" class="form-control" readonly value="Ada jika reservasi online">
+                        <form action="" id="confirm-payment">
+                            <input type="text" class="form-control" required
+                                {{ $readonly || is_null($invoice->bukti_pembayaran_file) ? "readonly" : ""}}
+                                value="{{ $invoice->tipe_payment == 1 ? $invoice->nomor_transaksi : '-' }}">
+                        </form>
                     </div>
                     <div class="form-group">
                         <label>Bukti Pembayaran</label>
-                        <p>Lihat bukti pembayaran <a href="#">disini</a></p>
+                        @if(!is_null($invoice->bukti_pembayaran_file))
+                            <p>Lihat bukti pembayaran <a href="#" data-toggle="modal" data-target="#bukti-pembayaran">disini</a></p>
+                            <div class="modal fade" id="bukti-pembayaran">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">Default Modal</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <img src='{{ asset("img/payment/$invoice->bukti_pembayaran_file") }}' style="width:100%">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
+                                    </div>
+                                    </div>
+                                    <!-- /.modal-content -->
+                                </div>
+                                <!-- /.modal-dialog -->
+                            </div>
+                            <!-- /.modal -->
+                        @else
+                            <p>Belum ada bukti pembayaran terunggah</a></p>
+                        @endif
                     </div>
-                    <button class="btn btn-primary btn-flat pull-right">Konfirmasi</button>
+                    <button form="confirm-payment" class="btn btn-primary btn-flat pull-right"
+                        {{ $readonly || is_null($invoice->bukti_pembayaran_file) ? "disabled" : ""}}>
+                        Konfirmasi
+                    </button>
                 </div>
             </div>
         </div>
@@ -103,7 +136,8 @@ active
                         <label>Status Pembayaran</label>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="cash" id="cash" checked disabled> Lunas
+                                <input type="checkbox" name="cash" id="cash"
+                                    {{ $invoice->tipe_payment == 2 ? "checked" : ""}} disabled> Lunas
                             </label>
                         </div>
                     </div>
