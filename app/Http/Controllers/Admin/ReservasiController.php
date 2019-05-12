@@ -115,4 +115,13 @@ class ReservasiController extends Controller
 
         return view('dashboard.reservasi.history', compact('reservasi'));
     }
+
+    public function getCheckIn(){
+        $checkIn = Invoice::join('payment', 'invoice.id', '=', 'payment.invoice_id')
+                        ->where('invoice.status_menginap', '0') //status akan check in (0)
+                        ->where('invoice.check_in', date('Y-m-d')) //hari ini
+                        ->get();
+
+        return view('dashboard.hariIni.checkIn', compact('checkIn'));
+    }
 }
