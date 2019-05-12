@@ -15,6 +15,12 @@ class ReservasiController extends Controller
         $kamar = Kamar::all();
         return view('dashboard.reservasi.reservasi', compact('kamar'));
     }
+
+    public function getKamar(Request $request){
+        $invoice = Invoice::whereBetween('check_in', [$request->start, $request->end])->get();
+        return json_encode($invoice);
+    }
+
     public function form(Request $request){
         return view('dashboard.reservasi.form', compact('request'));
     }

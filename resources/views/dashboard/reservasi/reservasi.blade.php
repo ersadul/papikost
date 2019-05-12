@@ -55,7 +55,7 @@ active
         }
       ],
       resources: kamar,
-    dayClick:
+      dayClick:
         function(date, jsEvent, view, resourceObj) {
             if (moment().format('YYYY-MM-DD') === date.format('YYYY-MM-DD') || date.isAfter(moment())) {
                 $("#date").val(date.format());
@@ -64,6 +64,7 @@ active
             }
         }
     })
+
     var mulai = $('#calendar').fullCalendar('getView').start.format('YYYY-MM-DD')
     getEvents(mulai);
 
@@ -75,15 +76,45 @@ active
         var mulai = $('#calendar').fullCalendar('getView').start.format('YYYY-MM-DD')
         getEvents(mulai);
     });
+
     function getEvents(mulai){
         //ambil event dari tanggal mulai + 6 hari
-        events = [
-            { resourceId: '2', start: '2019-05-01', end: '2019-05-02', title: 'event 1', url: 'https://www.google.com/'},
-            { resourceId: '2', start: '2019-05-09', end: '2019-05-10', title: 'event 2', url: 'https://www.google.com/'},
-            { resourceId: '4', start: '2019-05-10', end: '2019-05-12', title: 'event 3', url: 'https://www.google.com/'},
-            { resourceId: '7', start: '2019-05-10', end: '2019-05-11', title: 'event 4', url: 'https://www.google.com/'}
-        ]
-        $('#calendar').fullCalendar('renderEvents', events);
+
+        var startDate = new Date(mulai);
+        var endDate = new Date()
+        endDate.setDate(startDate.getDate()+6)
+
+        $.ajax({
+            url: '{{ route('dashboard.get.kamar') }}',
+            data: {
+                start: startDate.toISOString(),
+                end: endDate.toISOString()
+            },
+            success: function(result){
+                var data = JSON.parse(result);
+                console.log(data);
+                var events = [];
+                $.each(data, function(index, event) {
+                    var checkIn = new Date(event.check_in);
+                    var checkOut = new Date();
+                    checkOut.setDate(checkIn.getDate() + event.lama_menginap);
+
+                    events.push({
+                        resourceId  : event.kamar_id,
+                        start       : checkIn,
+                        end         : checkOut,
+                        title       : event.nama,
+                        allDay      : true
+                    });
+                })
+
+                $("#calendar").fullCalendar( 'removeEvents')
+                $('#calendar').fullCalendar('addEventSource', events);
+            },
+            fail: function () {
+                alert("something get wrong !");
+            }
+        })
     }
 </script>
 @endsection

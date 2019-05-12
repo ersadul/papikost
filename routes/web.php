@@ -75,6 +75,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         //reservasi
         Route::get('/reservasi', 'Admin\ReservasiController@index')->name('reservasi');
         Route::post('/reservasi', 'Admin\ReservasiController@form')->name('form.reservasi');
+        Route::get('/reservasi/kamar', 'Admin\ReservasiController@getKamar')->name('get.kamar');
         Route::post('/reservasi/pembayaran', 'Admin\ReservasiController@pembayaran')->name('reservasi.pembayaran');
         Route::post('/reservasi/pembayaran/upload', 'Admin\ReservasiController@saveReservasiToDB')->name('save.pembayaran');
 
