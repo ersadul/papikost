@@ -87,16 +87,16 @@ class ReservasiController extends Controller
     }
 
     public function list(){
-        $reservasi = Invoice::select('*', 'payment.updated_at as payment_update')
-                        ->join('payment', 'invoice.id', '=', 'payment.invoice_id')
-                        ->where('payment.tipe_payment', '1')
-                        ->where('payment.flag_payment', '0')
-                        ->orderBy('payment.updated_at', 'desc')
+        $reservasi = Invoice::select('*', 'payment_invoice.updated_at as payment_update')
+                        ->join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
+                        ->where('payment_invoice.tipe_payment', '1')
+                        ->where('payment_invoice.flag_payment', '0')
+                        ->orderBy('payment_invoice.updated_at', 'desc')
                         ->get();
         return view('dashboard.reservasi.list', compact('reservasi'));
     }
     public function detail(Request $request){
-        $invoice = Invoice::join('payment', 'invoice.id', '=', 'payment.invoice_id')
+        $invoice = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
                         ->where('invoice.id', $request->invoice_id)
                         ->first();
         // dd($invoice);
@@ -117,11 +117,20 @@ class ReservasiController extends Controller
     }
 
     public function getCheckIn(){
-        $checkIn = Invoice::join('payment', 'invoice.id', '=', 'payment.invoice_id')
+        $checkIn = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
                         ->where('invoice.status_menginap', '0') //status akan check in (0)
                         ->where('invoice.check_in', date('Y-m-d')) //hari ini
                         ->get();
 
         return view('dashboard.hariIni.checkIn', compact('checkIn'));
+    }
+
+    public function getSedangMenginap()
+    {
+        $sedangMenginap = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
+                        ->where('invoice.status_menginap', '1')
+                        ->where('invoice.check_in', date('Y-m-d'))
+                        ->get();
+        return view('dashboard.hariIni.menginap', compact('sedangMenginap'));
     }
 }
