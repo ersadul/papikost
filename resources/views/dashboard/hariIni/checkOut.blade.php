@@ -18,6 +18,7 @@ active
 </section>
 <section class="content">
     <div class="row">
+        @foreach($checkOut as $co)
         <div class="col-md-4">
             <div class="box box-solid">
                 <div class="box-header with-border">
@@ -47,7 +48,8 @@ active
                 </table>
             </div>
         </div>
-        <div class="col-md-4">
+        @endforeach
+        <!-- <div class="col-md-4">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <div class="box-title">
@@ -133,7 +135,7 @@ active
                     </tr>
                 </table>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 @endsection

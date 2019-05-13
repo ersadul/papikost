@@ -121,16 +121,25 @@ class ReservasiController extends Controller
                         ->where('invoice.status_menginap', '0') //status akan check in (0)
                         ->where('invoice.check_in', date('Y-m-d')) //hari ini
                         ->get();
-
         return view('dashboard.hariIni.checkIn', compact('checkIn'));
     }
 
     public function getSedangMenginap()
     {
         $sedangMenginap = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
-                        ->where('invoice.status_menginap', '1')
+                        ->where('invoice.status_menginap', '1') //status sedang menginap (1)
                         ->where('invoice.check_in', date('Y-m-d'))
                         ->get();
         return view('dashboard.hariIni.menginap', compact('sedangMenginap'));
+    }
+
+    public function getCheckOut()
+    {
+        $checkOut = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
+                        ->where('invoice.status_menginap', '2') //status akan chech out (2)
+                        ->where('invoice.check_in', date('Y-m-d'))
+                        ->get();
+        return view('dashboard.hariIni.checkOut', compact('checkOut'));
+
     }
 }

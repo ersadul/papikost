@@ -66,10 +66,11 @@ Route::group(['prefix' => 'dashboard'], function () {
         //     return view('dashboard.hariIni.menginap');
         // })->name('menginap');
         Route::get('/menginap', 'Admin\ReservasiController@getSedangMenginap')->name('menginap');
-        Route::get('/check-out', function () {
-            return view('dashboard.hariIni.checkOut');
-        })->name('checkout');
-
+        // Route::get('/check-out', function () {
+        //     return view('dashboard.hariIni.checkOut');
+        // })->name('checkout');
+        Route::get('/check-out', 'Admin\ReservasiController@getCheckOut')->name('checkout');
+        
 
         //reservasi
         Route::get('/reservasi', 'Admin\ReservasiController@index')->name('reservasi');
