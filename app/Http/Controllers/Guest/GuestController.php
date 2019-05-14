@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Kamar;
 use App\Invoice;
+use App\Payment;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -61,7 +62,15 @@ class GuestController extends Controller
         $invoice = Invoice::where('phone', $request->handphoneGuest)->where('invoice_code', $invoice_code_temp)->first();
         $duration = 0;
 
-        return view('invoice', compact('invoice', 'duration'));
+        $payment = new Payment;
+        $payment->invoice_id = $invoice->id;
+        $payment->tipe_payment = 2;
+        $payment->flag_payment = 0;
+        $payment->save();
+
+
+        return dd($invoiceFinal);
+        // return view('invoice', compact('invoice', 'duration'));
     }
 
     public function cekInvoice(Request $request)
