@@ -108,3 +108,6 @@ Route::group(['namespace' => 'Admin'], function(){
     Route::post('/admin/kamar/update', 'KamarController@updateKamar');
     Route::delete('/admin/kamar/delete/{id}', 'KamarController@deleteKamar');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
