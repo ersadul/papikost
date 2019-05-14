@@ -25,7 +25,9 @@ active
                         <th>Total Harga</th>
                     </tr>
                     <tr>
-                        <td>{{ $request->nama }}</td>
+                        <td>
+                            {{ $request->nama }} 
+                        </td>
                         <td>{{ $request->room }}</td>
                         <td>{{ $request->date }}</td>
                         <td>{{ $request->range }}</td>
@@ -44,6 +46,7 @@ active
         <input type="hidden" name="range" value="{{ $request->range }}">
         <input type="hidden" name="email" value="{{ $request->email }}">
         <input type="hidden" name="telp" value="{{ $request->telp }}">
+        <input type="hidden" name="khusus" value="{{ $request->khusus }}">
         <input type="hidden" name="hargaAkhir" value="{{ $kamar->harga * $request->range }}">
         <div class="row" id="payment">
             <div class="col-md-4">

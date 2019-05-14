@@ -22,6 +22,7 @@ class ReservasiController extends Controller
     }
 
     public function form(Request $request){
+        // return dd($request);
         return view('dashboard.reservasi.form', compact('request'));
     }
     public function pembayaran(Request $request){
@@ -32,6 +33,7 @@ class ReservasiController extends Controller
         // } else {
         //     return dd($request->debit);
         // }
+        // return dd($request->khusus);
         return view('dashboard.reservasi.pembayaran', compact('request', 'kamar'));
     }
 
@@ -47,6 +49,7 @@ class ReservasiController extends Controller
         $saveReservasi->nama = $request->nama;
         $saveReservasi->email = $request->email;
         $saveReservasi->phone = $request->telp;
+        $saveReservasi->permintaan_khusus = $request->khusus;
         $saveReservasi->check_in = Carbon::parse($request->date)->format('Y-m-d');
         $saveReservasi->lama_menginap = $request->range;
         $saveReservasi->final_harga = $request->hargaAkhir;
@@ -61,6 +64,7 @@ class ReservasiController extends Controller
             $payment->flag_payment = 1;
             $payment->nomor_transaksi = $request->debit;
             $payment->save();
+            // return dd($saveReservasi);
         } else if ($request->transfer != ''){
             $payment = new Payment;
             $payment->invoice_id = $saveReservasi->id;
@@ -69,7 +73,6 @@ class ReservasiController extends Controller
             $payment->nomor_transaksi = $request->transfer;
             $payment->bukti_pembayaran_file = "gambar.jpg";
             $payment->save();
-
             // return $request->transfer;
         } else if ($request->cash != ''){
             $payment = new Payment;
@@ -77,7 +80,6 @@ class ReservasiController extends Controller
             $payment->tipe_payment = 2;
             $payment->flag_payment = 1;
             $payment->save();
-
             // return "box isi";
         } else {
             return "failed";

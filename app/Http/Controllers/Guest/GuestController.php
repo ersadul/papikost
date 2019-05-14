@@ -41,6 +41,7 @@ class GuestController extends Controller
         return view('bookingForm', compact('kamarByID', 'kamarTanggalMasuk', 'kamarLamaMenginap'));
     }
 
+    // status menginap 0 = check_in, 1 = sedang_menginap, 2 = check_out
     public function getInvoice(Request $request)
     {
         $invoiceFinal = new Invoice;
@@ -68,11 +69,11 @@ class GuestController extends Controller
         $payment->flag_payment = 0;
         $payment->save();
 
-
-        return dd($invoiceFinal);
-        // return view('invoice', compact('invoice', 'duration'));
+        // return dd($invoiceFinal);
+        return view('invoice', compact('invoice', 'duration'));
     }
 
+    // flag_pembayaran 1 = lunas, 0 = menunggu_pembayaran
     public function cekInvoice(Request $request)
     {
         $current = Carbon::now();
@@ -91,8 +92,6 @@ class GuestController extends Controller
         }
     }
 
-    // status menginap 0 = check_in, 1 = sedang_menginap, 2 = check_out
 
-    // flag_pembayaran 1 = lunas, 0 = menunggu_pembayaran
     
 }

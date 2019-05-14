@@ -19,6 +19,7 @@ class CreateInvoicesTable extends Migration
             $table->string('nama');
             $table->string('email');
             $table->string('phone');
+            $table->string('permintaan_khusus')->nullable();
             $table->date('check_in');
             $table->integer('lama_menginap');
             $table->integer('status_menginap');
