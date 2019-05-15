@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Guest'], function(){
     Route::post('/invoice', 'GuestController@getInvoice')->name('invoice');
     Route::get('/cek-pesanan', function () { return view('cekPesanan'); })->name('cek.pesanan');
     Route::post('/hasil-invoice', 'GuestController@cekInvoice')->name('hasil.invoice');
+    Route::post('/upload-payment', 'GuestController@uploadPayment')->name('upload.payment');
     // Route::get('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
     // Route::get('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
     // akhir penting

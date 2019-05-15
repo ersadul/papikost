@@ -135,19 +135,21 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="#" method="post">
+                    <form action="{{route('upload.payment')}}" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="row">
                             <div class="col-md-12">
-                                    <input type="file" required>
+                                <input type="hidden" name="paymentInvoiceID" value="{{$invoice->id}}">
+                                <input type="file" name="buktiPembayaran" required>
                             </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn bn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary-bg">Submit</button>
                         </div>
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn bn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="button" class="btn btn-primary-bg">Submit</button>
-                </div>
+                
             </div>
         </div>
     </div>

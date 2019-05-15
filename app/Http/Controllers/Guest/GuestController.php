@@ -42,6 +42,7 @@ class GuestController extends Controller
     }
 
     // status menginap 0 = check_in, 1 = sedang_menginap, 2 = check_out
+    // status payment_invoice 1 = debit, 2 = transfer, 3 = tunai
     public function getInvoice(Request $request)
     {
         $invoiceFinal = new Invoice;
@@ -92,6 +93,16 @@ class GuestController extends Controller
         }
     }
 
+    public function uploadPayment(Request $request)
+    {
+        $uploadFile = $request->file('buktiPembayaran');
 
+        $path = $uploadFile->store('public/files');
+
+        $invoicePayment = Payment::where('invoice_id', $request->paymentInvoiceID)->update(['bukti_pembayaran_file' => $path]);
+        // return view('index');   
+        $invoicehasil = Payment::where('invoice_id',  $request->paymentInvoiceID)->first(); 
+        return dd($invoicehasil);               
+    }
     
 }
