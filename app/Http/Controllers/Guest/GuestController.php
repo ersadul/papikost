@@ -71,7 +71,8 @@ class GuestController extends Controller
         $payment->save();
 
         // return dd($invoiceFinal);
-        return view('invoice', compact('invoice', 'duration'));
+        // return view('invoice', compact('invoice', 'duration'));
+        return redirect()->route('invoice.view', compact('invoice'));
     }
 
     // flag_pembayaran 1 = lunas, 0 = menunggu_pembayaran
@@ -89,7 +90,8 @@ class GuestController extends Controller
             return "invoice telah lebih dari 1 jam";
         }else{
             $duration = $interval->i * 60 + $interval->s;
-            return view('invoice', compact('invoice', 'duration'));
+            // return view('invoice', compact('invoice', 'duration'));
+            return redirect()->route('invoice.view', compact('invoice'));
         }
     }
 
@@ -101,8 +103,22 @@ class GuestController extends Controller
 
         $invoicePayment = Payment::where('invoice_id', $request->paymentInvoiceID)->update(['bukti_pembayaran_file' => $path]);
         // return view('index');   
-        $invoicehasil = Payment::where('invoice_id',  $request->paymentInvoiceID)->first(); 
-        return dd($invoicehasil);               
+        $invoice = Invoice::where('id', $request->paymentInvoiceID)->first();
+
+        return redirect()->route('invoice.view', compact('invoice'));
     }
     
+    public function invoiceView($id)
+    {
+        $current = Carbon::now();
+        $invoice = Invoice::where('id', $id)->first();
+        $interval = date_diff($invoice->created_at, $current);
+        if($interval->h > 0){
+            //kasih action drop invoice bahwa sudah kadaluarsa
+            return "invoice telah lebih dari 1 jam";
+        }else{
+            $duration = $interval->i * 60 + $interval->s;
+            return view('invoice', compact('invoice', 'duration'));
+        }
+    }
 }
