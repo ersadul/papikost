@@ -115,17 +115,18 @@ class GuestController extends Controller
 
         $path = $uploadFile->store('public/files');
 
-        $invoicePayment = Payment::where('invoice_id', $request->paymentInvoiceID)->update(['bukti_pembayaran_file' => $path]);
+        $invoicePayment = Payment::where('invoice_id', $request->paymentInvoiceID)->update(['bukti_pembayaran_file' => str_replace('public/', '', $path)]); //public nya harus diilangin biar gampang retrivenya
         // return view('index');   
         $invoice = Invoice::where('id', $request->paymentInvoiceID)->first();
-
+        
         return redirect()->route('invoice.view', compact('invoice'));
     }
     
     public function invoiceView($id)
     {
         $current = Carbon::now();
-        $invoice = Invoice::where('id', $id)->first();
+        $invoice = Invoice::join('payment', 'payment.invoice_id', '=', 'invoice.id')
+                        ->where('invoice.id', $id)->first();
         $interval = date_diff($invoice->created_at, $current);
         $duration = $interval->i * 60 + $interval->s;
         return view('invoice', compact('invoice', 'duration'));

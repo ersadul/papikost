@@ -62,7 +62,9 @@
                                         <tr>
                                             <td>Batas Waktu Pembayaran</td>
                                             <td>:</td>
-                                            <td>{{ date('d-M-Y H:i:s', strtotime("$invoice->created_at +1 Hour")) }}</td>
+                                            <td>
+                                                {{ date('d-M-Y H:i:s', strtotime("$invoice->created_at +1 Hour")) }}
+                                            </td>
                                         </tr>
                                     </table>
                                     <span>Penting: <br>Mohon menyelesaikan pembayaran sebelum batas waktu pembayaran.
@@ -135,21 +137,24 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('upload.payment')}}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="row">
-                            <div class="col-md-12">
-                                <input type="hidden" name="paymentInvoiceID" value="{{$invoice->id}}">
-                                <input type="file" name="buktiPembayaran" required>
+                    @if(is_null($invoice->bukti_pembayaran_file))
+                        <form action="{{route('upload.payment')}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="hidden" name="paymentInvoiceID" value="{{$invoice->id}}">
+                                    <input type="file" name="buktiPembayaran" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn bn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary-bg">Submit</button>
-                        </div>
-                    </form>
+                            <div class="modal-footer">
+                                <button type="button" class="btn bn btn-secondary" data-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-primary-bg">Submit</button>
+                            </div>
+                        </form>
+                    @else
+                        <img src="{{ asset('/storage/'.$invoice->bukti_pembayaran_file) }}">
+                    @endif
                 </div>
-                
             </div>
         </div>
     </div>
