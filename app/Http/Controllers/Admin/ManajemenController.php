@@ -16,6 +16,15 @@ class ManajemenController extends Controller
     public function tarif(){
         return view('dashboard.manajemen.tarif');
     }
+    public function fasilitas(){
+        return view('dashboard.manajemen.fasilitas');
+    }
+    public function karyawan(){
+        return view('dashboard.manajemen.karyawan');
+    }
+    public function karyawanDetail(){
+        return view('dashboard.manajemen.karyawanDetail');
+    }
     public function akun(){
         return view('dashboard.manajemen.akun');
     }

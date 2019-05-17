@@ -143,8 +143,8 @@
                             <li class="@yield('profile')"><a href="{{ route('dashboard.manajemen.profile') }}"><i class="fa fa-circle-o"></i> Profile</a></li>
                             <li class="@yield('kamar')"><a href="{{ route('dashboard.manajemen.kamar') }}"><i class="fa fa-circle-o"></i> Kamar</a></li>
                             <li class="@yield('tarif')"><a href="{{ route('dashboard.manajemen.tarif') }}"><i class="fa fa-circle-o"></i> Tarif</a></li>
-                            <li class="@yield('fasilitas')"><a href="#"><i class="fa fa-circle-o"></i> Fasilitas</a></li>
-                            <li class="@yield('karyawan')"><a href="#"><i class="fa fa-circle-o"></i> Karyawan</a></li>
+                            <li class="@yield('fasilitas')"><a href="{{ route('dashboard.manajemen.fasilitas') }}"><i class="fa fa-circle-o"></i> Fasilitas</a></li>
+                            <li class="@yield('karyawan')"><a href="{{ route('dashboard.manajemen.karyawan') }}"><i class="fa fa-circle-o"></i> Karyawan</a></li>
                             <li class="@yield('akun')"><a href="{{ route('dashboard.manajemen.akun') }}"><i class="fa fa-circle-o"></i> Akun</a></li>
                         </ul>
                     </li>

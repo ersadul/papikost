@@ -2,28 +2,28 @@ hr {
     margin-top: 5px;
     margin-bottom: 5px
 }
-#reservasi #datatable thead{
+#tb-custom #datatable thead{
     display: none
 }
-#reservasi td .box {
+#tb-custom td .box {
     box-shadow: 1px 1px 5px 1px rgba(0,0,0,0.1);
     margin-bottom: 0
 }
 .media-body p {
     padding-top: 10px
 }
-#reservasi td h4 {
+#tb-custom td h4 {
     margin-top: 0
 }
-#reservasi td p {
+#tb-custom td p {
     font-size: 12px;
     line-height: 8px
 }
-#reservasi td a {
+#tb-custom td a {
     color: #333;
     margin-top: -20px
 }
-#reservasi td a:hover {
+#tb-custom td a:hover {
     color: #333
 }
 #payment .box-body {

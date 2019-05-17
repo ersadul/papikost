@@ -93,6 +93,9 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/profile', 'Admin\ManajemenController@profile')->name('manajemen.profile');
         Route::get('/kamar', 'Admin\ManajemenController@kamar')->name('manajemen.kamar');
         Route::get('/tarif', 'Admin\ManajemenController@tarif')->name('manajemen.tarif');
+        Route::get('/fasilitas', 'Admin\ManajemenController@fasilitas')->name('manajemen.fasilitas');
+        Route::get('/karyawan', 'Admin\ManajemenController@karyawan')->name('manajemen.karyawan');
+        Route::get('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
         Route::get('/akun', 'Admin\ManajemenController@akun')->name('manajemen.akun');
 
         //bantuan

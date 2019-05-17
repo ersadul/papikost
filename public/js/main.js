@@ -8,4 +8,5 @@ $(function () {
       'autoWidth'   : true
     })
     $('#reservation').daterangepicker()
+    $('.select2').select2()
 })
