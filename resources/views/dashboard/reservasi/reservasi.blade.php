@@ -79,10 +79,10 @@ active
 
     function getEvents(mulai){
         //ambil event dari tanggal mulai + 6 hari
-
+        var days = ['Su','Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
         var startDate = new Date(mulai);
         var endDate = new Date()
-        endDate.setDate(startDate.getDate()+6)
+        endDate.setDate(startDate.getDate()+7)
 
         $.ajax({
             url: '{{ route('dashboard.get.kamar') }}',
@@ -103,7 +103,7 @@ active
                         resourceId  : event.kamar_id,
                         start       : checkIn,
                         end         : checkOut,
-                        title       : event.nama,
+                        title       : `-${days[checkOut.getDay()]} ${checkOut.getDate()} | ${event.nama}`,
                         allDay      : true
                     });
                 })
