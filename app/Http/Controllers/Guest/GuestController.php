@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Guest;
 use App\Kamar;
 use App\Invoice;
 use App\Payment;
+use App\FasilitasKamar;
+use App\GambarKamar;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -27,10 +29,20 @@ class GuestController extends Controller
 
     public function getKamar(Request $request)
     {
-        $kamarByID = Kamar::where('id', $request->id)->get();
+        //get info kamar
+        $kamarByID = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
+                        ->where('kamar.id', $request->id)
+                        ->get();
         $kamarTanggalMasuk = $request->checkIn;
         $kamarLamaMenginap = $request->lamaMenginap;
-        return view('roomDetail', compact('kamarTanggalMasuk', 'kamarLamaMenginap', 'kamarByID'));
+
+        //get fasilitas kamar
+        $fasilitas = FasilitasKamar::where('kamar_id', $request->id)->get();
+
+        //get gambar kamar
+        $gambar = GambarKamar::where('kamar_id', $request->id)->get();
+
+        return view('roomDetail', compact('kamarTanggalMasuk', 'kamarLamaMenginap', 'kamarByID', 'fasilitas', 'gambar'));
     }
 
     public function bookingForm(Request $request)
