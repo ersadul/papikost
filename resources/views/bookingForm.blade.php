@@ -53,6 +53,7 @@
                             <h3>Isi Data Pemesanan</h3>
                             <input type="hidden" name="guestMasuk" value="{{$kamarTanggalMasuk}}">
                             <input type="hidden" name="guestDurasi" value="{{$kamarLamaMenginap}}">
+                            <input type="hidden" name="totalHarga" value="{{$totalHarga}}">
                             <input type="hidden" name="kamarID" value="{{$kID->id}}">
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Nama Tamu</label>

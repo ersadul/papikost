@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Guest;
 use App\Kamar;
 use App\Invoice;
 use App\Payment;
+use App\FasilitasKamar;
+use App\GambarKamar;
 use Carbon\Carbon;
 use DB;
 use Illuminate\Http\Request;
@@ -27,10 +29,20 @@ class GuestController extends Controller
 
     public function getKamar(Request $request)
     {
-        $kamarByID = Kamar::where('id', $request->id)->get();
+        //get info kamar
+        $kamarByID = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
+                        ->where('kamar.id', $request->id)
+                        ->get();
         $kamarTanggalMasuk = $request->checkIn;
         $kamarLamaMenginap = $request->lamaMenginap;
-        return view('roomDetail', compact('kamarTanggalMasuk', 'kamarLamaMenginap', 'kamarByID'));
+
+        //get fasilitas kamar
+        $fasilitas = FasilitasKamar::where('kamar_id', $request->id)->get();
+
+        //get gambar kamar
+        $gambar = GambarKamar::where('kamar_id', $request->id)->get();
+
+        return view('roomDetail', compact('kamarTanggalMasuk', 'kamarLamaMenginap', 'kamarByID', 'fasilitas', 'gambar'));
     }
 
     public function bookingForm(Request $request)
@@ -38,13 +50,15 @@ class GuestController extends Controller
         $kamarByID = Kamar::where('id', $request->kamarId)->get();
         $kamarTanggalMasuk = $request->guestMasuk;
         $kamarLamaMenginap = $request->guestDurasi;
-        return view('bookingForm', compact('kamarByID', 'kamarTanggalMasuk', 'kamarLamaMenginap'));
+        $totalHarga = $request->guestHarga;
+        return view('bookingForm', compact('kamarByID', 'kamarTanggalMasuk', 'kamarLamaMenginap', 'totalHarga'));
     }
 
     // status menginap 0 = check_in, 1 = sedang_menginap, 2 = check_out
     // status payment_invoice 1 = debit, 2 = transfer, 3 = tunai
     public function getInvoice(Request $request)
     {
+
         $invoiceFinal = new Invoice;
         $code = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $invoice_code_temp = "";
@@ -57,7 +71,7 @@ class GuestController extends Controller
         $invoiceFinal->phone = $request->handphoneGuest;
         $invoiceFinal->check_in = Carbon::parse($request->guestMasuk)->format('Y-m-d');
         $invoiceFinal->lama_menginap = $request->guestDurasi;
-        $invoiceFinal->final_harga = 0;
+        $invoiceFinal->final_harga = $request->totalHarga;
         $invoiceFinal->status_menginap = 0;
         $invoiceFinal->kamar_id = $request->kamarID;
         $invoiceFinal->save();
@@ -66,7 +80,7 @@ class GuestController extends Controller
 
         $payment = new Payment;
         $payment->invoice_id = $invoice->id;
-        $payment->tipe_payment = 2;
+        $payment->tipe_payment = 1;
         $payment->flag_payment = 0;
         $payment->save();
 
@@ -101,17 +115,18 @@ class GuestController extends Controller
 
         $path = $uploadFile->store('public/files');
 
-        $invoicePayment = Payment::where('invoice_id', $request->paymentInvoiceID)->update(['bukti_pembayaran_file' => $path]);
+        $invoicePayment = Payment::where('invoice_id', $request->paymentInvoiceID)->update(['bukti_pembayaran_file' => str_replace('public/', '', $path)]); //public nya harus diilangin biar gampang retrivenya
         // return view('index');   
         $invoice = Invoice::where('id', $request->paymentInvoiceID)->first();
-
+        
         return redirect()->route('invoice.view', compact('invoice'));
     }
     
     public function invoiceView($id)
     {
         $current = Carbon::now();
-        $invoice = Invoice::where('id', $id)->first();
+        $invoice = Invoice::join('payment', 'payment.invoice_id', '=', 'invoice.id')
+                        ->where('invoice.id', $id)->first();
         $interval = date_diff($invoice->created_at, $current);
         $duration = $interval->i * 60 + $interval->s;
         return view('invoice', compact('invoice', 'duration'));
