@@ -71,7 +71,11 @@ class ReservasiController extends Controller
             $payment->tipe_payment = 1;
             $payment->flag_payment = 1;
             $payment->nomor_transaksi = $request->transfer;
-            $payment->bukti_pembayaran_file = "gambar.jpg";
+            // $payment->bukti_pembayaran_file = "gambar.jpg";
+            $bukti_pembayaran_gambar = $request->file('buktiPembayaran');
+            // return dd($saveReservasi);
+            $path = $bukti_pembayaran_gambar->store('public/files');
+            $payment->bukti_pembayaran_file = $path;
             $payment->save();
             // return $request->transfer;
         } else if ($request->cash != ''){

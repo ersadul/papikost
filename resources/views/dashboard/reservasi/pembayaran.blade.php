@@ -37,7 +37,7 @@ active
             </table>
         </div>
     </div>
-    <form action="{{ route('dashboard.save.pembayaran') }}" method="post">
+    <form action="{{ route('dashboard.save.pembayaran') }}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="tipe">
         <input type="hidden" name="nama" value="{{ $request->nama }}">
@@ -77,7 +77,7 @@ active
                         </div>
                         <div class="form-group">
                             <label>Bukti Pembayaran</label>
-                            <input type="file" class="form-control" name="bukti" id="bukti">
+                            <input type="file" class="form-control" name="buktiPembayaran" id="bukti">
                         </div>
                     </div>
                     <div class="box-footer">
