@@ -14,7 +14,7 @@
 // route frontend
 Route::group(['namespace' => 'Guest'], function(){
     Route::get('/', 'GuestController@index');
-    Route::post('/search', 'GuestController@getDate')->name('search');
+    Route::get('/search', 'GuestController@getDate')->name('search');
     // awal penting
     Route::post('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
     Route::post('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
