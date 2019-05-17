@@ -55,7 +55,7 @@ class GuestController extends Controller
     }
 
     // status menginap 0 = check_in, 1 = sedang_menginap, 2 = check_out
-    // status payment_invoice 1 = debit, 2 = transfer, 3 = tunai
+    // status payment 1 = debit, 2 = transfer, 3 = tunai
     public function getInvoice(Request $request)
     {
 

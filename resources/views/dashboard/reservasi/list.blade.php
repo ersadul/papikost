@@ -38,10 +38,13 @@ active
                                                         <h4>{{ $r->nama }}</h4>
                                                         <p>Invoice #{{ $r->invoice_code }}</p>
                                                         <p>Status Update : {{ $r->payment_update }}</p>
-                                                        @if ( is_null($r->bukti_pembayaran_file) )
-                                                            <small class="label bg-yellow">Menunggu Pembayaran</small>
-                                                        @else
+                                                        
+                                                        @if( !is_null($r->bukti_pembayaran_file) )
                                                             <small class="label bg-primary">Menunggu Konfirmasi</small>
+                                                        @elseif( date('d-m-Y H:i:s') > date('d-m-Y H:i:s', strtotime($r->created_at)) && date('d-m-Y H:i:s') < date('d-m-Y H:i:s', strtotime($r->created_at.' +1 Hour')))
+                                                            <small class="label bg-danger">Expired</small>
+                                                        @elseif( is_null($r->bukti_pembayaran_file) )
+                                                            <small class="label bg-yellow">Menunggu Pembayaran</small>
                                                         @endif
                                                     </div>
                                                     <a class="pull-right" href="{{ route('dashboard.detail.reservasi', ['invoice_id' => $r->id]) }}">Lihat Detail <i class="fa fa-chevron-circle-right"></i></a>
