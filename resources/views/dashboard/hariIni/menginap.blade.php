@@ -18,15 +18,15 @@ active
 </section>
 <section class="content">
     <div class="row">
-        @foreach($sedangMenginap as $sm)
+        @foreach($sedangMenginap as $i=>$sm)
         <div class="col-md-4">
             <div class="box box-solid">
                 <div class="box-header with-border">
                     <div class="box-title">
                         <table id="info-table">
                             <tr>
-                                <td>1</td>
-                                <td>Standart Double</td>
+                                <td>{{$i+1}}</td>
+                                <td>{{$sm->nama_kamar}}</td>
                             </tr>
                         </table>
                     </div>
@@ -35,10 +35,10 @@ active
                     </div>
                 </div>
                 <div class="box-body">
-                    <p>121831231237141</p>
-                    <p>Pelanggan Pertama</p>
+                    <p>{{$sm->invoice_code}}</p>
+                    <p>{{$sm->nama}}</p>
                     <p>5 Mei 2019 - 6 Mei 2019 (1 Malam)</p>
-                    <p>Request : -</p>
+                    <p>Request : {{$sm->permintaan_khusus}}</p>
                     <p>Inclution : -</p>
                 </div>
                 <table class="table">

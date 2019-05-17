@@ -53,7 +53,7 @@ active
                             - 
                             {{ date('d M Y', mktime(0, 0, 0, $extractDate[1]  , $extractDate[2] + $c->lama_menginap, $extractDate[0])) }} 
                             ({{ $c->lama_menginap }} Malam)</p>
-                        <p>Request : -</p>
+                        <p>Request : {{$c->permintaan_khusus}}</p>
                         <p>Inclution : -</p>
                     </div>
                     <table class="table">
