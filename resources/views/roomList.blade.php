@@ -33,8 +33,8 @@
                     <div class="py-3 h-100">
                         <div class="room-info">
                             <div class="down-line-left mb-3">
-                                <h5 class="title"><a class="text-primary" href="#">{{$k->nama_kamar}}</a></h5>
-                                <span class="subtext">Sami duble bed 2 window, mountain miew</span>
+                                <h5 class="title"><a class="text-primary" href="#">{{ $k->nama_kamar }}</a></h5>
+                                <span class="subtext">{{ $k->nama_tipe }} - {{ $k->maksimal }} Orang</span>
                             </div>
                             <p>{{$k->deskripsi}}</p>
                         </div>
@@ -217,7 +217,7 @@
                 </div>
             </div>
         </div> -->
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-lg-12">
                 <nav class="x-center" aria-label="Page navigation">
                     <ul class="pagination">
@@ -236,7 +236,7 @@
                     </ul>
                 </nav>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 <!-- Room List View 1 End -->

@@ -21,7 +21,7 @@ class GuestController extends Controller
     public function getDate(Request $request){
         $checkIn = $request->date1;
         $lamaMenginap = $request->lamaMenginap;
-        $kamar = Kamar::get();
+        $kamar = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')->get();
         return view('roomList', compact('checkIn', 'lamaMenginap', 'kamar'));
     }
 
