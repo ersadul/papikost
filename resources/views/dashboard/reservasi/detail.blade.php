@@ -37,7 +37,7 @@ active
                 <div class="col-md-12">
                     <div class="form-group">
                         <label>Permintaan Khusus</label>
-                        <textarea class="form-control" readonly rows="3" name="khusus">Ini Belum Ada Kolomnya</textarea>
+                        <textarea class="form-control" readonly rows="3" name="khusus">{{ $invoice->permintaan_khusus }}</textarea>
                     </div>
                 </div>
                 <div class="col-md-6">

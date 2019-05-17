@@ -125,7 +125,7 @@ class GuestController extends Controller
     public function invoiceView($id)
     {
         $current = Carbon::now();
-        $invoice = Invoice::join('payment', 'payment.invoice_id', '=', 'invoice.id')
+        $invoice = Invoice::join('payment_invoice', 'payment_invoice.invoice_id', '=', 'invoice.id')
                         ->where('invoice.id', $id)->first();
         $interval = date_diff($invoice->created_at, $current);
         $duration = $interval->i * 60 + $interval->s;
