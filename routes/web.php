@@ -80,6 +80,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/reservasi/kamar', 'Admin\ReservasiController@getKamar')->name('get.kamar');
         Route::post('/reservasi/pembayaran', 'Admin\ReservasiController@pembayaran')->name('reservasi.pembayaran');
         Route::post('/reservasi/pembayaran/upload', 'Admin\ReservasiController@saveReservasiToDB')->name('save.pembayaran');
+        Route::post('/reservasi/pembayaran/konfirmasi', 'Admin\ReservasiController@konfirmasiPembayaran')->name('konfirmasi.pembayaran');
 
         Route::get('/list-reservasi', 'Admin\ReservasiController@list')->name('list.reservasi');
         Route::get('/list-reservasi/detail', 'Admin\ReservasiController@detail')->name('detail.reservasi');

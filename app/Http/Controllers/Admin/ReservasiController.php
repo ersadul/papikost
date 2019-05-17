@@ -151,4 +151,14 @@ class ReservasiController extends Controller
         return view('dashboard.hariIni.checkOut', compact('checkOut'));
 
     }
+
+    public function konfirmasiPembayaran(Request $request){
+        Payment::where('invoice_id', $request->invoice_id)
+            ->update([
+                'flag_payment' => '1',
+                'nomor_transaksi' => $request->nomor_transaksi
+            ]);
+        
+        return redirect()->route('dashboard.list.reservasi');
+    }
 }

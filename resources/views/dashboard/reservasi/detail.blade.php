@@ -85,8 +85,10 @@ active
                 <div class="box-body">
                     <div class="form-group">
                         <label>Nomor Transaksi</label>
-                        <form action="" id="confirm-payment">
-                            <input type="text" class="form-control" required
+                        <form action="{{ route('dashboard.konfirmasi.pembayaran') }}" id="confirm-payment" method="POST">
+                            @csrf
+                            <input type="hidden" name="invoice_id" value="{{ $invoice->id }}">
+                            <input type="text" class="form-control" name="nomor_transaksi" required
                                 {{ $readonly || is_null($invoice->bukti_pembayaran_file) ? "readonly" : ""}}
                                 value="{{ $invoice->tipe_payment == 1 ? $invoice->nomor_transaksi : '-' }}">
                         </form>
@@ -104,7 +106,7 @@ active
                                         <h4 class="modal-title">Default Modal</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <img src='{{ asset("img/payment/$invoice->bukti_pembayaran_file") }}' style="width:100%">
+                                        <img src='{{ asset("storage/$invoice->bukti_pembayaran_file") }}' style="width:100%">
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
