@@ -50,13 +50,15 @@ class GuestController extends Controller
         $kamarByID = Kamar::where('id', $request->kamarId)->get();
         $kamarTanggalMasuk = $request->guestMasuk;
         $kamarLamaMenginap = $request->guestDurasi;
-        return view('bookingForm', compact('kamarByID', 'kamarTanggalMasuk', 'kamarLamaMenginap'));
+        $totalHarga = $request->guestHarga;
+        return view('bookingForm', compact('kamarByID', 'kamarTanggalMasuk', 'kamarLamaMenginap', 'totalHarga'));
     }
 
     // status menginap 0 = check_in, 1 = sedang_menginap, 2 = check_out
     // status payment_invoice 1 = debit, 2 = transfer, 3 = tunai
     public function getInvoice(Request $request)
     {
+
         $invoiceFinal = new Invoice;
         $code = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         $invoice_code_temp = "";
@@ -69,7 +71,7 @@ class GuestController extends Controller
         $invoiceFinal->phone = $request->handphoneGuest;
         $invoiceFinal->check_in = Carbon::parse($request->guestMasuk)->format('Y-m-d');
         $invoiceFinal->lama_menginap = $request->guestDurasi;
-        $invoiceFinal->final_harga = 0;
+        $invoiceFinal->final_harga = $request->totalHarga;
         $invoiceFinal->status_menginap = 0;
         $invoiceFinal->kamar_id = $request->kamarID;
         $invoiceFinal->save();
@@ -78,7 +80,7 @@ class GuestController extends Controller
 
         $payment = new Payment;
         $payment->invoice_id = $invoice->id;
-        $payment->tipe_payment = 2;
+        $payment->tipe_payment = 1;
         $payment->flag_payment = 0;
         $payment->save();
 

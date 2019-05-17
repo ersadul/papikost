@@ -117,7 +117,7 @@
                                     </table>
                                 </div>
                                 <button class="btn btn-primary x-center" data-toggle="modal"
-                                    data-target="#upload">konfirmasi Pembayaran</button>
+                                    data-target="#upload">Konfirmasi Pembayaran</button>
                             </div>
                         </div>
                     </div>
