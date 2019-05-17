@@ -37,7 +37,15 @@ active
                 <div class="box-body">
                     <p>{{$sm->invoice_code}}</p>
                     <p>{{$sm->nama}}</p>
-                    <p>5 Mei 2019 - 6 Mei 2019 (1 Malam)</p>
+                    <p>
+                        <?php 
+                            $extractDate = explode("-", $sm->check_in);
+                        ?>
+                            {{ date('d M Y', mktime(0, 0, 0, $extractDate[1]  , $extractDate[2], $extractDate[0])) }} 
+                            - 
+                            {{ date('d M Y', mktime(0, 0, 0, $extractDate[1]  , $extractDate[2] + $sm->lama_menginap, $extractDate[0])) }} 
+                            ({{ $sm->lama_menginap }} Malam)
+                    </p>
                     <p>Request : {{$sm->permintaan_khusus}}</p>
                     <p>Inclution : -</p>
                 </div>

@@ -37,7 +37,15 @@ active
                 <div class="box-body">
                     <p>{{$co->invoice_code}}</p>
                     <p>{{$co->nama}}</p>
-                    <p>5 Mei 2019 - 6 Mei 2019 (1 Malam)</p>
+                    <p>
+                        <?php 
+                            $extractDate = explode("-", $co->check_in);
+                        ?>
+                            {{ date('d M Y', mktime(0, 0, 0, $extractDate[1]  , $extractDate[2], $extractDate[0])) }} 
+                            - 
+                            {{ date('d M Y', mktime(0, 0, 0, $extractDate[1]  , $extractDate[2] + $co->lama_menginap, $extractDate[0])) }} 
+                            ({{ $co->lama_menginap }} Malam)
+                    </p>
                     <p>Request : {{$co->permintaan_khusus}}</p>
                     <p>Inclution : -</p>
                 </div>
