@@ -56,7 +56,7 @@ Route::get('/promo', function () {
 
 // ================================
 
-Route::group(['prefix' => 'dashboard'], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::name('dashboard.')->group(function () {
         Route::get('/', function () {
             return view('dashboard.index');
@@ -72,7 +72,7 @@ Route::group(['prefix' => 'dashboard'], function () {
         //     return view('dashboard.hariIni.checkOut');
         // })->name('checkout');
         Route::get('/check-out', 'Admin\ReservasiController@getCheckOut')->name('checkout');
-        
+
 
         //reservasi
         Route::get('/reservasi', 'Admin\ReservasiController@index')->name('reservasi');
