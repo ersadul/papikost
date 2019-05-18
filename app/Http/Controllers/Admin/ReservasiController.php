@@ -155,8 +155,8 @@ class ReservasiController extends Controller
     {
         $checkOut = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
             ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
-            ->where('invoice.status_menginap', '2') //status akan check out (1)
-            ->where('invoice.check_in', date('Y-m-d'))
+            ->where('invoice.status_menginap', '2') //status akan check out (2)
+            ->where('invoice.check_out', date('Y-m-d'))
             ->get();
         return view('dashboard.hariIni.checkOut', compact('checkOut'));
 
