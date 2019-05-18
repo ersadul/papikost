@@ -21,16 +21,20 @@ class GuestController extends Controller
     }
 
     public function getDate(Request $request){
+
         $checkIn = $request->date1;
         $lamaMenginap = $request->lamaMenginap;
-        $kamar = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')->get();
+        $kamar = Kamar::select('*', 'kamar.id as id_kamar')
+                    ->join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')->get();
+        
         return view('roomList', compact('checkIn', 'lamaMenginap', 'kamar'));
     }
 
     public function getKamar(Request $request)
     {
         //get info kamar
-        $kamarByID = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
+        $kamarByID = Kamar::select('*', 'kamar.id as id_kamar')
+                        ->join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
                         ->where('kamar.id', $request->id)
                         ->get();
         $kamarTanggalMasuk = $request->checkIn;

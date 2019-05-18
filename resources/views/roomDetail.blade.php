@@ -32,8 +32,8 @@
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                                 @foreach($gambar as $i => $g)
-                                    <div class="carousel-item {{ $i==1 ? 'active' : '' }} ">
-                                        <img src="{{ asset('img/kamar/'.$g->gambar_file) }}" alt="{{ $g->nama_gambar }}">
+                                    <div class="carousel-item {{ $i==0 ? 'active' : '' }} ">
+                                        <img src="{{ asset('storage/'.$g->gambar_file) }}" alt="{{ $g->nama_gambar }}">
                                     </div>
                                 @endforeach
                                 <!-- <div class="carousel-item">
@@ -174,7 +174,7 @@
                                 <label class="text-block-1">Total Tagihan : {{$kID->harga}} x {{$kamarLamaMenginap}} </label>
                                 <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga*$kamarLamaMenginap}}">
                             </div>
-                                <input type="hidden" name="kamarId" class="form-control" value="{{$kID->id}}">
+                                <input type="hidden" name="kamarId" class="form-control" value="{{$kID->id_kamar}}">
                             <button type="submit" class="btn btn-default-bg">Pesan Sekarang</button>
                         </div>
                     </form>

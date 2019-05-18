@@ -181,7 +181,8 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
-                    <form action="{{ route('search') }}" class="w-100" method="get">
+                    <form action="{{ route('search') }}" class="w-100" method="post">
+                        @csrf
                         <div class="row">
                             <div id="check-in" class="col-lg-6 col-sm-6">
                                 <label class="text-white">Tanggal Check-in</label>
