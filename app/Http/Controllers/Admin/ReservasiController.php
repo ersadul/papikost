@@ -138,7 +138,6 @@ class ReservasiController extends Controller
         $sedangMenginap = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
                         ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
                         ->where('invoice.status_menginap', '1') //status sedang menginap (1)
-                        ->where('invoice.check_in', date('Y-m-d'))
                         ->get();
         // dd($checkIn);
         return view('dashboard.hariIni.menginap', compact('sedangMenginap'));
@@ -148,8 +147,8 @@ class ReservasiController extends Controller
     {
         $checkOut = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
                         ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
-                        ->where('invoice.status_menginap', '1') //status akan check out (1)
-                        ->where('invoice.check_in + interval 1 day ', 'CURDATE()')
+                        ->where('invoice.status_menginap', '2') //status akan check out (1)
+                        ->where('invoice.check_in', date('Y-m-d'))
                         ->get();
         return view('dashboard.hariIni.checkOut', compact('checkOut'));
 

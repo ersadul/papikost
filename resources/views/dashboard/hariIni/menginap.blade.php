@@ -47,11 +47,10 @@ active
                             ({{ $sm->lama_menginap }} Malam)
                     </p>
                     <p>Request : {{$sm->permintaan_khusus}}</p>
-                    <p>Inclution : -</p>
                 </div>
                 <table class="table">
                     <tr class="text-center">
-                        <td><a href="#">Edit Reservasi</a></td>
+                        <td><a href="#">Check-out</a></td>
                     </tr>
                 </table>
             </div>
