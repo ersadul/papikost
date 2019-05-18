@@ -19,10 +19,6 @@ active
 <section class="content">
     <div class="row">
         @foreach($checkIn as $i=>$c)
-            {{-- cek apakah invoice expired --}}
-            @if(strtotime(date('Y-m-d H:i:s')) > (strtotime($c->created_at) + 3600))
-                @continue
-            @endif
             <div class="col-md-4">
                 <div class="box box-solid">
                     <div class="box-header with-border">
@@ -54,7 +50,7 @@ active
                             {{ date('d M Y', mktime(0, 0, 0, $extractDate[1]  , $extractDate[2] + $c->lama_menginap, $extractDate[0])) }} 
                             ({{ $c->lama_menginap }} Malam)</p>
                         <p>Request : {{$c->permintaan_khusus}}</p>
-                        <p>Inclution : -</p>
+                        <!-- <p>Inclution : -</p> -->
                     </div>
                     <table class="table">
                         <tr class="text-center">
