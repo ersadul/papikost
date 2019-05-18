@@ -213,7 +213,7 @@ class ReservasiController extends Controller
                 'status_menginap' => '2', //2 = check out
             ]);
 
-        return redirect()->route('history.reservasi');
+        return redirect()->route('dashboard.history.reservasi');
     }
 
 }

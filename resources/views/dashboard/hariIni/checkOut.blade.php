@@ -51,7 +51,7 @@ active
                 </div>
                 <table class="table">
                     <tr class="text-center">
-                        <td><a href="{{ route('dashboard.menginap.set.checkout', ['id' => $co->id]) }}">Check-out</a></td>
+                        <td><a href="{{ route('dashboard.menginap.set.checkout', ['id' => $co->invoice_id]) }}">Check-out</a></td>
                     </tr>
                 </table>
             </div>

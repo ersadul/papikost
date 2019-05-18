@@ -40,7 +40,7 @@ active
                                                         <p>Data Update : {{ $r->updated_at }}</p>
                                                     </div>
                                                     <a class="pull-right" 
-                                                        href="{{ route('dashboard.detail.reservasi', ['invoice_id' => $r->id, 'readonly' => true]) }}">
+                                                        href="{{ route('dashboard.detail.reservasi', ['invoice_id' => $r->invoice_id, 'readonly' => true]) }}">
                                                         Lihat Detail <i class="fa fa-chevron-circle-right"></i>
                                                     </a>
                                                 </div>

@@ -54,8 +54,8 @@ active
                     </div>
                     <table class="table">
                         <tr class="text-center">
-                            <td><a href="{{ route('dashboard.checkin.set.menginap', ['id' => $c->id]) }}">Check-in</a></td>
-                            <td><a href="{{ route('dashboard.checkin.edit', ['id' => $c->id]) }}">Edit Reservasi</a></td>
+                            <td><a href="{{ route('dashboard.checkin.set.menginap', ['id' => $c->invoice_id]) }}">Check-in</a></td>
+                            <td><a href="{{ route('dashboard.checkin.edit', ['id' => $c->invoice_id]) }}">Edit Reservasi</a></td>
                         </tr>
                     </table>
                 </div>
