@@ -74,6 +74,7 @@ class GuestController extends Controller
         $invoiceFinal->email = $request->emailGuest;
         $invoiceFinal->phone = $request->handphoneGuest;
         $invoiceFinal->check_in = Carbon::parse($request->guestMasuk)->format('Y-m-d');
+        $invoiceFinal->check_out = Carbon::parse($request->guestMasuk)->addDays($request->guestDurasi)->format('Y-m-d');
         $invoiceFinal->lama_menginap = $request->guestDurasi;
         $invoiceFinal->final_harga = $request->totalHarga;
         $invoiceFinal->status_menginap = 0;
