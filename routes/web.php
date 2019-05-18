@@ -9,19 +9,19 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 // route frontend
-Route::group(['namespace' => 'Guest'], function(){
+Route::group(['namespace' => 'Guest'], function () {
     Route::get('/', 'GuestController@index')->name('index');
-    Route::get('/search', function(){ return redirect()->route('index'); });
+    Route::get('/search', function () {return redirect()->route('index');});
     Route::post('/search', 'GuestController@getDate')->name('search');
     // awal penting
     Route::post('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
     Route::post('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');
     Route::post('/booking-form', 'GuestController@bookingForm')->name('booking.form');
     Route::post('/invoice', 'GuestController@getInvoice')->name('invoice');
-    Route::get('/cek-pesanan', function () { return view('cekPesanan'); })->name('cek.pesanan');
+    Route::get('/cek-pesanan', function () {return view('cekPesanan');})->name('cek.pesanan');
     Route::post('/hasil-invoice', 'GuestController@cekInvoice')->name('hasil.invoice');
     Route::post('/upload-payment', 'GuestController@uploadPayment')->name('upload.payment');
     Route::get('/invoice-view/{id}', 'GuestController@invoiceView')->name('invoice.view');
@@ -33,7 +33,6 @@ Route::group(['namespace' => 'Guest'], function(){
 // Route::post('/search', function () {
 //     return view('roomList');
 // })->name('search');
-
 
 // Route::get('/room-detail', function () {
 //     return view('roomDetail');
@@ -68,16 +67,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/check-in/edit', 'Admin\ReservasiController@editCheckIn')->name('checkin.edit');
         Route::post('/check-in/edit', 'Admin\ReservasiController@saveCheckIn')->name('checkin.save');
         Route::get('/check-in/set/menginap', 'Admin\ReservasiController@setMenginap')->name('checkin.set.menginap');
-        
+
         // Route::get('/menginap', function () {
         //     return view('dashboard.hariIni.menginap');
         // })->name('menginap');
         Route::get('/menginap', 'Admin\ReservasiController@getSedangMenginap')->name('menginap');
+        Route::get('/menginap/set/checkout', 'Admin\ReservasiController@setCheckOut')->name('menginap.set.checkout');
         // Route::get('/check-out', function () {
         //     return view('dashboard.hariIni.checkOut');
         // })->name('checkout');
         Route::get('/check-out', 'Admin\ReservasiController@getCheckOut')->name('checkout');
-
 
         //reservasi
         Route::get('/reservasi', 'Admin\ReservasiController@index')->name('reservasi');
@@ -112,7 +111,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 });
 // end route frontend
 
-Route::group(['namespace' => 'Admin'], function(){
+Route::group(['namespace' => 'Admin'], function () {
     Route::get('/admin/kamar', 'KamarController@index');
     Route::post('/admin/kamar/store', 'KamarController@storeKamar');
     Route::get('/admin/kamar/edit/{id}', 'KamarController@editKamar');
