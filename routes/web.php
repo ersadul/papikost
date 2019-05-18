@@ -64,6 +64,10 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
         //hari ini
         Route::get('/check-in', 'Admin\ReservasiController@getCheckIn')->name('checkin');
+        Route::get('/check-in/edit', 'Admin\ReservasiController@editCheckIn')->name('checkin.edit');
+        Route::post('/check-in/edit', 'Admin\ReservasiController@saveCheckIn')->name('checkin.save');
+        Route::get('/check-in/set/menginap', 'Admin\ReservasiController@setMenginap')->name('checkin.set.menginap');
+        
         // Route::get('/menginap', function () {
         //     return view('dashboard.hariIni.menginap');
         // })->name('menginap');

@@ -23,7 +23,8 @@ class ReservasiController extends Controller
 
     public function form(Request $request){
         // return dd($request);
-        return view('dashboard.reservasi.form', compact('request'));
+        $checkInMode = false;
+        return view('dashboard.reservasi.form', compact('request', 'checkInMode'));
     }
     public function pembayaran(Request $request){
         $kamar = Kamar::find($request->room);
@@ -163,4 +164,35 @@ class ReservasiController extends Controller
         
         return redirect()->route('dashboard.list.reservasi');
     }
+
+    public function editCheckIn(Request $request){
+        $invoice = Invoice::join('kamar', 'kamar.id', '=', 'invoice.kamar_id')
+                        ->where('invoice.id', $request->id)
+                        ->first();
+        $checkInMode = true;
+    
+        return view('dashboard.reservasi.form', compact('invoice', 'checkInMode'));
+    }
+
+    public function saveCheckIn(Request $request){
+        Invoice::where('id', $request->room)
+                ->update([
+                    'nama' => $request->nama,
+                    'phone' => $request->telp,
+                    'email' => $request->email,
+                    'permintaan_khusus' => $request->khusus,
+                ]);
+                
+        return redirect()->route('dashboard.checkin.set.menginap', ['id' => $request->room]);
+    }
+
+    public function setMenginap(Request $request){
+        Invoice::where('id', $request->id)
+                ->update([
+                    'status_menginap' => '1', //1 = sedang menginap
+                ]);
+
+        return redirect()->route('dashboard.menginap');
+    }
+    
 }
