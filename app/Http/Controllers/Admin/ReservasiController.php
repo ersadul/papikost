@@ -155,7 +155,7 @@ class ReservasiController extends Controller
     {
         $checkOut = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
             ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
-            ->where('invoice.status_menginap', '2') //status akan check out (2)
+            ->where('invoice.status_menginap', '1') //status akan check out (2)
             ->where('invoice.check_out', date('Y-m-d'))
             ->get();
         return view('dashboard.hariIni.checkOut', compact('checkOut'));
@@ -213,7 +213,7 @@ class ReservasiController extends Controller
                 'status_menginap' => '2', //2 = check out
             ]);
 
-        return redirect()->route('dashboard.checkout');
+        return redirect()->route('history.reservasi');
     }
 
 }

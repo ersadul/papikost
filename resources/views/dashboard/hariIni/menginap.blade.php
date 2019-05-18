@@ -48,11 +48,11 @@ active
                     </p>
                     <p>Request : {{$sm->permintaan_khusus}}</p>
                 </div>
-                <table class="table">
+                <!-- <table class="table">
                     <tr class="text-center">
                         <td><a href="{{ route('dashboard.menginap.set.checkout', ['id' => $sm->id]) }}">Check-out</a></td>
                     </tr>
-                </table>
+                </table> -->
             </div>
         </div>
         @endforeach
