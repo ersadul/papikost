@@ -32,58 +32,33 @@ active
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($kamar as $k)
                         <tr>
-                            <td>1</td>
-                            <td>Kamar 1</td>
-                            <td>Standart</td>
-                            <td>Rp. 250000</td>
-                            <td>Rp. 230000</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$k->nama_kamar}}</td>
+                            <td>{{$k->nama_tipe}}</td>
+                            <td>
+                                @if($k->harga == 0)
+                                    Harga Belum ditentukan
+                                @else 
+                                    Rp. {{$k->harga}}
+                                @endif
+                            </td>
+                            <td>
+                                @if($k->harga == 0)
+                                    Harga Belum ada, jadi gak ada promo
+                                @else 
+                                    Rp. {{$k->harga}}
+                                @endif
+                            </td>
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-harga"><i class="fa fa-pencil"></i></a>
+                                        data-target="#edit-harga_{{ $k->id }}"><i class="fa fa-pencil"></i></a>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kamar 2</td>
-                            <td>Standart</td>
-                            <td>Rp. 250000</td>
-                            <td>Rp. 230000</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-harga"><i class="fa fa-pencil"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Kamar 3</td>
-                            <td>Standart</td>
-                            <td>Rp. 250000</td>
-                            <td>Rp. 230000</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-harga"><i class="fa fa-pencil"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Kamar 4</td>
-                            <td>Standart</td>
-                            <td>Rp. 250000</td>
-                            <td>Rp. 230000</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-harga"><i class="fa fa-pencil"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -91,7 +66,7 @@ active
     </div>
     <div class="modal fade" id="edit-harga">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.edit.tarif')}}" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
