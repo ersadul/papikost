@@ -102,10 +102,16 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
         //manajemen
         Route::get('/profile', 'Admin\ManajemenController@profile')->name('manajemen.profile');
+        Route::post('/edit-profile', 'Admin\ManajemenController@editProfile')->name('manajemen.edit.profile');
         Route::get('/kamar', 'Admin\ManajemenController@kamar')->name('manajemen.kamar');
+        Route::post('/tambah-kamar', 'Admin\ManajemenController@tambahKamar')->name('manajemen.tambah.kamar');
+        Route::post('/edit-kamar', 'Admin\ManajemenController@editKamar')->name('manajemen.edit.kamar');
         Route::get('/tarif', 'Admin\ManajemenController@tarif')->name('manajemen.tarif');
+        Route::post('/tambah-tarif', 'Admin\ManajemenController@tambahTarif')->name('manajemen.tambah.tarif');
         Route::get('/fasilitas', 'Admin\ManajemenController@fasilitas')->name('manajemen.fasilitas');
+        Route::post('/tambah-fasilitas', 'Admin\ManajemenController@tambahFasilitas')->name('<manajemen class="tambah"></manajemen>fasilitas');
         Route::get('/karyawan', 'Admin\ManajemenController@karyawan')->name('manajemen.karyawan');
+        Route::post('/tambah-karyawan', 'Admin\ManajemenController@tambahKaryawan')->name('manajemen.tambah.karyawan');
         Route::get('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
         Route::get('/akun', 'Admin\ManajemenController@akun')->name('manajemen.akun');
 
