@@ -56,13 +56,23 @@ class ManajemenController extends Controller
     }
 
     public function tarif(){
-        $kamar = Kamar::get();
+        $kamar = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')->get();
         return view('dashboard.manajemen.tarif', compact('kamar'));
     }
 
+    public function editTarif(Request $request)
+    {
+        $kamar = Kamar::where('id', $request->id)->update([
+            'harga' => $request->editHarga
+        ]);
+        return redirect()->back();
+    }
+
     public function fasilitas(){
-        $fasilitasKamar = FasilitasKamar::get();
-        return view('dashboard.manajemen.fasilitas', compact('fasilitasKamar'));
+        $kamar = Kamar::get();
+        $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.nama_fasilitas', 'fasilitas_kamar.kamar_id')->get();
+        // return dd($fasilitasKamar);
+        return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitasKamar'));
     }
     
     public function karyawan(){

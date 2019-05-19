@@ -30,10 +30,19 @@ active
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($kamar as $k)
                         <tr>
-                            <td>1</td>
-                            <td>Kamar 1</td>
-                            <td>TV, AC, WIFI</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$k->nama_kamar}}</td>
+                            <td>
+                                <ul>
+                                    @foreach($fasilitasKamar as $fk)
+                                        @if($k->id == $fk->kamar_id)
+                                            <li>{{$fk->nama_fasilitas}}</li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </td>
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
@@ -41,39 +50,7 @@ active
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kamar 2</td>
-                            <td>TV, AC, WIFI</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit"><i class="fa fa-pencil"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Kamar 3</td>
-                            <td>TV, AC, WIFI</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit"><i class="fa fa-pencil"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Kamar 4</td>
-                            <td>TV, AC, WIFI</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit"><i class="fa fa-pencil"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
