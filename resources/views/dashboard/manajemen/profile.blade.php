@@ -60,7 +60,7 @@ active
                         </div>
                         <div class="form-group">
                             <label>Nama Penerima</label>
-                            <input type="text" name="nama_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama_penerima}}">
+                            <input type="text" name="penerima_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama_penerima}}">
                         </div>
                         <div class="form-group">
                             <label>Logo Hotel</label>

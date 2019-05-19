@@ -24,16 +24,17 @@ class ManajemenController extends Controller
         $editProfileHotel = ProfileHotel::where('id', $request->IDProfileHotel)
         ->update([
             'nama' => $request->nama_profile,
-            'alamat' => $request->nama_profile,
-            'provinsi' => $request->nama_profile,
-            'negara' => $request->nama_profile,
-            'panduan_lokasi' => $request->nama_profile,
-            'bank' => $request->nama_profile,
-            'bank_cabang' => $request->nama_profile,
-            'nomor_rekening' => $request->nama_profile,
-            'nama_penerima' => $request->nama_profile,
+            'alamat' => $request->alamat_profile,
+            'provinsi' => $request->provinsi_profile,
+            'negara' => $request->negara_profile,
+            'panduan_lokasi' => $request->lokasi_profile,
+            'bank' => $request->bank_profile,
+            'bank_cabang' => $request->cabang_profile,
+            'nomor_rekening' => $request->nomor_profile,
+            'nama_penerima' => $request->penerima_profile,
             'logo_hotel_file' => 'gambar.jpg'
         ]);
+        return redirect()->back();
     }
     
     public function kamar(){
