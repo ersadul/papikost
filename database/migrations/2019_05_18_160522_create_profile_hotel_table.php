@@ -19,6 +19,7 @@ class CreateProfileHotelTable extends Migration
             $table->string('alamat');
             $table->string('provinsi');
             $table->string('negara');
+            $table->string('panduan_lokasi');
             $table->string('bank');
             $table->string('bank_cabang');
             $table->string('nomor_rekening');

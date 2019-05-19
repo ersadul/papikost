@@ -20,7 +20,8 @@ active
     <div class="box box-solid">
         <div class="box-header">
             <button type="button" id="btn-rev" class="btn btn-primary btn-flat btn-sm pull-right" data-toggle="modal"
-                data-target="#kamar"><i class="fa fa-plus-circle"></i> Tambah Kamar</button>
+                data-target="#kamar"><i class="fa fa-plus-circle"></i> Tambah Kamar
+            </button>
         </div>
         <div class="box-body">
             <div class="table-responsive">
@@ -34,10 +35,11 @@ active
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($kamar as $k)
                         <tr>
                             <td>1</td>
-                            <td>Kamar 1</td>
-                            <td>Standart</td>
+                            <td>{{$k->nama_kamar}}</td>
+                            <td>{{$k->nama_tipe}}</td>
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
@@ -46,42 +48,7 @@ active
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Kamar 2</td>
-                            <td>Standart</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-kamar"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Kamar 3</td>
-                            <td>Standart</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-kamar"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Kamar 4</td>
-                            <td>Standart</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-kamar"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -89,7 +56,8 @@ active
     </div>
     <div class="modal fade" id="kamar">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.tambah.kamar')}}" method="post">
+                @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -99,14 +67,15 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Kamar</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="tambahKamar" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Tipe Kamar</label>
-                            <select class="form-control" required autocomplete="off">
+                            <select name="tambahTipeKamar" class="form-control" required autocomplete="off">
                                 <option selected disabled></option>
-                                <option>Standart</option>
-                                <option>Family</option>
+                                @foreach($tipeKamar as $tk)
+                                    <option value="{{$tk->id}}">{{$tk->nama_tipe}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
@@ -121,7 +90,7 @@ active
     </div>
     <div class="modal fade" id="edit-kamar">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.edit.kamar')}}" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -131,14 +100,15 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Kamar</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="Kamar 1">
+                            <input type="text" name="editKamar" class="form-control" required autocomplete="off" value="Kamar 1">
                         </div>
                         <div class="form-group">
                             <label>Tipe Kamar</label>
                             <select class="form-control" required autocomplete="off">
-                                <option disabled></option>
-                                <option selected>Standart</option>
-                                <option>Family</option>
+                                <option disabled>Pilih Tipe Kamar</option>
+                                @foreach($tipeKamar as $tk)
+                                    <option value="{{$tk->id}}">{{$tk->nama_tipe}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>
