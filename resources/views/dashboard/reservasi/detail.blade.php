@@ -42,7 +42,7 @@ active
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>No. Kamar</label>
+                        <label>ID Kamar</label>
                         <input class="form-control" readonly value="1">
                     </div>
                 </div>
