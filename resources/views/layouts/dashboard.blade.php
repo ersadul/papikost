@@ -125,9 +125,9 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="@yield('penjadwalan')"><a href="#"><i class="fa fa-circle-o"></i> Penjadwalan Karyawan</a></li>
-                            <li class="@yield('logbook')"><a href="#"><i class="fa fa-circle-o"></i> Logbook</a></li>
-                            <li class="@yield('cleaning.schedule')"><a href="#"><i class="fa fa-circle-o"></i> Cleaning Schedule</a></li>
+                            <li class="@yield('penjadwalan')"><a href="{{ route('dashboard.penjadwalan') }}"><i class="fa fa-circle-o"></i> Penjadwalan Karyawan</a></li>
+                            <li class="@yield('logbook')"><a href="{{ route('dashboard.logbook') }}"><i class="fa fa-circle-o"></i> Logbook</a></li>
+                            <li class="@yield('cleaning')"><a href="{{ route('dashboard.cleaning') }}"><i class="fa fa-circle-o"></i> Cleaning Schedule</a></li>
                         </ul>
                     </li>
                     <li class="@yield('review')"><a href="{{ route('dashboard.review') }}"><i class="fa fa-comments"></i> <span>Review</span></a></li>

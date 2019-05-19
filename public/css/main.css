@@ -67,3 +67,20 @@ hr {
 #btn-rev:hover{
     background-color: #367fa9
 }
+.lb-cleaning{
+    border: 1px #333 solid;
+    border-radius: .25em;
+    margin-right: 2px;
+}
+.lb-cleaning.active{
+    border: 1px #f39c12 solid;
+    background-color: #f39c12;
+}
+.lb-cleaning i{
+    font-size: 12px;
+    margin: 5px;
+    color: #333;
+}
+.lb-cleaning.active i{
+    color: #fff;
+}
