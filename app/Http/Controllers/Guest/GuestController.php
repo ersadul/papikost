@@ -38,7 +38,7 @@ class GuestController extends Controller
                 or invoice.check_out between '$checkIn' and '$checkOut')")
             ->distinct()
             ->get();
-        
+
         //simpan id kamar di array
         $idKamarBooked = [];
         foreach ($booked as $b) {
@@ -156,5 +156,18 @@ class GuestController extends Controller
         $interval = date_diff($invoice->created_at, $current);
         $duration = $interval->i * 60 + $interval->s;
         return view('invoice', compact('invoice', 'duration'));
+    }
+
+    public function static($url){
+        switch ($url) {
+            case 'tentang':
+                return view('static.tentang.safa');
+            case 'fasilitas':
+                return view('static.tentang.fasilitas');
+            case 'cara-pesan':
+                return view('static.tentang.caraPesan');
+            default:
+            return redirect()->route('index');
+        };
     }
 }

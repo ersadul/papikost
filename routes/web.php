@@ -16,6 +16,8 @@ Route::group(['namespace' => 'Guest'], function () {
     Route::get('/', 'GuestController@index')->name('index');
     Route::get('/search', function () {return redirect()->route('index');});
     Route::post('/search', 'GuestController@getDate')->name('search');
+
+    Route::get('{url}', 'GuestController@static')->name('static');
     // awal penting
     Route::post('/room-detail', 'GuestController@getKamar')->name('room.detail'); // ini harus
     Route::post('/room-detail/{id}', 'GuestController@getKamar')->name('room.detail1');

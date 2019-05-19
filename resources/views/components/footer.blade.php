@@ -6,9 +6,11 @@
                 <div class="footer-widget">
                     <h4 class="widget-title down-line-left text-white">Destinasi Tempat Wisata</h4>
                     <ul>
-                        <li><a href="#">-</a></li>
-                        <li><a href="#">-</a></li>
-                        <li><a href="#">-</a></li>
+                        <li><a href="#">Coban Rais</a></li>
+                        <li><a href="#">Gunung Semeru, Taman Nasional Bromo Tengger Semeru</a></li>
+                        <li><a href="#">Pantai balekambang</a></li>
+                        <li><a href="#">Museum Angkut</a></li>
+                        <li><a href="#">Kampung Jodipan</a></li>
                     </ul>
                 </div>
             </div>
@@ -16,9 +18,9 @@
                 <div class="footer-widget">
                     <h4 class="widget-title down-line-left text-white">Tentang SAFA House</h4>
                     <ul>
-                        <li><a href="#">-</a></li>
-                        <li><a href="#">-</a></li>
-                        <li><a href="#">-</a></li>
+                        <li><a href="{{ route('static', 'tentang') }}">Apa itu SAFA?</a></li>
+                        <li><a href="{{ route('static', 'fasilitas') }}">Fasilitas</a></li>
+                        <li><a href="{{ route('static', 'cara-pesan') }}">Cara Pesan</a></li>
                     </ul>
                 </div>
             </div>
@@ -26,9 +28,7 @@
                 <div class="footer-widget">
                     <h4 class="widget-title down-line-left text-white">Layanan Pelanggan</h4>
                     <ul>
-                        <li><a href="#">-</a></li>
-                        <li><a href="#">-</a></li>
-                        <li><a href="#">-</a></li>
+                        <li><a href="tel:0812-3430-0260">Telp. 0812-3430-0260 (Frontoffice)</a></li>
                     </ul>
                 </div>
             </div>
