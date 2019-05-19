@@ -41,8 +41,8 @@ active
                                                         
                                                         @if( !is_null($r->bukti_pembayaran_file) )
                                                             <small class="label bg-primary">Menunggu Konfirmasi</small>
-                                                        @elseif( date('d-m-Y H:i:s') > date('d-m-Y H:i:s', strtotime($r->created_at)) && date('d-m-Y H:i:s') < date('d-m-Y H:i:s', strtotime($r->created_at.' +1 Hour')))
-                                                            <small class="label bg-danger">Expired</small>
+                                                        @elseif( date('d-m-Y H:i:s') > date('d-m-Y H:i:s', strtotime($r->created_at.' +1 Hour')) )
+                                                            <small class="label bg-red">Expired</small>
                                                         @elseif( is_null($r->bukti_pembayaran_file) )
                                                             <small class="label bg-yellow">Menunggu Pembayaran</small>
                                                         @endif

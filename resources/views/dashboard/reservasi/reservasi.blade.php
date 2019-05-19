@@ -80,15 +80,14 @@ active
     function getEvents(mulai){
         //ambil event dari tanggal mulai + 6 hari
         var days = ['Su','Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-        var startDate = new Date(mulai);
-        var endDate = new Date()
-        endDate.setDate(startDate.getDate()+7)
+        var startDate = moment(mulai).format('YYYY-M-D');
+        var endDate = moment(mulai).add(7, 'days').format('YYYY-M-D');
 
         $.ajax({
             url: '{{ route('dashboard.get.kamar') }}',
             data: {
-                start: startDate.toISOString(),
-                end: endDate.toISOString()
+                start: startDate,
+                end: endDate
             },
             success: function(result){
                 var data = JSON.parse(result);
