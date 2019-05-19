@@ -47,7 +47,7 @@ active
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Id Kamar</label>
+                            <label>ID Kamar</label>
                             <input class="form-control" required value="{{ $checkInMode ? $invoice->kamar_id : $request->room }}" name="room" readonly>
                         </div>
                     </div>
