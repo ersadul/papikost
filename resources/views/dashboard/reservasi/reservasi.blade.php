@@ -96,7 +96,7 @@ active
                 $.each(data, function(index, event) {
                     var checkIn = new Date(event.check_in);
                     var checkOut = new Date();
-                    checkOut.setDate(checkIn.getDate() + event.lama_menginap);
+                    checkOut.setDate(checkIn.getDate() + parseInt(event.lama_menginap));
 
                     events.push({
                         resourceId  : event.kamar_id,
