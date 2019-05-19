@@ -18,7 +18,7 @@
                 <div class="footer-widget">
                     <h4 class="widget-title down-line-left text-white">Tentang SAFA House</h4>
                     <ul>
-                        <li><a href="{{ route('static', 'tentang') }}">Apa itu SAFA?</a></li>
+                        <li><a href="{{ route('static', 'safa') }}">Apa itu SAFA?</a></li>
                         <li><a href="{{ route('static', 'fasilitas') }}">Fasilitas</a></li>
                         <li><a href="{{ route('static', 'cara-pesan') }}">Cara Pesan</a></li>
                     </ul>

@@ -160,7 +160,7 @@ class GuestController extends Controller
 
     public function static($url){
         switch ($url) {
-            case 'tentang':
+            case 'safa':
                 return view('static.tentang.safa');
             case 'fasilitas':
                 return view('static.tentang.fasilitas');
