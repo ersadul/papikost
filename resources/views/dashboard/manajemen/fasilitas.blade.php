@@ -58,7 +58,8 @@ active
     </div>
     <div class="modal fade" id="edit">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.tambah.fasilitas')}}" method="post">
+                @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -72,7 +73,7 @@ active
                         </div>
                         <div class="form-group">
                             <label>Fasilitas</label>
-                            <select class="form-control select2" multiple="multiple" style="width: 100%;">
+                            <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
                                 <option selected>TV</option>
                                 <option selected>AC</option>
                                 <option selected>WIFI</option>

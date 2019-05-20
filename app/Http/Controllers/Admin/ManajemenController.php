@@ -96,6 +96,18 @@ class ManajemenController extends Controller
         // return dd($fasilitasKamar);
         return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitasKamar'));
     }
+
+    
+    public function tambahFasilitas(Request $request)
+    {
+        $news = $request->input('fasilitasKamar');
+        $news = implode(',', $news);
+
+        $input = $request->except('fasilitasKamar');
+        //Assign the "mutated" news value to $input
+        $input['fasilitasKamar'] = $news;
+        return dd($request->fasilitasKamar);
+    }
     
     public function karyawan(){
         $karyawan = Karyawan::get();

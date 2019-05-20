@@ -114,7 +114,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/tarif', 'Admin\ManajemenController@tarif')->name('manajemen.tarif');
         Route::post('/edit-tarif', 'Admin\ManajemenController@editTarif')->name('manajemen.edit.tarif');
         Route::get('/fasilitas', 'Admin\ManajemenController@fasilitas')->name('manajemen.fasilitas');
-        Route::post('/tambah-fasilitas', 'Admin\ManajemenController@tambahFasilitas')->name('<manajemen class="tambah"></manajemen>fasilitas');
+        Route::post('/tambah-fasilitas', 'Admin\ManajemenController@tambahFasilitas')->name('manajemen.tambah.fasilitas');
         Route::get('/karyawan', 'Admin\ManajemenController@karyawan')->name('manajemen.karyawan');
         Route::post('/tambah-karyawan', 'Admin\ManajemenController@tambahKaryawan')->name('manajemen.tambah.karyawan');
         Route::get('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
