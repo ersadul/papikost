@@ -43,18 +43,13 @@ active
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal" data-target="#edit-kamar-{{$k->kamar_id}}"><i class="fa fa-pencil"></i></a>
-                                    <!-- DELETE masih fail -->
                                     <button type="submit" form="delete-kamar-{{ $k->kamar_id }}" class="btn btn-sm btn-danger btn-flat">
                                         <i class="fa fa-remove"></i>
                                     </button>
-                                    <!-- DELETE masih fail -->
-                                    <!-- DELETE masih fail -->
                                     <form id="delete-kamar-{{ $k->kamar_id }}" action="{{ route('dashboard.manajemen.delete.kamar') }}" method="post" style='visibility: hidden'>
                                         @csrf
                                         <input type="hidden" name="IDKamarDelete" value="{{ $k->kamar_id }}" >
                                     </form>
-                                    <!-- DELETE masih fail -->
-
                                 </div>
                             </td>
                         </tr>
