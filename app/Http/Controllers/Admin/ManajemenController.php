@@ -34,11 +34,12 @@ class ManajemenController extends Controller
             'nama_penerima' => $request->penerima_profile,
             'logo_hotel_file' => 'gambar.jpg'
         ]);
-        return redirect()->back();
     }
     
     public function kamar(){
-        $kamar = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')->get();
+        $kamar = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
+        ->select('kamar.id as kamar_id', 'kamar.nama_kamar', 'kamar.tipe_kamar_id', 'tipe_kamar.nama_tipe')
+        ->get();
         $tipeKamar = TipeKamar::get();
         // return dd($kamar);
         return view('dashboard.manajemen.kamar', compact('tipeKamar', 'kamar'));
@@ -53,6 +54,16 @@ class ManajemenController extends Controller
         $tambahKamar->harga = 0;
         $tambahKamar->save();
         return redirect()->route('dashboard.manajemen.kamar');
+    }
+
+    public function editKamar(Request $request)
+    {
+        $editKamar = Kamar::where('id', $request->idKamarEdit)
+        ->update([
+            'nama_kamar' => $request->editKamar,
+            'tipe_kamar_id' => $request->editTipe,
+        ]);
+        return redirect()->back();
     }
 
     public function tarif(){
