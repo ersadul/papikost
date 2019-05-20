@@ -67,15 +67,17 @@ class ManajemenController extends Controller
     }
 
     public function tarif(){
-        $kamar = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')->get();
+        $kamar = Kamar::get();
+        // return dd($kamar);
         return view('dashboard.manajemen.tarif', compact('kamar'));
     }
 
     public function editTarif(Request $request)
     {
-        $kamar = Kamar::where('id', $request->id)->update([
-            'harga' => $request->editHarga
+        $kamar = Kamar::where('id', $request->idTarifEdit)->update([
+            'harga' => $request->editHargaAsli
         ]);
+        // return dd($kamar);
         return redirect()->back();
     }
 

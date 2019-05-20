@@ -53,8 +53,7 @@ active
                             </td>
                             <td>
                                 <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-harga_{{ $k->id }}"><i class="fa fa-pencil"></i></a>
+                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal" data-target="#edit-harga-{{$k->id}}"><i class="fa fa-pencil"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -64,9 +63,12 @@ active
             </div>
         </div>
     </div>
-    <div class="modal fade" id="edit-harga">
+    @foreach($kamar as $k)
+    <div class="modal fade" id="edit-harga-{{$k->id}}">
         <div class="modal-dialog">
             <form action="{{route('dashboard.manajemen.edit.tarif')}}" method="post">
+                @csrf
+                <input type="hidden" name="idTarifEdit" value="{{$k->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -76,15 +78,15 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Kamar</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="Kamar 1" disabled>
+                            <input type="text" class="form-control" required autocomplete="off" value="{{$k->nama_kamar}}" disabled>
                         </div>
                         <div class="form-group">
                             <label>Harga Asli</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="250000">
+                            <input type="text" name="editHargaAsli" class="form-control" required autocomplete="off" value="{{$k->harga}}">
                         </div>
                         <div class="form-group">
                             <label>Harga Promo</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="230000">
+                            <input type="text" class="form-control" required autocomplete="off" value="{{$k->harga}}">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -96,5 +98,6 @@ active
             </form>
         </div>
     </div>
+    @endforeach
 </section>
 @endsection
