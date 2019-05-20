@@ -51,7 +51,7 @@ active
                                     <!-- DELETE masih fail -->
                                     <form id="delete-kamar-{{ $k->kamar_id }}" action="{{ route('dashboard.manajemen.delete.kamar') }}" method="post" style='visibility: hidden'>
                                         @csrf
-                                        <input type="hidden" name="id" value="{{ $k->kamar_id }}" >
+                                        <input type="hidden" name="IDKamarDelete" value="{{ $k->kamar_id }}" >
                                     </form>
                                     <!-- DELETE masih fail -->
 

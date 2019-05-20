@@ -69,9 +69,9 @@ class ManajemenController extends Controller
     // DELETE Method masih fail
     public function deleteKamar(Request $request)
     {
-        // $deleteKamar = Kamar::find($id)->get();
-        return dd($request);
-        // return redirect()->back();
+        Kamar::where('id', $request->IDKamarDelete)->delete();
+        // return dd($deleteKamar);
+        return redirect()->back();
     }
     // DELETE Method masih fail
 
