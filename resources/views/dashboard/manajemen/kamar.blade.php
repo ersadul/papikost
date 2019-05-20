@@ -37,13 +37,25 @@ active
                     <tbody>
                         @foreach($kamar as $k)
                         <tr>
-                            <td>1</td>
+                            <td>{{$loop->iteration}}</td>
                             <td>{{$k->nama_kamar}}</td>
                             <td>{{$k->nama_tipe}}</td>
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal" data-target="#edit-kamar-{{$k->kamar_id}}"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
+                                    <!-- DELETE masih fail -->
+                                    <a href="" class="btn btn-sm btn-danger btn-flat">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                    <!-- DELETE masih fail -->
+                                    <!-- DELETE masih fail -->
+                                    <!-- <form action="{{ route('dashboard.manajemen.delete.kamar', ['id' => $k->id]) }}" method="post">
+                                        <input class="btn btn-default" type="submit" value="Delete" />
+                                        {!! method_field('delete') !!}
+                                        {!! csrf_field() !!}
+                                    </form> -->
+                                    <!-- DELETE masih fail -->
+
                                 </div>
                             </td>
                         </tr>

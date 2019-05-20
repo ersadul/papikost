@@ -66,6 +66,15 @@ class ManajemenController extends Controller
         return redirect()->back();
     }
 
+    // DELETE Method masih fail
+    public function deleteKamar($id)
+    {
+        // $deleteKamar = Kamar::find($id)->get();
+        return dd($id);
+        // return redirect()->back();
+    }
+    // DELETE Method masih fail
+
     public function tarif(){
         $kamar = Kamar::get();
         // return dd($kamar);
