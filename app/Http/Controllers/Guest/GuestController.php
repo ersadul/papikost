@@ -158,7 +158,7 @@ class GuestController extends Controller
         return view('invoice', compact('invoice', 'duration'));
     }
 
-    public function static($url){
+    public function static($url = "safa"){
         switch ($url) {
             case 'safa':
                 return view('static.tentang.safa');
