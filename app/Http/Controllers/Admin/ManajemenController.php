@@ -93,11 +93,13 @@ class ManajemenController extends Controller
     public function fasilitas(){
         $kamar = Kamar::get();
         $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.nama_fasilitas', 'fasilitas_kamar.kamar_id')->get();
-        // return dd($kamar);
+        // return dd($fasilitasKamar);
         return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitasKamar'));
     }
 
-    
+    // Tambah fasilitas masih fail, data bisa yang sama dimasukkan lagi. contoh : Kamar tersebut sudah ada ac
+    // tapi saya masih bisa nambah ac di kamar tersebut
+    // dan saya tidak bisa menghapus fasilitasnya
     public function tambahFasilitas(Request $request)
     {
         for($i = 0; $i < count($request->fasilitasKamar); $i++){
@@ -108,7 +110,8 @@ class ManajemenController extends Controller
         }
         return redirect()->back();
     }
-    
+    // 
+
     public function karyawan(){
         $karyawan = Karyawan::get();
         return view('dashboard.manajemen.karyawan', compact('karyawan'));
@@ -137,7 +140,8 @@ class ManajemenController extends Controller
     }
     
     public function karyawanDetail(){
-        return view('dashboard.manajemen.karyawanDetail');
+        $karyawanAll = Karyawan::get();
+        return view('dashboard.manajemen.karyawanDetail', compact('karyawanAll'));
     }
     
     public function akun(){

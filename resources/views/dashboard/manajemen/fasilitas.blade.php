@@ -61,10 +61,10 @@ active
         <div class="modal-dialog">
             <form action="{{route('dashboard.manajemen.tambah.fasilitas')}}" method="post">
                 @csrf
-                <input type="text" name="idKamarTambahFasilitas" value="{{$k->id}}">
+                <input type="hidden" name="idKamarTambahFasilitas" value="{{$k->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button typfasilitas-{{$k->kamar_id}}e="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" id="fasilitas-{{$k->kamar_id}}" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Edit Fasilitas</h4>
                     </div>
@@ -74,11 +74,20 @@ active
                             <input type="text" class="form-control" required autocomplete="off" value="{{$k->nama_kamar}}" disabled>
                         </div>
                         <div class="form-group">
-                            <label>Fasilitas</label>
+                            Fasilitas kamar Anda
+                            @foreach($fasilitasKamar as $fk)
+                                <ul>
+                                    @if($fk->kamar_id == $k->id)
+                                        <li>
+                                            {{$fk->nama_fasilitas}}
+                                        </li>
+                                    @endif
+                                </ul>
+                            @endforeach   
                             <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
-                                <option selected>TV</option>
-                                <option selected>AC</option>
-                                <option selected>WIFI</option>
+                                <option>TV</option>
+                                <option>AC</option>
+                                <option>WIFI</option>
                                 <option>Kulkas</option>
                             </select>
                         </div>
