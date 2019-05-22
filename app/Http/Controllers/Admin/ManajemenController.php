@@ -93,20 +93,20 @@ class ManajemenController extends Controller
     public function fasilitas(){
         $kamar = Kamar::get();
         $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.nama_fasilitas', 'fasilitas_kamar.kamar_id')->get();
-        // return dd($fasilitasKamar);
+        // return dd($kamar);
         return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitasKamar'));
     }
 
     
     public function tambahFasilitas(Request $request)
     {
-        $news = $request->input('fasilitasKamar');
-        $news = implode(',', $news);
-
-        $input = $request->except('fasilitasKamar');
-        //Assign the "mutated" news value to $input
-        $input['fasilitasKamar'] = $news;
-        return dd($request->fasilitasKamar);
+        for($i = 0; $i < count($request->fasilitasKamar); $i++){
+            $fasilitasKamar = new FasilitasKamar;
+            $fasilitasKamar->nama_fasilitas = $request->fasilitasKamar[$i];
+            $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
+            $fasilitasKamar->save();
+        }
+        return redirect()->back();
     }
     
     public function karyawan(){

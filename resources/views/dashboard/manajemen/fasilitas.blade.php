@@ -46,7 +46,7 @@ active
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit"><i class="fa fa-pencil"></i></a>
+                                        data-target="#fasilitas-{{$k->id}}"><i class="fa fa-pencil"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -56,20 +56,22 @@ active
             </div>
         </div>
     </div>
-    <div class="modal fade" id="edit">
+    @foreach($kamar as $k)
+    <div class="modal fade" id="fasilitas-{{$k->id}}">
         <div class="modal-dialog">
             <form action="{{route('dashboard.manajemen.tambah.fasilitas')}}" method="post">
                 @csrf
+                <input type="text" name="idKamarTambahFasilitas" value="{{$k->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button typfasilitas-{{$k->kamar_id}}e="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Edit Fasilitas</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Kamar</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="Kamar 1" disabled>
+                            <input type="text" class="form-control" required autocomplete="off" value="{{$k->nama_kamar}}" disabled>
                         </div>
                         <div class="form-group">
                             <label>Fasilitas</label>
@@ -90,5 +92,6 @@ active
             </form>
         </div>
     </div>
+    @endforeach
 </section>
 @endsection
