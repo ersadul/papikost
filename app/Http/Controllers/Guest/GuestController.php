@@ -158,7 +158,7 @@ class GuestController extends Controller
         return view('invoice', compact('invoice', 'duration'));
     }
 
-    public function static($url = "safa"){
+    public function about($url = "safa"){
         switch ($url) {
             case 'safa':
                 return view('static.tentang.safa');
@@ -168,6 +168,24 @@ class GuestController extends Controller
                 return view('static.tentang.caraPesan');
             default:
             return redirect()->route('index');
+        };
+    }
+    public function destinasi($url = null){
+        switch ($url) {
+            case 'coban-rais':
+                return view('static.destinasi.cobanRais');
+            case 'gunung-semeru':
+                return view('static.destinasi.gunungSemeru');
+            case 'pantai-balekambang':
+                return view('static.destinasi.pantaiBalekambang');
+            case 'museum-angkut':
+                return view('static.destinasi.museumAngkut');
+            case 'kampung-jodipan':
+                return view('static.destinasi.kampungJodipan');
+            case null:
+                return redirect()->route('index');
+            default:
+                return redirect()->route('index');
         };
     }
 }

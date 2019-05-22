@@ -6,11 +6,11 @@
                 <div class="footer-widget">
                     <h4 class="widget-title down-line-left text-white">Destinasi Tempat Wisata</h4>
                     <ul>
-                        <li><a href="#">Coban Rais</a></li>
-                        <li><a href="#">Gunung Semeru, Taman Nasional Bromo Tengger Semeru</a></li>
-                        <li><a href="#">Pantai balekambang</a></li>
-                        <li><a href="#">Museum Angkut</a></li>
-                        <li><a href="#">Kampung Jodipan</a></li>
+                        <li><a href="{{ route('destinasi', 'coban-rais') }}">Coban Rais</a></li>
+                        <li><a href="{{ route('destinasi', 'gunung-semeru') }}">Gunung Semeru, Taman Nasional Bromo Tengger Semeru</a></li>
+                        <li><a href="{{ route('destinasi', 'pantai-balekambang') }}">Pantai balekambang</a></li>
+                        <li><a href="{{ route('destinasi', 'museum-angkut') }}">Museum Angkut</a></li>
+                        <li><a href="{{ route('destinasi', 'kampung-jodipan') }}">Kampung Jodipan</a></li>
                     </ul>
                 </div>
             </div>
