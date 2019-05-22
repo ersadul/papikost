@@ -16,6 +16,8 @@ class ManajemenController extends Controller
         if(!ProfileHotel::get()->isEmpty()){
             $profileHotel = ProfileHotel::first();
             return view('dashboard.manajemen.profile', compact('profileHotel'));
+        } else {
+            return "Failed to load data";
         }
     }
 
@@ -110,6 +112,28 @@ class ManajemenController extends Controller
     public function karyawan(){
         $karyawan = Karyawan::get();
         return view('dashboard.manajemen.karyawan', compact('karyawan'));
+    }
+
+    public function tambahKaryawan(Request $request)
+    {
+        $tambahKaryawan = new Karyawan;
+        $tambahKaryawan->nama = $request->tambahNama;
+        $tambahKaryawan->phone_number = $request->tambahPhone;
+        $tambahKaryawan->job_role = $request->tambahJob;
+        $tambahKaryawan->email = $request->tambahEmail;
+        $tambahKaryawan->tempat_tanggal_lahir = $request->tambahTTL;
+        $tambahKaryawan->alamat_tinggal = $request->tambahAlamat;
+        $tambahKaryawan->jenis_kelamin = $request->tambahJK;
+        $tambahKaryawan->status_perkawinan = $request->tambahSP;
+        $tambahKaryawan->agama = $request->tambahAgama;
+        $tambahKaryawan->sd = $request->tambahSD;
+        $tambahKaryawan->smp = $request->tambahSMP;
+        $tambahKaryawan->sma = $request->tambahSMA;
+        $tambahKaryawan->perguruan_tinggi = $request->tambahKuliah;
+        $tambahKaryawan->pengalaman_kerja = $request->tambahKerja;
+        $tambahKaryawan->save();
+        // return dd($tambahKaryawan);
+        return redirect()->back();
     }
     
     public function karyawanDetail(){

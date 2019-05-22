@@ -19,8 +19,7 @@ class CreateKaryawansTable extends Migration
             $table->string('phone_number');
             $table->string('job_role');
             $table->string('email');
-            $table->date('tanggal_lahir');
-            $table->string('tempat_lahir');
+            $table->string('tempat_tanggal_lahir');
             $table->string('alamat_tinggal');
             $table->string('jenis_kelamin');
             $table->string('status_perkawinan');

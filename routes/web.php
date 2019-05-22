@@ -98,7 +98,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/logbook', 'Admin\HouseKeepingController@logbook')->name('logbook');
         Route::get('/cleaning', 'Admin\HouseKeepingController@cleaning')->name('cleaning');
 
-
         //review
         Route::get('/review', 'Admin\ReservasiController@history')->name('review');
 
