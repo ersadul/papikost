@@ -75,12 +75,10 @@ active
                         </div>
                         <div class="form-group">
                             Fasilitas kamar Anda
+                            <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
                             @foreach($fasilitasKamar as $fk)
-                                <ul>
                                     @if($fk->kamar_id == $k->id)
-                                        <li>
-                                            {{$fk->nama_fasilitas}}
-                                        </li>
+                                        <option selected>{{$fk->nama_fasilitas}}</option>
                                     @endif
                                 </ul>
                             @endforeach

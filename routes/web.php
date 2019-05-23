@@ -109,7 +109,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/tambah-kamar', 'Admin\ManajemenController@tambahKamar')->name('manajemen.tambah.kamar');
         Route::post('/edit-kamar', 'Admin\ManajemenController@editKamar')->name('manajemen.edit.kamar');
         // DELETE Kamar masih fail
-        Route::post('/delete-kamar/', 'Admin\ManajemenController@deleteKamar')->name('manajemen.delete.kamar');
+        Route::post('/delete-kamar', 'Admin\ManajemenController@deleteKamar')->name('manajemen.delete.kamar');
         // DELETE Kamar masih fail
         Route::get('/tarif', 'Admin\ManajemenController@tarif')->name('manajemen.tarif');
         Route::post('/edit-tarif', 'Admin\ManajemenController@editTarif')->name('manajemen.edit.tarif');
@@ -117,7 +117,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/tambah-fasilitas', 'Admin\ManajemenController@tambahFasilitas')->name('manajemen.tambah.fasilitas');
         Route::get('/karyawan', 'Admin\ManajemenController@karyawan')->name('manajemen.karyawan');
         Route::post('/tambah-karyawan', 'Admin\ManajemenController@tambahKaryawan')->name('manajemen.tambah.karyawan');
-        Route::get('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
+        Route::post('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
         Route::get('/akun', 'Admin\ManajemenController@akun')->name('manajemen.akun');
 
         //bantuan

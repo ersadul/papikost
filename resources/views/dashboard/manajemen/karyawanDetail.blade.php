@@ -31,61 +31,61 @@ active
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nama</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="Karyawan 1">
+                            <input class="form-control" readonly value="{{$karyawanDetail->nama}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">No. HP</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="0812312312">
+                            <input class="form-control" readonly value="{{$karyawanDetail->phone_number}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Job Role</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="Managers">
+                            <input class="form-control" readonly value="{{$karyawanDetail->job_role}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">E-mail</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="mail@mail.com">
+                            <input class="form-control" readonly value="{{$karyawanDetail->email}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Tempat, Tanggal Lahir</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="Malang, 05 Mei 2019">
+                            <input class="form-control" readonly value="{{$karyawanDetail->tempat_tanggal_lahir}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Alamat</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" readonly rows="3">Ini alamat</textarea>
+                            <textarea class="form-control" readonly rows="3">{{$karyawanDetail->alamat_tinggal}}</textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Jenis Kelamin</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="Laki-laki">
+                            <input class="form-control" readonly value="{{$karyawanDetail->jenis_kelamin}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Agama</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="Agama">
+                            <input class="form-control" readonly value="{{$karyawanDetail->agama}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Riwayat Pendidikan</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="Riwayat Pendidikan">
+                            <input class="form-control" readonly value="SD : {{$karyawanDetail->sd}}, SMP : {{$karyawanDetail->smp}}, SMA : {{$karyawanDetail->sma}}, Kuliah : {{$karyawanDetail->kuliah}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Pengalaman Kerja</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="Pengalaman Kerja">
+                            <input class="form-control" readonly value="{{$karyawanDetail->pengalaman_kerja}}">
                         </div>
                     </div>
                 </div>
@@ -104,43 +104,46 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Nama</label>
-                            <input class="form-control" value="Karyawan 1">
+                            <input class="form-control" value="{{$karyawanDetail->nama}}">
                         </div>
                         <div class="form-group">
                             <label>No. HP</label>
-                            <input class="form-control" value="0812312312">
+                            <input class="form-control" value="{{$karyawanDetail->phone_number}}">
                         </div>
                         <div class="form-group">
                             <label>Job Role</label>
-                            <input class="form-control" value="Managers">
+                            <input class="form-control" value="{{$karyawanDetail->job_role}}">
                         </div>
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input class="form-control" value="mail@mail.com">
+                            <input class="form-control" value="{{$karyawanDetail->email}}">
                         </div>
                         <div class="form-group">
                             <label>Tempat, Tanggal Lahir</label>
-                            <input class="form-control" value="Malang, 05 Mei 2019">
+                            <input class="form-control" value="{{$karyawanDetail->tempat_tanggal_lahir}}">
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
-                            <textarea class="form-control" rows="3">Ini alamat</textarea>
+                            <textarea class="form-control" rows="3">{{$karyawanDetail->nama}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Jenis Kelamin</label>
-                            <input class="form-control" value="Laki-laki">
+                            <input class="form-control" value="{{$karyawanDetail->jenis_kelamin}}">
                         </div>
                         <div class="form-group">
                             <label>Agama</label>
-                            <input class="form-control" value="Agama">
+                            <input class="form-control" value="{{$karyawanDetail->agama}}">
                         </div>
                         <div class="form-group">
                             <label>Riwayat Pendidikan</label>
-                            <input class="form-control" value="Riwayat Pendidikan">
+                            <input class="form-control" value="{{$karyawanDetail->sd}}">
+                            <input class="form-control" value="{{$karyawanDetail->smp}}">
+                            <input class="form-control" value="{{$karyawanDetail->sma}}">
+                            <input class="form-control" value="{{$karyawanDetail->perguruan_tinggi}}">
                         </div>
                         <div class="form-group">
                             <label>Pengalaman Kerja</label>
-                            <input class="form-control" value="Pengalaman Kerja">
+                            <input class="form-control" value="{{$karyawanDetail->pengalaman_kerja}}">
                         </div>
                     </div>
                     <div class="modal-footer">
