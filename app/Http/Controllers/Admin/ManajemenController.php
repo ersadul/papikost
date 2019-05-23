@@ -163,7 +163,9 @@ class ManajemenController extends Controller
             'perguruan_tinggi' => $request->kuliahEdit,
             'pengalaman_kerja' => $request->pengalamanEdit
         ]);
-        return redirect()->back();
+        $karyawanDetail = Karyawan::where('id', $request->idKaryawanEdit)->first();
+        // return redirect()->back();
+        return redirect()->route('dashboard.manajemen.karyawan');
         // return dd($karyawanEdit);
     }
 
