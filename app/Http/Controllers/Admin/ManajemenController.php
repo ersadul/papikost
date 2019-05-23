@@ -37,7 +37,7 @@ class ManajemenController extends Controller
             'logo_hotel_file' => 'gambar.jpg'
         ]);
     }
-    
+
     public function kamar(){
         $kamar = Kamar::join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
         ->select('kamar.id as kamar_id', 'kamar.nama_kamar', 'kamar.tipe_kamar_id', 'tipe_kamar.nama_tipe')
@@ -110,7 +110,7 @@ class ManajemenController extends Controller
         }
         return redirect()->back();
     }
-    // 
+    //
 
     public function karyawan(){
         $karyawan = Karyawan::get();
@@ -138,12 +138,12 @@ class ManajemenController extends Controller
         // return dd($tambahKaryawan);
         return redirect()->back();
     }
-    
+
     public function karyawanDetail(){
         $karyawanAll = Karyawan::get();
         return view('dashboard.manajemen.karyawanDetail', compact('karyawanAll'));
     }
-    
+
     public function akun(){
         return view('dashboard.manajemen.akun');
     }

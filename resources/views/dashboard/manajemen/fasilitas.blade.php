@@ -83,7 +83,7 @@ active
                                         </li>
                                     @endif
                                 </ul>
-                            @endforeach   
+                            @endforeach
                             <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
                                 <option>TV</option>
                                 <option>AC</option>
