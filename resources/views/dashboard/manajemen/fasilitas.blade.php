@@ -75,21 +75,19 @@ active
                         </div>
                         <div class="form-group">
                             Fasilitas kamar Anda
-                            @foreach($fasilitasKamar as $fk)
-                                <ul>
-                                    @if($fk->kamar_id == $k->id)
-                                        <li>
-                                            {{$fk->nama_fasilitas}}
-                                        </li>
-                                    @endif
-                                </ul>
-                            @endforeach   
                             <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
+                            @foreach($fasilitasKamar as $fk)
+                                    @if($fk->kamar_id == $k->id)
+                                        <option selected>{{$fk->nama_fasilitas}}</option>
+                                    @endif
+                            @endforeach   
+                            </select>
+                            <!-- <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
                                 <option>TV</option>
                                 <option>AC</option>
                                 <option>WIFI</option>
                                 <option>Kulkas</option>
-                            </select>
+                            </select> -->
                         </div>
                     </div>
                     <div class="modal-footer">

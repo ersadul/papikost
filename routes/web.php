@@ -109,7 +109,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/tambah-kamar', 'Admin\ManajemenController@tambahKamar')->name('manajemen.tambah.kamar');
         Route::post('/edit-kamar', 'Admin\ManajemenController@editKamar')->name('manajemen.edit.kamar');
         // DELETE Kamar masih fail
-        Route::post('/delete-kamar/', 'Admin\ManajemenController@deleteKamar')->name('manajemen.delete.kamar');
+        Route::post('/delete-kamar', 'Admin\ManajemenController@deleteKamar')->name('manajemen.delete.kamar');
         // DELETE Kamar masih fail
         Route::get('/tarif', 'Admin\ManajemenController@tarif')->name('manajemen.tarif');
         Route::post('/edit-tarif', 'Admin\ManajemenController@editTarif')->name('manajemen.edit.tarif');

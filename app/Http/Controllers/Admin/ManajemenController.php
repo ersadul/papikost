@@ -103,14 +103,13 @@ class ManajemenController extends Controller
     public function tambahFasilitas(Request $request)
     {
         for($i = 0; $i < count($request->fasilitasKamar); $i++){
-            $fasilitasKamar = new FasilitasKamar;
             $fasilitasKamar->nama_fasilitas = $request->fasilitasKamar[$i];
             $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
             $fasilitasKamar->save();
         }
         return redirect()->back();
     }
-    // 
+    // ---------------------------------------------------------------------
 
     public function karyawan(){
         $karyawan = Karyawan::get();
@@ -139,9 +138,10 @@ class ManajemenController extends Controller
         return redirect()->back();
     }
     
-    public function karyawanDetail(){
-        $karyawanAll = Karyawan::get();
-        return view('dashboard.manajemen.karyawanDetail', compact('karyawanAll'));
+    public function karyawanDetail($id){
+        return ($id);
+        // $karyawanAll = Karyawan::get();
+        // return view('dashboard.manajemen.karyawanDetail', compact('karyawanAll'));
     }
     
     public function akun(){

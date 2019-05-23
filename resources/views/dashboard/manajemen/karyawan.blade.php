@@ -41,9 +41,9 @@ active
                                         <div class="media">
                                             <div class="media-body">
                                                 <div class="clearfix">
-                                                    <h4>{{$k->nama}}</h4>
+                                                    <h4> {{$k->nama}} idnya : {{$k->id}} </h4>
                                                     <p>{{$k->job_role}}</p>
-                                                    <a href="{{ route('dashboard.manajemen.karyawan.detail') }}" class="pull-right">Detail <i class="fa fa-chevron-circle-right"></i></a>
+                                                    <a href="{{ route('dashboard.manajemen.karyawan.detail', ['id' => $k->id]) }}"  class="pull-right">Detail <i class="fa fa-chevron-circle-right"></i></a>
                                                 </div>
                                             </div>
                                         </div>
