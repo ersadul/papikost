@@ -36,10 +36,8 @@ active
                             <td>{{$k->nama_kamar}}</td>
                             <td>
                                 <ul>
-                                    @foreach($fasilitasKamar as $fk)
-                                        @if($k->id == $fk->kamar_id)
-                                            <li>{{$fk->nama_fasilitas}}</li>
-                                        @endif
+                                    @foreach($k->fasilitasKamar as $f)
+                                    <li>{{$f->fasilitas->jenis_fasilitas}}</li>
                                     @endforeach
                                 </ul>
                             </td>
@@ -64,29 +62,30 @@ active
                 <input type="hidden" name="idKamarTambahFasilitas" value="{{$k->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" id="fasilitas-{{$k->kamar_id}}" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" id="fasilitas-{{$k->kamar_id}}" class="close" data-dismiss="modal"
+                            aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Edit Fasilitas</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Kamar</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="{{$k->nama_kamar}}" disabled>
+                            <input type="text" class="form-control" required autocomplete="off"
+                                value="{{$k->nama_kamar}}" disabled>
                         </div>
                         <div class="form-group">
                             Fasilitas kamar Anda
-                            <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
-                            @foreach($fasilitasKamar as $fk)
-                                    @if($fk->kamar_id == $k->id)
-                                        <option selected>{{$fk->nama_fasilitas}}</option>
+                            <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple"
+                                style="width: 100%;">
+                                @foreach ($fasilitas as $item)
+                                <option @foreach ($k->fasilitasKamar as $fk)
+                                    @if($fk->tipe_fasilitas_id == $item->id)
+                                    selected
+                                    @break
                                     @endif
-                                </ul>
-                            @endforeach
-                            <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple" style="width: 100%;">
-                                <option>TV</option>
-                                <option>AC</option>
-                                <option>WIFI</option>
-                                <option>Kulkas</option>
+                                    @endforeach
+                                    value="{{ $item->id }}">{{ $item->jenis_fasilitas }}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

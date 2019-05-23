@@ -9,6 +9,7 @@ use App\FasilitasKamar;
 use App\Karyawan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Fasilitas;
 
 class ManajemenController extends Controller
 {
@@ -92,9 +93,10 @@ class ManajemenController extends Controller
 
     public function fasilitas(){
         $kamar = Kamar::get();
-        $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.tipe_fasilitas_id', 'fasilitas_kamar.kamar_id')->get();
+        $fasilitas = Fasilitas::all();
+        // $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.tipe_fasilitas_id', 'fasilitas_kamar.kamar_id')->get();
         // return dd($fasilitasKamar);
-        return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitasKamar'));
+        return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitas'));
     }
 
     // Tambah fasilitas masih fail, data bisa yang sama dimasukkan lagi. contoh : Kamar tersebut sudah ada ac
