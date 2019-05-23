@@ -106,21 +106,85 @@ class ManajemenController extends Controller
     // dan saya tidak bisa menghapus fasilitasnya
     public function tambahFasilitas(Request $request)
     {
-        // $fasilitas = FasilitasKamar::where('kamar_id',1)->where('tipe_fasilitas_id', 1)->count();
-        for($i = 0; $i < count($request->fasilitasKamar); $i++){
-            if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->where('tipe_fasilitas_id', $request->fasilitasKamar[$i])->count() == 0 ){
-                $fasilitasKamar = new FasilitasKamar;
-                $fasilitasKamar->tipe_fasilitas_id = $request->fasilitasKamar[$i];
-                $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
-                $fasilitasKamar->save();
+        if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->count() == 0){
+            $tambahFasilitas = new FasilitasKamar;
+            for($i = 0; $i < count($request->fasilitasKamar); $i++){
+                if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->where('tipe_fasilitas_id', $request->fasilitasKamar[$i])->count() == 0 ){
+                    $fasilitasKamar = new FasilitasKamar;
+                    $fasilitasKamar->tipe_fasilitas_id = $request->fasilitasKamar[$i];
+                    $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
+                    $fasilitasKamar->save();
+                }
             }
+            return redirect()->back();
+        } else {
+            FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->delete();
+            $tambahFasilitas = new FasilitasKamar;
+            for($i = 0; $i < count($request->fasilitasKamar); $i++){
+                if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->where('tipe_fasilitas_id', $request->fasilitasKamar[$i])->count() == 0 ){
+                    $fasilitasKamar = new FasilitasKamar;
+                    $fasilitasKamar->tipe_fasilitas_id = $request->fasilitasKamar[$i];
+                    $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
+                    $fasilitasKamar->save();
+                }
+            }
+            return redirect()->back();
         }
+
+        // $fasilitas = FasilitasKamar::where('kamar_id',1)->where('tipe_fasilitas_id', 1)->count();
+        // for($i = 0; $i < count($request->fasilitasKamar); $i++){
+        //     if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->where('tipe_fasilitas_id', $request->fasilitasKamar[$i])->count() == 0 ){
+        //         $fasilitasKamar = new FasilitasKamar;
+        //         $fasilitasKamar->tipe_fasilitas_id = $request->fasilitasKamar[$i];
+        //         $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
+        //         $fasilitasKamar->save();
+        //     }
+        // }
+        // if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->count() == count($request->fasilitasKamar)){
+        //     return redirect()->back();
+        // } else {
+        //     if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->count() == 0){
+        //         for($i = 0; $i < count($request->fasilitasKamar); $i++){
+        //             $fasilitasKamar = new FasilitasKamar;
+        //             $fasilitasKamar->tipe_fasilitas_id = $request->fasilitasKamar[$i];
+        //             $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
+        //             $fasilitasKamar->save();
+        //         }
+        //         return redirect()->back();
+        //     } 
+        // }
+        // if($request->fasilitasKamar == null){
+        //     return 'form kosong semua, hapus semua fasilitas kamar itu';
+        // } else if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->count() == count($request->fasilitasKamar)){
+        //     for($i=0; $i < FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->count(); $i++){
+        //         if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->where('tipe_fasilitas_id', $request->fasilitasKamar[$i])->count() == 0 ){
+        //             return "ono gak podo";
+        //         } else {
+        //             return "podo jumlah e, isi blom tentu";
+        //         }
+        //     }
+        // } else if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->count() < count($request->fasilitasKamar)){
+        //     for($i = 0; $i < count($request->fasilitasKamar); $i++){
+        //         if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->where('tipe_fasilitas_id', $request->fasilitasKamar[$i])->count() == 0 ){
+        //             $fasilitasKamar = new FasilitasKamar;
+        //             $fasilitasKamar->tipe_fasilitas_id = $request->fasilitasKamar[$i];
+        //             $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
+        //             $fasilitasKamar->save();
+        //         }
+        //     }
+        //     return redirect()->back();
+        // } else {
+        //     return 'dikurangi';
+        // }
+        // return dd($request->fasilitasKamar);
+
         // if(FasilitasKamar::where('kamar_id', 1)->where('tipe_fasilitas_id', 1)->count() > 0 ){
         //     return "gagal";
         // } else {
         //     return (FasilitasKamar::where('kamar_id', 1)->where('tipe_fasilitas_id', 1)->count());
         // }
-        return redirect()->back();
+        // return redirect()->back();
+        
         // return dd($fasilitas);
     }
 
