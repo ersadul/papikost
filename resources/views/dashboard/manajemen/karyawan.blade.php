@@ -43,7 +43,11 @@ active
                                                 <div class="clearfix">
                                                     <h4> {{$k->nama}} idnya : {{$k->id}} </h4>
                                                     <p>{{$k->job_role}}</p>
-                                                    <a href="{{ route('dashboard.manajemen.karyawan.detail', ['id' => $k->id]) }}"  class="pull-right">Detail <i class="fa fa-chevron-circle-right"></i></a>
+                                                    <form action="{{ route('dashboard.manajemen.karyawan.detail')}}" method="post">
+                                                        @csrf
+                                                        <input type="hidden" name="idKaryawan" value="{{$k->id}}">
+                                                        <a href="#" onclick="$(this).closest('form').submit()" class="pull-right"> Detail <i class="fa fa-chevron-circle-right"></i></a>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
