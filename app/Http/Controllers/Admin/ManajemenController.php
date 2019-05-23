@@ -109,11 +109,6 @@ class ManajemenController extends Controller
         }
         return redirect()->back();
     }
-<<<<<<< HEAD
-    //
-=======
-    // ---------------------------------------------------------------------
->>>>>>> 6957b3824c98e8c6d07217da157e784f367da779
 
     public function karyawan(){
         $karyawan = Karyawan::get();
@@ -141,18 +136,10 @@ class ManajemenController extends Controller
         // return dd($tambahKaryawan);
         return redirect()->back();
     }
-<<<<<<< HEAD
 
     public function karyawanDetail(){
         $karyawanAll = Karyawan::get();
         return view('dashboard.manajemen.karyawanDetail', compact('karyawanAll'));
-=======
-    
-    public function karyawanDetail(Request $request){
-        // return ($request->idKaryawan);
-        $karyawanDetail = Karyawan::where('id', $request->idKaryawan)->first();
-        return view('dashboard.manajemen.karyawanDetail', compact('karyawanDetail'));
->>>>>>> 6957b3824c98e8c6d07217da157e784f367da779
     }
 
     public function akun(){
