@@ -21,8 +21,11 @@ active
     <div class="box box-solid">
         <div class="box-header with-border">
             <a href="{{ url()->previous() }}" class="btn bg-navy btn-flat"><i class="fa fa-arrow-left"></i> Kembali</a>
-            <a href="#" class="btn btn-danger btn-flat pull-right" style="margin-left: 5px"><i
-                    class="fa fa-remove"></i></a>
+            <form action="{{ route('dashboard.manajemen.karyawan.detail.delete')}}" method="post">
+                @csrf
+                <input type="hidden" name="idKamarDelete" value="{{$karyawanDetail->id}}">
+                <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-danger btn-flat pull-right" style="margin-left: 5px"><i class="fa fa-remove"></i></a>
+            </form>
             <a href="#"data-toggle="modal" data-target="#edit" class="btn btn-info btn-flat pull-right"><i class="fa fa-pencil"></i></a>
         </div>
         <div class="box-body">
