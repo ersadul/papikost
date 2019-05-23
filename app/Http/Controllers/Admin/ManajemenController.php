@@ -7,6 +7,8 @@ use App\TipeKamar;
 use App\Kamar;
 use App\FasilitasKamar;
 use App\Karyawan;
+use App\User;
+use Hash;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Fasilitas;
@@ -64,7 +66,7 @@ class ManajemenController extends Controller
         $editKamar = Kamar::where('id', $request->idKamarEdit)
         ->update([
             'nama_kamar' => $request->editKamar,
-            'tipe_kamar_id' => $request->editTipe,
+            'tipe_kamar_id' => $request->editTipe
         ]);
         return redirect()->back();
     }
@@ -151,6 +153,36 @@ class ManajemenController extends Controller
     }
 
     public function akun(){
-        return view('dashboard.manajemen.akun');
+        $allUser = User::get();
+        return view('dashboard.manajemen.akun', compact('allUser'));
+    }
+
+    public function editAkun(Request $request)
+    {
+        if($request->editPass == null){
+            $editAkun = User::where('id', $request->idEditAkun)->update([
+                'name' => $request->editNama,
+                'email' => $request->editEmail
+            ]);
+            return redirect()->back();
+        } else {
+            if($request->editPass == $request->editKonfirmasiPass){
+                $editAkun = User::where('id', $request->idEditAkun)->update([
+                    'name' => $request->editNama,
+                    'email' => $request->editEmail,
+                    'password' => Hash::make($request->editPass)
+                ]);
+                return redirect()->back();
+            } else {
+                return redirect()->back();
+            }
+        }
+    }
+
+    public function deleteAkun(Request $request)
+    {
+        User::where('id', $request->idDeleteAkun)->delete();
+        return redirect()->back();
+        // return dd($request->idDeleteAkun);
     }
 }

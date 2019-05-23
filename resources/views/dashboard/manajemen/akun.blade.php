@@ -36,58 +36,25 @@ active
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($allUser as $au)
                         <tr>
-                            <td>1</td>
-                            <td>Nama Akun 1</td>
-                            <td>08123456789</td>
-                            <td>mail@mail.com</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$au->name}}</td>
+                            <td>nomer telepon gak ada</td>
+                            <td>{{$au->email}}</td>
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-akun"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
+                                        data-target="#edit-akun-{{$au->id}}"><i class="fa fa-pencil"></i></a>
+                                    <form action="{{route('dashboard.manajemen.akun.delete')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="idDeleteAkun" value="{{$au->id}}">
+                                        <a href="#" onclick="$(this).closest('form').submit()" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
+                                    </form>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Nama Akun 2</td>
-                            <td>08123456789</td>
-                            <td>mail@mail.com</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-akun"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Nama Akun 3</td>
-                            <td>08123456789</td>
-                            <td>mail@mail.com</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-akun"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Nama Akun 4</td>
-                            <td>08123456789</td>
-                            <td>mail@mail.com</td>
-                            <td>
-                                <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal"
-                                        data-target="#edit-akun"><i class="fa fa-pencil"></i></a>
-                                    <a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
-                                </div>
-                            </td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -134,9 +101,12 @@ active
             </form>
         </div>
     </div>
-    <div class="modal fade" id="edit-akun">
+    @foreach($allUser as $au)
+    <div class="modal fade" id="edit-akun-{{$au->id}}">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.akun.edit')}}" method="post">
+                @csrf
+                <input type="hidden" name="idEditAkun" value="{{$au->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -146,23 +116,23 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Nama Akun</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="Nama Akun 1">
+                            <input type="text" name="editNama" class="form-control" required autocomplete="off" value="{{$au->name}}">
                         </div>
                         <div class="form-group">
                             <label>No. Telepon</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="08123456789">
+                            <input type="text" name="editNomer" class="form-control" required autocomplete="off" value="tidak ada nomer">
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" required autocomplete="off" value="mail@mail.com">
+                            <input type="email" name="editEmail" class="form-control" required autocomplete="off" value="{{$au->email}}">
                         </div>
                         <div class="form-group">
                             <label>Password Baru</label>
-                            <input type="password" class="form-control" required autocomplete="off">
+                            <input type="password" name="editPass" class="form-control" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Konfirmasi Password</label>
-                            <input type="password" class="form-control" required autocomplete="off">
+                            <input type="password" name="editKonfirmasiPass" class="form-control" autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -174,5 +144,6 @@ active
             </form>
         </div>
     </div>
+    @endforeach
 </section>
 @endsection
