@@ -118,6 +118,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/karyawan', 'Admin\ManajemenController@karyawan')->name('manajemen.karyawan');
         Route::post('/tambah-karyawan', 'Admin\ManajemenController@tambahKaryawan')->name('manajemen.tambah.karyawan');
         Route::post('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
+        Route::post('/karyawan/detail/edit', 'Admin\ManajemenController@editKaryawanDetail')->name('manajemen.karyawan.detail.edit');
         Route::get('/akun', 'Admin\ManajemenController@akun')->name('manajemen.akun');
 
         //bantuan

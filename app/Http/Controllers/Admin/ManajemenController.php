@@ -92,7 +92,7 @@ class ManajemenController extends Controller
 
     public function fasilitas(){
         $kamar = Kamar::get();
-        $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.nama_fasilitas', 'fasilitas_kamar.kamar_id')->get();
+        $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.tipe_fasilitas_id', 'fasilitas_kamar.kamar_id')->get();
         // return dd($fasilitasKamar);
         return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitasKamar'));
     }
@@ -143,7 +143,30 @@ class ManajemenController extends Controller
         $karyawanDetail = Karyawan::where('id', $request->idKaryawan)->first();
         return view('dashboard.manajemen.karyawanDetail', compact('karyawanDetail'));
     }
-    
+
+    public function editKaryawanDetail(Request $request)
+    {
+        // return dd($request->alamatEdit);
+        $karyawanEdit = Karyawan::where('id', $request->idKaryawanEdit)->update([
+            'nama' => $request->namaEdit,
+            'phone_number' => $request->phoneEdit, 
+            'job_role' => $request->jobEdit, 
+            'email' => $request->emailEdit, 
+            'tempat_tanggal_lahir' => $request->ttlEdit, 
+            'alamat_tinggal' => $request->alamatEdit, 
+            'jenis_kelamin' => $request->jkEdit, 
+            'status_perkawinan' => $request->spEdit,
+            'agama' => $request->agamaEdit,
+            'sd' => $request->sdEdit, 
+            'smp' => $request->smpEdit,
+            'sma' => $request->smaEdit,
+            'perguruan_tinggi' => $request->kuliahEdit,
+            'pengalaman_kerja' => $request->pengalamanEdit
+        ]);
+        return redirect()->back();
+        // return dd($karyawanEdit);
+    }
+
     public function akun(){
         return view('dashboard.manajemen.akun');
     }

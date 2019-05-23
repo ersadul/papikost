@@ -94,7 +94,9 @@ active
     </div>
     <div class="modal fade" id="edit">
         <div class="modal-dialog modal-lg">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.karyawan.detail.edit')}}" method="post">
+                @csrf
+                <input type="text" name="idKaryawanEdit" value="{{$karyawanDetail->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -104,46 +106,50 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Nama</label>
-                            <input class="form-control" value="{{$karyawanDetail->nama}}">
+                            <input class="form-control" name="namaEdit" value="{{$karyawanDetail->nama}}">
                         </div>
                         <div class="form-group">
                             <label>No. HP</label>
-                            <input class="form-control" value="{{$karyawanDetail->phone_number}}">
+                            <input class="form-control" name="phoneEdit" value="{{$karyawanDetail->phone_number}}">
                         </div>
                         <div class="form-group">
                             <label>Job Role</label>
-                            <input class="form-control" value="{{$karyawanDetail->job_role}}">
+                            <input class="form-control" name="jobEdit" value="{{$karyawanDetail->job_role}}">
                         </div>
                         <div class="form-group">
                             <label>E-mail</label>
-                            <input class="form-control" value="{{$karyawanDetail->email}}">
+                            <input class="form-control" name="emailEdit" value="{{$karyawanDetail->email}}">
                         </div>
                         <div class="form-group">
                             <label>Tempat, Tanggal Lahir</label>
-                            <input class="form-control" value="{{$karyawanDetail->tempat_tanggal_lahir}}">
+                            <input class="form-control" name="ttlEdit" value="{{$karyawanDetail->tempat_tanggal_lahir}}">
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
-                            <textarea class="form-control" rows="3">{{$karyawanDetail->nama}}</textarea>
+                            <textarea name="alamatEdit" class="form-control" rows="3">{{$karyawanDetail->alamat_tinggal}}</textarea>
                         </div>
                         <div class="form-group">
                             <label>Jenis Kelamin</label>
-                            <input class="form-control" value="{{$karyawanDetail->jenis_kelamin}}">
+                            <input class="form-control" name="jkEdit" value="{{$karyawanDetail->jenis_kelamin}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Status Perkawinan</label>
+                            <input class="form-control" name="spEdit" value="{{$karyawanDetail->status_perkawinan}}">
                         </div>
                         <div class="form-group">
                             <label>Agama</label>
-                            <input class="form-control" value="{{$karyawanDetail->agama}}">
+                            <input class="form-control" name="agamaEdit" value="{{$karyawanDetail->agama}}">
                         </div>
                         <div class="form-group">
                             <label>Riwayat Pendidikan</label>
-                            <input class="form-control" value="{{$karyawanDetail->sd}}">
-                            <input class="form-control" value="{{$karyawanDetail->smp}}">
-                            <input class="form-control" value="{{$karyawanDetail->sma}}">
-                            <input class="form-control" value="{{$karyawanDetail->perguruan_tinggi}}">
+                            <input class="form-control" name="sdEdit" value="{{$karyawanDetail->sd}}">
+                            <input class="form-control" name="smpEdit" value="{{$karyawanDetail->smp}}">
+                            <input class="form-control" name="smaEdit" value="{{$karyawanDetail->sma}}">
+                            <input class="form-control" name="kuliahEdit" value="{{$karyawanDetail->perguruan_tinggi}}">
                         </div>
                         <div class="form-group">
                             <label>Pengalaman Kerja</label>
-                            <input class="form-control" value="{{$karyawanDetail->pengalaman_kerja}}">
+                            <input class="form-control" name="pengalamanEdit" value="{{$karyawanDetail->pengalaman_kerja}}">
                         </div>
                     </div>
                     <div class="modal-footer">
