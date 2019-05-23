@@ -144,6 +144,12 @@ class ManajemenController extends Controller
         return view('dashboard.manajemen.karyawanDetail', compact('karyawanAll'));
     }
 
+    public function deleteKaryawanDetail(Request $request)
+    {
+        Karyawan::where('id', $request->idKamarDelete)->delete();
+        return redirect()->route('dashboard.manajemen.karyawan');
+    }
+
     public function akun(){
         return view('dashboard.manajemen.akun');
     }

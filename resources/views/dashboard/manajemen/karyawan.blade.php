@@ -41,7 +41,7 @@ active
                                         <div class="media">
                                             <div class="media-body">
                                                 <div class="clearfix">
-                                                    <h4> {{$k->nama}} idnya : {{$k->id}} </h4>
+                                                    <h4> {{$k->nama}}</h4>
                                                     <p>{{$k->job_role}}</p>
                                                     <form action="{{ route('dashboard.manajemen.karyawan.detail')}}" method="post">
                                                         @csrf
