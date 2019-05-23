@@ -106,12 +106,22 @@ class ManajemenController extends Controller
     // dan saya tidak bisa menghapus fasilitasnya
     public function tambahFasilitas(Request $request)
     {
-        for($i = 0; $i < count($request->fasilitasKamar); $i++){
-            $fasilitasKamar->nama_fasilitas = $request->fasilitasKamar[$i];
-            $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
-            $fasilitasKamar->save();
+        // $fasilitas = FasilitasKamar::where('kamar_id',1)->where('tipe_fasilitas_id', 1)->count();
+        // for($i = 0; $i < count($request->fasilitasKamar); $i++){
+        //     if(FasilitasKamar::where('kamar_id', $request->idKamarTambahFasilitas)->where('tipe_fasilitas_id', $request->fasilitasKamar[$i])->count() > 0 ){
+        //         $fasilitasKamar = new FasilitasKamar;
+        //         $fasilitasKamar->tipe_fasilitas_id = $request->fasilitasKamar[$i];
+        //         $fasilitasKamar->kamar_id = $request->idKamarTambahFasilitas;
+        //         $fasilitasKamar->save();
+        //     }
+        // }
+        if(FasilitasKamar::where('kamar_id', 1)->where('tipe_fasilitas_id', 1)->count() > 0 ){
+            return "gagal";
+        } else {
+            return (FasilitasKamar::where('kamar_id', 1)->where('tipe_fasilitas_id', 1)->count());
         }
-        return redirect()->back();
+        // return redirect()->back();
+        // return dd($fasilitas);
     }
 
     public function karyawan(){
