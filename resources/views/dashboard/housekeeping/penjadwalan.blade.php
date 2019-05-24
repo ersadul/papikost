@@ -37,16 +37,26 @@ active
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($penjadwalanAll as $pa)
                         <tr>
-                            <td>1</td>
-                            <td>20 Mei 2019</td>
+                            <td>{{$loop->iteration}}</td>
+                            <td>{{$pa->tanggal_jadwal}}</td>
                             <td>Minggu</td>
-                            <td>09:00</td>
-                            <td>1</td>
-                            <td>Nama Pegawai 1, Nama Pegawai 2</td>
-                            <td><a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a></td>
+                            <td>{{$pa->jam_jadwal}}</td>
+                            <td>{{$pa->shift}}</td>
+                            <td>
+                                {{$pa->karyawan_id}}
+                            </td>
+                            <td>
+                                <form action="{{route('dashboard.penjadwalan.delete')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="idDeletePenjadwalan" value="{{$pa->id}}">
+                                    <a href="#"  onclick="$(this).closest('form').submit()" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a>
+                                </form>
+                            </td>
                         </tr>
-                        <tr>
+                        @endforeach
+                        <!-- <tr>
                             <td>2</td>
                             <td>20 Mei 2019</td>
                             <td>Minggu</td>
@@ -81,7 +91,7 @@ active
                             <td>1</td>
                             <td>Nama Pegawai 1, Nama Pegawai 2</td>
                             <td><a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>
@@ -89,7 +99,8 @@ active
     </div>
     <div class="modal fade" id="penjadwalan">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.penjadwalan.tambah')}}" method="post">
+                @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -99,23 +110,23 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>No. Kamar</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="jadwalKamar" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
-                            <input type="text" class="form-control" required autocomplete="off" id="datepicker">
+                            <input type="text" name="jadwalTanggal" class="form-control" required autocomplete="off" id="datepicker">
                         </div>
                         <div class="form-group">
                             <label>Jam</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="jadwalJam" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Shift</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="jadwalShift" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Nama Karyawan</label>
-                            <select class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                            <select name="jadwalKaryawan[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
                                 style="width: 100%;">
                                 <option>Nama Karyawan 1</option>
                                 <option>Nama Karyawan 2</option>

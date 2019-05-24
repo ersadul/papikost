@@ -17,7 +17,7 @@ class AddRelationshipToInvoiceTable extends Migration
             if (!Schema::hasColumn('invoice', 'kamar_id')) {
                 $table->integer('kamar_id')->unsigned()->nullable();
                 $table->foreign('kamar_id')->references('id')->on('kamar')->onDelete('cascade');
-                }
+            }
         });
     }
 

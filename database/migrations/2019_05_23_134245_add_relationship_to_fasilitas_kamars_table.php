@@ -17,7 +17,7 @@ class AddRelationshipToFasilitasKamarsTable extends Migration
             if (!Schema::hasColumn('fasilitas_kamar', 'tipe_fasilitas_id')) {
                 $table->integer('tipe_fasilitas_id')->unsigned()->nullable();
                 $table->foreign('tipe_fasilitas_id')->references('id')->on('tipe_fasilitas')->onDelete('cascade');
-                }
+            }
         });
     }
 

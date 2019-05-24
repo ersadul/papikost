@@ -96,6 +96,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
 
         //housekeeping
         Route::get('/penjadwalan', 'Admin\HouseKeepingController@penjadwalan')->name('penjadwalan');
+        Route::post('/penjadwalan/tambah', 'Admin\HouseKeepingController@tambahPenjadwalan')->name('penjadwalan.tambah');
+        Route::post('/penjadwalan/delete', 'Admin\HouseKeepingController@deletePenjadwalan')->name('penjadwalan.delete');
         Route::get('/logbook', 'Admin\HouseKeepingController@logbook')->name('logbook');
         Route::get('/cleaning', 'Admin\HouseKeepingController@cleaning')->name('cleaning');
 
