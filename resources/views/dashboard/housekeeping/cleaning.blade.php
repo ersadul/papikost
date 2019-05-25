@@ -18,10 +18,11 @@ active
 </section>
 <section class="content">
     <div class="row">
+        @foreach($jadwalCleaning as $jc)
         <div class="col-md-3">
             <div class="box box-solid">
                 <div class="box-header">
-                    <h3 class="box-title">Kamar No. 1</h3>
+                    <h3 class="box-title">{{$jc->nama_kamar}}</h3>
                 </div>
                 <div class="box-body no-padding">
                     <table class="table">
@@ -30,7 +31,7 @@ active
                             <td class="text-right"><a href="#"><span class="lb-cleaning active"><i>Vacant Clean</i></span></a></td>
                         </tr>
                         <tr>
-                            <td>Robert Willy</td>
+                            <td>{{$jc->nama}}</td>
                             <td class="text-right">
                                 <a href="#"><span class="lb-cleaning active"><i class="fa fa-coffee"></i></span></a>
                                 <a href="#"><span class="lb-cleaning"><i class="fa fa-trash"></i></span></a>
@@ -41,7 +42,8 @@ active
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        @endforeach
+        <!-- <div class="col-md-3">
             <div class="box box-solid">
                 <div class="box-header">
                     <h3 class="box-title">Kamar No. 2</h3>
@@ -431,6 +433,6 @@ active
                     </table>
                 </div>
             </div>
-        </div>
+        </div> -->
 </section>
 @endsection

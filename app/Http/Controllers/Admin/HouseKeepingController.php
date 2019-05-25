@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Invoice;
 use App\LogBook;
 use App\Kamar;
 use App\Karyawan;
@@ -60,11 +61,11 @@ class HouseKeepingController extends Controller
     }
     
     public function cleaning(){
-        return view('dashboard.housekeeping.cleaning');
-    }
-
-    public function tambahCleaning(Request $request)
-    {
-        
+        $jadwalCleaning = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
+        ->join('kamar', 'kamar.id', '=', 'invoice.kamar_id')
+        ->where('status_menginap', 0)
+        ->where('flag_payment', 0)->get();
+        // return dd($jadwalCleaning);
+        return view('dashboard.housekeeping.cleaning', compact('jadwalCleaning'));
     }
 }
