@@ -18,6 +18,10 @@ class AddRelationshipToPenjadwalanKaryawanTable extends Migration
                 $table->integer('karyawan_id')->unsigned()->nullable();
                 $table->foreign('karyawan_id')->references('id')->on('karyawan')->onDelete('cascade');
             }
+            if (!Schema::hasColumn('penjadwalan_karyawan', 'kamar_id')) {
+                $table->integer('kamar_id')->unsigned()->nullable();
+                $table->foreign('kamar_id')->references('id')->on('kamar')->onDelete('cascade');
+            }
         });
     }
 

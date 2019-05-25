@@ -39,7 +39,7 @@ active
                     <tbody>
                         @foreach($penjadwalanAll as $pa)
                         <tr>
-                            <td>{{$loop->iteration}}</td>
+                            <td>{{$pa->kamar_id}}</td>
                             <td>{{$pa->tanggal_jadwal}}</td>
                             <td>Minggu</td>
                             <td>{{$pa->jam_jadwal}}</td>
@@ -109,8 +109,13 @@ active
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>No. Kamar</label>
-                            <input type="text" name="jadwalKamar" class="form-control" required autocomplete="off">
+                            <label>No. Kamar (pilih 1 kamar)</label>
+                            <select name="pilihKamar[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                style="width: 100%;">
+                                    @foreach($seluruhKamar as $sk)
+                                        <option value="{{$sk->id}}">{{$sk->nama_kamar}}</option>
+                                    @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
@@ -128,13 +133,15 @@ active
                             <label>Nama Karyawan</label>
                             <select name="jadwalKaryawan[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
                                 style="width: 100%;">
-                                <option>Nama Karyawan 1</option>
-                                <option>Nama Karyawan 2</option>
+                                @foreach($karyawanAll as $ka)
+                                <option value="{{$ka->id}}">{{$ka->nama}} dan idnya {{$ka->id}}</option>
+                                @endforeach
+                                <!-- <option>Nama Karyawan 2</option>
                                 <option>Nama Karyawan 3</option>
                                 <option>Nama Karyawan 4</option>
                                 <option>Nama Karyawan 5</option>
                                 <option>Nama Karyawan 6</option>
-                                <option>Nama Karyawan 7</option>
+                                <option>Nama Karyawan 7</option> -->
                             </select>
                         </div>
                     </div>

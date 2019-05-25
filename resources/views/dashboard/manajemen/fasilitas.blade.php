@@ -84,7 +84,9 @@ active
                                     @break
                                     @endif
                                     @endforeach
-                                    value="{{ $item->id }}">{{ $item->jenis_fasilitas }}</option>
+                                    value="{{ $item->id }}">
+                                    {{ $item->jenis_fasilitas }}
+                                </option>
                                 @endforeach
                             </select>
                         </div>
