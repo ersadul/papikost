@@ -43,6 +43,12 @@ class HouseKeepingController extends Controller
     public function logbook(){
         return view('dashboard.housekeeping.logbook');
     }
+
+    public function tambahLogbook(Request $request)
+    {
+
+    }
+    
     public function cleaning(){
         return view('dashboard.housekeeping.cleaning');
     }
