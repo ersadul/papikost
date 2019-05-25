@@ -39,6 +39,7 @@ class ManajemenController extends Controller
             'nama_penerima' => $request->penerima_profile,
             'logo_hotel_file' => 'gambar.jpg'
         ]);
+        return redirect()->back();
     }
 
     public function kamar(){
