@@ -68,7 +68,8 @@ active
     </div>
     <div class="modal fade" id="data">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.logbook.tambah')}}" method="post">
+                @csrf
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -78,31 +79,31 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>No. Kamar</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="tambahKamar" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
-                            <input type="text" class="form-control" required autocomplete="off" id="datepicker">
+                            <input type="text" name="tambahTanggal" class="form-control" required autocomplete="off" id="datepicker">
                         </div>
                         <div class="form-group">
                             <label>Customer</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="tambahCustomer" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control" rows="3"></textarea>
+                            <textarea name="tambahKeterangan" class="form-control" rows="3"></textarea>
                         </div>
                         <div class="form-group">
                             <label>Jumlah Barang</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="tambahBarang" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Status</label>
-                            <select class="form-control" required autocomplete="off">
+                            <select name="tambahStatus" class="form-control" required autocomplete="off">
                                 <option selected disabled></option>
-                                <option>Barang Hilang</option>
-                                <option>Barang Ditemukan</option>
-                                <option>Barang Dipinjamkan</option>
+                                <option value="1">Barang Hilang</option>
+                                <option value="1">Barang Ditemukan</option>
+                                <option value="1">Barang Dipinjamkan</option>
                             </select>
                         </div>
                     </div>

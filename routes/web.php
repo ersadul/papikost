@@ -99,6 +99,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/penjadwalan/tambah', 'Admin\HouseKeepingController@tambahPenjadwalan')->name('penjadwalan.tambah');
         Route::post('/penjadwalan/delete', 'Admin\HouseKeepingController@deletePenjadwalan')->name('penjadwalan.delete');
         Route::get('/logbook', 'Admin\HouseKeepingController@logbook')->name('logbook');
+        Route::post('/logbook/tambah', 'Admin\HouseKeepingController@tambahLogbook')->name('logbook.tambah');
         Route::get('/cleaning', 'Admin\HouseKeepingController@cleaning')->name('cleaning');
 
         //review
