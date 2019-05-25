@@ -156,9 +156,10 @@ class ManajemenController extends Controller
         return redirect()->back();
     }
 
-    public function karyawanDetail(){
-        $karyawanAll = Karyawan::get();
-        return view('dashboard.manajemen.karyawanDetail', compact('karyawanAll'));
+    public function karyawanDetail(Request $request){
+        $karyawanDetail = Karyawan::where('id', $request->idKaryawan)->first();
+        // return dd($request);
+        return view('dashboard.manajemen.karyawanDetail', compact('karyawanDetail'));
     }
 
     public function deleteKaryawanDetail(Request $request)
