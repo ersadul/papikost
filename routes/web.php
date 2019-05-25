@@ -101,7 +101,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/logbook', 'Admin\HouseKeepingController@logbook')->name('logbook');
         Route::post('/logbook/tambah', 'Admin\HouseKeepingController@tambahLogbook')->name('logbook.tambah');
         Route::get('/cleaning', 'Admin\HouseKeepingController@cleaning')->name('cleaning');
-        Route::get('/cleaning/tambah', 'Admin\HouseKeepingController@cleaning')->name('cleaning.tambah');
+        Route::post('/cleaning/tambah', 'Admin\HouseKeepingController@cleaning')->name('cleaning.tambah');
 
         //review
         Route::get('/review', 'Admin\ReservasiController@history')->name('review');

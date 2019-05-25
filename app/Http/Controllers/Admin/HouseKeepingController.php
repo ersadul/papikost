@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\LogBook;
 use App\Kamar;
 use App\Karyawan;
 use App\PenjadwalanKaryawan;
@@ -37,16 +38,25 @@ class HouseKeepingController extends Controller
     {
         PenjadwalanKaryawan::where('id', $request->idDeletePenjadwalan)->delete();
         return redirect()->back();
-        // return dd($request->idDeletePenjadwalan);
     }
 
     public function logbook(){
-        return view('dashboard.housekeeping.logbook');
+        $logbookAll = LogBook::get();
+        $seluruhKamar = Kamar::get();
+        return view('dashboard.housekeeping.logbook', compact('logbookAll', 'seluruhKamar'));
     }
 
     public function tambahLogbook(Request $request)
     {
-
+        $tambahLogBook = new LogBook;
+        $tambahLogBook->status_logbook = $request->tambahStatus;  
+        $tambahLogBook->kamar_id = $request->pilihKamar[0];
+        $tambahLogBook->keterangan_barang = $request->tambahKeterangan; 
+        $tambahLogBook->tanggal_kehilangan = date("Y-m-d", strtotime($request->tambahTanggal));
+        $tambahLogBook->jumlah_barang = $request->tambahBarang;
+        $tambahLogBook->customer = $request->tambahCustomer;
+        $tambahLogBook->save();
+        return redirect()->back();
     }
     
     public function cleaning(){

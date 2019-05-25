@@ -37,30 +37,23 @@ active
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($logbookAll as $la)
                         <tr>
-                            <td>1</td>
-                            <td>20 Mei 2019</td>
-                            <td>Nama Customer</td>
-                            <td>Laptop merk XYZ di bawah kolong tempat tidur</td>
-                            <td>1 Unit</td>
-                            <td><span class="label bg-green">Ditemukan</span></td>
+                            <td>{{$la->id}}</td>
+                            <td>{{$la->tanggal_kehilangan}}</td>
+                            <td> {{$la->customer}} </td>
+                            <td>{{$la->keterangan_barang}}</td>
+                            <td>{{$la->jumlah_barang}} Unit</td>
+                            @if($la->status_logbook == 1)
+                                <td><span class="label bg-red">Hilang</span></td>
+                            @elseif($la->status_logbook == 2)
+                                <td><span class="label bg-green">Ditemukan</span></td>
+                            @elseif($la->status_logbook == 3)
+                                <td><span class="label bg-orange">Dipinjam</span></td>
+                            @else
+                            @endif
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>20 Mei 2019</td>
-                            <td>Nama Customer</td>
-                            <td>Laptop merk XYZ di bawah kolong tempat tidur</td>
-                            <td>1 Unit</td>
-                            <td><span class="label bg-red">Hilang</span></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>20 Mei 2019</td>
-                            <td>Nama Customer</td>
-                            <td>Laptop merk XYZ di bawah kolong tempat tidur</td>
-                            <td>1 Unit</td>
-                            <td><span class="label bg-orange">Dipinjam</span></td>
-                        </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -79,7 +72,13 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>No. Kamar</label>
-                            <input type="text" name="tambahKamar" class="form-control" required autocomplete="off">
+                            <select name="pilihKamar[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                style="width: 100%;">
+                                    @foreach($seluruhKamar as $sk)
+                                        <option value="{{$sk->id}}">{{$sk->nama_kamar}}</option>
+                                    @endforeach
+                            </select>
+                            <!-- <input type="text" name="tambahKamar" class="form-control" required autocomplete="off"> -->
                         </div>
                         <div class="form-group">
                             <label>Tanggal</label>
@@ -102,8 +101,8 @@ active
                             <select name="tambahStatus" class="form-control" required autocomplete="off">
                                 <option selected disabled></option>
                                 <option value="1">Barang Hilang</option>
-                                <option value="1">Barang Ditemukan</option>
-                                <option value="1">Barang Dipinjamkan</option>
+                                <option value="2">Barang Ditemukan</option>
+                                <option value="3">Barang Dipinjamkan</option>
                             </select>
                         </div>
                     </div>

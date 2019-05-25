@@ -16,6 +16,7 @@ class CreateLogbooksTable extends Migration
         Schema::create('logbook', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('status_logbook');
+            $table->string('customer');
             $table->string('kamar_id');
             $table->text('keterangan_barang');
             $table->date('tanggal_kehilangan');
