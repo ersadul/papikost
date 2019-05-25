@@ -52,4 +52,9 @@ class HouseKeepingController extends Controller
     public function cleaning(){
         return view('dashboard.housekeeping.cleaning');
     }
+
+    public function tambahCleaning(Request $request)
+    {
+        
+    }
 }
