@@ -63,8 +63,9 @@ class HouseKeepingController extends Controller
     public function cleaning(){
         $jadwalCleaning = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
         ->join('kamar', 'kamar.id', '=', 'invoice.kamar_id')
-        ->where('status_menginap', 0)
-        ->where('flag_payment', 0)->get();
+        ->where('status_menginap', 2)
+        ->where('flag_payment', 1)
+        ->get();
         // return dd($jadwalCleaning);
         return view('dashboard.housekeeping.cleaning', compact('jadwalCleaning'));
     }
