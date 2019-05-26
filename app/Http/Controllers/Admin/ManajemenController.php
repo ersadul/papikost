@@ -99,7 +99,7 @@ class ManajemenController extends Controller
 
     public function tarif()
     {
-        $kamar = Kamar::get();
+        $kamar = Kamar::all();
         // return dd($kamar);
         return view('dashboard.manajemen.tarif', compact('kamar'));
     }
@@ -108,6 +108,7 @@ class ManajemenController extends Controller
     {
         $kamar = Kamar::where('id', $request->idTarifEdit)->update([
             'harga' => $request->editHargaAsli,
+            'harga_promo' => $request->editHargaPromo
         ]);
         // return dd($kamar);
         return redirect()->back();

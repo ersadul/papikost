@@ -31,17 +31,18 @@
                     <div class="img-slide">
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
-                                @foreach($gambar as $i => $g)
-                                    <div class="carousel-item {{ $i==0 ? 'active' : '' }} ">
-                                        <img src="{{ asset('storage/'.$g->gambar_file) }}" alt="{{ $g->nama_gambar }}">
+                                @if(sizeof($gambar) > 0)
+                                    @foreach($gambar as $i => $g)
+                                        <div class="carousel-item {{ $i==0 ? 'active' : '' }} ">
+                                            <img src="{{ asset('storage/'.$g->gambar_file) }}" alt="{{ $g->nama_gambar }}">
+                                        </div>
+                                    @endforeach
+                                @else
+                                    <div class="carousel-item active">
+                                        <img src="{{ asset('template/img/width/36.jpg') }}">
                                     </div>
-                                @endforeach
-                                <!-- <div class="carousel-item">
-                                    <img src="{{ asset('template/img/width/39.jpg') }}" alt="Image not found!">
-                                </div>
-                                <div class="carousel-item">
-                                    <img src="{{ asset('template/img/width/40.jpg') }}" alt="Image not found!">
-                                </div> -->
+                                @endif
+
                             </div>
                             <div class="slider-arrow">
                                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
@@ -89,7 +90,7 @@
                                 <div class="bg-white p-30">
                                     <ul class="icon-list-3">
                                         @foreach($fasilitas as $f)
-                                            <li>{{ $f->nama_fasilitas }}</li>    
+                                            <li>{{ $f->jenis_fasilitas }}</li>
                                         @endforeach
                                     </ul>
                                     <!-- <ul class="icon-list-3">

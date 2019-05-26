@@ -20,9 +20,9 @@ class ReservasiController extends Controller
     public function getKamar(Request $request)
     {
         $invoice = Invoice::join("payment_invoice", 'payment_invoice.invoice_id', '=', 'invoice.id')
-                        ->whereBetween('check_in', [$request->start, $request->end])
-                        ->where('payment_invoice.flag_payment', '1')
-                        ->get();
+            ->whereBetween('check_in', [$request->start, $request->end])
+            ->where('payment_invoice.flag_payment', '1')
+            ->get();
         return json_encode($invoice);
     }
 
