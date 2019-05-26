@@ -28,26 +28,57 @@ active
                     <table class="table">
                         <tr>
                             <td>Akan Check-out</td>
-                            <td class="text-right"><a href="#"><span class="lb-cleaning active"><i>Vacant Clean</i></span></a></td>
+                            @if($jc->vacant == 0)
+                                <td class="text-right"><a href="#"><span class="lb-cleaning active"><i>Vacant Clean</i></span></a></td>
+                            @elseif($jc->vacant == 1)
+                                <td class="text-right"><a href="#"><span class="lb-cleaning"><i>Vacant dirty</i></span></a></td>
+                            @endif
                         </tr>
                         <tr>
-                            <td>{{$jc->nama}} idnya {{$jc->invoice_id}}</td>
+                            <td>{{$jc->nama}}</td>
                             <td class="text-right">
-                            <form action="{{route('dashboard.manajemen.akun.delete')}}" method="post">
+                            <form action="{{route('dashboard.cleaning.snack')}}" method="post">
                                 @csrf
-                                <input type="hidden" name="idDeleteAkun" value="">
+                                <input type="hidden" name="idInvoiceCleaning" value="{{$jc->invoice_id}}">
                                 @if($jc->snack == 0)
+                                <input type="hidden" name="snack1" value="1">
                                 <a href="#" onclick="$(this).closest('form').submit()">
                                     <span class="lb-cleaning"><i class="fa fa-coffee"></i></span>
                                 </a>
                                 @elseif($jc->snack == 1)
+                                <input type="hidden" name="snack1" value="0">
                                 <a href="#" onclick="$(this).closest('form').submit()">
                                     <span class="lb-cleaning active"><i class="fa fa-coffee"></i></span>
                                 </a>
                                 @endif
                             </form>
-                                <a href="#"><span class="lb-cleaning"><i class="fa fa-trash"></i></span></a>
-                                <a href="#"><span class="lb-cleaning"><i class="fa fa-bed"></i></span></a>
+                            <form action="{{route('dashboard.cleaning.bersih')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="idInvoiceCleaning" value="{{$jc->invoice_id}}">
+                                @if($jc->bersih_ringan == 0)
+                                <input type="hidden" name="bersih1" value="1">
+                                <a href="#" onclick="$(this).closest('form').submit()">
+                                    <span class="lb-cleaning"><i class="fa fa-trash"></i></span>
+                                </a>
+                                @elseif($jc->bersih_ringan == 1)
+                                <input type="hidden" name="bersih1" value="0">
+                                <a href="#" onclick="$(this).closest('form').submit()">
+                                    <span class="lb-cleaning active"><i class="fa fa-trash"></i></span>
+                                </a>
+                                @endif
+                            </form>
+                            <form action="{{route('dashboard.cleaning.bed')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="idInvoiceCleaning" value="{{$jc->invoice_id}}">
+                                @if($jc->bed == 0)
+                                <input type="hidden" name="bed1" value="1">
+                                <a href="#" onclick="$(this).closest('form').submit()"><span class="lb-cleaning"><i class="fa fa-bed"></i></span></a>
+                                @elseif($jc->bed == 1)
+                                <input type="hidden" name="bed1" value="0">
+                                <a href="#" onclick="$(this).closest('form').submit()"><span class="lb-cleaning active"><i class="fa fa-bed"></i></span></a>
+
+                                @endif
+                            </form>
                             </td>
                         </tr>
                     </table>

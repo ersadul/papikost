@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Cleaning;
 use App\Invoice;
 use App\LogBook;
 use App\Kamar;
@@ -64,19 +65,64 @@ class HouseKeepingController extends Controller
         ->join('kamar', 'kamar.id', '=', 'invoice.kamar_id')
         ->join('cleaning', 'invoice.id', '=', 'cleaning.invoice_id')
         ->get();
+
         // return dd($jadwalCleaning);
         return view('dashboard.housekeeping.cleaning', compact('jadwalCleaning'));
     }
 
-    public function snackCleaning()
+    public function snackCleaning(Request $request)
     {
+        // if(Cleaning::where('invoice_id', $request->idInvoiceCleaning)->select(''))
+        // Cleaning::where('invoice_id', $request->idInvoiceCleaning)->update([
+        //     'snack' => 1
+        // ]);
+        if($request->snack1 == 0){
+            Cleaning::where('invoice_id', $request->idInvoiceCleaning)->update([
+                'snack' => 0
+            ]);
+            // return 'dari nyala ke mati';
+            return redirect()->back();
+        } else if($request->snack1 == 1) {
+            Cleaning::where('invoice_id', $request->idInvoiceCleaning)->update([
+                'snack' => 1
+            ]);
+            return redirect()->back();
+            // return 'dari mati ke nyala';
+        }
     }
 
-    public function bedCleaning()
+    public function bedCleaning(Request $request)
     {
+        // return 1;
+        if($request->bed1 == 0){
+            Cleaning::where('invoice_id', $request->idInvoiceCleaning)->update([
+                'bed' => 0
+            ]);
+            // return 'dari nyala ke mati';
+            return redirect()->back();
+        } else if($request->bed1 == 1) {
+            Cleaning::where('invoice_id', $request->idInvoiceCleaning)->update([
+                'bed' => 1
+            ]);
+            return redirect()->back();
+            // return 'dari mati ke nyala';
+        }
     }
 
-    public function bersihCleaning()
+    public function bersihCleaning(Request $request)
     {
+        if($request->bersih1 == 0){
+            Cleaning::where('invoice_id', $request->idInvoiceCleaning)->update([
+                'bersih_ringan' => 0
+            ]);
+            // return 'dari nyala ke mati';
+            return redirect()->back();
+        } else if($request->bersih1 == 1) {
+            Cleaning::where('invoice_id', $request->idInvoiceCleaning)->update([
+                'bersih_ringan' => 1
+            ]);
+            return redirect()->back();
+            // return 'dari mati ke nyala';
+        }
     }
 }
