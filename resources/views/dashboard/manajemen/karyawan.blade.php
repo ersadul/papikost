@@ -43,8 +43,7 @@ active
                                                 <div class="clearfix">
                                                     <h4> {{$k->nama}}</h4>
                                                     <p>{{$k->job_role}}</p>
-                                                    <form action="{{ route('dashboard.manajemen.karyawan.detail')}}" method="post">
-                                                        @csrf
+                                                    <form action="{{ route('dashboard.manajemen.karyawan.detail')}}" method="get">
                                                         <input type="hidden" name="idKaryawan" value="{{$k->id}}">
                                                         <a href="#" onclick="$(this).closest('form').submit()" class="pull-right"> Detail <i class="fa fa-chevron-circle-right"></i></a>
                                                     </form>
@@ -160,9 +159,9 @@ active
 @endsection
 
 @section('script')
-    <script>
-        $('.datepicker').datepicker({
-            format : 'yyyy-mm-dd'
-        });
-    </script>
+<script>
+    $('.datepicker').datepicker({
+        format : 'yyyy-mm-dd'
+    });
+</script>
 @endsection

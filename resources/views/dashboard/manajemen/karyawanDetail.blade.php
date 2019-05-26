@@ -56,9 +56,15 @@ active
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Tempat, Tanggal Lahir</label>
+                        <label class="col-sm-2 control-label">Tempat Lahir</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="{{$karyawanDetail->tempat_tanggal_lahir}}">
+                            <input class="form-control" readonly value="{{$karyawanDetail->tempat_lahir}}" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Tanggal Lahir</label>
+                        <div class="col-sm-10">
+                            <input class="form-control" readonly value="{{$karyawanDetail->tanggal_lahir}}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -82,7 +88,7 @@ active
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Riwayat Pendidikan</label>
                         <div class="col-sm-10">
-                            <input class="form-control" readonly value="SD : {{$karyawanDetail->sd}}, SMP : {{$karyawanDetail->smp}}, SMA : {{$karyawanDetail->sma}}, Kuliah : {{$karyawanDetail->kuliah}}">
+                            <input class="form-control" readonly value="SD : {{$karyawanDetail->sd}}, SMP : {{$karyawanDetail->smp}}, SMA : {{$karyawanDetail->sma}}, Kuliah : {{$karyawanDetail->perguruan_tinggi}}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -99,7 +105,7 @@ active
         <div class="modal-dialog modal-lg">
             <form action="{{route('dashboard.manajemen.karyawan.detail.edit')}}" method="post">
                 @csrf
-                <input type="text" name="idKaryawanEdit" value="{{$karyawanDetail->id}}">
+                <input type="hidden" name="idKaryawanEdit" value="{{$karyawanDetail->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -124,8 +130,12 @@ active
                             <input class="form-control" name="emailEdit" value="{{$karyawanDetail->email}}">
                         </div>
                         <div class="form-group">
-                            <label>Tempat, Tanggal Lahir</label>
-                            <input class="form-control" name="ttlEdit" value="{{$karyawanDetail->tempat_tanggal_lahir}}">
+                            <label>Tempat Lahir</label>
+                            <input class="form-control" name="tempatLahirEdit" value="{{$karyawanDetail->tempat_lahir}}">
+                        </div>
+                        <div class="form-group">
+                            <label>Tanggal Lahir</label>
+                            <input class="form-control datepicker" name="tanggalLahirEdit" value="{{$karyawanDetail->tanggal_lahir}}">
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
@@ -165,4 +175,12 @@ active
         </div>
     </div>
 </section>
+@endsection
+
+@section('script')
+<script>
+    $('.datepicker').datepicker({
+        format : 'yyyy-mm-dd'
+    });
+</script>
 @endsection

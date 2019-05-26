@@ -122,7 +122,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/tambah-fasilitas', 'Admin\ManajemenController@tambahFasilitas')->name('manajemen.tambah.fasilitas');
         Route::get('/karyawan', 'Admin\ManajemenController@karyawan')->name('manajemen.karyawan');
         Route::post('/tambah-karyawan', 'Admin\ManajemenController@tambahKaryawan')->name('manajemen.tambah.karyawan');
-        Route::post('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
+        Route::get('/karyawan/detail', 'Admin\ManajemenController@karyawanDetail')->name('manajemen.karyawan.detail');
         Route::post('/karyawan/detail/edit', 'Admin\ManajemenController@editKaryawanDetail')->name('manajemen.karyawan.detail.edit');
         Route::post('/karyawan/detail/delete', 'Admin\ManajemenController@deleteKaryawanDetail')->name('manajemen.karyawan.detail.delete');
         Route::get('/akun', 'Admin\ManajemenController@akun')->name('manajemen.akun');

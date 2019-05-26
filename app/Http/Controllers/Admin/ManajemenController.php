@@ -186,6 +186,31 @@ class ManajemenController extends Controller
         return view('dashboard.manajemen.karyawanDetail', compact('karyawanDetail'));
     }
 
+    public function editKaryawanDetail(Request $request)
+    {
+        Karyawan::where('id', $request->idKaryawanEdit)
+            ->update([
+                'nama'              => $request->namaEdit,
+                'phone_number'      => $request->phoneEdit,
+                'job_role'          => $request->jobEdit,
+                'email'             => $request->emailEdit,
+                'tanggal_lahir'     => $request->tanggalLahirEdit,
+                'tempat_lahir'      => $request->tempatLahirEdit,
+                'alamat_tinggal'    => $request->alamatEdit,
+                'jenis_kelamin'     => $request->jkEdit,
+                'status_perkawinan' => $request->spEdit,
+                'agama'             => $request->agamaEdit,
+                'sd'                => $request->sdEdit,
+                'smp'               => $request->smpEdit,
+                'sma'               => $request->smaEdit,
+                'perguruan_tinggi'  => $request->kuliahEdit,
+                'pengalaman_kerja'  => $request->pengalamanEdit,
+
+            ]);
+        
+        return redirect()->back();
+    }
+
     public function deleteKaryawanDetail(Request $request)
     {
         Karyawan::where('id', $request->idKamarDelete)->delete();
