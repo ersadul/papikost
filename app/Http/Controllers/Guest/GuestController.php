@@ -46,7 +46,10 @@ class GuestController extends Controller
         }
 
         //select kamar exclude yang sudah dibooking lunas
-        $kamar = Kamar::whereNotIn('id', $idKamarBooked)->get();
+        $kamar = Kamar::select('*', 'kamar.id as id_kamar')
+            ->whereNotIn('id', $idKamarBooked)
+            ->join('tipe_kamar', 'tipe_kamar.id', '=', 'kamar.tipe_kamar_id')
+            ->get();
 
         return view('roomList', compact('checkIn', 'lamaMenginap', 'kamar'));
     }
@@ -62,7 +65,9 @@ class GuestController extends Controller
         $kamarLamaMenginap = $request->lamaMenginap;
 
         //get fasilitas kamar
-        $fasilitas = FasilitasKamar::where('kamar_id', $request->id)->get();
+        $fasilitas = FasilitasKamar::where('kamar_id', $request->id)
+            ->join('tipe_fasilitas', 'tipe_fasilitas.id', '=', 'fasilitas_kamar.tipe_fasilitas_id')
+            ->get();
 
         //get gambar kamar
         $gambar = GambarKamar::where('kamar_id', $request->id)->get();
@@ -158,7 +163,8 @@ class GuestController extends Controller
         return view('invoice', compact('invoice', 'duration'));
     }
 
-    public function about($url = "safa"){
+    public function about($url = "safa")
+    {
         switch ($url) {
             case 'safa':
                 return view('static.tentang.safa');
@@ -167,10 +173,11 @@ class GuestController extends Controller
             case 'cara-pesan':
                 return view('static.tentang.caraPesan');
             default:
-            return redirect()->route('index');
+                return redirect()->route('index');
         };
     }
-    public function destinasi($url = null){
+    public function destinasi($url = null)
+    {
         switch ($url) {
             case 'coban-rais':
                 return view('static.destinasi.cobanRais');

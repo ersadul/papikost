@@ -43,7 +43,7 @@
                 <div class="col-xl-2 col-lg-3">
                     <div class="for-booking">
                         <div class="h5 per-night text-primary">Rp. {{$k->harga}}<small> / Night</small></div>
-                        <form action="{{ route('room.detail', ['id' => $k->id]) }}" method="post">
+                        <form action="{{ route('room.detail', ['id' => $k->id_kamar]) }}" method="post">
                             @csrf
                             <input type="hidden" name="checkIn" value="{{$checkIn}}">
                             <input type="hidden" name="lamaMenginap" value="{{$lamaMenginap}}">
