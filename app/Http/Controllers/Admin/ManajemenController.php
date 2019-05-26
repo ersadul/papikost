@@ -106,11 +106,10 @@ class ManajemenController extends Controller
 
     public function fasilitas()
     {
-        $kamar     = Kamar::get();
-        $fasilitas = Fasilitas::all();
-        // $fasilitasKamar = Kamar::join('fasilitas_kamar', 'kamar.id', '=', 'fasilitas_kamar.kamar_id')->select('fasilitas_kamar.tipe_fasilitas_id', 'fasilitas_kamar.kamar_id')->get();
-        // return dd($fasilitasKamar);
-        return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitas'));
+        $kamar          = Kamar::all();
+        $fasilitas      = Fasilitas::all();
+        $fasilitasKamar = FasilitasKamar::all();
+        return view('dashboard.manajemen.fasilitas', compact('kamar', 'fasilitas', 'fasilitasKamar'));
     }
 
     public function tambahFasilitas(Request $request)
@@ -188,13 +187,14 @@ class ManajemenController extends Controller
         return view('dashboard.manajemen.akun', compact('allUser'));
     }
 
-    public function tambahAkun(Request $request){
-        
-        $user = new User;
+    public function tambahAkun(Request $request)
+    {
+
+        $user            = new User;
         $user->user_role = 'admin';
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->name      = $request->name;
+        $user->email     = $request->email;
+        $user->password  = Hash::make($request->password);
         $user->save();
 
         return redirect()->back();

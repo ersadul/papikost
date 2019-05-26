@@ -36,8 +36,10 @@ active
                             <td>{{$k->nama_kamar}}</td>
                             <td>
                                 <ul>
-                                    @foreach($k->fasilitasKamar as $f)
-                                    <li>{{$f->fasilitas->jenis_fasilitas}}</li>
+                                    @foreach($fasilitasKamar as $fk)
+                                        @if($fk->kamar_id == $k->id)
+                                            <li>{{$fk->fasilitas->jenis_fasilitas}}</li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </td>
@@ -77,16 +79,16 @@ active
                             Fasilitas kamar Anda
                             <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple"
                                 style="width: 100%;">
-                                @foreach ($fasilitas as $item)
-                                <option @foreach ($k->fasilitasKamar as $fk)
-                                    @if($fk->tipe_fasilitas_id == $item->id)
-                                    selected
-                                    @break
-                                    @endif
-                                    @endforeach
-                                    value="{{ $item->id }}">
-                                    {{ $item->jenis_fasilitas }}
-                                </option>
+                                @foreach ($fasilitas as $f)
+                                    <option value="{{ $f->id }}" 
+                                        @foreach($fasilitasKamar as $fk)
+                                            @if($fk->tipe_fasilitas_id == $f->id)
+                                                selected
+                                            @endif
+                                        @endforeach
+                                    >
+                                        {{ $f->jenis_fasilitas }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
