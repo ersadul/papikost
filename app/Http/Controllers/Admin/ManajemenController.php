@@ -26,8 +26,7 @@ class ManajemenController extends Controller
 
     public function editProfile(Request $request)
     {
-        $editProfileHotel = ProfileHotel::where('id', $request->IDProfileHotel)
-        ->update([
+        $dataUpdate = [
             'nama' => $request->nama_profile,
             'alamat' => $request->alamat_profile,
             'provinsi' => $request->provinsi_profile,
@@ -37,8 +36,16 @@ class ManajemenController extends Controller
             'bank_cabang' => $request->cabang_profile,
             'nomor_rekening' => $request->nomor_profile,
             'nama_penerima' => $request->penerima_profile,
-            'logo_hotel_file' => 'gambar.jpg'
-        ]);
+        ];
+
+        
+        if(!is_null($request->file('gambar_profile'))){ //simpan request gambar kalau diunggah pengguna
+            $uploadFile = $request->file('gambar_profile');
+            $path = $uploadFile->store('public/files');
+            $dataUpdate['logo_hotel_file'] = str_replace('public/', '', $path);
+        }
+
+        $editProfileHotel = ProfileHotel::where('id', $request->IDProfileHotel)->update($dataUpdate);
         return redirect()->back();
     }
 

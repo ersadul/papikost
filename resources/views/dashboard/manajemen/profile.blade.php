@@ -19,7 +19,7 @@ active
 <section class="content">
     <div class="box box-solid">
         <div class="box-body">
-            <form action="{{route('dashboard.manajemen.edit.profile')}}" method="post">
+            <form action="{{route('dashboard.manajemen.edit.profile')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="IDProfileHotel" value="{{$profileHotel->id}}">
                 <div class="row">
@@ -65,6 +65,8 @@ active
                         <div class="form-group">
                             <label>Logo Hotel</label>
                             <input type="file" name="gambar_profile" class="form-control">
+                            <img style="margin-top: 20px"
+                                src="{{ is_null($profileHotel->logo_hotel_file) || $profileHotel->logo_hotel_file == '' ? asset('template/img/logo/logo.png') : asset('storage/'.$profileHotel->logo_hotel_file) }}">
                         </div>
                     </div>
                 </div>
