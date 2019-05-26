@@ -110,6 +110,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/profile', 'Admin\ManajemenController@profile')->name('manajemen.profile');
         Route::post('/edit-profile', 'Admin\ManajemenController@editProfile')->name('manajemen.edit.profile');
         Route::get('/kamar', 'Admin\ManajemenController@kamar')->name('manajemen.kamar');
+        Route::get('/kamar/{id}', 'Admin\ManajemenController@kamarDetail')->name('manajemen.detail.kamar');
         Route::post('/tambah-kamar', 'Admin\ManajemenController@tambahKamar')->name('manajemen.tambah.kamar');
         Route::post('/edit-kamar', 'Admin\ManajemenController@editKamar')->name('manajemen.edit.kamar');
         // DELETE Kamar masih fail

@@ -84,3 +84,10 @@ hr {
 .lb-cleaning.active i{
     color: #fff;
 }
+#tb-detail-kamar img {
+	width: 200px;
+}
+#edit-gambar img {
+    width: 200px;
+    margin-bottom: 20px
+}

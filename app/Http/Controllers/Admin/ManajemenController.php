@@ -60,6 +60,15 @@ class ManajemenController extends Controller
         return view('dashboard.manajemen.kamar', compact('tipeKamar', 'kamar'));
     }
 
+    public function kamarDetail($id)
+    {
+        $kamar = Kamar::find($id)->join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
+        ->select('kamar.id as kamar_id', 'kamar.nama_kamar', 'kamar.tipe_kamar_id', 'tipe_kamar.nama_tipe')
+        ->first();
+        $tipeKamar = TipeKamar::get();
+        return view('dashboard.manajemen.kamarDetail', compact('kamar', 'tipeKamar'));
+    }
+
     public function tambahKamar(Request $request)
     {
         $tambahKamar                = new Kamar;

@@ -42,7 +42,7 @@ active
                             <td>{{$k->nama_tipe}}</td>
                             <td>
                                 <div class="btn-action">
-                                    <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal" data-target="#edit-kamar-{{$k->kamar_id}}"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ route('dashboard.manajemen.detail.kamar', $k->kamar_id) }}" class="btn btn-sm btn-success btn-flat" data-toggle="modal"><i class="fa fa-eye"></i></a>
                                     <button type="submit" form="delete-kamar-{{ $k->kamar_id }}" class="btn btn-sm btn-danger btn-flat">
                                         <i class="fa fa-remove"></i>
                                     </button>
@@ -93,42 +93,5 @@ active
             </form>
         </div>
     </div>
-    @foreach($kamar as $k)
-    <div class="modal fade" id="edit-kamar-{{$k->kamar_id}}">
-        <div class="modal-dialog">
-            <form action="{{route('dashboard.manajemen.edit.kamar')}}" method="post">
-                @csrf
-                <input type="hidden" name="idKamarEdit" value="{{$k->kamar_id}}">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Edit Kamar</h4>
-                    </div>
-                    <div class="modal-body">
-                        <div class="form-group">
-                            <label>Kamar</label>
-                            <input type="text" name="editKamar" id="editKamarID" class="form-control" required autocomplete="off" value="{{$k->nama_kamar}}">
-                        </div>
-                        <div class="form-group">
-                            <label>Tipe Kamar</label>
-                            <select name="editTipe" id="editTipeID" class="form-control" required autocomplete="off">
-                                <option disabled>Pilih Tipe Kamar</option>
-                                @foreach($tipeKamar as $tk)
-                                    <option value="{{$tk->id}}" {{ $tk->id == $k->tipe_kamar_id ? 'selected="selected"' : '' }} >{{$tk->nama_tipe}}</option>
-                                @endforeach
-                            </select>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default pull-left btn-flat"
-                            data-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-primary btn-flat">Simpan</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-    @endforeach
 </section>
 @endsection
