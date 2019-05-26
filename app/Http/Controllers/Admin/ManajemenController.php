@@ -63,8 +63,8 @@ class ManajemenController extends Controller
     public function kamarDetail($id)
     {
         $kamar = Kamar::find($id)->join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
-        ->select('kamar.id as kamar_id', 'kamar.nama_kamar', 'kamar.tipe_kamar_id', 'tipe_kamar.nama_tipe')
-        ->first();
+            ->select('kamar.id as kamar_id', 'kamar.nama_kamar', 'kamar.tipe_kamar_id', 'tipe_kamar.nama_tipe')
+            ->first();
         $tipeKamar = TipeKamar::get();
         return view('dashboard.manajemen.kamarDetail', compact('kamar', 'tipeKamar'));
     }
@@ -107,8 +107,8 @@ class ManajemenController extends Controller
     public function editTarif(Request $request)
     {
         $kamar = Kamar::where('id', $request->idTarifEdit)->update([
-            'harga' => $request->editHargaAsli,
-            'harga_promo' => $request->editHargaPromo
+            'harga'       => $request->editHargaAsli,
+            'harga_promo' => $request->editHargaPromo,
         ]);
         // return dd($kamar);
         return redirect()->back();
@@ -158,21 +158,22 @@ class ManajemenController extends Controller
 
     public function tambahKaryawan(Request $request)
     {
-        $tambahKaryawan                       = new Karyawan;
-        $tambahKaryawan->nama                 = $request->tambahNama;
-        $tambahKaryawan->phone_number         = $request->tambahPhone;
-        $tambahKaryawan->job_role             = $request->tambahJob;
-        $tambahKaryawan->email                = $request->tambahEmail;
-        $tambahKaryawan->tempat_tanggal_lahir = $request->tambahTTL;
-        $tambahKaryawan->alamat_tinggal       = $request->tambahAlamat;
-        $tambahKaryawan->jenis_kelamin        = $request->tambahJK;
-        $tambahKaryawan->status_perkawinan    = $request->tambahSP;
-        $tambahKaryawan->agama                = $request->tambahAgama;
-        $tambahKaryawan->sd                   = $request->tambahSD;
-        $tambahKaryawan->smp                  = $request->tambahSMP;
-        $tambahKaryawan->sma                  = $request->tambahSMA;
-        $tambahKaryawan->perguruan_tinggi     = $request->tambahKuliah;
-        $tambahKaryawan->pengalaman_kerja     = $request->tambahKerja;
+        $tambahKaryawan                    = new Karyawan;
+        $tambahKaryawan->nama              = $request->tambahNama;
+        $tambahKaryawan->phone_number      = $request->tambahPhone;
+        $tambahKaryawan->job_role          = $request->tambahJob;
+        $tambahKaryawan->email             = $request->tambahEmail;
+        $tambahKaryawan->tempat_lahir      = $request->tambahTempatLahir;
+        $tambahKaryawan->tanggal_lahir     = $request->tambahTanggalLahir;
+        $tambahKaryawan->alamat_tinggal    = $request->tambahAlamat;
+        $tambahKaryawan->jenis_kelamin     = $request->tambahJK;
+        $tambahKaryawan->status_perkawinan = $request->tambahSP;
+        $tambahKaryawan->agama             = $request->tambahAgama;
+        $tambahKaryawan->sd                = $request->tambahSD;
+        $tambahKaryawan->smp               = $request->tambahSMP;
+        $tambahKaryawan->sma               = $request->tambahSMA;
+        $tambahKaryawan->perguruan_tinggi  = $request->tambahKuliah;
+        $tambahKaryawan->pengalaman_kerja  = $request->tambahKerja;
         $tambahKaryawan->save();
         // return dd($tambahKaryawan);
         return redirect()->back();

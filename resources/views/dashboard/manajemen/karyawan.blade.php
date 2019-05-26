@@ -97,8 +97,14 @@ active
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Tempat Tanggal Lahir</label>
-                            <input type="text" name="tambahTTL" class="form-control" required autocomplete="off">
+                            <label>Tempat Lahir</label>
+                            <input type="text" name="tambahTempatLahir" class="form-control" required autocomplete="off">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Tanggal Lahir</label>
+                            <input type="text" name="tambahTanggalLahir" class="form-control datepicker" required autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-body">
@@ -150,4 +156,13 @@ active
         </div>
     </div>
 </section>
+
+@endsection
+
+@section('script')
+    <script>
+        $('.datepicker').datepicker({
+            format : 'yyyy-mm-dd'
+        });
+    </script>
 @endsection
