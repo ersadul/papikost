@@ -264,4 +264,9 @@ class ManajemenController extends Controller
         return redirect()->back();
         // return dd($request->idDeleteAkun);
     }
+
+    public function review()
+    {
+        # code...
+    }
 }
