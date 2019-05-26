@@ -125,6 +125,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/karyawan/detail/edit', 'Admin\ManajemenController@editKaryawanDetail')->name('manajemen.karyawan.detail.edit');
         Route::post('/karyawan/detail/delete', 'Admin\ManajemenController@deleteKaryawanDetail')->name('manajemen.karyawan.detail.delete');
         Route::get('/akun', 'Admin\ManajemenController@akun')->name('manajemen.akun');
+        Route::post('/akun/tambah', 'Admin\ManajemenController@tambahAkun')->name('manajemen.akun.tambah');
         Route::post('/akun/edit', 'Admin\ManajemenController@editAkun')->name('manajemen.akun.edit');
         Route::post('/akun/delete', 'Admin\ManajemenController@deleteAkun')->name('manajemen.akun.delete');
 

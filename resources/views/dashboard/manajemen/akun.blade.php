@@ -30,7 +30,6 @@ active
                         <tr>
                             <th width="25px">No</th>
                             <th>Nama</th>
-                            <th>No.Telepon</th>
                             <th>E-mail</th>
                             <th width="120px">Aksi</th>
                         </tr>
@@ -40,7 +39,6 @@ active
                         <tr>
                             <td>{{$loop->iteration}}</td>
                             <td>{{$au->name}}</td>
-                            <td>nomer telepon gak ada</td>
                             <td>{{$au->email}}</td>
                             <td>
                                 <div class="btn-action">
@@ -63,7 +61,7 @@ active
 
     <div class="modal fade" id="akun">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{ route('dashboard.manajemen.akun.tambah') }}" method="post">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -73,24 +71,23 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>Nama Akun</label>
-                            <input type="text" class="form-control" required autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                            <label>No. Telepon</label>
-                            <input type="text" class="form-control" required autocomplete="off">
+                            <input type="text" name="name" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Email</label>
-                            <input type="email" class="form-control" required autocomplete="off">
+                            <input type="email" name="email" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Password</label>
-                            <input type="password" class="form-control" required autocomplete="off">
+                            <input id="pwd" type="password" name="password" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Konfirmasi Password</label>
-                            <input type="password" class="form-control" required autocomplete="off">
+                            <input type="password" class="form-control" required autocomplete="off" onchange="if(pwd.value != this.value){ pwderror.style = 'visibility: visible'; this.value = ''; } else { pwderror.style = 'visibility: hidden' }">
+                            <br>
+                            <span id="pwderror" class="btn-danger" style="visibility: hidden">Password tidak sama!</span>
                         </div>
+                        @csrf
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left btn-flat"
@@ -119,20 +116,18 @@ active
                             <input type="text" name="editNama" class="form-control" required autocomplete="off" value="{{$au->name}}">
                         </div>
                         <div class="form-group">
-                            <label>No. Telepon</label>
-                            <input type="text" name="editNomer" class="form-control" required autocomplete="off" value="tidak ada nomer">
-                        </div>
-                        <div class="form-group">
                             <label>Email</label>
                             <input type="email" name="editEmail" class="form-control" required autocomplete="off" value="{{$au->email}}">
                         </div>
                         <div class="form-group">
                             <label>Password Baru</label>
-                            <input type="password" name="editPass" class="form-control" autocomplete="off">
+                            <input id="pwd{{$au->id}}" type="password" name="editPass" class="form-control" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Konfirmasi Password</label>
-                            <input type="password" name="editKonfirmasiPass" class="form-control" autocomplete="off">
+                            <input type="password" name="editKonfirmasiPass" class="form-control" autocomplete="off" onchange="if(pwd{{$au->id}}.value != this.value){ pwderror{{$au->id}}.style = 'visibility: visible'; this.value = ''; } else { pwderror{{$au->id}}.style = 'visibility: hidden' }">
+                            <br>
+                            <span id="pwderror{{$au->id}}" class="btn-danger" style="visibility: hidden">Password tidak sama!</span>
                         </div>
                     </div>
                     <div class="modal-footer">
