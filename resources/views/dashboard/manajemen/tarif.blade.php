@@ -45,10 +45,10 @@ active
                                 @endif
                             </td>
                             <td>
-                                @if($k->harga == 0)
+                                @if(is_null($k->harga_promo))
                                     Harga Belum ada, jadi gak ada promo
                                 @else 
-                                    Rp. {{$k->harga}}
+                                    Rp. {{$k->harga_promo}}
                                 @endif
                             </td>
                             <td>
@@ -86,7 +86,7 @@ active
                         </div>
                         <div class="form-group">
                             <label>Harga Promo</label>
-                            <input type="text" class="form-control" required autocomplete="off" value="{{$k->harga}}">
+                            <input type="text" name="editHargaPromo"  class="form-control" required autocomplete="off" value="{{$k->harga_promo}}">
                         </div>
                     </div>
                     <div class="modal-footer">
