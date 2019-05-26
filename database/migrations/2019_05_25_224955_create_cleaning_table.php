@@ -15,7 +15,6 @@ class CreateCleaningTable extends Migration
     {
         Schema::create('cleaning', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('invoice_id');
             $table->integer('vacant'); // 1 = vacant_clean, 2 = vacant_dirty  
             $table->integer('snack'); // 1 = ada permintaan, 2 = tidak ada permintaan
             $table->integer('bersih_ringan'); // 1 = ada permintaan, 2 = tidak ada permintaan

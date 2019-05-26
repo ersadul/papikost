@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Invoice;
 use App\Kamar;
 use App\Payment;
+use App\Cleaning;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -115,6 +116,13 @@ class GuestController extends Controller
         $payment->flag_payment = 0;
         $payment->save();
 
+        $cleaning   = new Cleaning;
+        $cleaning->vacant = 0;
+        $cleaning->snack = 0;
+        $cleaning->bersih_ringan = 0;
+        $cleaning->bed = 0;
+        $cleaning->invoice_id = $invoice->id;
+        $cleaning->save();
         // return dd($invoiceFinal);
         // return view('invoice', compact('invoice', 'duration'));
         return redirect()->route('invoice.view', compact('invoice'));

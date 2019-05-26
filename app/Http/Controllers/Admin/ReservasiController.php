@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Cleaning;
 use App\Invoice;
 use App\Kamar;
 use App\Payment;
@@ -23,6 +24,7 @@ class ReservasiController extends Controller
             ->whereBetween('check_in', [$request->start, $request->end])
             ->where('payment_invoice.flag_payment', '1')
             ->get();
+        
         return json_encode($invoice);
     }
 
@@ -72,6 +74,14 @@ class ReservasiController extends Controller
             $payment->flag_payment    = 1;
             $payment->nomor_transaksi = $request->debit;
             $payment->save();
+            $cleaning   = new Cleaning;
+            $cleaning->vacant = 0;
+            $cleaning->snack = 0;
+            $cleaning->bersih_ringan = 0;
+            $cleaning->bed = 0;
+            $cleaning->invoice_id = $saveReservasi->id;
+            $cleaning->save();
+
             // return dd($saveReservasi);
         } else if ($request->transfer != '') {
             $payment                  = new Payment;
@@ -85,6 +95,13 @@ class ReservasiController extends Controller
             $path                           = $bukti_pembayaran_gambar->store('public/files');
             $payment->bukti_pembayaran_file = $path;
             $payment->save();
+            $cleaning   = new Cleaning;
+            $cleaning->vacant = 0;
+            $cleaning->snack = 0;
+            $cleaning->bersih_ringan = 0;
+            $cleaning->bed = 0;
+            $cleaning->invoice_id = $saveReservasi->id;
+            $cleaning->save();
             // return $request->transfer;
         } else if ($request->cash != '') {
             $payment               = new Payment;
@@ -92,6 +109,13 @@ class ReservasiController extends Controller
             $payment->tipe_payment = 2;
             $payment->flag_payment = 1;
             $payment->save();
+            $cleaning   = new Cleaning;
+            $cleaning->vacant = 0;
+            $cleaning->snack = 0;
+            $cleaning->bersih_ringan = 0;
+            $cleaning->bed = 0;
+            $cleaning->invoice_id = $saveReservasi->id;
+            $cleaning->save();
             // return "box isi";
         } else {
             return "failed";

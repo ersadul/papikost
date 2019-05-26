@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 class HouseKeepingController extends Controller
 {
     public function penjadwalan(){
-        $penjadwalanAll = PenjadwalanKaryawan::get();
+        $penjadwalanAll = PenjadwalanKaryawan::join('kamar', 'penjadwalan_karyawan.kamar_id', '=', 'kamar.id')->get();
         $karyawanAll = Karyawan::get();
         $seluruhKamar = Kamar::get();
         return view('dashboard.housekeeping.penjadwalan', compact('penjadwalanAll', 'karyawanAll', 'seluruhKamar'));
@@ -26,9 +26,8 @@ class HouseKeepingController extends Controller
             $tambahPenjadwalan = new PenjadwalanKaryawan;
             $tambahPenjadwalan->kamar_id = $request->pilihKamar[0];
             $tambahPenjadwalan->karyawan_id = $request->jadwalKaryawan[$i];
-            $tambahPenjadwalan->jam_jadwal = $request->jadwalJam;
             $tambahPenjadwalan->tanggal_jadwal = date("Y-m-d", strtotime($request->jadwalTanggal));
-            $tambahPenjadwalan->shift = $request->jadwalShift;
+            $tambahPenjadwalan->shift = $request->jadwalShift[0];
             $tambahPenjadwalan->save();
         }
         // return dd( $request->pilihKamar[0]);
@@ -63,10 +62,21 @@ class HouseKeepingController extends Controller
     public function cleaning(){
         $jadwalCleaning = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
         ->join('kamar', 'kamar.id', '=', 'invoice.kamar_id')
-        ->where('status_menginap', 2)
-        ->where('flag_payment', 1)
+        ->join('cleaning', 'invoice.id', '=', 'cleaning.invoice_id')
         ->get();
         // return dd($jadwalCleaning);
         return view('dashboard.housekeeping.cleaning', compact('jadwalCleaning'));
+    }
+
+    public function snackCleaning()
+    {
+    }
+
+    public function bedCleaning()
+    {
+    }
+
+    public function bersihCleaning()
+    {
     }
 }

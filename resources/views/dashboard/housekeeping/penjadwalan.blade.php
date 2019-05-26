@@ -30,8 +30,7 @@ active
                             <th width="10px">No Kamar</th>
                             <th>Tanggal</th>
                             <th>Hari</th>
-                            <th>Jam</th>
-                            <th width="10px">Shift</th>
+                            <th>Shift</th>
                             <th>Nama Pegawai</th>
                             <th width="10px">Drop</th>
                         </tr>
@@ -39,11 +38,19 @@ active
                     <tbody>
                         @foreach($penjadwalanAll as $pa)
                         <tr>
-                            <td>{{$pa->kamar_id}}</td>
+                            <td>{{$pa->nama_kamar}}</td>
                             <td>{{$pa->tanggal_jadwal}}</td>
                             <td>Minggu</td>
-                            <td>{{$pa->jam_jadwal}}</td>
-                            <td>{{$pa->shift}}</td>
+                            <td>
+                                @if($pa->shift == 1)
+                                    Shift 1 : 06.00 pagi - 14.00 siang
+                                @elseif($pa->shift == 2)
+                                    Shift 2 : 12.00 siang - 20.00 malam
+                                @elseif($pa->shift == 3)
+                                    Shift 3 : 20.00 siang - 06.00 pagi
+                                @endif
+                                <!-- {{$pa->shift}} -->
+                            </td>
                             <td>
                                 {{$pa->karyawan_id}}
                             </td>
@@ -122,12 +129,19 @@ active
                             <input type="text" name="jadwalTanggal" class="form-control" required autocomplete="off" id="datepicker">
                         </div>
                         <div class="form-group">
-                            <label>Jam</label>
-                            <input type="text" name="jadwalJam" class="form-control" required autocomplete="off">
-                        </div>
-                        <div class="form-group">
-                            <label>Shift</label>
-                            <input type="text" name="jadwalShift" class="form-control" required autocomplete="off">
+                            <label>Shift Karyawan</label>
+                            <select name="jadwalShift[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
+                                style="width: 100%;">
+                                <option value="1">Pagi</option>
+                                <option value="2">Siang</option>
+                                <option value="3">Malam</option>
+                                <!-- <option>Nama Karyawan 2</option>
+                                <option>Nama Karyawan 3</option>
+                                <option>Nama Karyawan 4</option>
+                                <option>Nama Karyawan 5</option>
+                                <option>Nama Karyawan 6</option>
+                                <option>Nama Karyawan 7</option> -->
+                            </select>
                         </div>
                         <div class="form-group">
                             <label>Nama Karyawan</label>

@@ -16,8 +16,7 @@ class CreatePenjadwalanKarwayansTable extends Migration
         Schema::create('penjadwalan_karyawan', function (Blueprint $table) {
             $table->increments('id');
             $table->date('tanggal_jadwal');
-            $table->integer('jam_jadwal');
-            $table->integer('shift');
+            $table->integer('shift'); // 1 = pagi, 2 = siang, 3 = malam
             $table->timestamps();
         });
     }

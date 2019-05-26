@@ -31,9 +31,21 @@ active
                             <td class="text-right"><a href="#"><span class="lb-cleaning active"><i>Vacant Clean</i></span></a></td>
                         </tr>
                         <tr>
-                            <td>{{$jc->nama}}</td>
+                            <td>{{$jc->nama}} idnya {{$jc->invoice_id}}</td>
                             <td class="text-right">
-                                <a href="#"><span class="lb-cleaning active"><i class="fa fa-coffee"></i></span></a>
+                            <form action="{{route('dashboard.manajemen.akun.delete')}}" method="post">
+                                @csrf
+                                <input type="hidden" name="idDeleteAkun" value="">
+                                @if($jc->snack == 0)
+                                <a href="#" onclick="$(this).closest('form').submit()">
+                                    <span class="lb-cleaning"><i class="fa fa-coffee"></i></span>
+                                </a>
+                                @elseif($jc->snack == 1)
+                                <a href="#" onclick="$(this).closest('form').submit()">
+                                    <span class="lb-cleaning active"><i class="fa fa-coffee"></i></span>
+                                </a>
+                                @endif
+                            </form>
                                 <a href="#"><span class="lb-cleaning"><i class="fa fa-trash"></i></span></a>
                                 <a href="#"><span class="lb-cleaning"><i class="fa fa-bed"></i></span></a>
                             </td>

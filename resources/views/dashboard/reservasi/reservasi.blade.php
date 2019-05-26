@@ -83,6 +83,9 @@ active
         var startDate = moment(mulai).format('YYYY-M-D');
         var endDate = moment(mulai).add(7, 'days').format('YYYY-M-D');
 
+        console.log(startDate)
+        console.log(endDate)
+
         $.ajax({
             url: '{{ route('dashboard.get.kamar') }}',
             data: {

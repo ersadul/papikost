@@ -17,5 +17,6 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->call(KaryawanTableSeeder::class);
         $this->call(KamarTableSeeder::class);
+        $this->call(TipeFasilitasKamarTableSeeder::class);
     }
 }
