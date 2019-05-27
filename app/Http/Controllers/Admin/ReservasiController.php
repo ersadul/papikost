@@ -156,6 +156,12 @@ class ReservasiController extends Controller
         return view('dashboard.reservasi.history', compact('reservasi'));
     }
 
+    public function tambahHistory(Request $request)
+    {
+        $reservasi = Invoice::where("status_menginap", "2")->get(); // 2 = checkout
+        return view('dashboard.reservasi.history', compact('reservasi'));
+    }
+    
     public function getCheckIn()
     {
         $checkIn = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')

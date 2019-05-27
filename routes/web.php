@@ -93,6 +93,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/list-reservasi/detail', 'Admin\ReservasiController@detail')->name('detail.reservasi');
 
         Route::get('/reservasi/history', 'Admin\ReservasiController@history')->name('history.reservasi');
+        Route::get('/reservasi/review', 'Admin\ManajemenController@review')->name('history.review');
+        Route::post('/reservasi/review/edit', 'Admin\ManajemenController@editReview')->name('history.review.edit');
 
         //housekeeping
         Route::get('/penjadwalan', 'Admin\HouseKeepingController@penjadwalan')->name('penjadwalan');

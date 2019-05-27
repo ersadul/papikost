@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Invoice;
 use App\Fasilitas;
 use App\FasilitasKamar;
 use App\Http\Controllers\Controller;
@@ -267,6 +268,16 @@ class ManajemenController extends Controller
 
     public function review()
     {
-        # code...
+        $reservasi = Invoice::where("status_menginap", "2")->get(); // 2 = checkout
+        return view('dashboard.manajemen.review', compact('reservasi'));
+    }
+
+    public function editReview(Request $request)
+    {
+        $data = Invoice::where('id', $request->reviewBoxID)->update([
+            'review' => $request->reviewBox
+        ]);
+        // return dd($data);
+        return redirect()->back();
     }
 }
