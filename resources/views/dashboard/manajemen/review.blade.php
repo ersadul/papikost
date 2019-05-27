@@ -39,12 +39,16 @@ active
                                                         <p>Invoice #{{ $r->invoice_code }}</p>
                                                         <p>Data Update : {{ $r->updated_at }}</p>
                                                         <p>Review : </p>
+                                                        @if($r->review != '')
+                                                        <textarea name="reviewBox" cols="30" rows="10">{{ $r->review }}</textarea>
+                                                        @else
                                                         <form action="{{route('dashboard.history.review.edit')}}" method='post'>
                                                             @csrf
                                                             <input type="hidden" name="reviewBoxID" value="{{ $r->id }}">
-                                                            <textarea name="reviewBox" cols="30" rows="10">{{ $r->review }}</textarea>
+                                                            <textarea name="reviewBox" cols="30" rows="10"></textarea>
                                                             <button type="submit">Edit</button>
                                                         </form>
+                                                        @endif
                                                     </div>
                                                     <a class="pull-right" 
                                                         href="{{ route('dashboard.detail.reservasi', ['invoice_id' => $r->id, 'readonly' => true]) }}">
