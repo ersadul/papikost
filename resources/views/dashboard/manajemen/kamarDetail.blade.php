@@ -31,10 +31,18 @@ active
                     <tr>
                         <th>Kamar</th>
                         <th>Tipe</th>
+                        <th>Thumbnail</th>
                     </tr>
                     <tr>
                         <td>{{ $kamar->nama_kamar }}</td>
                         <td>{{ $kamar->nama_tipe }}</td>
+                        <td style="width: 300px">
+                            @if(is_null($kamar->thumbnail) || $kamar->thumbnail == "")
+                                <img class="img-responsive" src="{{ asset('template/img/room/1.png') }}" style="width: 200px">
+                            @else
+                                <img class="img-responsive" src="{{ asset('storage/'.$kamar->thumbnail) }}" style="width: 200px">
+                            @endif
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -147,7 +155,7 @@ active
     </div>
     <div class="modal fade" id="edit">
         <div class="modal-dialog">
-            <form action="{{route('dashboard.manajemen.edit.kamar')}}" method="post">
+            <form action="{{route('dashboard.manajemen.edit.kamar')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="hidden" name="idKamarEdit" value="{{$kamar->kamar_id}}">
                 <div class="modal-content">
@@ -173,6 +181,15 @@ active
                                 </option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Thumbnail</label>
+                            @if(is_null($kamar->thumbnail) || $kamar->thumbnail == "")
+                                <img class="img-responsive" src="{{ asset('template/img/room/1.png') }}" style="width: 200px">
+                            @else
+                                <img class="img-responsive" src="{{ asset('storage/'.$kamar->thumbnail) }}" style="width: 200px">
+                            @endif
+                            <input type="file" name="editThumbnail" class="form-control" autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer">

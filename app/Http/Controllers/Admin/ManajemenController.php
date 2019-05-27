@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Invoice;
 use App\Fasilitas;
 use App\FasilitasKamar;
 use App\Http\Controllers\Controller;
+use App\Invoice;
 use App\Kamar;
 use App\Karyawan;
 use App\ProfileHotel;
@@ -63,10 +63,12 @@ class ManajemenController extends Controller
 
     public function kamarDetail($id)
     {
-        $kamar = Kamar::find($id)->join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
-            ->select('kamar.id as kamar_id', 'kamar.nama_kamar', 'kamar.tipe_kamar_id', 'tipe_kamar.nama_tipe')
+        $kamar = Kamar::select('kamar.id as kamar_id', 'kamar.nama_kamar', 'kamar.tipe_kamar_id', 'tipe_kamar.nama_tipe', 'thumbnail')
+            ->join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
+            ->where('kamar.id', $id)
             ->first();
         $tipeKamar = TipeKamar::get();
+
         return view('dashboard.manajemen.kamarDetail', compact('kamar', 'tipeKamar'));
     }
 
@@ -83,11 +85,20 @@ class ManajemenController extends Controller
 
     public function editKamar(Request $request)
     {
+        $dataUpdate = [
+            'nama_kamar'    => $request->editKamar,
+            'tipe_kamar_id' => $request->editTipe,
+        ];
+
+        //simpan request gambar kalau diunggah pengguna
+        if (!is_null($request->file('editThumbnail'))) {
+            $uploadFile              = $request->file('editThumbnail');
+            $path                    = $uploadFile->store('public/files');
+            $dataUpdate['thumbnail'] = str_replace('public/', '', $path);
+        }
+
         $editKamar = Kamar::where('id', $request->idKamarEdit)
-            ->update([
-                'nama_kamar'    => $request->editKamar,
-                'tipe_kamar_id' => $request->editTipe,
-            ]);
+            ->update($dataUpdate);
         return redirect()->back();
     }
 
@@ -208,7 +219,7 @@ class ManajemenController extends Controller
                 'pengalaman_kerja'  => $request->pengalamanEdit,
 
             ]);
-        
+
         return redirect()->back();
     }
 
@@ -275,7 +286,7 @@ class ManajemenController extends Controller
     public function editReview(Request $request)
     {
         $data = Invoice::where('id', $request->reviewBoxID)->update([
-            'review' => $request->reviewBox
+            'review' => $request->reviewBox,
         ]);
         // return dd($data);
         return redirect()->back();

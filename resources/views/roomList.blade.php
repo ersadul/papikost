@@ -27,7 +27,13 @@
         <div class="room-thumb-list-1 hover_zoom bg-white mb-30">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-5">
-                    <div class="overflow_hidden"><img src="{{ asset('template/img/room/1.png') }}" alt="Booking Room"></div>
+                    <div class="overflow_hidden">
+                        @if(is_null($k->thumbnail) || $k->thumbnail == "")
+                            <img src="{{ asset('template/img/room/1.png') }}" alt="Booking Room">
+                        @else
+                            <img src="{{ asset('storage/'.$k->thumbnail) }}" alt="{{ $k->nama_tipe }}">
+                        @endif
+                    </div>
                 </div>
                 <div class="col-xl-6 col-lg-5 col-md-7">
                     <div class="py-3 h-100">
