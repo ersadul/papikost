@@ -40,7 +40,7 @@ active
                                                         <p>Data Update : {{ $r->updated_at }}</p>
                                                         <p>Review : </p>
                                                         @if($r->review != '')
-                                                        <textarea name="reviewBox" cols="30" rows="10">{{ $r->review }}</textarea>
+                                                        <p>{{ $r->review }}</p>
                                                         @else
                                                         <form action="{{route('dashboard.history.review.edit')}}" method='post'>
                                                             @csrf
