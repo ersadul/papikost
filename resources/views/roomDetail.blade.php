@@ -33,13 +33,13 @@
                             <div class="carousel-inner">
                                 @if(sizeof($gambar) > 0)
                                     @foreach($gambar as $i => $g)
-                                        <div class="carousel-item {{ $i==0 ? 'active' : '' }} ">
+                                        <div class="carousel-item {{ $i==0 ? 'active' : '' }} " style="width: 730px; height: 408px; overflow: hidden">
                                             <img src="{{ asset('storage/'.$g->gambar_file) }}" alt="{{ $g->nama_gambar }}">
                                         </div>
                                     @endforeach
                                 @else
-                                    <div class="carousel-item active">
-                                        <img src="{{ asset('template/img/width/36.jpg') }}">
+                                    <div class="carousel-item active" style="width: 730px; height: 408px; overflow: hidden">
+                                        <img src="{{ asset('template/img/width/39.jpg') }}">
                                     </div>
                                 @endif
 
