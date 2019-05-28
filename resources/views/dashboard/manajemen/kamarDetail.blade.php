@@ -101,24 +101,25 @@ active
     @foreach($gambarKamar as $gk)
     <div class="modal fade" id="edit-gambar-{{$gk->id}}">
         <div class="modal-dialog">
-            <form action="{{route('dashboard.manajemen.edit.gambar.kamar')}}" method="post">
+            <form action="{{route('dashboard.manajemen.edit.gambar.kamar')}}" method="post" enctype="multipart/form-data">
                 @csrf
                 <input type="text" name="editGambarID" value="{{$gk->id}}">
+                <input type="text" name="editkamarID" value="{{$gk->kamar_id}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Edit Gambar</h4>
+                        <h4 class="modal-title">Edit ey Gambar</h4>
                     </div>
                     <div class="modal-body">
                         <img src="{{ asset('kamar') }}/{{$gk->gambar_file}}" style="width:500px">
                         <div class="form-group">
                             <label>File Gambar</label>
-                            <input type="file" name="tambahGambarKamar" class="form-control" required autocomplete="off">
+                            <input type="file" name="editGambarKamar" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea name="tambahketerangan" class="form-control" required rows="3"></textarea>
+                            <textarea name="editketerangan" class="form-control" required rows="3"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
