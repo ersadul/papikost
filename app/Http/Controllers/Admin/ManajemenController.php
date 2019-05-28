@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use File;
 use App\GambarKamar;
 use App\Fasilitas;
 use App\FasilitasKamar;
@@ -112,6 +113,9 @@ class ManajemenController extends Controller
 
     public function deleteGambarkamar(Request $request)
     {
+        $file = GambarKamar::where('id', $request->deleteGambarKamar)->select('gambar_file')->first();
+        $image_path = public_path().'/kamar/'.$file->gambar_file;
+        File::delete($image_path);
         Gambarkamar::find($request->deleteGambarKamar)->delete();
         return redirect()->back();
     }
@@ -134,13 +138,6 @@ class ManajemenController extends Controller
             ->update($dataUpdate);
         return redirect()->back();
     }
-
-    public function destroyGambarKamar(Request $request)
-    {
-        GambarKamar::where('id', $request->idTambahGambar)->delete();
-        return redirect()->back();
-    }
-
 
     public function deleteKamar(Request $request)
     {

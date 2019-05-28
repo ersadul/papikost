@@ -68,14 +68,14 @@ active
                     <tr>
                         <td>{{$loop->iteration}}</td>
                         <td><img src="{{ asset('kamar') }}/{{$gk->gambar_file}}"></td>
-                        <td>{{$gk->nama_gambar}} idnya {{$gk->id}}</td>
+                        <td>{{$gk->nama_gambar}}</td>
                         <td>
                             <button type="button" id="btn-rev" class="btn btn-info btn-flat btn-sm" data-toggle="modal"
                                 data-target="#edit-gambar-{{$gk->id}}"><i class="fa fa-pencil"></i>
                             </button>
                             <form action="{{route('dashboard.manajemen.delete.gambar.kamar')}}" method="post">
                             @csrf
-                            <input type="text" name="deleteGambarKamar" value="{{$gk->id}}">
+                            <input type="hidden" name="deleteGambarKamar" value="{{$gk->id}}">
                             <button class="btn btn-sm btn-danger btn-flat">
                                 <i class="fa fa-remove"></i>
                             </button>
