@@ -102,7 +102,9 @@ class ManajemenController extends Controller
 
     public function editGambarKamar(Request $request)
     {
-        // return dd($request);
+        $fileGambarLama = GambarKamar::where('id', $request->editGambarID)->select('gambar_file')->first();
+        $image_path_old = public_path().'/kamar/'.$fileGambarLama->gambar_file;
+        File::delete($image_path_old);
         $input['gambar_file'] = time().'.'.$request->editGambarKamar->getClientOriginalExtension();
         $request->editGambarKamar->move(public_path('kamar'), $input['gambar_file']);
         $input['nama_gambar'] = $request->editketerangan;
