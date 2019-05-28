@@ -64,7 +64,23 @@ active
                         <th>Keterangan</th>
                         <th width="10%">Aksi</th>
                     </tr>
+                    @foreach($gambarKamar as $gk)
                     <tr>
+                        <td>{{$loop->iteration}}</td>
+                        <td><img src="{{ asset('kamar') }}/{{$gk->gambar_file}}"></td>
+                        <td>{{$gk->nama_gambar}}</td>
+                        <td>
+                            <button type="button" id="btn-rev" class="btn btn-info btn-flat btn-sm" data-toggle="modal"
+                                data-target="#edit-gambar-{{$gk->id}}"><i class="fa fa-pencil"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger btn-flat">
+                                <i class="fa fa-remove"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    @endforeach
+
+                    <!-- <tr>
                         <td>1</td>
                         <td><img src="{{ asset('template/img/room/1.png') }}"></td>
                         <td>Keterangan atau nama dari gambar tersebut</td>
@@ -76,28 +92,18 @@ active
                                 <i class="fa fa-remove"></i>
                             </button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td><img src="{{ asset('template/img/room/2.png') }}"></td>
-                        <td>Keterangan atau nama dari gambar tersebut</td>
-                        <td>
-                            <button type="button" id="btn-rev" class="btn btn-info btn-flat btn-sm" data-toggle="modal"
-                                data-target="#edit-gambar"><i class="fa fa-pencil"></i>
-                            </button>
-                            <button class="btn btn-sm btn-danger btn-flat">
-                                <i class="fa fa-remove"></i>
-                            </button>
-                        </td>
-                    </tr>
+                    </tr> -->
+                    
                 </tbody>
             </table>
         </div>
     </div>
-    <div class="modal fade" id="edit-gambar">
+    @foreach($gambarKamar as $gk)
+    <div class="modal fade" id="edit-gambar-{{$gk->id}}">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.edit.gambar.kamar')}}" method="post">
                 @csrf
+                <input type="text" name="editGambarID" value="{{$gk->id}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -105,14 +111,14 @@ active
                         <h4 class="modal-title">Edit Gambar</h4>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ asset('template/img/room/2.png') }}">
+                        <img src="{{ asset('kamar') }}/{{$gk->gambar_file}}" style="width:500px">
                         <div class="form-group">
                             <label>File Gambar</label>
-                            <input type="file" class="form-control" required autocomplete="off">
+                            <input type="file" name="tambahGambarKamar" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control" required rows="3"></textarea>
+                            <textarea name="tambahketerangan" class="form-control" required rows="3"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -124,10 +130,12 @@ active
             </form>
         </div>
     </div>
+    @endforeach
     <div class="modal fade" id="gambar">
         <div class="modal-dialog">
-            <form action="#" method="post">
+            <form action="{{route('dashboard.manajemen.tambah.gambar.kamar')}}" method="post" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="idTambahGambar" value="{{ $kamar->kamar_id }}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -137,11 +145,11 @@ active
                     <div class="modal-body">
                         <div class="form-group">
                             <label>File Gambar</label>
-                            <input type="file" class="form-control" required autocomplete="off">
+                            <input type="file" name="tambahGambarKamar" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea class="form-control" required rows="3"></textarea>
+                            <textarea name="tambahketerangan" class="form-control" required rows="3"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">

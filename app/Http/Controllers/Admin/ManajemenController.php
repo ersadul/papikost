@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\GambarKamar;
 use App\Fasilitas;
 use App\FasilitasKamar;
 use App\Http\Controllers\Controller;
@@ -102,6 +103,23 @@ class ManajemenController extends Controller
         return redirect()->back();
     }
 
+    public function editGambarKamar(Request $request)
+    {
+        if(GambarKamar::where('id', $request->editGambarID)->count() > 0){
+            GambarKamar::where('id', $request->editGambarID)->delete();
+        }
+
+        $this->validate($request, [
+            'tambahketerangan' => 'required',
+            'tambahGambarKamar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $input['gambar_file'] = time().'.'.$request->tambahGambarKamar->getClientOriginalExtension();
+        $request->tambahGambarKamar->move(public_path('kamar'), $input['gambar_file']);
+        $input['nama_gambar'] = $request->tambahketerangan;
+        GambarKamar::where('id', $request->editGambarID)->update($input);
+        return dd(GambarKamar::where('id', $request->editGambarID)->first());
+    }
 
     public function editKamar(Request $request)
     {
