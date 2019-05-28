@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Review;
 use App\Fasilitas;
 use App\FasilitasKamar;
 use App\GambarKamar;
