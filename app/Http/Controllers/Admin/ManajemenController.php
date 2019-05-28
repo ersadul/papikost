@@ -68,7 +68,7 @@ class ManajemenController extends Controller
             ->where('kamar.id', $id)
             ->first();
         $tipeKamar = TipeKamar::get();
-
+        $gambarKamar = Gambarkamar::where('kamar_id', $id)->get();
         return view('dashboard.manajemen.kamarDetail', compact('kamar', 'tipeKamar'));
     }
 
@@ -82,6 +82,26 @@ class ManajemenController extends Controller
         $tambahKamar->save();
         return redirect()->route('dashboard.manajemen.kamar');
     }
+
+    public function tambahGambarKamar(Request $request)
+    {
+        if(GambarKamar::where('id', $request->editGambarID)->count() > 0){
+            GambarKamar::where('id', $request->editGambarID)->delete();
+        }
+
+        $this->validate($request, [
+            'tambahketerangan' => 'required',
+            'tambahGambarKamar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $input['gambar_file'] = time().'.'.$request->tambahGambarKamar->getClientOriginalExtension();
+        $request->tambahGambarKamar->move(public_path('kamar'), $input['gambar_file']);
+        $input['nama_gambar'] = $request->tambahketerangan;
+        $input['kamar_id'] = $request->idTambahGambar;
+        GambarKamar::create($input);
+        return redirect()->back();
+    }
+
 
     public function editKamar(Request $request)
     {
