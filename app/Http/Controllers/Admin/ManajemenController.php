@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use File;
-use App\GambarKamar;
 use App\Fasilitas;
 use App\FasilitasKamar;
+use App\GambarKamar;
 use App\Http\Controllers\Controller;
 use App\Invoice;
 use App\Kamar;
@@ -13,6 +12,7 @@ use App\Karyawan;
 use App\ProfileHotel;
 use App\TipeKamar;
 use App\User;
+use File;
 use Hash;
 use Illuminate\Http\Request;
 
@@ -69,7 +69,7 @@ class ManajemenController extends Controller
             ->join('tipe_kamar', 'kamar.tipe_kamar_id', '=', 'tipe_kamar.id')
             ->where('kamar.id', $id)
             ->first();
-        $tipeKamar = TipeKamar::get();
+        $tipeKamar   = TipeKamar::get();
         $gambarKamar = Gambarkamar::where('kamar_id', $id)->get();
         return view('dashboard.manajemen.kamarDetail', compact('kamar', 'tipeKamar', 'gambarKamar'));
     }
@@ -87,36 +87,62 @@ class ManajemenController extends Controller
 
     public function tambahGambarKamar(Request $request)
     {
-        $this->validate($request, [
-            'tambahketerangan' => 'required',
-            'tambahGambarKamar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        // $this->validate($request, [
+        //     'tambahketerangan' => 'required',
+        //     'tambahGambarKamar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
 
-        $input['gambar_file'] = time().'.'.$request->tambahGambarKamar->getClientOriginalExtension();
-        $request->tambahGambarKamar->move(public_path('kamar'), $input['gambar_file']);
-        $input['nama_gambar'] = $request->tambahketerangan;
-        $input['kamar_id'] = $request->idTambahGambar;
-        GambarKamar::create($input);
+        $gambarKamar              = new GambarKamar;
+        $gambarKamar->kamar_id    = $request->idTambahGambar;
+        $gambarKamar->nama_gambar = $request->tambahKeterangan;
+
+        //upload gambar
+        $uploadFile               = $request->file('tambahGambarKamar');
+        $path                     = $uploadFile->store('public/files');
+        $gambarKamar->gambar_file = str_replace('public/', '', $path);
+
+        //insert
+        $gambarKamar->save();
+
+        // $input['gambar_file'] = time().'.'.$request->tambahGambarKamar->getClientOriginalExtension();
+        // $request->tambahGambarKamar->move(public_path('kamar'), $input['gambar_file']);
+        // $input['nama_gambar'] = $request->tambahketerangan;
+        // $input['kamar_id'] = $request->idTambahGambar;
+        // GambarKamar::create($input);
+
         return redirect()->back();
     }
 
     public function editGambarKamar(Request $request)
     {
-        $fileGambarLama = GambarKamar::where('id', $request->editGambarID)->select('gambar_file')->first();
-        $image_path_old = public_path().'/kamar/'.$fileGambarLama->gambar_file;
-        File::delete($image_path_old);
-        $input['gambar_file'] = time().'.'.$request->editGambarKamar->getClientOriginalExtension();
-        $request->editGambarKamar->move(public_path('kamar'), $input['gambar_file']);
-        $input['nama_gambar'] = $request->editketerangan;
-        $input['kamar_id'] = $request->editkamarID;
-        Gambarkamar::find($request->editGambarID)->update($input);
+
+        $dataUpdate = [
+            'nama_gambar' => $request->editketerangan,
+        ];
+
+        if (!is_null($request->file('editGambarKamar'))) {
+            $uploadFile                = $request->file('editGambarKamar');
+            $path                      = $uploadFile->store('public/files');
+            $dataUpdate['gambar_file'] = str_replace('public/', '', $path);
+        }
+
+        $editProfileHotel = GambarKamar::where('id', $request->editGambarID)->update($dataUpdate);
+
+        // $fileGambarLama = GambarKamar::where('id', $request->editGambarID)->select('gambar_file')->first();
+        // $image_path_old = public_path().'/kamar/'.$fileGambarLama->gambar_file;
+        // File::delete($image_path_old);
+        // $input['gambar_file'] = time().'.'.$request->editGambarKamar->getClientOriginalExtension();
+        // $request->editGambarKamar->move(public_path('kamar'), $input['gambar_file']);
+        // $input['nama_gambar'] = $request->editketerangan;
+        // $input['kamar_id'] = $request->editkamarID;
+        // Gambarkamar::find($request->editGambarID)->update($input);
         return redirect()->back();
     }
 
     public function deleteGambarkamar(Request $request)
     {
-        $file = GambarKamar::where('id', $request->deleteGambarKamar)->select('gambar_file')->first();
-        $image_path = public_path().'/kamar/'.$file->gambar_file;
+        $file       = GambarKamar::where('id', $request->deleteGambarKamar)->select('gambar_file')->first();
+        $image_path = public_path() . '/kamar/' . $file->gambar_file;
         File::delete($image_path);
         Gambarkamar::find($request->deleteGambarKamar)->delete();
         return redirect()->back();

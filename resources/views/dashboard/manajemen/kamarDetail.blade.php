@@ -67,7 +67,7 @@ active
                     @foreach($gambarKamar as $gk)
                     <tr>
                         <td>{{$loop->iteration}}</td>
-                        <td><img src="{{ asset('kamar') }}/{{$gk->gambar_file}}"></td>
+                        <td><img src="{{ asset('storage/'.$gk->gambar_file) }}"></td>
                         <td>{{$gk->nama_gambar}}</td>
                         <td>
                             <button type="button" id="btn-rev" class="btn btn-info btn-flat btn-sm" data-toggle="modal"
@@ -107,8 +107,8 @@ active
         <div class="modal-dialog">
             <form action="{{route('dashboard.manajemen.edit.gambar.kamar')}}" method="post" enctype="multipart/form-data">
                 @csrf
-                <input type="text" name="editGambarID" value="{{$gk->id}}">
-                <input type="text" name="editkamarID" value="{{$gk->kamar_id}}">
+                <input type="hidden" name="editGambarID" value="{{$gk->id}}">
+                <input type="hidden" name="editkamarID" value="{{$gk->kamar_id}}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -116,14 +116,14 @@ active
                         <h4 class="modal-title">Edit Gambar</h4>
                     </div>
                     <div class="modal-body">
-                        <img src="{{ asset('kamar') }}/{{$gk->gambar_file}}" style="width:500px">
+                        <img src="{{ asset('storage/'.$gk->gambar_file) }}" style="width:500px">
                         <div class="form-group">
                             <label>File Gambar</label>
-                            <input type="file" name="editGambarKamar" class="form-control" required autocomplete="off">
+                            <input type="file" name="editGambarKamar" class="form-control" autocomplete="off">
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea name="editketerangan" class="form-control" required rows="3"></textarea>
+                            <textarea name="editketerangan" class="form-control" required rows="3">{{ $gk->nama_gambar }}</textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -154,7 +154,7 @@ active
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea name="tambahketerangan" class="form-control" required rows="3"></textarea>
+                            <textarea name="tambahKeterangan" class="form-control" required rows="3"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
