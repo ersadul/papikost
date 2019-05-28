@@ -344,8 +344,7 @@ class ManajemenController extends Controller
 
     public function review()
     {
-        $reservasi = Invoice::where("status_menginap", "2")->get(); // 2 = checkout
-        return view('dashboard.manajemen.review', compact('reservasi'));
+        return view('dashboard.review');
     }
 
     public function editReview(Request $request)
