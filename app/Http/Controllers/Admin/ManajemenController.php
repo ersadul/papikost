@@ -69,7 +69,7 @@ class ManajemenController extends Controller
             ->first();
         $tipeKamar = TipeKamar::get();
         $gambarKamar = Gambarkamar::where('kamar_id', $id)->get();
-        return view('dashboard.manajemen.kamarDetail', compact('kamar', 'tipeKamar'));
+        return view('dashboard.manajemen.kamarDetail', compact('kamar', 'tipeKamar', 'gambarKamar'));
     }
 
     public function tambahKamar(Request $request)
