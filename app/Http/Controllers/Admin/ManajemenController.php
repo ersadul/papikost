@@ -110,6 +110,12 @@ class ManajemenController extends Controller
         return redirect()->back();
     }
 
+    public function deleteGambarkamar(Request $request)
+    {
+        Gambarkamar::find($request->deleteGambarKamar)->delete();
+        return redirect()->back();
+    }
+
     public function editKamar(Request $request)
     {
         $dataUpdate = [
