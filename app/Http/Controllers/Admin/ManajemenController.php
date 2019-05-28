@@ -14,6 +14,7 @@ use App\TipeKamar;
 use App\User;
 use File;
 use Hash;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ManajemenController extends Controller
@@ -344,15 +345,25 @@ class ManajemenController extends Controller
 
     public function review()
     {
-        return view('dashboard.review');
+        $allReview = Review::get();
+        // return dd($allReview);
+        return view('dashboard.review', compact('allReview'));
     }
 
     public function editReview(Request $request)
     {
-        $data = Invoice::where('id', $request->reviewBoxID)->update([
-            'review' => $request->reviewBox,
+        // $data = Invoice::where('id', $request->reviewBoxID)->update([
+        //     'review' => $request->reviewBox,
+        // ]);
+        $tanggalMasuk = substr($request->tanggalReview, 0, 10);
+        $tanggalKeluar = substr($request->tanggalReview, -10);
+        // return dd($tanggalMasuk);
+        // return dd($request->tanggalReview);
+        Review::create([
+            'review' => $request->isiReview,
+            'tanggal_masuk_menginap' => Carbon::parse($tanggalMasuk)->format('Y-m-d'),
+            'tanggal_keluar_menginap' => Carbon::parse($tanggalKeluar)->format('Y-m-d')
         ]);
-        // return dd($data);
         return redirect()->back();
-    }
+    }   
 }

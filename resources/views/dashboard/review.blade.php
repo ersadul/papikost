@@ -21,7 +21,8 @@ active
         </div>
         <div class="modal fade" id="review">
             <div class="modal-dialog">
-                <form action="#" method="post">
+                <form action="{{route('dashboard.review.tambah')}}" method="post">
+                    @csrf
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -31,16 +32,16 @@ active
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Nomor Kamar</label>
-                                <input type="text" class="form-control" required autocomplete="off">
+                                <input type="text" name="tambahReviewKamar" class="form-control" required autocomplete="off">
                             </div>
                             <div class="form-group" style="padding-bottom: 30px">
                                 <label>Tanggal Menginap:</label>
-                                <input type="text" class="form-control pull-right" id="reservation" autocomplete="off"
+                                <input type="text" name="tanggalReview" class="form-control pull-right" id="reservation" autocomplete="off"
                                     required>
                             </div>
                             <div class="form-group">
                                 <label>Review</label>
-                                <textarea rows="3" class="form-control" required></textarea>
+                                <textarea name="isiReview" rows="3" class="form-control" required></textarea>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -62,23 +63,25 @@ active
                         </tr>
                     </thead>
                     <tbody id="review">
+                        @foreach($allReview as $ar)
                         <tr>
                             <td>
                                 <div class="box box-solid">
                                     <div class="box-body">
                                         <div class="text-center">
-                                            <h5>1</h5>
-                                            <small>Check-in Date : <b>5 Mei 2019</b></small><br>
-                                            <small>Check-out Date : <b>6 Mei 2019</b></small>
+                                            <h5>{{$loop->iteration}}</h5>
+                                            <small>Check-in Date : <b>{{$ar->tanggal_masuk_menginap}}</b></small><br>
+                                            <small>Check-out Date : <b>{{$ar->tanggal_keluar_menginap}}</b></small>
                                         </div>
                                     </div>
                                     <div class="box-footer">
-                                        <p><b>Kamar mantap, berkualitas bintang 5. pertahankan!</b></p>
+                                        <p><b>{{$ar->review}}</b></p>
                                     </div>
                                 </div>
                             </td>
                         </tr>
-                        <tr>
+                        @endforeach
+                        <!-- <tr>
                             <td>
                                 <div class="box box-solid">
                                     <div class="box-body">
@@ -125,7 +128,7 @@ active
                                     </div>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

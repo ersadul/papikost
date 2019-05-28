@@ -93,8 +93,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::get('/list-reservasi/detail', 'Admin\ReservasiController@detail')->name('detail.reservasi');
 
         Route::get('/reservasi/history', 'Admin\ReservasiController@history')->name('history.reservasi');
-        Route::get('/reservasi/review', 'Admin\ManajemenController@review')->name('history.review');
-        Route::post('/reservasi/review/edit', 'Admin\ManajemenController@editReview')->name('history.review.edit');
+        // Route::get('/reservasi/review', 'Admin\ManajemenController@review')->name('history.review');
 
         //housekeeping
         Route::get('/penjadwalan', 'Admin\HouseKeepingController@penjadwalan')->name('penjadwalan');
@@ -108,7 +107,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/cleaning/tambah-bersih', 'Admin\HouseKeepingController@bersihCleaning')->name('cleaning.bersih');
 
         //review
-        Route::get('/review', 'Admin\ReservasiController@history')->name('review');
+        Route::get('/review', 'Admin\ManajemenController@review')->name('review');
+        Route::post('/review/tambah', 'Admin\ManajemenController@editReview')->name('review.tambah');
 
         //manajemen
         Route::get('/profile', 'Admin\ManajemenController@profile')->name('manajemen.profile');
