@@ -122,6 +122,13 @@ class ManajemenController extends Controller
         return redirect()->back();
     }
 
+    public function destroyGambarKamar(Request $request)
+    {
+        GambarKamar::where('id', $request->idTambahGambar)->delete();
+        return redirect()->back();
+    }
+
+
     public function deleteKamar(Request $request)
     {
         Kamar::where('id', $request->IDKamarDelete)->delete();
