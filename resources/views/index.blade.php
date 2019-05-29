@@ -219,8 +219,8 @@
                 </div>
             </div>
         </div>
-        @foreach($kamarPromo as $kp)
         <div class="row">
+        @foreach($kamarPromo as $kp)
             <div class="col-md-6 col-lg-4">
                 <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
                     <div class="thumb-top position-relative">
