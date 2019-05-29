@@ -37,7 +37,11 @@
                                     <span>Classic room for our vip guest, also available for family touriest.</span>
                                 </div>
                                 <div class="float-right text-right">
+                                    @if($kID->harga_promo < $kID->harga)
+                                    <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> malam </span></div>
+                                    @else
                                     <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -102,7 +106,11 @@
                                 <p class="text-secondary">Rincian Pembayaran</p>
                             </td>
                             <td>
-                                <p class="text-right">Rp. {{$kID->harga}} x {{$kamarLamaMenginap}}</p>
+                                    @if($kID->harga_promo < $kID->harga)
+                                    <p class="text-right">Rp. {{$kID->harga_promo}} x {{$kamarLamaMenginap}}</p>
+                                    @else
+                                    <p class="text-right">Rp. {{$kID->harga}} x {{$kamarLamaMenginap}}</p>
+                                    @endif
                             </td>
                         </tr>
                         <tr>
@@ -113,7 +121,11 @@
                             </td>
                             <td>
                                 <hr><b>
+                                    @if($kID->harga_promo < $kID->harga)
+                                    <p class="text-right">Rp. {{$kID->harga_promo*$kamarLamaMenginap}}</p>
+                                    @else
                                     <p class="text-right">Rp. {{$kID->harga*$kamarLamaMenginap}}</p>
+                                    @endif
                                 </b>
                             </td>
                         </tr>

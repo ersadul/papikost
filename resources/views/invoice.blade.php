@@ -103,7 +103,11 @@
                                                 <p>Rincian Pembayaran</p>
                                             </td>
                                             <td>
+                                                @if($invoice->kamar->harga_promo < $invoice->kamar->harga)
+                                                <p class="text-right">Rp. {{$invoice->kamar->harga_promo}} x {{ $invoice->lama_menginap }}</p>
+                                                @else
                                                 <p class="text-right">Rp. {{$invoice->kamar->harga}} x {{ $invoice->lama_menginap }}</p>
+                                                @endif
                                             </td>
                                         </tr>
                                         <tr>
@@ -112,7 +116,13 @@
                                                 </b>
                                             </td>
                                             <td><b>
-                                                    <p class="text-right">Rp. {{$invoice->kamar->harga * $invoice->lama_menginap}}</p>
+                                                @if($invoice->kamar->harga_promo < $invoice->kamar->harga)
+                                                <p class="text-right">Rp. {{$invoice->kamar->harga_promo * $invoice->lama_menginap}}</p>
+
+                                                @else
+                                                <p class="text-right">Rp. {{$invoice->kamar->harga * $invoice->lama_menginap}}</p>
+
+                                                @endif
                                                 </b>
                                             </td>
                                         </tr>

@@ -65,7 +65,11 @@
                             </div>
                         </div>
                         <div class="float-right text-right">
-                            <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
+                            @if($kID->harga_promo < $kID->harga)
+                                <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> malam </span></div>
+                            @else
+                                <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
+                            @endif
                             <!-- <div class="review">
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
@@ -172,8 +176,13 @@
                                 <input type="hidden" name="guestDurasi" class="form-control" value="{{$kamarLamaMenginap}}">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Total Tagihan : {{$kID->harga}} x {{$kamarLamaMenginap}} </label>
-                                <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga*$kamarLamaMenginap}}">
+                                @if($kID->harga_promo < $kID->harga)
+                                    <label class="text-block-1">Total Tagihan : {{$kID->harga_promo}} x {{$kamarLamaMenginap}}</label>
+                                    <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga_promo*$kamarLamaMenginap}}">
+                                @else
+                                    <label class="text-block-1">Total Tagihan : {{$kID->harga}} x {{$kamarLamaMenginap}}</label>
+                                    <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga*$kamarLamaMenginap}}">
+                                @endif
                             </div>
                                 <input type="hidden" name="kamarId" class="form-control" value="{{$kID->id_kamar}}">
                             <button type="submit" class="btn btn-default-bg">Pesan Sekarang</button>
