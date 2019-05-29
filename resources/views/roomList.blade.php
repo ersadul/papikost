@@ -49,7 +49,7 @@
                 <div class="col-xl-2 col-lg-3">
                     <div class="for-booking">
                         @if($k->harga > $k->harga_promo)
-                            <div class="h5 per-night text-primary"><strike>Rp. {{$k->harga}}<small> / Night</small></strike></div>
+                            <div class="h5 per-night text-secondary"><strike>Rp. {{$k->harga}}<small> / Night</small></strike></div>
                             <div class="h5 per-night text-primary">Rp. {{$k->harga_promo}}<small> / Night</small></div>
                         @else
                             <div class="h5 per-night text-primary">Rp. {{$k->harga}}<small> / Night</small></div>
