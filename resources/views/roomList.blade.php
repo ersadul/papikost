@@ -48,7 +48,12 @@
                 </div>
                 <div class="col-xl-2 col-lg-3">
                     <div class="for-booking">
-                        <div class="h5 per-night text-primary">Rp. {{$k->harga}}<small> / Night</small></div>
+                        @if($k->harga > $k->harga_promo)
+                            <div class="h5 per-night text-primary"><strike>Rp. {{$k->harga}}<small> / Night</small></strike></div>
+                            <div class="h5 per-night text-primary">Rp. {{$k->harga_promo}}<small> / Night</small></div>
+                        @else
+                            <div class="h5 per-night text-primary">Rp. {{$k->harga}}<small> / Night</small></div>
+                        @endif
                         <form action="{{ route('room.detail', ['id' => $k->id_kamar]) }}" method="post">
                             @csrf
                             <input type="hidden" name="checkIn" value="{{$checkIn}}">
