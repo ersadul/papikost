@@ -1,16 +1,23 @@
+<?php
+    $headerProfile = App\ProfileHotel::first();
+?>
 <!-- Header 4 Section Start -->
 <header class="full-row header-3 nav-on-banner" id="header">
     <div class="top-header text-white icon-default py-3">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="float-left"><i class="fas fa-map-marker-alt"></i><span><small>Jalan Danau Tondano Raya Blok F4 No. A14, Sawojajar, Kota Malang. 65139.</small></span>
+                    <div class="float-left"><i class="fas fa-map-marker-alt"></i><span><small>
+                    {{$headerProfile->alamat}}
+                    </small></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <ul class="float-right">
                         <li><a href="mailto:mail@domain.com" class="text-white"><i
-                                    class="fas fa-envelope"></i>mail@domain.com</a>
+                                    class="fas fa-envelope"></i>
+                                    mail@domain.com
+                                    </a>
                         </li>
                         <li><a href="callto:+62-812-345-6789" class="text-white"><i
                                     class="fas fa-phone"></i>+62-812-345-6789</a>

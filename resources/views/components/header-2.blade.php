@@ -1,10 +1,15 @@
+<?php
+    $headerProfile = App\ProfileHotel::first();
+?>
 <!-- Header 4 Section Start -->
 <header class="header-4 nav-on-top" id="header">
     <div class="top-header text-white py-2 bg-primary">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <div class="float-left"><i class="fas fa-map-marker-alt"></i><span><small>Jalan Danau Tondano Raya Blok F4 No. A14, Sawojajar, Kota Malang. 65139.</small></span>
+                    <div class="float-left"><i class="fas fa-map-marker-alt"></i><span><small>
+                    {{$headerProfile->alamat}}
+                    </small></span>
                     </div>
                 </div>
                 <div class="col-md-6">
