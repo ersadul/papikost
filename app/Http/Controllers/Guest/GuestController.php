@@ -19,7 +19,7 @@ class GuestController extends Controller
     {
         // $kamar = Kamar::get();
         // return view('index', compact('kamar'));
-        $kamarPromo = DB::table('kamar')->whereRaw('harga_promo < harga')->get();
+        $kamarPromo = DB::table('kamar')->whereRaw('harga_promo < harga')->take(3)->get();
         return view('index', compact('kamarPromo'));
     }
 
