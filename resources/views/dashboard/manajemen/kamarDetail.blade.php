@@ -83,21 +83,6 @@ active
                         </td>
                     </tr>
                     @endforeach
-
-                    <!-- <tr>
-                        <td>1</td>
-                        <td><img src="{{ asset('template/img/room/1.png') }}"></td>
-                        <td>Keterangan atau nama dari gambar tersebut</td>
-                        <td>
-                            <button type="button" id="btn-rev" class="btn btn-info btn-flat btn-sm" data-toggle="modal"
-                                data-target="#edit-gambar"><i class="fa fa-pencil"></i>
-                            </button>
-                            <button class="btn btn-sm btn-danger btn-flat">
-                                <i class="fa fa-remove"></i>
-                            </button>
-                        </td>
-                    </tr> -->
-                    
                 </tbody>
             </table>
         </div>

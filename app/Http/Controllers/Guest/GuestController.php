@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Guest;
 
+use App\Http\Controllers\Controller;
+use DB;
 use App\FasilitasKamar;
 use App\GambarKamar;
-use App\Http\Controllers\Controller;
 use App\Invoice;
 use App\Kamar;
 use App\Payment;
@@ -16,8 +17,10 @@ class GuestController extends Controller
 {
     public function index()
     {
-        $kamar = Kamar::get();
-        return view('index', compact('kamar'));
+        // $kamar = Kamar::get();
+        // return view('index', compact('kamar'));
+        $kamarPromo = DB::table('kamar')->whereRaw('harga_promo < harga')->get();
+        return view('index', compact('kamarPromo'));
     }
 
     public function getDate(Request $request)
