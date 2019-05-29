@@ -14,16 +14,16 @@ class ProfileHotelTableSeeder extends Seeder
     {
         if(ProfileHotel::all()->isEmpty()){
             ProfileHotel::create([
-                'nama' => 'safa_hotel',
-                'alamat' => 'jl. alamat safa_hotel',
-                'provinsi' => 'provinsi safa_hotel',
-                'negara' => 'negara safa_hotel',
-                'panduan_lokasi' => 'lokasi safa_hotel',
-                'bank' => 'bank safa_hotel',
-                'bank_cabang' => 'bank cabang safa_hotel',
-                'nomor_rekening' => 'nomor rekening safa_hotel',
-                'nama_penerima' => 'nama penerima safa_hotel',
-                'logo_hotel_file' => 'logo safa_hotel.jpg'
+                'nama' => 'Safa Hotel',
+                'alamat' => 'Jalan Danau Tondano Raya Blok F4 No. A14, Sawojajar, Kota Malang. 65139.',
+                'provinsi' => 'Jawa Timur',
+                'negara' => 'Indonesia',
+                'panduan_lokasi' => '-',
+                'bank' => '-',
+                'bank_cabang' => '-',
+                'nomor_rekening' => '-',
+                'nama_penerima' => '-',
+                'logo_hotel_file' => ''
             ]);
         }
     }
