@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use DB;
+use App\ProfileHotel; 
 use App\FasilitasKamar;
 use App\GambarKamar;
 use App\Invoice;
@@ -19,13 +20,13 @@ class GuestController extends Controller
     {
         // $kamar = Kamar::get();
         // return view('index', compact('kamar'));
+        $profile = ProfileHotel::get();
         $kamarPromo = DB::table('kamar')->whereRaw('harga_promo < harga')->take(3)->get();
         return view('index', compact('kamarPromo'));
     }
 
     public function getDate(Request $request)
     {
-
         $checkIn      = Carbon::parse($request->date1)->format('Y-m-d');
         $checkOut     = Carbon::parse($request->date1)->addDays($request->lamaMenginap)->format('Y-m-d');
         $lamaMenginap = $request->lamaMenginap;
@@ -174,6 +175,12 @@ class GuestController extends Controller
         $interval = date_diff($invoice->created_at, $current);
         $duration = $interval->i * 60 + $interval->s;
         return view('invoice', compact('invoice', 'duration'));
+    }
+
+    public function promoView()
+    {
+        $kamarPromo = DB::table('kamar')->whereRaw('harga_promo < harga')->get();
+        return view('promo', compact('kamarPromo'));
     }
 
     public function about($url = "safa")
