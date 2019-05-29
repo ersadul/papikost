@@ -47,17 +47,23 @@
                                         <tr>
                                             <td>Jumlah Tagihan</td>
                                             <td>:</td>
-                                            <td>Rp. {{$invoice->kamar->harga}}</td>
+                                            <td>
+                                            @if($invoice->kamar->harga_promo < $invoice->kamar->harga)
+                                            Rp. {{$invoice->kamar->harga_promo}}
+                                            @else
+                                            Rp. {{$invoice->kamar->harga}}
+                                            @endif
+                                            </td>
                                         </tr>
                                         <tr>
                                             <td>Nama Bank</td>
                                             <td>:</td>
-                                            <td>BCA</td>
+                                            <td>{{$profileHotel->bank}}</td>
                                         </tr>
                                         <tr>
                                             <td>No. Virtual Account</td>
                                             <td>:</td>
-                                            <td>9123812301273123</td>
+                                            <td>{{$profileHotel->nomor_rekening}}</td>
                                         </tr>
                                         <tr>
                                             <td>Batas Waktu Pembayaran</td>

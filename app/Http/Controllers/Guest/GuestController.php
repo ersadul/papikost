@@ -174,7 +174,9 @@ class GuestController extends Controller
             ->first();
         $interval = date_diff($invoice->created_at, $current);
         $duration = $interval->i * 60 + $interval->s;
-        return view('invoice', compact('invoice', 'duration'));
+        $profileHotel = ProfileHotel::first();
+        // return dd($profileHotel);
+        return view('invoice', compact('invoice', 'duration', 'profileHotel'));
     }
 
     public function promoView()
