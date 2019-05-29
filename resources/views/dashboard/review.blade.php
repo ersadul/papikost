@@ -32,7 +32,12 @@ active
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Nomor Kamar</label>
-                                <input type="text" name="tambahReviewKamar" class="form-control" required autocomplete="off">
+                                <select name="reviewKamar" class="form-control" required autocomplete="off">
+                                <option selected disabled>Pilih Kamar</option>
+                                    @foreach($allKamar as $ak)
+                                        <option value="{{$ak->id}}">{{$ak->nama_kamar}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="form-group" style="padding-bottom: 30px">
                                 <label>Tanggal Menginap:</label>

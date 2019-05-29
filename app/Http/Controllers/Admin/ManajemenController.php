@@ -347,12 +347,14 @@ class ManajemenController extends Controller
     public function review()
     {
         $allReview = Review::get();
-        // return dd($allReview);
-        return view('dashboard.review', compact('allReview'));
+        $allKamar = Kamar::select('id', 'nama_kamar')->get();
+        // return dd($allKamar);
+        return view('dashboard.review', compact('allReview', 'allKamar'));
     }
 
     public function editReview(Request $request)
     {
+        // return dd($request->reviewKamar);
         // $data = Invoice::where('id', $request->reviewBoxID)->update([
         //     'review' => $request->reviewBox,
         // ]);
@@ -360,11 +362,13 @@ class ManajemenController extends Controller
         $tanggalKeluar = substr($request->tanggalReview, -10);
         // return dd($tanggalMasuk);
         // return dd($request->tanggalReview);
-        Review::create([
-            'review' => $request->isiReview,
-            'tanggal_masuk_menginap' => Carbon::parse($tanggalMasuk)->format('Y-m-d'),
-            'tanggal_keluar_menginap' => Carbon::parse($tanggalKeluar)->format('Y-m-d')
-        ]);
+        $newReview = new Review;
+        $newReview->tanggal_masuk_menginap = Carbon::parse($tanggalMasuk)->format('Y-m-d');
+        $newReview->tanggal_keluar_menginap = Carbon::parse($tanggalKeluar)->format('Y-m-d');
+        $newReview->review = $request->isiReview;
+        $newReview->kamar_id = $request->reviewKamar;
+        $newReview->save();
+        // return dd($newReview);
         return redirect()->back();
     }   
 }
