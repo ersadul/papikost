@@ -37,7 +37,7 @@
                                     <span>Classic room for our vip guest, also available for family touriest.</span>
                                 </div>
                                 <div class="float-right text-right">
-                                    @if($kID->harga_promo < $kID->harga)
+                                    @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null)
                                     <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> malam </span></div>
                                     @else
                                     <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
@@ -106,7 +106,7 @@
                                 <p class="text-secondary">Rincian Pembayaran</p>
                             </td>
                             <td>
-                                    @if($kID->harga_promo < $kID->harga)
+                                    @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null) 
                                     <p class="text-right">Rp. {{$kID->harga_promo}} x {{$kamarLamaMenginap}}</p>
                                     @else
                                     <p class="text-right">Rp. {{$kID->harga}} x {{$kamarLamaMenginap}}</p>
@@ -121,7 +121,7 @@
                             </td>
                             <td>
                                 <hr><b>
-                                    @if($kID->harga_promo < $kID->harga)
+                                    @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null)
                                     <p class="text-right">Rp. {{$kID->harga_promo*$kamarLamaMenginap}}</p>
                                     @else
                                     <p class="text-right">Rp. {{$kID->harga*$kamarLamaMenginap}}</p>

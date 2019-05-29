@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-xl-2 col-lg-3">
                     <div class="for-booking">
-                        @if($k->harga > $k->harga_promo)
+                        @if($k->harga_promo < $k->harga && $k->harga_promo != null)
                             <div class="h5 per-night text-secondary"><strike>Rp. {{$k->harga}}<small> / Night</small></strike></div>
                             <div class="h5 per-night text-primary">Rp. {{$k->harga_promo}}<small> / Night</small></div>
                         @else

@@ -65,7 +65,7 @@
                             </div>
                         </div>
                         <div class="float-right text-right">
-                            @if($kID->harga_promo < $kID->harga)
+                            @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null)
                                 <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> malam </span></div>
                             @else
                                 <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
@@ -176,7 +176,7 @@
                                 <input type="hidden" name="guestDurasi" class="form-control" value="{{$kamarLamaMenginap}}">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                @if($kID->harga_promo < $kID->harga)
+                                @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null)
                                     <label class="text-block-1">Total Tagihan : {{$kID->harga_promo}} x {{$kamarLamaMenginap}}</label>
                                     <input type="hidden" name="guestHarga" class="form-control" value="{{$kID->harga_promo*$kamarLamaMenginap}}">
                                 @else

@@ -48,7 +48,7 @@
                                             <td>Jumlah Tagihan</td>
                                             <td>:</td>
                                             <td>
-                                            @if($invoice->kamar->harga_promo < $invoice->kamar->harga)
+                                            @if($invoice->kamar->harga_promo < $invoice->kamar->harga && $invoice->kamar->harga_promo != null )
                                             Rp. {{$invoice->kamar->harga_promo}}
                                             @else
                                             Rp. {{$invoice->kamar->harga}}
@@ -109,7 +109,7 @@
                                                 <p>Rincian Pembayaran</p>
                                             </td>
                                             <td>
-                                                @if($invoice->kamar->harga_promo < $invoice->kamar->harga)
+                                                @if($invoice->kamar->harga_promo < $invoice->kamar->harga && $invoice->kamar->harga_promo)
                                                 <p class="text-right">Rp. {{$invoice->kamar->harga_promo}} x {{ $invoice->lama_menginap }}</p>
                                                 @else
                                                 <p class="text-right">Rp. {{$invoice->kamar->harga}} x {{ $invoice->lama_menginap }}</p>
@@ -122,7 +122,7 @@
                                                 </b>
                                             </td>
                                             <td><b>
-                                                @if($invoice->kamar->harga_promo < $invoice->kamar->harga)
+                                                @if($invoice->kamar->harga_promo < $invoice->kamar->harga && $invoice->kamar->harga_promo)
                                                 <p class="text-right">Rp. {{$invoice->kamar->harga_promo * $invoice->lama_menginap}}</p>
 
                                                 @else
