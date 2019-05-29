@@ -12,17 +12,25 @@ class KamarTableSeeder extends Seeder
      */
     public function run()
     {
-        Kamar::create([
-            'nama_kamar' => 'Fams Room - 1',
-            'deskripsi' => '-',
-            'harga' => 1,
-            'tipe_kamar_id' => 1
-        ]);
-        Kamar::create([
-            'nama_kamar' => 'Trevo Room - 1',
-            'deskripsi' => '-',
-            'harga' => 1,
-            'tipe_kamar_id' => 2
-        ]);
+        $i = 1;
+        if(Kamar::all()->isEmpty()){
+            for ($i; $i <= 17 ; $i++) { 
+                Kamar::create([
+                    'id' => $i,
+                    'nama_kamar' => 'Standart - '.$i,
+                    'deskripsi' => '-',
+                    'harga' => 155000,
+                    'tipe_kamar_id' => 1
+                ]);
+            }
+    
+            Kamar::create([
+                'id' => $i,
+                'nama_kamar' => 'Family Rooms - 1',
+                'deskripsi' => '-',
+                'harga' => 300000,
+                'tipe_kamar_id' => 2
+            ]);
+        }
     }
 }

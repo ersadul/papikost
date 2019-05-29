@@ -14,12 +14,14 @@ class TipeKamarTableSeeder extends Seeder
     {
         if(TipeKamar::all()->isEmpty()){
             TipeKamar::create([
-                'nama_tipe' => 'Family',
-                'maksimal' => 3
+                'id' => 1,
+                'nama_tipe' => 'Standart',
+                'maksimal' => 2
             ]);
             TipeKamar::create([
-                'nama_tipe' => 'Standard',
-                'maksimal' => 2
+                'id' => 2,
+                'nama_tipe' => 'Family Rooms',
+                'maksimal' => 4
             ]);
         }
     }
