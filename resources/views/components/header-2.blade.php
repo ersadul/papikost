@@ -13,14 +13,14 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <ul class="float-right">
+                    <!-- <ul class="float-right">
                         <li><a href="mailto:mail@domain.com" class="text-white"><i
                                     class="fas fa-envelope"></i>mail@domain.com</a>
                         </li>
                         <li><a href="callto:+62-812-345-6789" class="text-white"><i
                                     class="fas fa-phone"></i>+62-812-345-6789</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </div>
@@ -29,7 +29,7 @@
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light w-100"> <a class="navbar-brand" href="/"><img
-                            class="nav-logo" src="{{ asset('template/img/logo/logo.png') }}" alt="logo"></a>
+                            class="nav-logo" src="{{ is_null($headerProfile->logo_hotel_file) || $headerProfile->logo_hotel_file == '' ? asset('template/img/logo/logo.png') : asset('storage/'.$headerProfile->logo_hotel_file) }}" alt="{{ $headerProfile->nama_hotel }}"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
