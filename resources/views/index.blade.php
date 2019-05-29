@@ -221,7 +221,7 @@
         </div>
         <div class="row">
         @foreach($kamarPromo as $kp)
-            <div class="col-md-6 col-lg-4">
+            <!-- <div class="col-md-6 col-lg-4">
                 <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
                     <div class="thumb-top position-relative">
                         <div class="overflow_hidden"><img src="{{ asset('storage') }}/{{$kp->thumbnail}}" alt="Booking Room">
@@ -234,7 +234,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
             @endforeach
             <!-- <div class="col-md-6 col-lg-4">
                 <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
