@@ -66,18 +66,11 @@
                         </div>
                         <div class="float-right text-right">
                             @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null)
+                                <div class="text-secondary"><strike><b>Rp. {{$kID->harga}} /</b> <span> malam </span></strike></div>
                                 <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> malam </span></div>
                             @else
                                 <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
                             @endif
-                            <!-- <div class="review">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                (20 Review)
-                            </div> -->
                         </div>
                     </div>
                     <div class="tab-menu-1 mt-4">
@@ -87,7 +80,6 @@
                                 <a class="nav-link active" data-toggle="tab" href="#fasilitas">Fasilitas</a>
                             </li>
                         </ul>
-
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div id="fasilitas" class="tab-pane active">
@@ -97,68 +89,11 @@
                                             <li>{{ $f->jenis_fasilitas }}</li>
                                         @endforeach
                                     </ul>
-                                    <!-- <ul class="icon-list-3">
-                                        <li>Breakfast Include</li>
-                                        <li>Private Balcony</li>
-                                        <li>Guest Room</li>
-                                        <li>Free Newspaper</li>
-                                        <li>Full AC</li>
-                                    </ul> -->
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <!-- <div class="row photo-gallery mt-4">
-                        <div class="col-md-4">
-                            <a class="img_view mb-30" href="img/width/36.jpg') }}">
-                                <div class="overlay-1">
-                                    <img src="{{ asset('template/img/width/36.jpg') }}" alt="">
-                                    <span class="text-default xy-center"><i class="fa fa-plus"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a class="img_view mb-30" href="img/width/39.jpg') }}">
-                                <div class="overlay-1">
-                                    <img src="{{ asset('template/img/width/39.jpg') }}" alt="">
-                                    <span class="text-default xy-center"><i class="fa fa-plus"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a class="img_view mb-30" href="img/width/40.jpg') }}">
-                                <div class="overlay-1">
-                                    <img src="{{ asset('template/img/width/40.jpg') }}" alt="">
-                                    <span class="text-default xy-center"><i class="fa fa-plus"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a class="img_view mb-30" href="img/width/36.jpg') }}">
-                                <div class="overlay-1">
-                                    <img src="{{ asset('template/img/width/36.jpg') }}" alt="">
-                                    <span class="text-default xy-center"><i class="fa fa-plus"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a class="img_view mb-30" href="img/width/39.jpg') }}">
-                                <div class="overlay-1">
-                                    <img src="{{ asset('template/img/width/39.jpg') }}" alt="">
-                                    <span class="text-default xy-center"><i class="fa fa-plus"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4">
-                            <a class="img_view mb-30" href="img/width/40.jpg') }}">
-                                <div class="overlay-1">
-                                    <img src="{{ asset('template/img/width/40.jpg') }}" alt="">
-                                    <span class="text-default xy-center"><i class="fa fa-plus"></i></span>
-                                </div>
-                            </a>
-                        </div>
-                    </div> -->
                 </div>
             </div>
             <div class="col-lg-4">

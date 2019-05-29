@@ -76,7 +76,6 @@ class GuestController extends Controller
 
         //get gambar kamar
         $gambar = GambarKamar::where('kamar_id', $request->id)->get();
-
         return view('roomDetail', compact('kamarTanggalMasuk', 'kamarLamaMenginap', 'kamarByID', 'fasilitas', 'gambar'));
     }
 
