@@ -346,9 +346,9 @@ class ManajemenController extends Controller
 
     public function review()
     {
-        $allReview = Review::get();
+        $allReview = Review::join('kamar', 'review.kamar_id', '=', 'kamar.id')->get();
         $allKamar = Kamar::select('id', 'nama_kamar')->get();
-        // return dd($allKamar);
+        // return dd($allReview);
         return view('dashboard.review', compact('allReview', 'allKamar'));
     }
 

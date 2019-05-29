@@ -80,7 +80,7 @@ active
                                         </div>
                                     </div>
                                     <div class="box-footer">
-                                        <p><b>{{$ar->review}}</b></p>
+                                        <p><b>{{$ar->nama_kamar}}</b> : {{$ar->review}}</p>
                                     </div>
                                 </div>
                             </td>
