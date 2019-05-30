@@ -136,14 +136,17 @@ class GuestController extends Controller
     {
         $current = Carbon::now();
         $invoice = Invoice::where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->first();
-        if ($invoice == null) {
+        if ($invoice == null || $invoice->status_menginap == 2) {
             //kasih action alert di halaman cek invoice
-            return 'invoice tidak valid';
+            return redirect()->back()->with('fail','Invoice tidak valid, silahkan isi kembali');;
+            // return 'invoice tidak valid';
         }
         $interval = date_diff($invoice->created_at, $current);
         if ($interval->h > 0) {
+            $invoice = Invoice::where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->delete();
             //kasih action drop invoice bahwa sudah kadaluarsa
-            return "invoice telah lebih dari 1 jam";
+            return redirect()->back()->with('kadaluarsa','Invoice telah kadaluarsa, silahkan lakukan pemesanan ulang');;
+            // return "invoice telah lebih dari 1 jam";
         } else {
             $duration = $interval->i * 60 + $interval->s;
             // return view('invoice', compact('invoice', 'duration'));

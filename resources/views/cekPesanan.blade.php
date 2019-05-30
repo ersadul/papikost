@@ -25,6 +25,14 @@
         <div class="full-row bg-white pb-0">
             <div class="container">
                 <div class="contact-form-1 form-style-1 pt-4 pb-4">
+                @if($message = Session::get('fail'))
+                    <div class="alert alert-warning alert-block"><button type="button" class="close" data-dismiss="alert">×</button><strong>{{$message}}</strong></div>
+                @endif
+
+                @if($message = Session::get('kadaluarsa'))
+                    <div class="alert alert-warning alert-block"><button type="button" class="close" data-dismiss="alert">×</button><strong>{{$message}}</strong></div>
+                @endif
+                <!-- <div class="alert alert-danger alert-block"><button type="button" class="close" data-dismiss="alert">×</button><strong>isoo</strong></div> -->
                     <div class="row">
                         <div class="col-md-6">
                             <form action="{{ route('hasil.invoice') }}" method="post">
