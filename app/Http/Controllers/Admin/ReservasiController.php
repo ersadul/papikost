@@ -245,7 +245,10 @@ class ReservasiController extends Controller
             ->update([
                 'status_menginap' => '2', //2 = check out
             ]);
-
+        Cleaning::where('invoice_id', $request->id)
+            ->update([
+                'vacant' => 1
+            ]);
         return redirect()->route('dashboard.history.reservasi');
     }
 

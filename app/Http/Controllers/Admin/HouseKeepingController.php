@@ -125,4 +125,11 @@ class HouseKeepingController extends Controller
             // return 'dari mati ke nyala';
         }
     }
+
+    public function vacantDone(Request $request)
+    {
+        Cleaning::where('invoice_id', $request->idInvoiceCleaning)->delete();
+        return redirect()->back();
+        // return dd($request);
+    }
 }

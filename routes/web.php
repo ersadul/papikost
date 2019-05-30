@@ -106,6 +106,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
         Route::post('/cleaning/tambah-snack', 'Admin\HouseKeepingController@snackCleaning')->name('cleaning.snack');
         Route::post('/cleaning/tambah-bed', 'Admin\HouseKeepingController@bedCleaning')->name('cleaning.bed');
         Route::post('/cleaning/tambah-bersih', 'Admin\HouseKeepingController@bersihCleaning')->name('cleaning.bersih');
+        Route::post('/cleaning/done', 'Admin\HouseKeepingController@vacantDone')->name('cleaning.done');
 
         //review
         Route::get('/review', 'Admin\ManajemenController@review')->name('review');
