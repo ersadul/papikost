@@ -29,7 +29,13 @@
                                         <tr>
                                             <td>Status Pemesanan</td>
                                             <td>:</td>
-                                            <td>Menunggu Pembayaran</td>
+                                            <td>
+                                                @if($invoice->flag_payment == 1)
+                                                    Pembayaran Diterima
+                                                @else
+                                                    Menunggu Pembayaran
+                                                @endif
+                                            </td>
                                         </tr>
                                     </table>
                                 </div>

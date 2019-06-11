@@ -177,7 +177,7 @@ class GuestController extends Controller
         $interval = date_diff($invoice->created_at, $current);
         $duration = $interval->i * 60 + $interval->s;
         $profileHotel = ProfileHotel::first();
-        // return dd($profileHotel);
+        // return dd($invoice);
         return view('invoice', compact('invoice', 'duration', 'profileHotel'));
     }
 
