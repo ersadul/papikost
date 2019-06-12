@@ -31,9 +31,11 @@
                                             <td>:</td>
                                             <td>
                                                 @if($invoice->flag_payment == 1)
-                                                    Pembayaran Diterima
+                                                    <div class="text-success">Pembayaran Diterima<div>
+                                                @elseif($invoice->flag_payment < 1)
+                                                    <div class="text-warning">Belum Mengupload Bukti Pembayaran</div>
                                                 @else
-                                                    Menunggu Pembayaran
+                                                    Menunggu Verifikasi Bukti Pembayaran
                                                 @endif
                                             </td>
                                         </tr>
@@ -140,8 +142,14 @@
                                         </tr>
                                     </table>
                                 </div>
-                                <button class="btn btn-primary x-center" data-toggle="modal"
-                                    data-target="#upload">Konfirmasi Pembayaran</button>
+                                @if($invoice->bukti_pembayaran_file != null)
+                                    <button class="btn btn-primary x-center" data-toggle="modal"
+                                            data-target="#upload">Cek Bukti Pembayaran</button>
+                                @else
+                                    <button class="btn btn-primary x-center" data-toggle="modal"
+                                            data-target="#upload">Konfirmasi Pembayaran</button>
+                                @endif
+
                             </div>
                         </div>
                     </div>
