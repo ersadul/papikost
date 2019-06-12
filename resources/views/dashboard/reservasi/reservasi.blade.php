@@ -106,7 +106,8 @@ active
                         start       : checkIn,
                         end         : checkOut,
                         title       : `-${days[checkOut.getDay()]} ${checkOut.getDate()} | ${event.nama}`,
-                        allDay      : true
+                        allDay      : true,
+                        url         : '/dashboard/list-reservasi/detail?invoice_id=' + event.id
                     });
                 })
 

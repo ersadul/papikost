@@ -15,6 +15,8 @@ class ReservasiController extends Controller
     public function index()
     {
         $kamar = Kamar::all();
+//        $kamar = Kamar::join('invoice', 'kamar.id', '=', 'invoice.kamar_id')->get();
+//        return dd($kamar);
         return view('dashboard.reservasi.reservasi', compact('kamar'));
     }
 
@@ -138,7 +140,7 @@ class ReservasiController extends Controller
         $invoice = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
             ->where('invoice.id', $request->invoice_id)
             ->first();
-        // dd($invoice);
+        //return dd($invoice);
         //tambah atribut check out
         $extractDate        = explode("-", $invoice->check_in);
         $checkOut           = date('Y-m-d', mktime(0, 0, 0, $extractDate[1], $extractDate[2] + $invoice->lama_menginap, $extractDate[0]));
