@@ -135,7 +135,8 @@ class GuestController extends Controller
     public function cekInvoice(Request $request)
     {
         $current = Carbon::now();
-        $invoice = Invoice::where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->first();
+        $invoice = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')->where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->first();
+        return dd($invoice);
         if ($invoice == null || $invoice->status_menginap == 2) {
             //kasih action alert di halaman cek invoice
             return redirect()->back()->with('fail','Invoice tidak valid, silahkan isi kembali');;
