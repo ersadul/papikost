@@ -143,7 +143,7 @@ class GuestController extends Controller
         }
         $interval = date_diff($invoice->created_at, $current);
         if ($interval->h > 0) {
-            $invoice = Invoice::where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->whereNotIn('flag_pembayaran', 1)->delete();
+            $invoice = Invoice::where('phone', $request->phone)->where('invoice_code', $request->invoiceCode)->where('flag_pembayaran', 0)->delete();
             //kasih action drop invoice bahwa sudah kadaluarsa
             return redirect()->back()->with('kadaluarsa','Invoice telah kadaluarsa, silahkan lakukan pemesanan ulang');;
             // return "invoice telah lebih dari 1 jam";
