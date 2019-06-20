@@ -242,8 +242,8 @@ class ManajemenController extends Controller
         $tambahKaryawan->phone_number      = $request->tambahPhone;
         $tambahKaryawan->job_role          = $request->tambahJob;
         $tambahKaryawan->email             = $request->tambahEmail;
-        $tambahKaryawan->tempat_lahir      = $request->tambahTempatLahir;
-        $tambahKaryawan->tanggal_lahir     = $request->tambahTanggalLahir;
+        $tambahKaryawan->tempat_tanggal_lahir      = $request->tambahTempatLahir . ', ' . $request->tambahTanggalLahir;
+//        $tambahKaryawan->tanggal_lahir     = $request->tambahTanggalLahir;
         $tambahKaryawan->alamat_tinggal    = $request->tambahAlamat;
         $tambahKaryawan->jenis_kelamin     = $request->tambahJK;
         $tambahKaryawan->status_perkawinan = $request->tambahSP;

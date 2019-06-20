@@ -23,16 +23,25 @@ class HouseKeepingController extends Controller
 
     public function tambahPenjadwalan(Request $request)
     {
-        for($i=0; $i < count($request->jadwalKaryawan); $i++){
-            $tambahPenjadwalan = new PenjadwalanKaryawan;
-            $tambahPenjadwalan->kamar_id = $request->pilihKamar[0];
-            $tambahPenjadwalan->karyawan_id = $request->jadwalKaryawan[$i];
-            $tambahPenjadwalan->tanggal_jadwal = date("Y-m-d", strtotime($request->jadwalTanggal));
-            $tambahPenjadwalan->shift = $request->jadwalShift[0];
-            $tambahPenjadwalan->save();
+        $validation = $this->validate($request, [
+            'pilihKamar' => 'required',
+            'jadwalTanggal' => 'required',
+            'jadwalShift' => 'required',
+            'jadwalKaryawan' => 'required'
+        ]);
+//        return dd(count($validation));
+        if (count($validation) >= 4){
+            for($i=0; $i < count($request->jadwalKaryawan); $i++){
+                $tambahPenjadwalan = new PenjadwalanKaryawan;
+                $tambahPenjadwalan->kamar_id = $request->pilihKamar[0];
+                $tambahPenjadwalan->karyawan_id = $request->jadwalKaryawan[$i];
+                $tambahPenjadwalan->tanggal_jadwal = date("Y-m-d", strtotime($request->jadwalTanggal));
+                $tambahPenjadwalan->shift = $request->jadwalShift[0];
+                $tambahPenjadwalan->save();
+            }
+            // return dd( $request->pilihKamar[0]);
+            return redirect()->back();
         }
-        // return dd( $request->pilihKamar[0]);
-        return redirect()->back();
     }
 
     public function deletePenjadwalan(Request $request)
