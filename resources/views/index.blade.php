@@ -224,8 +224,11 @@
              <div class="col-md-6 col-lg-4">
                 <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
                     <div class="thumb-top position-relative">
-{{--                        <div class="overflow_hidden"><img src="{{ asset('storage') }}/{{$kp->thumbnail}}" alt="Booking Room"></div>--}}
-                        <div class="overflow_hidden"><img src="{{ asset('img/promo/promo.png') }}" alt="Booking Room"></div>
+                        @if($kp->thumbnail < 1)
+                            <div class="overflow_hidden"><img src="{{ asset('img/promo/promo.png') }}" alt="Booking Room"></div>
+                        @else
+                            <div class="overflow_hidden"><img src="{{ asset('storage') }}/{{$kp->thumbnail}}" alt="Booking Room"></div>
+                        @endif
                     </div>
                     <div class="room-info">
                         <div class="down-line-left mb-3">
