@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c6469140-d68f-4d2c-9e4d-7ad3d757103d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HouseKeepingController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HouseKeepingController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ManajemenController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ManajemenController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,10 +28,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="78">
+              <caret line="227" column="97" selection-start-line="227" selection-start-column="97" selection-end-line="227" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/HouseKeepingController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="44" selection-start-line="44" selection-end-line="44" />
+            <state relative-caret-position="105">
+              <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -50,6 +57,7 @@
       <find>tambah</find>
       <find>tambahKar</find>
       <find>jadwalKar</find>
+      <find>promo</find>
       <find>shift</find>
     </findStrings>
   </component>
@@ -66,11 +74,11 @@
         <option value="$PROJECT_DIR$/resources/views/invoice.blade.php" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Guest/GuestController.php" />
-        <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/promo.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ManajemenController.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/housekeeping/penjadwalan.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/HouseKeepingController.php" />
+        <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
       </list>
     </option>
   </component>
@@ -248,6 +256,24 @@
             <path>
               <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
               <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="promo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -290,6 +316,24 @@
               <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
               <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
               <item name="routes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="safa-hotel" type="b2602c69:ProjectViewProjectNode" />
+              <item name="safa-hotel" type="462c0819:PsiDirectoryNode" />
+              <item name="storage" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -342,12 +386,12 @@
       <workItem from="1560429832334" duration="91000" />
       <workItem from="1560430212773" duration="865000" />
       <workItem from="1560929793873" duration="1004000" />
-      <workItem from="1561037888500" duration="4337000" />
+      <workItem from="1561037888500" duration="5808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10131000" />
+    <option name="totallyTimeSpent" value="11602000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -430,13 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="18" selection-start-column="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/promo.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -504,8 +541,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/HouseKeepingController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="44" selection-start-line="44" selection-end-line="44" />
+        <state relative-caret-position="105">
+          <caret line="32" column="32" lean-forward="true" selection-start-line="32" selection-start-column="32" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/img/promo/promo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="78">
+          <caret line="227" column="97" selection-start-line="227" selection-start-column="97" selection-end-line="227" selection-end-column="97" />
         </state>
       </provider>
     </entry>
