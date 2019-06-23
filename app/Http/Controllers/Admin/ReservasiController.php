@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Cleaning;
+use App\Http\Controllers\Controller;
 use App\Invoice;
 use App\Kamar;
 use App\Payment;
@@ -16,7 +16,7 @@ class ReservasiController extends Controller
     {
         $kamar = Kamar::all();
 //        $kamar = Kamar::join('invoice', 'kamar.id', '=', 'invoice.kamar_id')->get();
-//        return dd($kamar);
+        //        return dd($kamar);
         return view('dashboard.reservasi.reservasi', compact('kamar'));
     }
 
@@ -26,7 +26,7 @@ class ReservasiController extends Controller
             ->whereBetween('check_in', [$request->start, $request->end])
             ->where('payment_invoice.flag_payment', '1')
             ->get();
-        
+
         return json_encode($invoice);
     }
 
@@ -63,6 +63,7 @@ class ReservasiController extends Controller
         $saveReservasi->phone             = $request->telp;
         $saveReservasi->permintaan_khusus = $request->khusus;
         $saveReservasi->check_in          = Carbon::parse($request->date)->format('Y-m-d');
+        $saveReservasi->check_out          = Carbon::parse($request->guestMasuk)->addDays($request->guestDurasi)->format('Y-m-d');
         $saveReservasi->lama_menginap     = $request->range;
         $saveReservasi->final_harga       = $request->hargaAkhir;
         $saveReservasi->status_menginap   = 1;
@@ -76,12 +77,12 @@ class ReservasiController extends Controller
             $payment->flag_payment    = 1;
             $payment->nomor_transaksi = $request->debit;
             $payment->save();
-            $cleaning   = new Cleaning;
-            $cleaning->vacant = 0;
-            $cleaning->snack = 0;
+            $cleaning                = new Cleaning;
+            $cleaning->vacant        = 0;
+            $cleaning->snack         = 0;
             $cleaning->bersih_ringan = 0;
-            $cleaning->bed = 0;
-            $cleaning->invoice_id = $saveReservasi->id;
+            $cleaning->bed           = 0;
+            $cleaning->invoice_id    = $saveReservasi->id;
             $cleaning->save();
 
             // return dd($saveReservasi);
@@ -97,12 +98,12 @@ class ReservasiController extends Controller
             $path                           = $bukti_pembayaran_gambar->store('public/files');
             $payment->bukti_pembayaran_file = $path;
             $payment->save();
-            $cleaning   = new Cleaning;
-            $cleaning->vacant = 0;
-            $cleaning->snack = 0;
+            $cleaning                = new Cleaning;
+            $cleaning->vacant        = 0;
+            $cleaning->snack         = 0;
             $cleaning->bersih_ringan = 0;
-            $cleaning->bed = 0;
-            $cleaning->invoice_id = $saveReservasi->id;
+            $cleaning->bed           = 0;
+            $cleaning->invoice_id    = $saveReservasi->id;
             $cleaning->save();
             // return $request->transfer;
         } else if ($request->cash != '') {
@@ -111,12 +112,12 @@ class ReservasiController extends Controller
             $payment->tipe_payment = 2;
             $payment->flag_payment = 1;
             $payment->save();
-            $cleaning   = new Cleaning;
-            $cleaning->vacant = 0;
-            $cleaning->snack = 0;
+            $cleaning                = new Cleaning;
+            $cleaning->vacant        = 0;
+            $cleaning->snack         = 0;
             $cleaning->bersih_ringan = 0;
-            $cleaning->bed = 0;
-            $cleaning->invoice_id = $saveReservasi->id;
+            $cleaning->bed           = 0;
+            $cleaning->invoice_id    = $saveReservasi->id;
             $cleaning->save();
             // return "box isi";
         } else {
@@ -163,7 +164,7 @@ class ReservasiController extends Controller
         $reservasi = Invoice::where("status_menginap", "2")->get(); // 2 = checkout
         return view('dashboard.reservasi.history', compact('reservasi'));
     }
-    
+
     public function getCheckIn()
     {
         $checkIn = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
@@ -249,7 +250,7 @@ class ReservasiController extends Controller
             ]);
         Cleaning::where('invoice_id', $request->id)
             ->update([
-                'vacant' => 1
+                'vacant' => 1,
             ]);
         return redirect()->route('dashboard.history.reservasi');
     }
