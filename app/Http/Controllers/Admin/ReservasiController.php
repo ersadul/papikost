@@ -63,7 +63,7 @@ class ReservasiController extends Controller
         $saveReservasi->phone             = $request->telp;
         $saveReservasi->permintaan_khusus = $request->khusus;
         $saveReservasi->check_in          = Carbon::parse($request->date)->format('Y-m-d');
-        $saveReservasi->check_out          = Carbon::parse($request->guestMasuk)->addDays($request->guestDurasi)->format('Y-m-d');
+        $saveReservasi->check_out         = Carbon::parse($request->date)->addDays($request->range)->format('Y-m-d');
         $saveReservasi->lama_menginap     = $request->range;
         $saveReservasi->final_harga       = $request->hargaAkhir;
         $saveReservasi->status_menginap   = 1;
