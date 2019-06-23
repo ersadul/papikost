@@ -52,7 +52,7 @@ class GuestController extends Controller
 
         //select kamar exclude yang sudah dibooking lunas
         $kamar = Kamar::select('*', 'kamar.id as id_kamar')
-            ->whereNotIn('id', $idKamarBooked)
+            ->whereNotIn('kamar.id', $idKamarBooked)
             ->join('tipe_kamar', 'tipe_kamar.id', '=', 'kamar.tipe_kamar_id')
             ->get();
 
