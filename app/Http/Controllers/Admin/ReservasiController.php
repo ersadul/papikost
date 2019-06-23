@@ -66,7 +66,7 @@ class ReservasiController extends Controller
         $saveReservasi->check_out         = Carbon::parse($request->date)->addDays($request->range)->format('Y-m-d');
         $saveReservasi->lama_menginap     = $request->range;
         $saveReservasi->final_harga       = $request->hargaAkhir;
-        $saveReservasi->status_menginap   = 1;
+        $saveReservasi->status_menginap   = 0;
         $saveReservasi->kamar_id          = $request->room;
         $saveReservasi->save();
         if ($request->debit != '') {
