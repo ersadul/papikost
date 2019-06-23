@@ -26,41 +26,41 @@ active
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Nama Hotel</label>
-                            <input type="text" name="nama_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama}}">
+                            <input type="text" name="nama_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama}}" required>
                         </div>
                         <div class="form-group">
                             <label>Alamat</label>
-                            <input type="text" name="alamat_profile" class="form-control" autocomplete="off" value="{{$profileHotel->alamat}}">
+                            <input type="text" name="alamat_profile" class="form-control" autocomplete="off" value="{{$profileHotel->alamat}}" required>
                         </div>
                         <div class="form-group">
                             <label>Provinsi</label>
-                            <input type="text" name="provinsi_profile" class="form-control" autocomplete="off" value="{{$profileHotel->provinsi}}">
+                            <input type="text" name="provinsi_profile" class="form-control" autocomplete="off" value="{{$profileHotel->provinsi}}" required>
                         </div>
                         <div class="form-group">
                             <label>Negara</label>
-                            <input type="text" name="negara_profile" class="form-control" autocomplete="off" value="{{$profileHotel->negara}}">
+                            <input type="text" name="negara_profile" class="form-control" autocomplete="off" value="{{$profileHotel->negara}}" required>
                         </div>
                         <div class="form-group">
                             <label>Panduan Lokasi</label>
-                            <textarea name="lokasi_profile" class="form-control" rows="3">{{$profileHotel->panduan_lokasi}}</textarea>
+                            <textarea name="lokasi_profile" class="form-control" rows="3" required>{{$profileHotel->panduan_lokasi}}</textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Bank</label>
-                            <input type="text" name="bank_profile" class="form-control" autocomplete="off" value="{{$profileHotel->bank}}">
+                            <input type="text" name="bank_profile" class="form-control" autocomplete="off" value="{{$profileHotel->bank}}" required>
                         </div>
                         <div class="form-group">
                             <label>Bank Cabang</label>
-                            <input type="text" name="cabang_profile" class="form-control" autocomplete="off" value="{{$profileHotel->bank_cabang}}">
+                            <input type="text" name="cabang_profile" class="form-control" autocomplete="off" value="{{$profileHotel->bank_cabang}}" required>
                         </div>
                         <div class="form-group">
                             <label>Nomor Rekening</label>
-                            <input type="text" name="nomor_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nomor_rekening}}">
+                            <input type="text" name="nomor_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nomor_rekening}}" required>
                         </div>
                         <div class="form-group">
                             <label>Nama Penerima</label>
-                            <input type="text" name="penerima_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama_penerima}}">
+                            <input type="text" name="penerima_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama_penerima}}" required>
                         </div>
                         <div class="form-group">
                             <label>Logo Hotel</label>
