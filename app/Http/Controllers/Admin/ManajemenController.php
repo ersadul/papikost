@@ -52,7 +52,7 @@ class ManajemenController extends Controller
         }
 
         $editProfileHotel = ProfileHotel::where('id', $request->IDProfileHotel)->update($dataUpdate);
-        return redirect()->back();
+        return redirect()->route('dashboard.index');
     }
 
     public function kamar()
