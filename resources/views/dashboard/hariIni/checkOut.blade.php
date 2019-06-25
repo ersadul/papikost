@@ -52,7 +52,7 @@ active
                 <table class="table">
                     <tr class="text-center">
                         <td><a href="{{ route('dashboard.menginap.set.checkout', ['id' => $co->invoice_id]) }}">Check-out</a></td>
-                        <td><a href="#">Tambah Lama Menginap</a></td>
+                        <td><a href="{{ route('dashboard.tambah.menginap', ['id' => $co->invoice_id]) }}">Tambah Lama Menginap</a></td>
                     </tr>
                 </table>
             </div>

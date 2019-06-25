@@ -37,8 +37,9 @@ active
             </table>
         </div>
     </div>
-    <form action="{{ route('dashboard.save.pembayaran') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ is_null($tambahMenginapID) ? route('dashboard.save.pembayaran') : route('dashboard.save.tambah.menginap') }}" method="post" enctype="multipart/form-data">
         @csrf
+        <input type="hidden" name="tambahMenginapID" value="{{ $tambahMenginapID }}">
         <input type="hidden" name="tipe">
         <input type="hidden" name="nama" value="{{ $request->nama }}">
         <input type="hidden" name="room" value="{{ $request->room }}">

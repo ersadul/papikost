@@ -46,7 +46,8 @@ class ReservasiController extends Controller
         //     return dd($request->debit);
         // }
         // return dd($request->khusus);
-        return view('dashboard.reservasi.pembayaran', compact('request', 'kamar'));
+        $tambahMenginapID = $request->tambahMenginapID ? $request->tambahMenginapID : null;
+        return view('dashboard.reservasi.pembayaran', compact('request', 'kamar', 'tambahMenginapID'));
     }
 
     public function saveReservasiToDB(Request $request)
@@ -194,6 +195,7 @@ class ReservasiController extends Controller
             ->where('invoice.status_menginap', '1') //status akan check out (2)
             ->where('invoice.check_out', date('Y-m-d'))
             ->get();
+
         return view('dashboard.hariIni.checkOut', compact('checkOut'));
 
     }
@@ -253,6 +255,101 @@ class ReservasiController extends Controller
                 'vacant' => 1,
             ]);
         return redirect()->route('dashboard.history.reservasi');
+    }
+
+    public function tambahMenginap(Request $request)
+    {
+        $invoice = Invoice::find($request->id);
+
+        return view('dashboard.reservasi.formTambah', compact('invoice'));
+    }
+
+    public function saveTambahMenginap(Request $request)
+    {
+
+        $saveReservasi     = new Invoice;
+        $code              = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $invoice_code_temp = "";
+        for ($i = 0; $i < 8; $i++) {
+            $invoice_code_temp .= $code[mt_rand(0, strlen($code) - 1)];
+        }
+        $saveReservasi->invoice_code      = $invoice_code_temp;
+        $saveReservasi->nama              = $request->nama;
+        $saveReservasi->email             = $request->email;
+        $saveReservasi->phone             = $request->telp;
+        $saveReservasi->permintaan_khusus = $request->khusus;
+        $saveReservasi->check_in          = Carbon::parse($request->date)->format('Y-m-d');
+        $saveReservasi->check_out         = Carbon::parse($request->date)->addDays($request->range)->format('Y-m-d');
+        $saveReservasi->lama_menginap     = $request->range;
+        $saveReservasi->final_harga       = $request->hargaAkhir;
+        $saveReservasi->status_menginap   = 1;
+        $saveReservasi->kamar_id          = $request->room;
+        $saveReservasi->save();
+        if ($request->debit != '') {
+            // return $request->debit;
+            $payment                  = new Payment;
+            $payment->invoice_id      = $saveReservasi->id;
+            $payment->tipe_payment    = 0;
+            $payment->flag_payment    = 1;
+            $payment->nomor_transaksi = $request->debit;
+            $payment->save();
+            $cleaning                = new Cleaning;
+            $cleaning->vacant        = 0;
+            $cleaning->snack         = 0;
+            $cleaning->bersih_ringan = 0;
+            $cleaning->bed           = 0;
+            $cleaning->invoice_id    = $saveReservasi->id;
+            $cleaning->save();
+
+            // return dd($saveReservasi);
+        } else if ($request->transfer != '') {
+            $payment                  = new Payment;
+            $payment->invoice_id      = $saveReservasi->id;
+            $payment->tipe_payment    = 1;
+            $payment->flag_payment    = 1;
+            $payment->nomor_transaksi = $request->transfer;
+            // $payment->bukti_pembayaran_file = "gambar.jpg";
+            $bukti_pembayaran_gambar = $request->file('buktiPembayaran');
+            // return dd($saveReservasi);
+            $path                           = $bukti_pembayaran_gambar->store('public/files');
+            $payment->bukti_pembayaran_file = $path;
+            $payment->save();
+            $cleaning                = new Cleaning;
+            $cleaning->vacant        = 0;
+            $cleaning->snack         = 0;
+            $cleaning->bersih_ringan = 0;
+            $cleaning->bed           = 0;
+            $cleaning->invoice_id    = $saveReservasi->id;
+            $cleaning->save();
+            // return $request->transfer;
+        } else if ($request->cash != '') {
+            $payment               = new Payment;
+            $payment->invoice_id   = $saveReservasi->id;
+            $payment->tipe_payment = 2;
+            $payment->flag_payment = 1;
+            $payment->save();
+            $cleaning                = new Cleaning;
+            $cleaning->vacant        = 0;
+            $cleaning->snack         = 0;
+            $cleaning->bersih_ringan = 0;
+            $cleaning->bed           = 0;
+            $cleaning->invoice_id    = $saveReservasi->id;
+            $cleaning->save();
+            // return "box isi";
+        } else {
+            return "failed";
+        }
+
+        // set checkout untuk invoice lama
+        Invoice::where('id', $request->tambahMenginapID)
+            ->update([
+                'status_menginap' => '2', //2 = check out
+            ]);
+        Cleaning::where('invoice_id', $request->tambahMenginapID)
+            ->update([
+                'vacant' => 1,
+            ]);
+        return redirect('dashboard/reservasi');
     }
 
 }
