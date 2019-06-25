@@ -52,7 +52,7 @@ active
                                 <!-- {{$pa->shift}} -->
                             </td>
                             <td>
-                                {{$pa->karyawan_id}}
+                                {{$pa->nama}}
                             </td>
                             <td>
                                 <form action="{{route('dashboard.penjadwalan.delete')}}" method="post">

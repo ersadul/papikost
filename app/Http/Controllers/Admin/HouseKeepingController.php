@@ -15,7 +15,9 @@ use App\Http\Controllers\Controller;
 class HouseKeepingController extends Controller
 {
     public function penjadwalan(){
-        $penjadwalanAll = PenjadwalanKaryawan::join('kamar', 'penjadwalan_karyawan.kamar_id', '=', 'kamar.id')->get();
+        $penjadwalanAll = PenjadwalanKaryawan::join('kamar', 'penjadwalan_karyawan.kamar_id', '=', 'kamar.id')
+                                            ->join('karyawan', 'penjadwalan_karyawan.karyawan_id', '=', 'karyawan.id')
+                                            ->get();
         $karyawanAll = Karyawan::get();
         $seluruhKamar = Kamar::get();
         return view('dashboard.housekeeping.penjadwalan', compact('penjadwalanAll', 'karyawanAll', 'seluruhKamar'));
