@@ -31,11 +31,17 @@
                                             <td>:</td>
                                             <td>
                                                 @if($invoice->flag_payment == 1)
-                                                    <div class="text-success">Pembayaran Diterima<div>
-                                                @elseif($invoice->flag_payment < 1)
+                                                    @if($invoice->status_menginap == 1 )
+                                                        <div class="text-success">Sedang menginap<div>
+                                                    @elseif($invoice->status_menginap == 2 )
+                                                        <div class="text-danger">Check out<div>
+                                                    @else
+                                                        <div class="text-success">Pembayaran diterima<div>
+                                                    @endif
+                                                @elseif($invoice->flag_payment < 1 && $invoice->bukti_pembayaran_file == null)
                                                     <div class="text-warning">Belum Mengupload Bukti Pembayaran</div>
-                                                @else
-                                                    Menunggu Verifikasi Bukti Pembayaran
+                                                @elseif($invoice->flag_payment < 1 && $invoice->bukti_pembayaran_file != null)
+                                                    <div class="text-warning">Menunggu Verifikasi Bukti Pembayaran oleh Admin</div>
                                                 @endif
                                             </td>
                                         </tr>
