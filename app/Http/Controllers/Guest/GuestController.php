@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Guest;
 
 use App\Http\Controllers\Controller;
 use DB;
+use Variation;
 use App\ProfileHotel; 
 use App\FasilitasKamar;
 use App\GambarKamar;
@@ -12,6 +13,7 @@ use App\Kamar;
 use App\Payment;
 use App\Cleaning;
 use Carbon\Carbon;
+use DemeterChain\C;
 use Illuminate\Http\Request;
 
 class GuestController extends Controller
@@ -27,36 +29,42 @@ class GuestController extends Controller
 
     public function getDate(Request $request)
     {
-        $checkIn      = Carbon::parse($request->date1)->format('Y-m-d');
-        $checkOut     = Carbon::parse($request->date1)->addDays($request->lamaMenginap)->format('Y-m-d');
-        $lamaMenginap = $request->lamaMenginap;
+        $pesen = Carbon::parse($request->date1)->format('Y-m-d');
+        $sekarang_tambah2 = Carbon::parse(Carbon::now())->format('Y-m-d');
+        if($pesen < $sekarang_tambah2){
+            return redirect()->back()->with('tanggal_salah','Harap pilih tanggal yang benar');;
+        } else if ($pesen >= $sekarang_tambah2) {
+            $checkIn      = Carbon::parse($request->date1)->format('Y-m-d');
+            $checkOut     = Carbon::parse($request->date1)->addDays($request->lamaMenginap)->format('Y-m-d');
+            $lamaMenginap = $request->lamaMenginap;
 
-        //check kamar yang sudah dibooking lunas
-        $booked = Invoice::select('invoice.kamar_id')
-            ->join('kamar', 'kamar.id', '=', 'invoice.kamar_id')
-            ->join('payment_invoice', 'payment_invoice.invoice_id', '=', 'invoice.id')
-            ->where('payment_invoice.flag_payment', '1')
-            ->whereRaw("(
+            //check kamar yang sudah dibooking lunas
+            $booked = Invoice::select('invoice.kamar_id')
+                ->join('kamar', 'kamar.id', '=', 'invoice.kamar_id')
+                ->join('payment_invoice', 'payment_invoice.invoice_id', '=', 'invoice.id')
+                ->where('payment_invoice.flag_payment', '1')
+                ->whereRaw("(
                 '$checkIn' between invoice.check_in and invoice.check_out
                 or '$checkOut' between invoice.check_in and invoice.check_out
                 or invoice.check_in between '$checkIn' and '$checkOut'
                 or invoice.check_out between '$checkIn' and '$checkOut')")
-            ->distinct()
-            ->get();
+                ->distinct()
+                ->get();
 
-        //simpan id kamar di array
-        $idKamarBooked = [];
-        foreach ($booked as $b) {
-            array_push($idKamarBooked, $b->kamar_id);
+            //simpan id kamar di array
+            $idKamarBooked = [];
+            foreach ($booked as $b) {
+                array_push($idKamarBooked, $b->kamar_id);
+            }
+
+            //select kamar exclude yang sudah dibooking lunas
+            $kamar = Kamar::select('*', 'kamar.id as id_kamar')
+                ->whereNotIn('kamar.id', $idKamarBooked)
+                ->join('tipe_kamar', 'tipe_kamar.id', '=', 'kamar.tipe_kamar_id')
+                ->get();
+
+            return view('roomList', compact('checkIn', 'lamaMenginap', 'kamar'));
         }
-
-        //select kamar exclude yang sudah dibooking lunas
-        $kamar = Kamar::select('*', 'kamar.id as id_kamar')
-            ->whereNotIn('kamar.id', $idKamarBooked)
-            ->join('tipe_kamar', 'tipe_kamar.id', '=', 'kamar.tipe_kamar_id')
-            ->get();
-
-        return view('roomList', compact('checkIn', 'lamaMenginap', 'kamar'));
     }
 
     public function getKamar(Request $request)

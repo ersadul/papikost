@@ -181,6 +181,9 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row">
+                    @if($message = Session::get('tanggal_salah'))
+                        <div class="alert alert-warning alert-block"><button type="button" class="close" data-dismiss="alert">×</button><strong>{{$message}}</strong></div>
+                    @endif
                     <form action="{{ route('search') }}" class="w-100" method="post">
                         @csrf
                         <div class="row">
@@ -259,5 +262,6 @@
         </div>
     </div>
 </section>
+
 <!-- Living Room 1 Section End -->
 @endsection
