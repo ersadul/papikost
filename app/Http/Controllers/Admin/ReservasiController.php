@@ -131,8 +131,7 @@ class ReservasiController extends Controller
     function list() {
         $reservasi = Invoice::select('*', 'payment_invoice.updated_at as payment_update')
             ->join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
-            ->where('payment_invoice.tipe_payment', '1')
-            ->where('payment_invoice.flag_payment', '0')
+            ->where('invoice.status_menginap','!=', '2')
             ->orderBy('payment_invoice.updated_at', 'desc')
             ->get();
         return view('dashboard.reservasi.list', compact('reservasi'));
@@ -193,7 +192,7 @@ class ReservasiController extends Controller
         $checkOut = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
             ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
             ->where('invoice.status_menginap', '1') //status akan check out (2)
-            ->where('invoice.check_out', date('Y-m-d'))
+            ->where('invoice.check_out', '<=', date('Y-m-d'))
             ->get();
 
         return view('dashboard.hariIni.checkOut', compact('checkOut'));
