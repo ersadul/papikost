@@ -90,7 +90,7 @@ active
                         </div>
                         <div class="form-group">
                             <label>Keterangan</label>
-                            <textarea name="tambahKeterangan" class="form-control" rows="3"></textarea>
+                            <textarea name="tambahKeterangan" class="form-control" rows="3" required></textarea>
                         </div>
                         <div class="form-group">
                             <label>Jumlah Barang</label>
