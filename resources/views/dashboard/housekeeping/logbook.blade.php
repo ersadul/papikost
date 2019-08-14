@@ -73,7 +73,7 @@ active
                         <div class="form-group">
                             <label>No. Kamar</label>
                             <select name="pilihKamar[]" class="form-control select2" multiple="multiple" data-placeholder="Select a State"
-                                style="width: 100%;">
+                                style="width: 100%;" required>
                                     @foreach($seluruhKamar as $sk)
                                         <option value="{{$sk->id}}">{{$sk->nama_kamar}}</option>
                                     @endforeach
