@@ -170,7 +170,7 @@ class ReservasiController extends Controller
         $checkIn = Invoice::join('payment_invoice', 'invoice.id', '=', 'payment_invoice.invoice_id')
             ->join('kamar', 'invoice.kamar_id', '=', 'kamar.id')
             ->where('invoice.status_menginap', '0') //status akan check in (0)
-            ->where('invoice.check_in', date('Y-m-d')) //hari ini
+            ->where('invoice.check_in', '<=', date('Y-m-d')) //hari ini
             ->where('payment_invoice.flag_payment', '1') // sudah lunas
             ->get();
 

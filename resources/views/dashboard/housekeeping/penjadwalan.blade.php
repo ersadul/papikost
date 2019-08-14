@@ -40,7 +40,12 @@ active
                         <tr>
                             <td>{{$pa->nama_kamar}}</td>
                             <td>{{$pa->tanggal_jadwal}}</td>
-                            <td>Minggu</td>
+                            @php
+                                $days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"];
+                                $dayIndex = date('w', strtotime($pa->tanggal_jadwal));
+                                $dayName = $days[$dayIndex];
+                            @endphp
+                            <td>{{ $dayName }}</td>
                             <td>
                                 @if($pa->shift == 1)
                                     Shift 1 : 06.00 pagi - 14.00 siang
@@ -63,42 +68,6 @@ active
                             </td>
                         </tr>
                         @endforeach
-                        <!-- <tr>
-                            <td>2</td>
-                            <td>20 Mei 2019</td>
-                            <td>Minggu</td>
-                            <td>09:00</td>
-                            <td>1</td>
-                            <td>Nama Pegawai 1, Nama Pegawai 2</td>
-                            <td><a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>20 Mei 2019</td>
-                            <td>Minggu</td>
-                            <td>09:00</td>
-                            <td>1</td>
-                            <td>Nama Pegawai 1, Nama Pegawai 2</td>
-                            <td><a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>20 Mei 2019</td>
-                            <td>Minggu</td>
-                            <td>09:00</td>
-                            <td>1</td>
-                            <td>Nama Pegawai 1, Nama Pegawai 2</td>
-                            <td><a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a></td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>20 Mei 2019</td>
-                            <td>Minggu</td>
-                            <td>09:00</td>
-                            <td>1</td>
-                            <td>Nama Pegawai 1, Nama Pegawai 2</td>
-                            <td><a href="#" class="btn btn-sm btn-danger btn-flat"><i class="fa fa-remove"></i></a></td>
-                        </tr> -->
                     </tbody>
                 </table>
             </div>
