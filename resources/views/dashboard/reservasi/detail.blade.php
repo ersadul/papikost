@@ -18,7 +18,7 @@ active
             <div class="row">
                 <div class="col-md-8">
                     <div class="form-group">
-                        <label>Nama Tamu</label>
+                        <label>Nama</label>
                         <input type="text" class="form-control" readonly value="{{ $invoice->nama }}">
                     </div>
                 </div>
@@ -34,35 +34,35 @@ active
                         <input type="email" class="form-control" readonly value="{{ $invoice->email }}">
                     </div>
                 </div>
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <div class="form-group">
                         <label>Permintaan Khusus</label>
                         <textarea class="form-control" readonly rows="3" name="khusus">{{ $invoice->permintaan_khusus }}</textarea>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>ID Kamar</label>
+                        <label>ID Ruangan</label>
                         <input class="form-control" readonly value="1">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
-                        <label>Check-in</label>
+                        <label>Waktu Penyewaan</label>
                         <input class="form-control" readonly value="{{ $invoice->check_in }}">
                     </div>
                 </div>
-                <div class="col-md-3">
+                <!-- <div class="col-md-3">
                     <div class="form-group">
-                        <label>Check-out</label>
+                        <label>Selesai</label>
                         <input class="form-control" readonly 
                         value='{{ $invoice->check_out }}'>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
-    <div class="row" id="payment">
+    <!-- <div class="row" id="payment">
         <div class="col-md-4">
             <div class="box box-solid">
                 <div class="box-header with-border">
@@ -111,13 +111,13 @@ active
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>
                                     </div>
-                                    </div>
+                                    </div> -->
                                     <!-- /.modal-content -->
                                 </div>
                                 <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
-                        @else
+                        <!-- @else
                             <p>Belum ada bukti pembayaran terunggah</a></p>
                         @endif
                     </div>
@@ -146,6 +146,6 @@ active
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 @endsection

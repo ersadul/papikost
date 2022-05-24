@@ -25,7 +25,7 @@ active
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>Nama Hotel</label>
+                            <label>Nama Tempat Penyewaan</label>
                             <input type="text" name="nama_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama}}" required>
                         </div>
                         <div class="form-group">
@@ -40,13 +40,13 @@ active
                             <label>Negara</label>
                             <input type="text" name="negara_profile" class="form-control" autocomplete="off" value="{{$profileHotel->negara}}" required>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Panduan Lokasi</label>
                             <textarea name="lokasi_profile" class="form-control" rows="3" required>{{$profileHotel->panduan_lokasi}}</textarea>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Bank</label>
                             <input type="text" name="bank_profile" class="form-control" autocomplete="off" value="{{$profileHotel->bank}}" required>
                         </div>
@@ -61,9 +61,9 @@ active
                         <div class="form-group">
                             <label>Nama Penerima</label>
                             <input type="text" name="penerima_profile" class="form-control" autocomplete="off" value="{{$profileHotel->nama_penerima}}" required>
-                        </div>
+                        </div> -->
                         <div class="form-group">
-                            <label>Logo Hotel</label>
+                            <label>Logo Tempat</label>
                             <input type="file" name="gambar_profile" class="form-control">
                             <img style="margin-top: 20px"
                                 src="{{ is_null($profileHotel->logo_hotel_file) || $profileHotel->logo_hotel_file == '' ? asset('template/img/logo/logo.png') : asset('storage/'.$profileHotel->logo_hotel_file) }}">

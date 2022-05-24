@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Meta Tags -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="SAFA Guest House">
+    <meta name="description" content="YourSpace">
     {{-- <meta name="keywords"
         content="blog, bootstrap, company portfolio, cv template, experience, html template, one page, personal, portfolio, team members"> --}}
 
@@ -50,7 +50,7 @@
     <link rel="stylesheet" href="{{ asset('template/css/bootstrap-datepicker.css') }}">
     <!--===============================================================================================-->
 
-    <title>Safa Guest House</title>
+    <title>YourSpace</title>
 </head>
 
 <body>
@@ -86,7 +86,7 @@
     <!-- End page loader -->
 
 
-    <div id="page_wrapper">
+    <!-- <div id="page_wrapper">
         <div class="row">
             @yield('content')
 
@@ -95,7 +95,7 @@
                 <a href="#" class="btn-scroll" data-target="body"><i class="fa fa-angle-up" aria-hidden="true"></i><b>Back to Top</b></a>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Wrapper End -->
 
     <!-- jQuery first, Layer slider, then Popper.js, then Bootstrap JS -->

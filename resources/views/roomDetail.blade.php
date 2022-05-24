@@ -39,7 +39,7 @@
                                     @endforeach
                                 @else
                                     <div class="carousel-item active" style="width: 730px; height: 408px; overflow: hidden">
-                                        <img src="{{ asset('template/img/width/39.jpg') }}">
+                                        <img src="{{ asset('template/img/width/Room39.jpg') }}">
                                     </div>
                                 @endif
 
@@ -66,10 +66,10 @@
                         </div>
                         <div class="float-right text-right">
                             @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null)
-                                <div class="text-secondary"><strike><b>Rp. {{$kID->harga}} /</b> <span> malam </span></strike></div>
-                                <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> malam </span></div>
+                                <div class="text-secondary"><strike><b>Rp. {{$kID->harga}} /</b> <span> jam </span></strike></div>
+                                <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> jam </span></div>
                             @else
-                                <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
+                                <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> jam </span></div>
                             @endif
                         </div>
                     </div>
@@ -103,11 +103,11 @@
                         <div class="row">
                             <h3>Mulai Reservasi</h3>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Tanggal Check-in : {{$kamarTanggalMasuk}}</label>
+                                <label class="text-block-1">Tanggal Reservasi : {{$kamarTanggalMasuk}}</label>
                                 <input type="hidden" name="guestMasuk" class="form-control" value="{{$kamarTanggalMasuk}}" >
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Lama Menginap : {{$kamarLamaMenginap}}</label>
+                                <label class="text-block-1">Durasi/Jam : {{$kamarLamaMenginap}}</label>
                                 <input type="hidden" name="guestDurasi" class="form-control" value="{{$kamarLamaMenginap}}">
                             </div>
                             <div class="form-group" class="col-lg-12 col-sm-12">
@@ -120,7 +120,7 @@
                                 @endif
                             </div>
                                 <input type="hidden" name="kamarId" class="form-control" value="{{$kID->id_kamar}}">
-                            <button type="submit" class="btn btn-default-bg">Pesan Sekarang</button>
+                            <button type="submit" class="btn btn-default-bg">Reservasi Sekarang</button>
                         </div>
                     </form>
                 </div>

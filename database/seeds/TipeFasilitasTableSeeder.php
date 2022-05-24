@@ -14,12 +14,10 @@ class TipeFasilitasTableSeeder extends Seeder
     {
         $fasilitas = [
             'Free Wifi',
-            'Tempat Tidur Bersih',
-            'Perlengkapan Mandi',
+            'Kamar Mandi',
             'Air Minum Gratis',
             'TV',
-            'AC',
-            'Waterheater'
+            'AC'
         ];
 
         if(Fasilitas::all()->isEmpty()){

@@ -14,20 +14,21 @@
                                 <div class="mb-3">
                                     <h3>Invoice #{{$invoice->invoice_code}}</h3>
                                     <span class="text-black">Dear <b>{{$invoice->nama}}</b>,
-                                        <br>Terimakasih telah melakukan pemesanan kamar di SAFA House. Berikut informasi
-                                        detail terkait data pesanan Anda.
+                                        <br>Terimakasih telah melakukan reservasi ruangan di YourSpace. Berikut informasi
+                                        detail terkait data reservasi Anda. Jangan lupa screenshot halaman invoice ini untuk
+                                        melakukan pembayaran. 
                                     </span>
                                 </div>
-                                <div class="bg-gray text-block-1 p-3">
-                                    <table>
-                                        <tr>
-                                            <td width="45%">ID Pemesanan</td>
+                                <!-- <div class="bg-gray text-block-1 p-3">
+                                    <table> -->
+                                        <!-- <tr>
+                                            <td width="50%">ID Reservasi</td>
                                             <td width="4%">:</td>
                                             <td>{{$invoice->invoice_code}}</td>
-                                        </tr>
+                                        </tr> -->
 
-                                        <tr>
-                                            <td>Status Pemesanan</td>
+                                        <!-- <tr>
+                                            <td>Status Reservasi</td>
                                             <td>:</td>
                                             <td>
                                                 @if($invoice->flag_payment == 1)
@@ -44,21 +45,21 @@
                                                     <div class="text-warning">Menunggu Verifikasi Bukti Pembayaran oleh Admin</div>
                                                 @endif
                                             </td>
-                                        </tr>
-                                    </table>
-                                </div>
+                                        </tr> -->
+                                    <!-- </table>
+                                </div> -->
                                 <div class="bg-gray text-block-1 p-3" id="desc-invoice">
                                     <table class="mb-3">
-                                        <div class="float-right text-right">
+                                        <!-- <div class="float-right text-right">
                                             <span>Sisa waktu Pembayaran</span><br>
                                             <a id="time" href="#" class="btn btn-default-bg" style="cursor: auto"></a>
-                                        </div>
-                                        <tr>
+                                        </div> -->
+                                        <!-- <tr>
                                             <td width="60%">Metode Pembayaran</td>
                                             <td width="4%">:</td>
                                             <td>Bank Transfer</td>
-                                        </tr>
-                                        <tr>
+                                        </tr> -->
+                                        <!-- <tr>
                                             <td>Jumlah Tagihan</td>
                                             <td>:</td>
                                             <td>
@@ -68,35 +69,35 @@
                                             Rp. {{$invoice->kamar->harga}}
                                             @endif
                                             </td>
-                                        </tr>
+                                        </tr> -->
                                         <tr>
                                             <td>Nama Bank</td>
                                             <td>:</td>
-                                            <td>{{$profileHotel->bank}}</td>
+                                            <td>Bank Mandiri</td>
                                         </tr>
                                         <tr>
-                                            <td>No. Virtual Account</td>
+                                            <td>No. Rekening</td>
                                             <td>:</td>
-                                            <td>{{$profileHotel->nomor_rekening}}</td>
+                                            <td>1231231280301</td>
                                         </tr>
                                         <tr>
                                             <td>Batas Waktu Pembayaran</td>
                                             <td>:</td>
                                             <td>
-                                                {{ date('d-M-Y H:i:s', strtotime("$invoice->created_at +1 Hour")) }}
+                                                {{ date('d-M-Y H:i:s', strtotime("$invoice->created_at +24 Hour")) }}
                                             </td>
                                         </tr>
                                     </table>
                                     <span>Penting: <br>Mohon menyelesaikan pembayaran sebelum batas waktu pembayaran.
                                         Apabila melewati batas waktu, pemesanan Anda akan otomatis dibatalkan. Setelah
-                                        melakukan pembayaran, mohon melakukan konfirmasi pembayaran melalui tombol
+                                        melakukan pembayaran, mohon melakukan konfirmasi pembayaran melalui Contact Person
                                         dibawah.</span>
                                 </div>
                                 <div class="bg-gray text-block-1 p-3 mb-4" id="desc-invoice">
                                     <table class="table">
                                         <tr>
                                             <td>
-                                                <p>Kamar : </p>
+                                                <p>Ruangan</p>
                                             </td>
                                             <td width="70%">
                                                 <p class="text-right">{{$invoice->kamar->nama_kamar}}</p>
@@ -104,7 +105,7 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <p>Check-in</p>
+                                                <p>Masuk</p>
                                             </td>
                                             <td width="70%">
                                                 <p class="text-right">{{ date('d-M-Y', strtotime("$invoice->check_in")) }}</p>
@@ -112,10 +113,10 @@
                                         </tr>
                                         <tr>
                                             <td>
-                                                <p>Lama Menginap</p>
+                                                <p>Durasi/Jam</p>
                                             </td>
                                             <td>
-                                                <p class="text-right">{{$invoice->lama_menginap}} Malam<br><small>(Check-out: {{ date('d-M-Y', strtotime("$invoice->check_in +$invoice->lama_menginap Day")) }})</small></p>
+                                                <p class="text-right">{{$invoice->lama_menginap}} Jam</p>
                                             </td>
                                         </tr>
                                         <tr>
@@ -148,13 +149,13 @@
                                         </tr>
                                     </table>
                                 </div>
-                                @if($invoice->bukti_pembayaran_file != null)
+                                <!-- @if($invoice->bukti_pembayaran_file != null)
                                     <button class="btn btn-primary x-center" data-toggle="modal"
                                             data-target="#upload">Cek Bukti Pembayaran</button>
                                 @else
                                     <button class="btn btn-primary x-center" data-toggle="modal"
                                             data-target="#upload">Konfirmasi Pembayaran</button>
-                                @endif
+                                @endif -->
 
                             </div>
                         </div>

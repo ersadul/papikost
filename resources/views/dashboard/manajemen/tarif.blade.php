@@ -24,10 +24,10 @@ active
                     <thead>
                         <tr>
                             <th width="25px">No</th>
-                            <th width="40%">Kamar</th>
+                            <th width="40%">Ruangan</th>
                             <th>Tipe</th>
                             <th>Harga Asli</th>
-                            <th>Harga Promo</th>
+                            <!-- <th>Harga Promo</th> -->
                             <th width="120px">Aksi</th>
                         </tr>
                     </thead>
@@ -44,13 +44,13 @@ active
                                     Rp. {{$k->harga}}
                                 @endif
                             </td>
-                            <td>
+                            <!-- <td>
                                 @if(is_null($k->harga_promo))
                                     Harga Belum ada, jadi gak ada promo
                                 @else 
                                     Rp. {{$k->harga_promo}}
                                 @endif
-                            </td>
+                            </td> -->
                             <td>
                                 <div class="btn-action">
                                     <a href="#" class="btn btn-sm btn-info btn-flat" data-toggle="modal" data-target="#edit-harga-{{$k->id}}"><i class="fa fa-pencil"></i></a>
@@ -77,17 +77,17 @@ active
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Kamar</label>
+                            <label>Ruangan</label>
                             <input type="text" class="form-control" required autocomplete="off" value="{{$k->nama_kamar}}" disabled>
                         </div>
                         <div class="form-group">
                             <label>Harga Asli</label>
                             <input type="text" name="editHargaAsli" class="form-control" required autocomplete="off" value="{{$k->harga}}">
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label>Harga Promo</label>
                             <input type="text" name="editHargaPromo"  class="form-control" required autocomplete="off" value="{{$k->harga_promo}}">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default pull-left btn-flat"

@@ -20,7 +20,7 @@ active
                 <div class="row">
                     <div class="col-md-8">
                         <div class="form-group">
-                            <label>Nama Tamu</label>
+                            <label>Nama</label>
                             <input type="text" class="form-control" required name="nama" autocomplete="off"
                                 value="{{ $checkInMode ? $invoice->nama : '' }}">
                         </div>
@@ -47,19 +47,19 @@ active
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label>ID Kamar</label>
+                            <label>ID Ruangan</label>
                             <input class="form-control" required value="{{ $checkInMode ? $invoice->kamar_id : $request->room }}" name="room" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Check-in</label>
+                            <label>Masuk</label>
                             <input class="form-control" required value="{{ $checkInMode ? $invoice->check_in : $request->date }}" name="date" readonly>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                            <label>Lama Hari</label>
+                            <label>Lama Jam</label>
                             <input type="number" class="form-control" required name="range" autocomplete="off"
                                 {{ $checkInMode ? 'readonly' : '' }}
                                 value="{{ $checkInMode ? $invoice->lama_menginap : '' }}">

@@ -106,11 +106,11 @@ a.btn-scroll b{
 	display: table;
 	margin-top: 7px
 }
-@-webkit-keyframes scroll-top-arrow {
+/* @-webkit-keyframes scroll-top-arrow {
     0%   {left:0px; top:0px;}
     80%  {left:0px; top:5px;}
     100% {left:0px; top:0px;}
-}
+} */
 /*===== 01. Default Css By Bootstrap =====*/
 .form-control:focus {
 	box-shadow: none
@@ -191,7 +191,7 @@ select {
 	background-size: cover;
 }
 .bg-img-5{
-	background-image: url(../img/bg/5.jpg);
+	background-image: url(../img/bg/Room5.jpg);
 	background-position: center center;
 	background-size: cover;
 }
@@ -251,7 +251,7 @@ ul{
 	list-style: none
 }
 h1, .h1, h2, .h2, h3, .h3{
-	font-family: 'Oleo Script', cursive;
+	font-family: 'Montserrat', cursive;
 }
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6{
 	font-weight: 700
@@ -288,7 +288,7 @@ img{
 	font-family: 'Montserrat', sans-serif
 }
 .font-family-2{
-	font-family: 'Oleo Script', cursive
+	font-family: 'Montserrat', cursive
 }
 .flat-medium [class^="flaticon-"]::before{
 	font-size: 40px
@@ -1488,7 +1488,7 @@ form.language .dropdown-toggle::after {
 .room-thumb .upper-place-top-left{
 	top: 35px;
 	left: 25px;
-	font-family: 'Oleo Script', cursive;
+	font-family: 'Montserrat', cursive;
 	font-weight: 700;
 	font-size: 20px
 }

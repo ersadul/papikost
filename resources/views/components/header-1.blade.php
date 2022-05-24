@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light w-100"> <a class="navbar-brand"
-                        href="/"><img class="nav-logo" src="{{ is_null($headerProfile->logo_hotel_file) || $headerProfile->logo_hotel_file == '' ? asset('template/img/logo/logo.png') : asset('storage/'.$headerProfile->logo_hotel_file) }}" alt="{{ $headerProfile->nama_hotel }}"></a>
+                        href="/"><img class="nav-logo" src="{{ is_null($headerProfile->logo_hotel_file) || $headerProfile->logo_hotel_file == '' ? asset('template/img/logo/logoYourSpace.png') : asset('storage/'.$headerProfile->logo_hotel_file) }}" alt="{{ $headerProfile->nama_hotel }}"></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -41,10 +41,10 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item"> <a class="nav-link" href="{{ route('promo') }}">Promo</a> </li>
-                            <li class="nav-item"> <a class="btn btn-primary-bg ml-2" href="{{ route('cek.pesanan') }}">Informasi
+                            <!-- <li class="nav-item"> <a class="nav-link" href="{{ route('promo') }}">Promo</a> </li> -->
+                            <!-- <li class="nav-item"> <a class="btn btn-primary-bg ml-2" href="{{ route('cek.pesanan') }}">Informasi
                                     Pemesanan</a>
-                            </li>
+                            </li> -->
                         </ul>
                         <!-- <a class="btn btn-default-bg ml-2" href="booking-form.php">Booking Now</a>  -->
                     </div>

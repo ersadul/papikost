@@ -9,13 +9,13 @@
     <div class="container">
         <div class="row py-80">
             <div class="col-sm-6">
-                <h1 class="text-white">Booking Form</h1>
+                <h1 class="text-white">Formulir Reservasi</h1>
             </div>
             <div class="col-sm-6">
                 <ul class="pages-link">
                     <li><a href="/">Home</a></li>
                     <li>/</li>
-                    <li>Booking Form</li>
+                    <li>Formulir Reservasi</li>
                 </ul>
             </div>
         </div>
@@ -34,13 +34,13 @@
                             <div class="room-detail-info">
                                 <div class="float-left">
                                     <h3>{{$kID->nama_kamar}}</h3>
-                                    <span>Classic room for our vip guest, also available for family touriest.</span>
+                                    
                                 </div>
                                 <div class="float-right text-right">
                                     @if($kID->harga_promo < $kID->harga && $kID->harga_promo != null)
-                                    <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> malam </span></div>
+                                    <div class="amount-per-night"><b>Rp. {{$kID->harga_promo}} /</b> <span> Jam </span></div>
                                     @else
-                                    <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> malam </span></div>
+                                    <div class="amount-per-night"><b>Rp. {{$kID->harga}} /</b> <span> Jam </span></div>
                                     @endif
                                 </div>
                             </div>
@@ -54,19 +54,19 @@
                     <form action="{{ route('invoice') }}" method="POST">
                         @csrf
                         <div class="row">
-                            <h3>Isi Data Pemesanan</h3>
+                            <h3>Isi Data Reservasi</h3>
                             <input type="hidden" name="guestMasuk" value="{{$kamarTanggalMasuk}}">
                             <input type="hidden" name="guestDurasi" value="{{$kamarLamaMenginap}}">
                             <input type="hidden" name="totalHarga" value="{{$totalHarga}}">
                             <input type="hidden" name="kamarID" value="{{$kID->id}}">
                             <div class="form-group" class="col-lg-12 col-sm-12">
-                                <label class="text-block-1">Nama Tamu</label>
+                                <label class="text-block-1">Nama</label>
                                 <input required autocomplete="off" type="text" name="namaGuest" class="form-control">
                             </div>
-                            <div class="form-group" class="col-lg-12 col-sm-12">
+                            <!-- <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">Nama Kontak</label>
                                 <input required autocomplete="off" type="text" name="namaKontakGuest" class="form-control">
-                            </div>
+                            </div> -->
                             <div class="form-group" class="col-lg-12 col-sm-12">
                                 <label class="text-block-1">No. Handphone</label>
                                 <input required autocomplete="off" type="tel" name="handphoneGuest" class="form-control">
@@ -75,7 +75,7 @@
                                 <label class="text-block-1">Alamat E-Mail</label>
                                 <input required autocomplete="off" type="email" name="emailGuest" class="form-control">
                             </div>
-                            <button type="submit" class="btn btn-default-bg mt-3">Konfirmasi Pesanan</button>
+                            <button type="submit" class="btn btn-default-bg mt-3">Konfirmasi Reservasi</button>
                         </div>
                     </form>
                 </div>
@@ -87,7 +87,7 @@
                     <table width="100%">
                         <tr>
                             <td>
-                                <p class="text-secondary">Check-in</p>
+                                <p class="text-secondary">Reservasi</p>
                             </td>
                             <td width="70%">
                                 <p class="text-right">{{$kamarTanggalMasuk}}</p>
@@ -95,10 +95,10 @@
                         </tr>
                         <tr>
                             <td>
-                                <p class="text-secondary">Lama Menginap</p>
+                                <p class="text-secondary">Durasi/Jam</p>
                             </td>
                             <td>
-                                <p class="text-right">{{$kamarLamaMenginap}} hari<br><small>(Check-out: 30 April 2019)</small></p>
+                                <p class="text-right">{{$kamarLamaMenginap}} jam</p>
                             </td>
                         </tr>
                         <tr>

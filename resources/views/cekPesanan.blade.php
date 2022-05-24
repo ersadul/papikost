@@ -7,13 +7,13 @@
     <div class="container">
         <div class="row py-80">
             <div class="col-sm-6">
-                <h1 class="text-white">Cek Pemesanan</h1>
+                <h1 class="text-white">Cek Reservasi</h1>
             </div>
             <div class="col-sm-6">
                 <ul class="pages-link">
                     <li><a href="/">Home</a></li>
                     <li>/</li>
-                    <li>Cek Pemesanan</li>
+                    <li>Cek Reservasi</li>
                 </ul>
             </div>
         </div>
@@ -49,18 +49,18 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <button type="submit" class="btn btn-primary-bg">Cek Pesanan</button>
+                                        <button type="submit" class="btn btn-primary-bg">Cek Reservasi</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="col-md-6" id="cek-pesanan-desc">
                             <div>
-                                <p>Lengkapi isian di samping untuk melakukan pengecekan pemesanan kamar SAFA House Anda.
+                                <p>Lengkapi isian di samping untuk melakukan pengecekan reservasi ruangan anda.
                                 </p>
                                 <p>Kode pemesanan atau ID pemesanan adalah 13 digit angka yang terdapat di email
-                                    pemesanan atau voucher menginap SAFA House yang dikirim ke alamat email Anda.</p>
-                                <p>No. Handphone adalah nomor telepon / handphone yang digunakan ketika pemesanan kamar.
+                                    pemesanan.</p>
+                                <p>No. Handphone adalah nomor telepon / handphone yang digunakan ketika reservasi ruangan.
                                 </p>
                             </div>
                         </div>

@@ -14,8 +14,8 @@ class ProfileHotelTableSeeder extends Seeder
     {
         if(ProfileHotel::all()->isEmpty()){
             ProfileHotel::create([
-                'nama' => 'Safa Hotel',
-                'alamat' => 'Jalan Danau Tondano Raya Blok F4 No. A14, Sawojajar, Kota Malang. 65139.',
+                'nama' => 'YourSpace',
+                'alamat' => 'Jalan Istana Bunga Dewandaru Kavling 1A',
                 'provinsi' => 'Jawa Timur',
                 'negara' => 'Indonesia',
                 'panduan_lokasi' => '-',

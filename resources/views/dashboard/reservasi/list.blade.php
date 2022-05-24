@@ -37,7 +37,7 @@ active
                                                         <p class="pull-right"><b>Rp. {{ $r->final_harga }}</b></p>
                                                         <h4>{{ $r->nama }}</h4>
                                                         <p>Invoice #{{ $r->invoice_code }}</p>
-                                                        <p>Status Update : {{ $r->payment_update }}</p>
+                                                        <!-- <p>Status Update : {{ $r->payment_update }}</p>
                                                         @if( $r->status_menginap == "1" )
                                                             <small class="label label-success">Sedang Menginap</small>
                                                         @elseif( $r->status_menginap == "0" &&  $r->flag_payment == "1")
@@ -48,7 +48,7 @@ active
                                                             <small class="label bg-primary">Menunggu Konfirmasi</small>
                                                         @elseif( date('d-m-Y H:i:s') > date('d-m-Y H:i:s', strtotime($r->created_at.' +1 Hour')) && !is_null($r->bukti_pembayaran_file))
                                                             <small class="label bg-red">Expired</small>
-                                                        @endif
+                                                        @endif -->
                                                     </div>
                                                     <a class="pull-right" href="{{ route('dashboard.detail.reservasi', ['invoice_id' => $r->id]) }}">Lihat Detail <i class="fa fa-chevron-circle-right"></i></a>
                                                 </div>

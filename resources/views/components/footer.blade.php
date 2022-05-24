@@ -1,8 +1,8 @@
 <!-- Footer Section Start -->
-<footer class="full-row footer-bg footer-3 py-80" id="footer">
+<footer class="full-row footer-bg footer-3" id="footer"> 
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-sm-6">
+            <!-- <div class="col-lg-4 col-sm-6">
                 <div class="footer-widget">
                     <h4 class="widget-title down-line-left text-white">Destinasi Tempat Wisata</h4>
                     <ul>
@@ -13,8 +13,8 @@
                         <li><a href="{{ route('destinasi', 'kampung-jodipan') }}">Kampung Jodipan</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="col-lg-4 col-sm-6">
+            </div> -->
+            <!-- <div class="col-lg-4 col-sm-6">
                 <div class="footer-widget">
                     <h4 class="widget-title down-line-left text-white">Tentang SAFA House</h4>
                     <ul>
@@ -31,17 +31,17 @@
                         <li><a href="tel:0812-3430-0260">Telp. 0812-3430-0260 (Frontoffice)</a></li>
                     </ul>
                 </div>
-            </div>
+            </div> -->
         </div>
         <div class="row">
             <div class="col-lg-12">
                 <ul class="social-media x-center mt-5">
                     <li><a href="https://www.facebook.com"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="https://plus.google.com"><i class="fab fa-google-plus-g"></i></a></li>
-                    <li><a href="https://www.pinterest.com"><i class="fab fa-pinterest-p"></i></a></li>
-                    <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a></li>
+                    <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://wa.me/628176985335"><i class="fab fa-whatsapp"></i></a></li>
+                    <!-- <li><a href="https://www.pinterest.com"><i class="fab fa-pinterest-p"></i></a></li>
+                    <li><a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a></li> -->
                 </ul>
             </div>
         </div>
@@ -53,7 +53,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <span>Copyright © 2019 All rights reserved</span>
+                <span>© Kelompok 9 Projek Pemrograman Web</span>
             </div>
         </div>
     </div>

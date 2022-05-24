@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>SAFA Guesthouse | Dashboard</title>
+    <title>YourSpace | Dashboard</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -48,9 +48,9 @@
             <!-- Logo -->
             <a href="/" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini">SAFA</span>
+                <span class="logo-mini">YourSpace</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>SAFA </b>Web</span>
+                <span class="logo-lg"><b>YourSpace </b>Web</span>
             </a>
 
             <!-- Header Navbar: style can be found in header.less -->
@@ -64,14 +64,14 @@
                     <ul class="nav navbar-nav">
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="{{ asset('template/adminlte/dist/img/user2-160x160.jpg') }}" class="user-image"
+                                <img src="{{ asset('template/adminlte/dist/img/ProfileAdmin.png') }}" class="user-image"
                                     alt="User Image">
                                 <span class="hidden-xs">Admin</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header">
-                                    <img src="{{ asset('template/adminlte/dist/img/user2-160x160.jpg') }}" class="img-circle"
+                                    <img src="{{ asset('template/adminlte/dist/img/ProfileAdmin.png') }}" class="img-circle"
                                         alt="User Image">
 
                                 </li>
@@ -94,7 +94,7 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     <li class="header">MAIN NAVIGATION</li>
                     <li class="@yield('index')"><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
-                    <li class="treeview @yield('hari.ini')">
+                    <!-- <li class="treeview @yield('hari.ini')">
                         <a href="#">
                             <i class="fa fa-calendar"></i> <span>Hari Ini</span>
                             <span class="pull-right-container">
@@ -106,7 +106,7 @@
                             <li class="@yield('menginap')"><a href="{{ route('dashboard.menginap') }}"><i class="fa fa-circle-o"></i> Sedang Menginap</a></li>
                             <li class="@yield('check.out')"><a href="{{ route('dashboard.checkout') }}"><i class="fa fa-circle-o"></i> Check-out</a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="treeview @yield('reservasi')">
                         <a href="#">
                             <i class="fa fa-book"></i> <span>Reservasi</span>
@@ -115,12 +115,12 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="@yield('subreservasi')"><a href="{{ route('dashboard.reservasi') }}"><i class="fa fa-circle-o"></i> Reservasi</a></li>
+                            <!-- <li class="@yield('subreservasi')"><a href="{{ route('dashboard.reservasi') }}"><i class="fa fa-circle-o"></i> Reservasi</a></li> -->
                             <li class="@yield('list.reservasi')"><a href="{{ route('dashboard.list.reservasi') }}"><i class="fa fa-circle-o"></i> List Reservasi</a></li>
-                            <li class="@yield('history.reservasi')"><a href="{{ route('dashboard.history.reservasi') }}"><i class="fa fa-circle-o"></i> History</a></li>
+                            <!-- <li class="@yield('history.reservasi')"><a href="{{ route('dashboard.history.reservasi') }}"><i class="fa fa-circle-o"></i> History</a></li> -->
                         </ul>
                     </li>
-                    <li class="treeview @yield('housekeeping')">
+                    <!-- <li class="treeview @yield('housekeeping')">
                         <a href="#">
                             <i class="fa fa-home"></i><span>Housekeeping</span>
                             <span class="pull-right-container">
@@ -132,8 +132,8 @@
                             <li class="@yield('logbook')"><a href="{{ route('dashboard.logbook') }}"><i class="fa fa-circle-o"></i> Logbook</a></li>
                             <li class="@yield('cleaning')"><a href="{{ route('dashboard.cleaning') }}"><i class="fa fa-circle-o"></i> Cleaning Schedule</a></li>
                         </ul>
-                    </li>
-                    <li class="@yield('review')"><a href="{{ route('dashboard.review') }}"><i class="fa fa-comments"></i> <span>Review</span></a></li>
+                    </li> -->
+                    <!-- <li class="@yield('review')"><a href="{{ route('dashboard.review') }}"><i class="fa fa-comments"></i> <span>Review</span></a></li> -->
                     <hr>
                     <li class="treeview @yield('manajemen')">
                         <a href="#">
@@ -143,15 +143,15 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="@yield('profile')"><a href="{{ route('dashboard.manajemen.profile') }}"><i class="fa fa-circle-o"></i> Profile</a></li>
-                            <li class="@yield('kamar')"><a href="{{ route('dashboard.manajemen.kamar') }}"><i class="fa fa-circle-o"></i> Kamar</a></li>
+                            <!-- <li class="@yield('profile')"><a href="{{ route('dashboard.manajemen.profile') }}"><i class="fa fa-circle-o"></i> Profile</a></li> -->
+                            <li class="@yield('kamar')"><a href="{{ route('dashboard.manajemen.kamar') }}"><i class="fa fa-circle-o"></i> Ruangan</a></li>
                             <li class="@yield('tarif')"><a href="{{ route('dashboard.manajemen.tarif') }}"><i class="fa fa-circle-o"></i> Tarif</a></li>
                             <li class="@yield('fasilitas')"><a href="{{ route('dashboard.manajemen.fasilitas') }}"><i class="fa fa-circle-o"></i> Fasilitas</a></li>
-                            <li class="@yield('karyawan')"><a href="{{ route('dashboard.manajemen.karyawan') }}"><i class="fa fa-circle-o"></i> Karyawan</a></li>
+                            <!-- <li class="@yield('karyawan')"><a href="{{ route('dashboard.manajemen.karyawan') }}"><i class="fa fa-circle-o"></i> Karyawan</a></li> -->
                             <li class="@yield('akun')"><a href="{{ route('dashboard.manajemen.akun') }}"><i class="fa fa-circle-o"></i> Akun</a></li>
                         </ul>
                     </li>
-                    <li class="@yield('bantuan')"><a href="{{ route('dashboard.bantuan') }}"><i class="fa fa-question-circle"></i> <span>Bantuan</span></a></li>
+                    <!-- <li class="@yield('bantuan')"><a href="{{ route('dashboard.bantuan') }}"><i class="fa fa-question-circle"></i> <span>Bantuan</span></a></li> -->
                     <li> <a href="javascript:{}" onclick="logout.submit()"><i class="fa fa-sign-out"></i> <span>Keluar</span></a></li>
                     <form id="logout" action="{{ route('logout') }}" method="post">
                         @csrf   
@@ -164,7 +164,7 @@
             @yield('content')
         </div>
         <footer class="main-footer">
-            <strong>Copyright &copy; 2019</strong> All rights reserved.
+            <strong>Copyright &copy; 2021</strong> All rights reserved.
         </footer>
     </div>
     <!-- ./wrapper -->

@@ -9,18 +9,18 @@ active
 @section('content')
 <section class="content-header">
     <h1>
-        Kamar
+        Ruangan
     </h1>
     <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Kamar</li>
+        <li class="active">Ruangan</li>
     </ol>
 </section>
 <section class="content">
     <div class="box box-solid">
         <div class="box-header">
             <button type="button" id="btn-rev" class="btn btn-primary btn-flat btn-sm pull-right" data-toggle="modal"
-                data-target="#kamar"><i class="fa fa-plus-circle"></i> Tambah Kamar
+                data-target="#kamar"><i class="fa fa-plus-circle"></i> Tambah Ruangan
             </button>
         </div>
         <div class="box-body">
@@ -29,7 +29,7 @@ active
                     <thead>
                         <tr>
                             <th width="25px">No</th>
-                            <th width="70%">Kamar</th>
+                            <th width="70%">Ruangan</th>
                             <th>Tipe</th>
                             <th width="120px">Aksi</th>
                         </tr>
@@ -67,15 +67,15 @@ active
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Tambah Kamar</h4>
+                        <h4 class="modal-title">Tambah Ruangan</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Kamar</label>
+                            <label>Ruangan</label>
                             <input type="text" name="tambahKamar" class="form-control" required autocomplete="off">
                         </div>
                         <div class="form-group">
-                            <label>Tipe Kamar</label>
+                            <label>Tipe Ruangan</label>
                             <select name="tambahTipeKamar" class="form-control" required autocomplete="off">
                                 <option selected disabled></option>
                                 @foreach($tipeKamar as $tk)

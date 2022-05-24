@@ -16,7 +16,7 @@
 <section class="content">
     <div class="box box-solid">
         <div class="box-body">
-            <p>Halo <b>Admin!</b> Selamat Datang di SAFA Guesthouse.</p>
+            <p>Halo <b>Admin!</b> Selamat Datang di Web Admin YourSpace.</p>
         </div>
     </div>
 </section>

@@ -7,7 +7,7 @@
     <!-- Slide 1-->
     <div class="ls-slide"
         data-ls="bgsize:cover; bgposition:50% 50%; duration:8000; transition2d:3; timeshift:-500; deeplink:home; kenburnszoom:in; kenburnsrotate:0; kenburnsscale:1.1; parallaxevent:scroll; parallaxdurationmove:500;">
-        <img width="1920" height="1080" src="{{ asset('template/img/slider/1.jpg') }}" class="ls-bg" alt="" />
+        <img width="1920" height="1080" src="{{ asset('template/img/slider/Home1.jpg') }}" class="ls-bg" alt="" />
 
         <div style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; width:100%; height:100%;"
             class="ls-l slider-layer-1" data-ls="showinfo:1; position:fixed; durationout:400;"></div>
@@ -26,14 +26,14 @@
         <p style="font-weight:800; text-align:left ;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); width:800px; font-family:Montserrat; font-size:60px; line-height:80px; top:450px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:750; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
-            you
-            need it</p>
+            your
+            team needs</p>
 
         <p style="font-weight:600; text-align:left; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);width:700px; font-family:Oleo Script; font-size:30px; line-height:50px; top:230px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:150; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
             Welcome
-            To Safa Guest House</p>
+            To YourSpace</p>
 
         <a style="" class="ls-l" href="#2" target="_self"
             data-ls="showinfo:1; delayin:950; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
@@ -50,7 +50,7 @@
     <!-- Slide 2-->
     <div class="ls-slide"
         data-ls="bgsize:cover; bgposition:50% 50%; duration:8000; transition2d:3; deeplink:latest-works; kenburnszoom:out; kenburnsrotate:0; kenburnsscale:1.1; parallaxtype:3d; parallaxevent:scroll; parallaxdurationmove:500; parallaxrotate:4;">
-        <img width="1920" height="1080" src="{{ asset('template/img/slider/2.jpg') }}" class="ls-bg" alt="" />
+        <img width="1920" height="1080" src="{{ asset('template/img/slider/Home2.jpg') }}" class="ls-bg" alt="" />
 
         <div style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; width:100%; height:100%;"
             class="ls-l slider-layer-1" data-ls="showinfo:1; position:fixed; durationout:400;"></div>
@@ -69,14 +69,14 @@
         <p style="font-weight:800; text-align:left ;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); width:800px; font-family:Montserrat; font-size:60px; line-height:80px; top:450px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:750; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
-            you
-            need it</p>
+            your
+            team needs</p>
 
         <p style="font-weight:600; text-align:left; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);width:700px; font-family:Oleo Script; font-size:30px; line-height:50px; top:230px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:150; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
             Welcome
-            To Safa Guest House</p>
+            To YourSpace</p>
 
         <a style="" class="ls-l" href="#2" target="_self"
             data-ls="showinfo:1; delayin:950; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
@@ -92,7 +92,7 @@
     <!-- Slide 3-->
     <div class="ls-slide"
         data-ls="bgsize:cover; bgposition:50% 50%; duration:8000; transition2d:3; deeplink:contact-us; kenburnszoom:in; kenburnsscale:1.2; parallaxevent:scroll;">
-        <img width="1920" height="1080" src="{{ asset('template/img/slider/3.jpg') }}" class="ls-bg" alt="" />
+        <img width="1920" height="1080" src="{{ asset('template/img/slider/Home3.jpg') }}" class="ls-bg" alt="" />
 
         <div style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; width:100%; height:100%;"
             class="ls-l slider-layer-1" data-ls="showinfo:1; position:fixed; durationout:400;"></div>
@@ -111,14 +111,14 @@
         <p style="font-weight:800; text-align:left ;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); width:800px; font-family:Montserrat; font-size:60px; line-height:80px; top:450px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:750; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
-            you
-            need it</p>
+            your
+            team needs</p>
 
         <p style="font-weight:600; text-align:left; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);width:700px; font-family:Oleo Script; font-size:30px; line-height:50px; top:230px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:150; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
             Welcome
-            To Safa Guest House</p>
+            To YourSpace</p>
 
         <a style="" class="ls-l" href="#2" target="_self"
             data-ls="showinfo:1; delayin:950; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
@@ -135,7 +135,7 @@
     <!-- Slide 4-->
     <div class="ls-slide"
         data-ls="bgsize:cover; bgposition:50% 50%; duration:8000; transition2d:3; deeplink:contact-us; kenburnszoom:in; kenburnsscale:1.2; parallaxevent:scroll;">
-        <img width="1920" height="1080" src="{{ asset('template/img/slider/5.jpg') }}" class="ls-bg" alt="" />
+        <img width="1920" height="1080" src="{{ asset('template/img/slider/Home4.jpg') }}" class="ls-bg" alt="" />
 
         <div style="top:50%; left:50%; text-align:initial; font-weight:400; font-style:normal; text-decoration:none; width:100%; height:100%;"
             class="ls-l slider-layer-1" data-ls="showinfo:1; position:fixed; durationout:400;"></div>
@@ -154,14 +154,14 @@
         <p style="font-weight:800; text-align:left ;text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); width:800px; font-family:Montserrat; font-size:60px; line-height:80px; top:450px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:750; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
-            you
-            need it</p>
+            your
+            team needs</p>
 
         <p style="font-weight:600; text-align:left; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);width:700px; font-family:Oleo Script; font-size:30px; line-height:50px; top:230px; left:42px; white-space:normal;"
             class="ls-l text-white"
             data-ls="showinfo:1; delayin:150; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
             Welcome
-            To Safa Guest House</p>
+            To YourSpace</p>
 
         <a style="" class="ls-l" href="#2" target="_self"
             data-ls="showinfo:1; delayin:950; offsetyin:40lh; clipin:0 0 100% 0; offsetyout:40lh; clipout:0 0 100% 0; durationout:400;">
@@ -188,16 +188,16 @@
                         @csrf
                         <div class="row">
                             <div id="check-in" class="col-lg-6 col-sm-6">
-                                <label class="text-white">Tanggal Check-in</label>
+                                <label class="text-white">Tanggal Reservasi</label>
                                 <input type="text" name="date1" class="date start form-control" placeholder="MM/DD/YYYY" required autocomplete="off">
                             </div>
                             <div class="col-lg-4 col-sm-4">
-                                <label class="text-white">Lama Menginap</label>
+                                <label class="text-white">Durasi/jam</label>
                                 <div class="quantity">
                                     <input type="number" name="lamaMenginap" class="form-control" min="1" max="50" step="1" value="1">
                                 </div>
                             </div>
-                            <div class="form-group col-lg-2 col-sm-2">
+                            <div class="form-group col-lg-2 col-sm-2" style="color:red;">
                                 <input type="submit" class="btn btn-default-bg w-100 mt-30" value="Cari">
                             </div>
                         </div>
@@ -215,14 +215,22 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="main-title-area text-center mb-5">
-                    <h2 class="title left-right-line mb-4">Promo</h2>
-                    <span class="text-secondary">Anda dapat menikmati kamar yang telah kami sediakan dengan
-                        penawaran
-                        PROMO untuk kenyamanan menginap di SAFA House.</span>
+                    <h2 class="title left-right-line mb-4">About YourSpace</h2>
+                    <span>YourSpace adalah salah satu tempat terbaik bagi Anda untuk berkumpul dan 
+                mengumpulkan teman-teman YourSpace sebagai layanan persewaan ruang rapat, 
+                tempat acara, dan ruang kerja. Keuntungan pertama yang bisa Anda dapatkan 
+                dengan menggunakan jasa sewa kamar adalah Anda bisa menemukan tempat pilihan
+                 dengan lebih cepat. dan efektif. Kami juga menyediakan banyak sekali ruangan
+                  seperti meeting room, event room dan private room lainnya dengan harga yang
+                   cukup murah dan ekonomis. Kami akan selalu memastikan kamar atau tempat 
+                   acara Anda bersih dan bebas kotoran selama kamar tersebut masih dalam sewa
+                    Anda. Kami selalu berusaha memberikan pelayanan prima demi kenyamanan dan
+                     kepuasan Anda. Layanan mulai dari pekerja yang ramah, website yang bisa 
+                     Anda akses dengan mudah, hingga bisa memenuhi segala kebutuhan Anda.</span>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!-- <div class="row">
         @foreach($kamarPromo as $kp)
              <div class="col-md-6 col-lg-4">
                 <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
@@ -242,7 +250,7 @@
                 </div>
             </div>
             @endforeach
-            <!-- <div class="col-md-6 col-lg-4">
+            <div class="col-md-6 col-lg-4">
                 <div class="room-thumb-grid-1 hover_zoom bg-white mb-30">
                     <div class="thumb-top position-relative">
                         <div class="overflow_hidden"><img src="{{ asset('template/img/squire/4.jpg') }}" alt="Booking Room">
@@ -256,10 +264,10 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div>
             <div class="col-md-12 mt-5"> <a href="{{ route('promo') }}" class="btn btn-lg-default x-center">Lihat Promo Lain</a>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
 

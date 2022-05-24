@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Safa Guesthouse | Log in</title>
+    <title>YourSpace | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -18,7 +18,7 @@
 <body class="hold-transition login-page" style="height:auto; background-image: linear-gradient(to right,#67B26F 0%,#3fada8 100%);">
     <div class="login-box">
         <div class="login-logo">
-            <a href="#" style="color: white">SAFA<b> Guesthouse</b></a>
+            <a href="#" style="color: white">YourSpace</a>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">

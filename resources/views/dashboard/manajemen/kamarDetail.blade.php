@@ -13,14 +13,14 @@ active
     </h1>
     <ol class="breadcrumb">
         <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="{{ route('dashboard.manajemen.kamar') }}">Kamar</a></li>
+        <li><a href="{{ route('dashboard.manajemen.kamar') }}">Ruangan</a></li>
         <li class="active">{{ $kamar->nama_kamar }}</li>
     </ol>
 </section>
 <section class="content">
     <div class="box box-solid">
         <div class="box-header">
-            <h3 class="box-title">Info Kamar</h3>
+            <h3 class="box-title">Info Ruangan</h3>
             <button type="button" id="btn-rev" class="btn btn-info btn-flat btn-sm pull-right" data-toggle="modal"
                 data-target="#edit"><i class="fa fa-pencil"></i>
             </button>
@@ -29,8 +29,8 @@ active
             <table class="table table-bordered">
                 <tbody>
                     <tr>
-                        <th>Kamar</th>
-                        <th>Tipe</th>
+                        <th>Ruangan</th>
+                        <th>Kapasitas</th>
                         <th>Thumbnail</th>
                     </tr>
                     <tr>
@@ -160,18 +160,18 @@ active
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">Edit Informasi Kamar</h4>
+                        <h4 class="modal-title">Edit Informasi Ruangan</h4>
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Kamar</label>
+                            <label>Ruangan</label>
                             <input type="text" name="editKamar" id="editKamarID" class="form-control" required
                                 autocomplete="off" value="{{$kamar->nama_kamar}}">
                         </div>
                         <div class="form-group">
-                            <label>Tipe Kamar</label>
+                            <label>Kapasitas Ruangan</label>
                             <select name="editTipe" id="editTipeID" class="form-control" required autocomplete="off">
-                                <option disabled>Pilih Tipe Kamar</option>
+                                <option disabled>Pilih Kapasitas Ruangan</option>
                                 @foreach($tipeKamar as $tk)
                                 <option value="{{$tk->id}}"
                                     {{ $tk->id == $kamar->tipe_kamar_id ? 'selected="selected"' : '' }}>

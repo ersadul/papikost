@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\ProfileHotel; 
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $profile = ProfileHotel::get();
+        $kamarPromo = DB::table('kamar')->whereRaw('harga_promo < harga')->take(3)->get();
+        // return view('index', compact('kamarPromo'));
+        return redirect()->route('index', compact('kamarPromo'));
     }
 }

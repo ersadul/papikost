@@ -24,7 +24,7 @@ active
                     <thead>
                         <tr>
                             <th width="25px">No</th>
-                            <th width="40%">Kamar</th>
+                            <th width="40%">Ruangan</th>
                             <th>Fasilitas</th>
                             <th width="120px">Aksi</th>
                         </tr>
@@ -71,12 +71,12 @@ active
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Kamar</label>
+                            <label>Ruangan</label>
                             <input type="text" class="form-control" required autocomplete="off"
                                 value="{{$k->nama_kamar}}" disabled>
                         </div>
                         <div class="form-group">
-                            Fasilitas kamar Anda
+                            Fasilitas ruangan Anda
                             <select name="fasilitasKamar[]" class="form-control select2" multiple="multiple"
                                 style="width: 100%;">
                                 @foreach ($fasilitas as $f)
